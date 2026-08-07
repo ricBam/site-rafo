@@ -27,18 +27,31 @@ const steps = [
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 1.2rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: var(--color-border);
   }
   .steps li {
     display: flex;
     align-items: center;
     gap: 1.25rem;
+    position: relative;
   }
   .step-number {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.3rem;
     color: var(--color-detail);
     min-width: 2.5rem;
+    background: var(--color-bg);
   }
   .step-text { font-size: 1.05rem; }
 </style>
