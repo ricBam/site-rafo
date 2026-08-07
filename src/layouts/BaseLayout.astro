@@ -63,6 +63,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+
+      document.querySelectorAll('.service-card, .who-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const mouseEvent = e as MouseEvent;
+          (card as HTMLElement).style.setProperty('--mx', `${mouseEvent.clientX - rect.left}px`);
+          (card as HTMLElement).style.setProperty('--my', `${mouseEvent.clientY - rect.top}px`);
+        });
+      });
     </script>
   </body>
 </html>
