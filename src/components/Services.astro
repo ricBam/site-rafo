@@ -39,12 +39,12 @@ const services = [
   .service-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-accent-secondary);
     border-radius: 12px;
     padding: 2.25rem 1.75rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
   .service-card:hover {
+    border-color: var(--color-accent-secondary);
     transform: translateY(-4px);
   }
   .service-card h3 {
