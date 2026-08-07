@@ -1,0 +1,35 @@
+---
+// src/components/Hero.astro
+import Logo from './Logo.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+<header class="hero">
+  <div class="container hero-inner">
+    <Logo />
+    <h1 class="hero-title">Mais visibilidade no Google, atendimento que nunca dorme no WhatsApp, e um site que fecha negócio.</h1>
+    <p class="hero-subtitle">A gente cuida da sua presença online de ponta a ponta: Google Negócio, site e automação de atendimento, tudo sob medida pro seu negócio.</p>
+    <WhatsAppButton label="Falar no WhatsApp agora" />
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding: 6rem 0 5rem;
+    text-align: center;
+  }
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    max-width: 780px;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 620px;
+    opacity: 0.85;
+  }
+</style>
