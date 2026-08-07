@@ -1,26 +1,31 @@
 ---
 // src/components/Services.astro
+import Icon from './Icon.astro';
 const services = [
   {
+    icon: 'google',
     title: 'Presença no Google',
     text: 'Configuramos e otimizamos seu perfil no Google Negócio pra você aparecer pra quem já está procurando o que você oferece.',
   },
   {
+    icon: 'whatsapp',
     title: 'Agentes autônomos para WhatsApp',
     text: 'Atendimento e agendamento automatizado, construído em cima do jeito que seu negócio já funciona hoje, sem forçar você a mudar sua rotina pra caber numa ferramenta pronta.',
   },
   {
+    icon: 'site',
     title: 'Sites institucionais',
     text: 'Presença online profissional, rápida de lançar e fácil de manter, sem a complexidade nem o preço de uma agência grande.',
   },
-];
+] as const;
 ---
 <section class="section" id="servicos">
   <div class="container">
-    <h2 class="section-title">O que fazemos</h2>
+    <h2 class="section-title" data-reveal>O que fazemos</h2>
     <div class="services-grid">
-      {services.map((s) => (
-        <article class="service-card">
+      {services.map((s, i) => (
+        <article class="service-card" data-reveal style={`transition-delay: ${i * 0.1}s`}>
+          <div class="service-icon"><Icon name={s.icon} /></div>
           <h3>{s.title}</h3>
           <p>{s.text}</p>
         </article>
@@ -36,13 +41,29 @@ const services = [
     gap: 1.75rem;
     margin-top: 2rem;
   }
+  .service-icon {
+    color: var(--color-accent-secondary);
+    margin-bottom: 1rem;
+  }
   .service-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 2.25rem 1.75rem;
+    position: relative;
+    overflow: hidden;
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 159, 62, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .service-card:hover::before { opacity: 1; }
   .service-card:hover {
     border-color: var(--color-accent-secondary);
     transform: translateY(-4px);
