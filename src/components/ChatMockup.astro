@@ -1,16 +1,31 @@
 ---
 // src/components/ChatMockup.astro
+const stats = [
+  { value: 24, suffix: '/7', label: 'Atendimento automático, todo santo dia' },
+  { value: 0, suffix: '', label: 'Mensagens de cliente sem resposta enquanto você dorme' },
+  { value: 3, suffix: '', label: 'Frentes cuidadas juntas: Google, WhatsApp e site' },
+] as const;
 ---
 <section class="section chat-signature" id="veja-funcionando">
-  <div class="container chat-signature-inner">
+  <div class="container">
     <p class="eyebrow">Veja como funciona na prática</p>
     <h2 class="section-title">Não é promessa, é isso rodando de verdade.</h2>
-    <div class="phone-frame" id="chat-phone">
-      <div class="chat-thread" id="chat-thread">
-        <div class="bubble bubble-them"><p>Oi, vocês têm horário livre amanhã à tarde?</p><span class="bubble-meta">14:02</span></div>
-        <div class="bubble bubble-us"><p>Oi! Temos sim 😊 Às 14h ou às 16h, qual fica melhor pra você?</p><span class="bubble-meta">14:02 ✓✓</span></div>
-        <div class="bubble bubble-them"><p>16h é ótimo!</p><span class="bubble-meta">14:03</span></div>
-        <div class="bubble bubble-us"><p>Perfeito, já deixei reservado. Te mando a confirmação por aqui ✅</p><span class="bubble-meta">14:03 ✓✓</span></div>
+    <div class="signature-grid">
+      <div class="phone-frame" id="chat-phone">
+        <div class="chat-thread" id="chat-thread">
+          <div class="bubble bubble-them"><p>Oi, vocês têm horário livre amanhã à tarde?</p><span class="bubble-meta">14:02</span></div>
+          <div class="bubble bubble-us"><p>Oi! Temos sim 😊 Às 14h ou às 16h, qual fica melhor pra você?</p><span class="bubble-meta">14:02 ✓✓</span></div>
+          <div class="bubble bubble-them"><p>16h é ótimo!</p><span class="bubble-meta">14:03</span></div>
+          <div class="bubble bubble-us"><p>Perfeito, já deixei reservado. Te mando a confirmação por aqui ✅</p><span class="bubble-meta">14:03 ✓✓</span></div>
+        </div>
+      </div>
+      <div class="stats-column">
+        {stats.map((s, i) => (
+          <div class="stat" data-reveal style={`transition-delay: ${i * 0.12}s`}>
+            <p class="stat-value" data-count={s.value} data-suffix={s.suffix}>{s.value}{s.suffix}</p>
+            <p class="stat-label">{s.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </div>
@@ -93,6 +108,37 @@
       phone.style.transform = '';
     });
   }
+
+  function animateCount(el: HTMLElement) {
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix ?? '';
+    if (!Number.isFinite(target) || target <= 0) return;
+    const duration = 900;
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const current = Math.round(progress * target);
+      el.textContent = `${current}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (!prefersReducedMotion) {
+    const values = document.querySelectorAll<HTMLElement>('.stat-value');
+    const statsObs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target as HTMLElement);
+            statsObs.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+    values.forEach((v) => statsObs.observe(v));
+  }
 </script>
 
 <style>
@@ -105,9 +151,19 @@
     color: var(--color-detail);
     margin-bottom: 0.75rem;
   }
-  .chat-signature-inner { display: flex; flex-direction: column; align-items: center; }
-  .phone-frame {
+  .signature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
     margin-top: 2.5rem;
+    text-align: left;
+  }
+  @media (min-width: 800px) {
+    .signature-grid { grid-template-columns: auto 1fr; }
+  }
+  .phone-frame {
+    margin: 0 auto;
     width: min(380px, 100%);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -174,5 +230,22 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .bubble-typing span { animation: none; opacity: 0.6; }
+  }
+  .stats-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--color-accent-secondary);
+  }
+  .stat-label {
+    margin-top: 0.35rem;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    max-width: 280px;
   }
 </style>

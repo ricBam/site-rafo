@@ -1,0 +1,100 @@
+---
+// src/components/HowAndWho.astro
+import Icon from './Icon.astro';
+const steps = [
+  { icon: 'whatsapp', text: 'Conversamos sobre como seu atendimento funciona hoje' },
+  { icon: 'build', text: 'Construímos sob medida pro seu fluxo real' },
+  { icon: 'watch', text: 'Acompanhamos de perto até funcionar do jeito certo' },
+] as const;
+---
+<section class="section" id="como-funciona">
+  <div class="container how-who-grid">
+    <div class="how-it-works">
+      <h2 class="section-title" data-reveal>Como funciona</h2>
+      <ol class="steps">
+        {steps.map((step, i) => (
+          <li data-reveal style={`transition-delay: ${i * 0.1}s`}>
+            <span class="step-icon"><Icon name={step.icon} size={22} /></span>
+            <span class="step-number">{i + 1}</span>
+            <span class="step-text">{step.text}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <div class="who-card" id="para-quem" aria-label="Negócios locais com atendimento por WhatsApp e agenda, como clínicas, consultórios, salões de beleza e barbearias" data-reveal style="transition-delay: 0.15s">
+      <p class="who-label">Pra quem é</p>
+      <p>Negócios locais com agenda cheia e WhatsApp como canal principal de contato, prontos pra parar de perder cliente por demora no atendimento.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-who-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 800px) {
+    .how-who-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .steps li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-secondary);
+    flex-shrink: 0;
+  }
+  .step-number {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-detail);
+    min-width: 1.5rem;
+  }
+  .step-text { font-size: 1.05rem; }
+
+  .who-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    position: relative;
+    overflow: hidden;
+    align-self: start;
+  }
+  .who-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 159, 62, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .who-card:hover::before { opacity: 1; }
+  .who-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    color: var(--color-accent-secondary);
+    margin-bottom: 0.75rem;
+  }
+</style>
