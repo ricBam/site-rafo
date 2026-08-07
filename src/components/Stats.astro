@@ -1,0 +1,75 @@
+---
+// src/components/Stats.astro
+const stats = [
+  { value: 24, suffix: '/7', label: 'Atendimento automático, todo santo dia' },
+  { value: 0, suffix: '', label: 'Mensagens de cliente sem resposta enquanto você dorme' },
+  { value: 3, suffix: '', label: 'Frentes cuidadas juntas: Google, WhatsApp e site' },
+] as const;
+---
+<section class="section stats">
+  <div class="container stats-grid">
+    {stats.map((s, i) => (
+      <div class="stat" data-reveal style={`transition-delay: ${i * 0.12}s`}>
+        <p class="stat-value" data-count={s.value} data-suffix={s.suffix}>{s.value}{s.suffix}</p>
+        <p class="stat-label">{s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  function animateCount(el: HTMLElement) {
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix ?? '';
+    if (!Number.isFinite(target) || target <= 0) return;
+    const duration = 900;
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const current = Math.round(progress * target);
+      el.textContent = `${current}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    const values = document.querySelectorAll<HTMLElement>('.stat-value');
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target as HTMLElement);
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+    values.forEach((v) => obs.observe(v));
+  }
+</script>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--color-accent-secondary);
+  }
+  .stat-label {
+    margin-top: 0.5rem;
+    opacity: 0.8;
+    font-size: 0.95rem;
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
