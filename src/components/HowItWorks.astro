@@ -1,0 +1,45 @@
+---
+// src/components/HowItWorks.astro
+const steps = [
+  'Conversamos sobre como seu atendimento funciona hoje',
+  'Construímos sob medida pro seu fluxo real',
+  'Acompanhamos de perto até funcionar do jeito certo',
+];
+---
+<section class="section" id="como-funciona">
+  <div class="container">
+    <h2 class="section-title">Como funciona</h2>
+    <ol class="steps">
+      {steps.map((step, i) => (
+        <li>
+          <span class="step-number">{i + 1}</span>
+          <span class="step-text">{step}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    counter-reset: step;
+  }
+  .steps li {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .step-number {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-detail);
+    min-width: 2.5rem;
+  }
+  .step-text { font-size: 1.05rem; }
+</style>
