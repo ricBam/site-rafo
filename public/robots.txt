@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /propostas/
+
+Sitemap: https://rafolabs.tech/sitemap-index.xml
