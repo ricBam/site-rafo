@@ -49,6 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <main>
       <slot />
     </main>
+    <slot name="footer" />
     <FloatingWhatsApp />
   </body>
 </html>
