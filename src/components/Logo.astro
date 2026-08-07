@@ -1,0 +1,25 @@
+---
+// src/components/Logo.astro
+interface Props {
+  variant?: 'full' | 'compact';
+  theme?: 'dark' | 'light';
+}
+const { variant = 'full', theme = 'dark' } = Astro.props;
+
+const letterColor = theme === 'dark' ? '#DAE2DF' : '#0B0A07';
+const dotColor = '#A51C30';
+---
+{variant === 'full' ? (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="R.A.F.O." height="32">
+    <text x="0" y="36" font-size="36" font-family="'Space Grotesk', sans-serif">
+      <tspan font-weight="700" fill={letterColor}>R</tspan><tspan font-weight="700" fill={dotColor}>.</tspan><tspan font-weight="400" fill={letterColor}>A</tspan><tspan font-weight="700" fill={dotColor}>.</tspan><tspan font-weight="700" fill={letterColor}>F</tspan><tspan font-weight="700" fill={dotColor}>.</tspan><tspan font-weight="400" fill={letterColor}>O</tspan><tspan font-weight="700" fill={dotColor}>.</tspan>
+    </text>
+  </svg>
+) : (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="R.A.F.O." height="40" width="40">
+    <rect width="100" height="100" rx="16" fill={theme === 'dark' ? '#0B0A07' : '#DAE2DF'} />
+    <text x="50" y="66" font-size="44" font-family="'Space Grotesk', sans-serif" text-anchor="middle">
+      <tspan font-weight="700" fill={letterColor}>R</tspan><tspan font-weight="700" fill={dotColor}>.</tspan>
+    </text>
+  </svg>
+)}
