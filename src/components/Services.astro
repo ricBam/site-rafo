@@ -1,0 +1,54 @@
+---
+// src/components/Services.astro
+const services = [
+  {
+    title: 'Presença no Google',
+    text: 'Configuramos e otimizamos seu perfil no Google Negócio pra você aparecer pra quem já está procurando o que você oferece.',
+  },
+  {
+    title: 'Agentes autônomos para WhatsApp',
+    text: 'Atendimento e agendamento automatizado, construído em cima do jeito que seu negócio já funciona hoje, sem forçar você a mudar sua rotina pra caber numa ferramenta pronta.',
+  },
+  {
+    title: 'Sites institucionais',
+    text: 'Presença online profissional, rápida de lançar e fácil de manter, sem a complexidade nem o preço de uma agência grande.',
+  },
+];
+---
+<section class="section" id="servicos">
+  <div class="container">
+    <h2 class="section-title">O que fazemos</h2>
+    <div class="services-grid">
+      {services.map((s) => (
+        <article class="service-card">
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2rem;
+  }
+  .service-card {
+    background-color: #15130f;
+    border: 1px solid #2a2620;
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .service-card h3 {
+    color: var(--color-accent-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .service-card p {
+    opacity: 0.85;
+    font-size: 0.98rem;
+  }
+</style>
