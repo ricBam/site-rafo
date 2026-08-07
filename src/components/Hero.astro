@@ -2,13 +2,19 @@
 // src/components/Hero.astro
 import Logo from './Logo.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
+import Icon from './Icon.astro';
 ---
 <header class="hero">
   <div class="container hero-inner">
-    <Logo />
+    <div class="hero-logo"><Logo /></div>
     <h1 class="hero-title">Enquanto você não responde, o cliente já fechou com outro.</h1>
     <p class="hero-subtitle">A gente implementa atendimento automático no WhatsApp, presença no Google e um site que fecha negócio, prontos pra funcionar sem você precisar contratar mais gente.</p>
-    <WhatsAppButton label="Quero isso na minha empresa" />
+    <div class="hero-cta"><WhatsAppButton label="Quero isso na minha empresa" /></div>
+    <div class="hero-pillars">
+      <span class="pillar"><Icon name="google" size={18} /> Google</span>
+      <span class="pillar"><Icon name="whatsapp" size={18} /> WhatsApp</span>
+      <span class="pillar"><Icon name="site" size={18} /> Site</span>
+    </div>
   </div>
 </header>
 
@@ -26,10 +32,51 @@ import WhatsAppButton from './WhatsAppButton.astro';
   .hero-title {
     font-size: clamp(2rem, 5vw, 3.25rem);
     max-width: 780px;
+    animation: hero-title-reveal 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation-delay: 0.1s;
   }
   .hero-subtitle {
     font-size: 1.15rem;
     max-width: 620px;
     opacity: 0.85;
+  }
+  .hero-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: -0.5rem;
+  }
+  .pillar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    opacity: 0.75;
+    color: var(--color-accent-secondary);
+  }
+
+  .hero-logo, .hero-subtitle, .hero-cta, .hero-pillars {
+    animation: hero-rise 0.7s ease both;
+  }
+  .hero-logo { animation-delay: 0s; }
+  .hero-subtitle { animation-delay: 0.3s; }
+  .hero-cta { animation-delay: 0.42s; }
+  .hero-pillars { animation-delay: 0.54s; }
+
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-title-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-title, .hero-logo, .hero-subtitle, .hero-cta, .hero-pillars {
+      animation: none;
+      clip-path: none;
+    }
   }
 </style>
