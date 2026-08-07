@@ -2,11 +2,11 @@
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import ChatMockup from '../components/ChatMockup.astro';
 import Services from '../components/Services.astro';
-import Differentiator from '../components/Differentiator.astro';
-import AudienceFit from '../components/AudienceFit.astro';
 import HowItWorks from '../components/HowItWorks.astro';
-import LiveDemo from '../components/LiveDemo.astro';
+import WhoItsFor from '../components/WhoItsFor.astro';
+import Faq from '../components/Faq.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 
 const title = 'R.A.F.O.: Automação de atendimento e sites institucionais sob medida';
@@ -14,10 +14,10 @@ const description = 'Cuidamos da sua presença online de ponta a ponta: Google N
 ---
 <BaseLayout title={title} description={description}>
   <Hero />
+  <ChatMockup />
   <Services />
-  <Differentiator />
-  <AudienceFit />
   <HowItWorks />
-  <LiveDemo />
+  <WhoItsFor />
+  <Faq />
   <SiteFooter slot="footer" />
 </BaseLayout>
