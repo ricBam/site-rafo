@@ -1,0 +1,46 @@
+---
+// src/components/Faq.astro
+const faqs = [
+  { q: 'Preciso trocar de número de WhatsApp?', a: 'Não, a automação entra no número que você já usa.' },
+  { q: 'E se o cliente quiser falar com uma pessoa de verdade?', a: 'A qualquer momento ele pode pedir, e você assume a conversa.' },
+  { q: 'Quanto tempo leva pra ficar pronto?', a: 'Depende do seu fluxo hoje, mas o processo começa com uma conversa pra entender exatamente isso.' },
+  { q: 'Funciona pro meu tipo de negócio?', a: 'Se o seu contato com cliente é majoritariamente por WhatsApp e agenda, muito provavelmente sim.' },
+];
+---
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    float: right;
+    font-family: var(--font-mono);
+    color: var(--color-accent-secondary);
+  }
+  .faq-item[open] summary::after { content: '\2212'; }
+  .faq-item p { margin-top: 0.85rem; opacity: 0.85; }
+</style>
