@@ -1,19 +1,21 @@
 ---
 // src/components/HowItWorks.astro
+import Icon from './Icon.astro';
 const steps = [
-  'Conversamos sobre como seu atendimento funciona hoje',
-  'Construímos sob medida pro seu fluxo real',
-  'Acompanhamos de perto até funcionar do jeito certo',
-];
+  { icon: 'whatsapp', text: 'Conversamos sobre como seu atendimento funciona hoje' },
+  { icon: 'build', text: 'Construímos sob medida pro seu fluxo real' },
+  { icon: 'watch', text: 'Acompanhamos de perto até funcionar do jeito certo' },
+] as const;
 ---
 <section class="section" id="como-funciona">
   <div class="container">
-    <h2 class="section-title">Como funciona</h2>
+    <h2 class="section-title" data-reveal>Como funciona</h2>
     <ol class="steps">
       {steps.map((step, i) => (
-        <li>
+        <li data-reveal style={`transition-delay: ${i * 0.1}s`}>
+          <span class="step-icon"><Icon name={step.icon} size={22} /></span>
           <span class="step-number">{i + 1}</span>
-          <span class="step-text">{step}</span>
+          <span class="step-text">{step.text}</span>
         </li>
       ))}
     </ol>
@@ -42,16 +44,27 @@ const steps = [
   .steps li {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
     position: relative;
+  }
+  .step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-secondary);
+    flex-shrink: 0;
   }
   .step-number {
     font-family: var(--font-mono);
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--color-detail);
-    min-width: 2.5rem;
-    background: var(--color-bg);
+    min-width: 1.5rem;
   }
   .step-text { font-size: 1.05rem; }
 </style>
