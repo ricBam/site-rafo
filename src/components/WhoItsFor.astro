@@ -3,11 +3,11 @@
 ---
 <section class="section" id="para-quem" aria-label="Negócios locais com atendimento por WhatsApp e agenda, como clínicas, consultórios, salões de beleza e barbearias">
   <div class="container who-grid">
-    <div class="who-card who-yes">
+    <div class="who-card who-yes" data-reveal>
       <p class="who-label">Pra quem é</p>
       <p>Negócios locais com agenda cheia e WhatsApp como canal principal de contato, prontos pra parar de perder cliente por demora no atendimento.</p>
     </div>
-    <div class="who-card who-no">
+    <div class="who-card who-no" data-reveal style="transition-delay: 0.1s">
       <p class="who-label">Pra quem não é</p>
       <p>Não trabalhamos com quem quer só testar sem compromisso. Se faz sentido pra você, a gente entra junto, sob medida, do jeito que seu negócio já funciona.</p>
     </div>
@@ -24,7 +24,19 @@
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
   }
+  .who-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 159, 62, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .who-card:hover::before { opacity: 1; }
   .who-label {
     font-family: var(--font-mono);
     text-transform: uppercase;

@@ -9,10 +9,10 @@ const faqs = [
 ---
 <section class="section" id="faq">
   <div class="container">
-    <h2 class="section-title">Perguntas frequentes</h2>
+    <h2 class="section-title" data-reveal>Perguntas frequentes</h2>
     <div class="faq-list">
-      {faqs.map((item) => (
-        <details class="faq-item">
+      {faqs.map((item, i) => (
+        <details class="faq-item" data-reveal style={`transition-delay: ${i * 0.08}s`}>
           <summary>{item.q}</summary>
           <p>{item.a}</p>
         </details>
