@@ -6,6 +6,8 @@
   --color-accent: #A51C30;
   --color-accent-secondary: #E09F3E;
   --color-detail: #2274A5;
+  --color-surface: #15130f;
+  --color-border: #2a2620;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 }

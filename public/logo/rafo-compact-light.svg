@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
   <rect width="400" height="400" fill="#DAE2DF"/>
-  <text x="200" y="260" font-size="180" font-family="Space Grotesk" text-anchor="middle">
+  <text x="200" y="260" font-size="180" font-family="Space Grotesk, sans-serif" text-anchor="middle">
     <tspan font-weight="700" fill="#0B0A07">R</tspan><tspan font-weight="700" fill="#A51C30">.</tspan>
   </text>
 </svg>
