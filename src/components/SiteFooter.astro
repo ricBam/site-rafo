@@ -1,0 +1,35 @@
+---
+// src/components/SiteFooter.astro
+import Logo from './Logo.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+<section class="section final-cta">
+  <div class="container">
+    <h2 class="section-title">Bora conversar?</h2>
+    <WhatsAppButton label="Falar no WhatsApp agora" />
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <Logo variant="compact" />
+    <p>&copy; {new Date().getFullYear()} R.A.F.O.</p>
+  </div>
+</footer>
+
+<style>
+  .final-cta { text-align: center; }
+  .site-footer {
+    padding: 2rem 0;
+    border-top: 1px solid #2a2620;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-inner p {
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+</style>
