@@ -5,8 +5,9 @@ import WhatsAppButton from './WhatsAppButton.astro';
 ---
 <section class="section final-cta">
   <div class="container">
-    <h2 class="section-title" data-reveal>Bora conversar?</h2>
-    <WhatsAppButton label="Falar com a gente" />
+    <h2 class="section-title" data-reveal>Bora começar seu diagnóstico?</h2>
+    <p class="final-cta-text" data-reveal style="transition-delay: 0.08s">Sem compromisso, é só pra entender onde você pode estar perdendo cliente.</p>
+    <WhatsAppButton label="Quero meu diagnóstico gratuito" />
   </div>
 </section>
 
@@ -19,6 +20,12 @@ import WhatsAppButton from './WhatsAppButton.astro';
 
 <style>
   .final-cta { text-align: center; }
+  .final-cta-text {
+    opacity: 0.8;
+    font-size: 0.98rem;
+    max-width: 460px;
+    margin: 0 auto 1.75rem;
+  }
   .site-footer {
     padding: 2rem 0;
     border-top: 1px solid var(--color-border);

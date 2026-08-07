@@ -1,0 +1,114 @@
+---
+// src/components/ExitIntentModal.astro
+import WhatsAppButton from './WhatsAppButton.astro';
+---
+<div class="exit-modal-overlay" id="exit-modal-overlay">
+  <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+    <button class="exit-modal-close" id="exit-modal-close" aria-label="Fechar">&times;</button>
+    <p class="exit-modal-eyebrow">Antes de sair</p>
+    <h2 id="exit-modal-title" class="exit-modal-title">Descubra onde seu negócio pode estar perdendo cliente</h2>
+    <p class="exit-modal-text">Fala com a gente agora e entenda sua situação, sem compromisso.</p>
+    <WhatsAppButton label="Quero meu diagnóstico gratuito" />
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('exit-modal-overlay');
+  const closeBtn = document.getElementById('exit-modal-close');
+  const STORAGE_KEY = 'rafo-exit-modal-shown';
+
+  function showModal() {
+    if (!overlay) return;
+    overlay.classList.add('is-visible');
+    sessionStorage.setItem(STORAGE_KEY, '1');
+  }
+  function hideModal() {
+    overlay?.classList.remove('is-visible');
+  }
+
+  closeBtn?.addEventListener('click', hideModal);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) hideModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideModal();
+  });
+
+  if (!sessionStorage.getItem(STORAGE_KEY)) {
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !sessionStorage.getItem(STORAGE_KEY)) {
+        showModal();
+      }
+    });
+  }
+</script>
+
+<style>
+  .exit-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 10, 7, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .exit-modal-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .exit-modal {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    text-align: center;
+    transform: translateY(12px);
+    transition: transform 0.25s ease;
+  }
+  .exit-modal-overlay.is-visible .exit-modal {
+    transform: translateY(0);
+  }
+  .exit-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .exit-modal-close:hover { opacity: 1; }
+  .exit-modal-eyebrow {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--color-detail);
+    margin-bottom: 0.75rem;
+  }
+  .exit-modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+  .exit-modal-text {
+    opacity: 0.85;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .exit-modal-overlay, .exit-modal { transition: none; }
+  }
+</style>

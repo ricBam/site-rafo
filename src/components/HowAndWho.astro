@@ -11,15 +11,17 @@ const steps = [
   <div class="container how-who-grid">
     <div class="how-it-works">
       <h2 class="section-title" data-reveal>Como funciona</h2>
-      <ol class="steps">
+      <div class="steps">
         {steps.map((step, i) => (
-          <li data-reveal style={`transition-delay: ${i * 0.1}s`}>
-            <span class="step-icon"><Icon name={step.icon} size={22} /></span>
-            <span class="step-number">{i + 1}</span>
-            <span class="step-text">{step.text}</span>
-          </li>
+          <div class:list={['step-card', { 'step-offset': i % 2 === 1 }]} data-reveal style={`transition-delay: ${i * 0.1}s`}>
+            <span class="step-icon"><Icon name={step.icon} size={20} /></span>
+            <div class="step-body">
+              <span class="step-num">{`0${i + 1}`}</span>
+              <p class="step-text">{step.text}</p>
+            </div>
+          </div>
         ))}
-      </ol>
+      </div>
     </div>
     <div class="who-card" id="para-quem" aria-label="Negócios locais com atendimento por WhatsApp e agenda, como clínicas, consultórios, salões de beleza e barbearias" data-reveal style="transition-delay: 0.15s">
       <p class="who-label">Pra quem é</p>
@@ -38,37 +40,49 @@ const steps = [
     .how-who-grid { grid-template-columns: 1fr 1fr; }
   }
   .steps {
-    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 2rem;
   }
-  .steps li {
+  .step-card {
     display: flex;
     align-items: center;
     gap: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.1rem 1.35rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .step-card:hover {
+    border-color: var(--color-accent-secondary);
+    transform: translateY(-2px);
+  }
+  @media (min-width: 500px) {
+    .step-offset { margin-left: 1.75rem; }
   }
   .step-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
-    background: var(--color-surface);
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     color: var(--color-accent-secondary);
     flex-shrink: 0;
   }
-  .step-number {
+  .step-body { display: flex; flex-direction: column; gap: 0.15rem; }
+  .step-num {
     font-family: var(--font-mono);
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 0.78rem;
     color: var(--color-detail);
-    min-width: 1.5rem;
+    letter-spacing: 0.05em;
   }
-  .step-text { font-size: 1.05rem; }
+  .step-text { font-size: 1.02rem; }
 
   .who-card {
     padding: 2rem;
