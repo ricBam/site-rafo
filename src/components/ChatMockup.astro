@@ -81,6 +81,18 @@
     );
     observer.observe(phone);
   }
+
+  if (phone && !prefersReducedMotion) {
+    phone.addEventListener('mousemove', (e) => {
+      const rect = phone.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      phone.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+    });
+    phone.addEventListener('mouseleave', () => {
+      phone.style.transform = '';
+    });
+  }
 </script>
 
 <style>
@@ -102,6 +114,8 @@
     border-radius: 24px;
     padding: 1rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s ease;
+    transform-style: preserve-3d;
   }
   .chat-thread {
     display: flex;
