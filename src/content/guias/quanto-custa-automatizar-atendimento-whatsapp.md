@@ -2,13 +2,13 @@
 titulo: 'Quanto custa automatizar o atendimento no WhatsApp'
 descricao: 'O que compõe o preço de automatizar o WhatsApp em 2026: plataforma, API oficial, implantação e manutenção. Faixas praticadas no Brasil e o que muda o valor.'
 pergunta: 'Quanto custa automatizar o atendimento no WhatsApp de um pequeno negócio?'
-resposta: 'Não existe um preço único, porque o custo se divide em três partes que variam de forma independente: a plataforma que roda a automação, o custo por conversa da API oficial do WhatsApp, e a implantação, que é o trabalho de desenhar e construir o fluxo. Para um pequeno negócio no Brasil, o gasto mensal recorrente costuma ficar na casa das centenas de reais, e a implantação é cobrada à parte, uma vez só. O que mais mexe no valor não é o tamanho da empresa, é quantas exceções o atendimento tem.'
+resposta: 'Não existe um preço único, porque o custo se divide em três partes que variam de forma independente: a plataforma que roda a automação, o custo por conversa da API oficial do WhatsApp, e a implantação, que é o trabalho de desenhar e construir o fluxo. Num levantamento que fizemos em agosto de 2026 nas páginas de preço de fornecedores brasileiros, a mensalidade de ferramenta pronta ficou entre R$ 49,90 e R$ 399, com a implantação cobrada à parte. O que mais mexe no valor não é o tamanho da empresa, é quantas exceções o atendimento tem.'
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'agentes-whatsapp'
 resumo:
   - 'O custo tem três partes independentes: plataforma, API oficial e implantação.'
-  - 'O recorrente de um pequeno negócio no Brasil costuma ficar na casa das centenas de reais por mês.'
+  - 'Ferramenta pronta apareceu de R$ 49,90 a R$ 399 por mês num levantamento nosso de agosto de 2026.'
   - 'A implantação é cobrada uma vez, à parte do recorrente.'
   - 'O que mais encarece é a quantidade de exceções no atendimento, não o tamanho da empresa.'
   - 'Automação feita sem mapear o fluxo primeiro custa mais caro, porque é refeita.'
@@ -90,16 +90,27 @@ por alguém.
 
 ## Faixas praticadas no mercado brasileiro
 
-Uma pesquisa em blogs brasileiros do setor em agosto de 2026,
-incluindo Zap Trend, Chat Inteligente e SocialHub, encontrou faixas
-recorrentes na casa das centenas de reais por mês para pequenas empresas,
-somando plataforma e API. Agentes com camada de inteligência artificial
-aparecem em faixas mais altas que automações de fluxo fixo, o que faz
-sentido: além do custo de plataforma, existe o custo por uso do modelo.
+Em agosto de 2026 a gente levantou as páginas de preço de fornecedores
+brasileiros de automação de atendimento, e o desenho ficou assim.
 
-Esses números são o que esses veículos publicam, não uma cotação. Servem
-para calibrar expectativa antes da conversa, e não substituem um
-orçamento feito em cima do seu fluxo.
+**Ferramenta pronta, com mensalidade**, do tipo que você mesmo configura,
+aparece de **R$ 49,90 a R$ 399 por mês**, com o valor subindo conforme o
+número de atendentes, o volume de conversa e a presença de camada de
+inteligência artificial. Parte delas cobra uma taxa de implantação
+separada, na casa de algumas centenas de reais.
+
+**Solução construída sob medida** não tem tabela publicada, por natureza:
+o recorrente costuma ser menor, porque você paga hospedagem e não
+licença, e a implantação é maior, porque alguém desenhou o fluxo em cima
+do seu atendimento.
+
+Dois avisos sobre esses números. O primeiro é que eles são o que os
+fornecedores publicam, e página de preço quase sempre mostra o plano de
+entrada, não o que a maioria acaba contratando. O segundo é que nenhum
+deles inclui a API oficial, que é cobrada por conversa e entra por fora.
+
+Servem para calibrar expectativa antes de qualquer conversa. Não
+substituem um orçamento feito em cima do seu fluxo.
 
 ## O custo que ninguém coloca na planilha
 

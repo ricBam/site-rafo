@@ -41,6 +41,7 @@ const dataLegivel = guia.atualizadoEm.toLocaleDateString('pt-BR', {
 <BaseLayout
   title={guia.titulo}
   description={guia.descricao}
+  ogType="article"
   extraJsonLd={[
     artigoNode(guia, canonical),
     faqNodeDe(guia.faq),

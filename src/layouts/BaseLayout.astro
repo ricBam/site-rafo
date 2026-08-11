@@ -19,6 +19,8 @@ interface Props {
    * separado deixaria trocar só a imagem e esquecer o alt.
    */
   og?: { imagem: string; alt: string };
+  /** og:type. "article" nas paginas de conteudo, "website" no resto. */
+  ogType?: string;
   extraJsonLd?: Record<string, unknown>[];
 }
 
@@ -27,7 +29,7 @@ const OG_PADRAO = {
   alt: 'Cartão da R.A.F.O. com o nome da marca, a frase Atendimento no WhatsApp, sites e Google, e a linha Resende, RJ. Atendemos todo o Brasil.',
 };
 
-const { title, description, og = OG_PADRAO, extraJsonLd } = Astro.props;
+const { title, description, og = OG_PADRAO, ogType = 'website', extraJsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(og.imagem, Astro.site);
 ---
@@ -44,7 +46,7 @@ const ogImageURL = new URL(og.imagem, Astro.site);
 
     <meta name="robots" content="index,follow,max-image-preview:large" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={empresa.nome} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

@@ -162,6 +162,14 @@ function conteudoDaPagina(html) {
     .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>/gi, ' ');
 }
 
+// O indice /guias/ NAO e guia: ele e pagina institucional que so lista
+// titulos. Guia mesmo e /guias/<slug>/. A distincao importa porque as
+// excecoes de nicho e de preco valem so para o conteudo do guia, e o
+// indice sem guarda nenhuma foi um buraco real achado em review.
+function ehGuia(rota) {
+  return rota.startsWith('/guias/') && rota !== '/guias/';
+}
+
 // Um item de empresa.casosDeUso nao e um nicho especifico: e o criterio
 // geral reescrito como item de lista ("o negocio depender de agenda e
 // ter o WhatsApp como canal principal"), nao um exemplo de tipo de
@@ -648,7 +656,7 @@ check('toda pagina e alcancavel por link interno de outra pagina', () => {
 // posicionamento, logo abaixo na secao de guias, que roda so nos guias.
 check('nenhuma pagina institucional contem radical de nicho', () => {
   for (const pagina of PAGINAS) {
-    if (pagina.rota.startsWith('/guias/')) continue;
+    if (ehGuia(pagina.rota)) continue;
     const achado = nichoEncontradoEm(normalizar(conteudoDaPagina(pagina.html)));
     assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
   }
@@ -660,8 +668,15 @@ check('nenhuma pagina institucional contem radical de nicho', () => {
 // que alguem lembrou de listar.
 const PRECOS_PUBLICOS_PERMITIDOS = ['97', '48,50'];
 
-check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
+// Mesmo split que o de nicho, e pela mesma razao. Em pagina
+// institucional, todo valor em reais e preco da empresa, entao lista de
+// permissao e a forma certa. Num guia, valor em reais quase sempre e
+// numero de mercado citado com fonte, que e justamente o que faz o guia
+// responder a pergunta do titulo. O que nao pode em lugar nenhum, guia
+// inclusive, e preco de fundacao nosso: isso continua valendo abaixo.
+check('nenhuma pagina institucional mostra valor em reais fora do preco publico', () => {
   for (const pagina of PAGINAS) {
+    if (ehGuia(pagina.rota)) continue;
     // Milhar com ponto e centavos com virgula de dois digitos. Escrito
     // assim para nao engolir a pontuacao da frase: "R$ 97, mas" daria o
     // valor "97," e "R$ 97." daria "97.".
@@ -672,6 +687,20 @@ check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
       assert(
         PRECOS_PUBLICOS_PERMITIDOS.includes(valor),
         `a pagina ${pagina.rota} mostra R$ ${valor}, que nao e preco publico aprovado`
+      );
+    }
+  }
+});
+
+// O par da excecao acima. Guia pode citar numero de mercado, mas o nosso
+// preco de fundacao nao pode aparecer em lugar nenhum, e sem esta
+// verificacao os guias ficariam sem guarda de preco alguma.
+check('nenhuma pagina expoe preco de fundacao nosso', () => {
+  for (const pagina of PAGINAS) {
+    for (const valor of PRECOS_DE_FUNDACAO) {
+      assert(
+        !conteudoDaPagina(pagina.html).includes(`R$ ${valor}`),
+        `preco de fundacao R$ ${valor} exposto na pagina ${pagina.rota}`
       );
     }
   }
@@ -727,7 +756,7 @@ check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
     // de entidade (ProfessionalService, WebSite) apontam para a home de
     // proposito e sao ignorados aqui.
     for (const node of grafo) {
-      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service'].includes(node['@type'])) continue;
+      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service', 'Article'].includes(node['@type'])) continue;
       if (typeof node.url !== 'string') continue;
       assert(
         node.url === canonical,
@@ -904,7 +933,7 @@ check('llms-full.txt aponta cada servico para a pagina dele', () => {
 // ---------------------------------------------------------------
 console.log('\nGuias');
 
-const GUIAS = PAGINAS.filter((p) => p.rota.startsWith('/guias/') && p.rota !== '/guias/');
+const GUIAS = PAGINAS.filter((p) => ehGuia(p.rota));
 
 check('existe ao menos um guia construido', () => {
   assert(GUIAS.length > 0, 'nenhuma rota /guias/<slug>/ no dist');
@@ -928,7 +957,7 @@ checkPorGuia('todo guia responde a pergunta no primeiro paragrafo', (guia) => {
     const m = guia.html.match(/<p class="guia-resposta"[^>]*>([\s\S]*?)<\/p>/);
     assert(m, `${guia.rota} sem o paragrafo de resposta direta`);
     const texto = m[1].replace(/<[^>]+>/g, '').trim();
-    assert(texto.length > 200, `${guia.rota}: resposta direta com ${texto.length} caracteres, minimo 200`);
+    assert(texto.length >= 200, `${guia.rota}: resposta direta com ${texto.length} caracteres, minimo 200`);
 });
 
 checkPorGuia('todo guia tem Article com datas coerentes e publisher', (guia) => {
@@ -1017,10 +1046,39 @@ check('o indice de guias lista todo guia construido', () => {
 });
 
 checkPorGuia('guia nao usa nicho como posicionamento da empresa', (guia) => {
-  const posicionamento = /especializad|focad[ao] em|voltad[ao] para|atendemos apenas|somos a agencia de/i;
-  const texto = normalizar(conteudoDaPagina(guia.html));
-  const achado = texto.match(posicionamento);
-  assert(!achado, `${guia.rota} usa linguagem de posicionamento por nicho: "${achado?.[0]}"`);
+  const texto = normalizar(conteudoDaPagina(guia.html).replace(/<[^>]+>/g, ' '));
+
+  // Duas formas de detectar, porque uma lista de palavras soltas erra
+  // dos dois lados. "especializad" sozinho acusa "blogs especializados",
+  // que nao posiciona nada, e ao mesmo tempo deixa passar "atendemos
+  // clinicas", que posiciona.
+  //
+  // Forma 1, proximidade: palavra de posicionamento perto de um radical
+  // de nicho. E o padrao real de "somos especializados em clinicas".
+  const posicionadoras = ['especializad', 'focad', 'voltad', 'dedicad', 'feito para', 'ideal para'];
+  for (const palavra of posicionadoras) {
+    for (const nicho of TERMOS_DE_NICHO) {
+      const perto = new RegExp(`${palavra}[^.]{0,60}\\b${nicho}|\\b${nicho}[^.]{0,60}${palavra}`);
+      const achado = texto.match(perto);
+      assert(
+        !achado,
+        `${guia.rota} posiciona por nicho: "${achado?.[0]?.slice(0, 80)}"`
+      );
+    }
+  }
+
+  // Forma 2, primeira pessoa: a empresa dizendo que atende um nicho.
+  // Nao precisa de proximidade porque a construcao ja e o posicionamento.
+  for (const nicho of TERMOS_DE_NICHO) {
+    const primeiraPessoa = new RegExp(
+      `(atendemos|trabalhamos com|somos a agencia de|nosso foco (e|sao))\\s+\\w{0,12}\\s?\\b${nicho}`
+    );
+    const achado = texto.match(primeiraPessoa);
+    assert(
+      !achado,
+      `${guia.rota} posiciona por nicho em primeira pessoa: "${achado?.[0]?.slice(0, 80)}"`
+    );
+  }
 });
 
 checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
@@ -1028,8 +1086,22 @@ checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
   // forma que estatistica fabricada assume. Um numero de mercado citado
   // com fonte no texto e permitido pelo spec e nao pode cair aqui, entao
   // um "%" solto nao dispara: so dispara colado a palavra de resultado.
-  const promessa =
-    /\d+\s*%\s*(de\s+)?(reducao|aumento|economia|conversao|a\s+mais|a\s+menos)|\d+\s*x\s+(mais|menos)|(aumenta|reduz|economiza|multiplica)\w*\s+(em\s+)?\d+/i;
+  // Tres direcoes, porque em portugues a alegacao de resultado aparece
+  // nas tres e cobrir so uma e teatro. A primeira versao desta guarda
+  // pegava "reduz em 40" e deixava passar "reducao de 40%", que e a forma
+  // mais comum das duas.
+  const promessa = new RegExp(
+    [
+      // numero primeiro: "40% a mais de conversao", "3x mais rapido"
+      '\\d+\\s*%\\s*(de\\s+|d[oe]s?\\s+)?(reducao|aumento|economia|conversao|a\\s+mais|a\\s+menos|dos?\\s)',
+      '\\d+\\s*(x|vezes)\\s+(mais|menos)',
+      // substantivo primeiro: "reducao de 40%", "aumento de 25% nas vendas"
+      '(reducao|aumento|economia|queda|ganho|crescimento)\\s+de\\s+\\d+',
+      // verbo primeiro, com objeto no meio: "reduz o custo em 40%"
+      '(aumenta|reduz|economiza|multiplica|triplica|dobra)\\w*\\s+([\\w\\s]{0,25}\\s)?(em\\s+)?\\d+',
+    ].join('|'),
+    'i'
+  );
   const texto = normalizar(conteudoDaPagina(guia.html).replace(/<[^>]+>/g, ' '));
   const achado = texto.match(promessa);
   assert(

@@ -24,10 +24,16 @@ const guias = defineCollection({
     resposta: z.string().min(200),
     publicadoEm: z.coerce.date(),
     atualizadoEm: z.coerce.date(),
-    /** Slug do serviço que este guia alimenta, ou null. */
-    servicoRelacionado: z
-      .enum(['presenca-no-google', 'agentes-whatsapp', 'sites-institucionais'])
-      .nullable(),
+    /**
+     * Slug do serviço que este guia alimenta. Obrigatório: guia que não
+     * leva a nenhum serviço não tem função comercial, e a verificação
+     * de link interno falharia de qualquer jeito.
+     */
+    servicoRelacionado: z.enum([
+      'presenca-no-google',
+      'agentes-whatsapp',
+      'sites-institucionais',
+    ]),
     /** Bloco de resumo citável, no fim do guia. */
     resumo: z.array(z.string().min(20)).min(3),
     faq: z
