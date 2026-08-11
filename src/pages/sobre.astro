@@ -1,0 +1,93 @@
+---
+// src/pages/sobre.astro
+//
+// Página de entidade. Existe para dar a buscadores e assistentes de IA
+// uma superfície onde confirmar que a R.A.F.O. é um negócio real, com
+// lugar e gente por trás. Sem isso o GEO não funciona.
+//
+// Restrições: nenhuma estatística de resultado fabricada, nenhum nicho
+// citado, nome do agente comercial interno nunca aparece.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { empresa } from '../data/empresa';
+
+const title = 'Sobre a R.A.F.O.: quem faz, onde fica e como trabalha';
+const description =
+  'A R.A.F.O. é baseada em Resende, RJ, e atende todo o Brasil de forma remota. Atendimento direto com o fundador, sem camadas de agência.';
+
+const aboutPage = {
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: `${empresa.url}/sobre`,
+  about: { '@id': `${empresa.url}/#negocio` },
+  inLanguage: 'pt-BR',
+};
+---
+<BaseLayout title={title} description={description} extraJsonLd={[aboutPage]}>
+  <section class="section">
+    <div class="container sobre">
+      <h1 class="section-title" data-reveal>Sobre a R.A.F.O.</h1>
+
+      <p data-reveal>
+        A R.A.F.O. ajuda pequenos negócios a ter presença online profissional e a
+        automatizar o atendimento no WhatsApp, sem a complexidade nem o custo de
+        uma agência grande.
+      </p>
+
+      <h2 data-reveal>Onde ficamos</h2>
+      <p data-reveal>
+        Somos baseados em Resende, no Rio de Janeiro, e atendemos todo o Brasil de
+        forma remota. Conversa inicial, construção e acompanhamento acontecem à
+        distância, o que mantém o custo baixo sem tirar proximidade do processo.
+      </p>
+
+      <h2 data-reveal>Como trabalhamos</h2>
+      <p data-reveal>
+        O atendimento é direto com o fundador, sem camadas de agência e sem
+        intermediário repassando recado. Quem entende o seu problema é quem
+        constrói a solução.
+      </p>
+      <p data-reveal>
+        Não vendemos pacote pronto. Antes de propor qualquer coisa, a gente
+        entende como o seu atendimento funciona hoje, e o que for construído é
+        construído em cima desse fluxo real. Você não precisa mudar sua rotina
+        para caber numa ferramenta.
+      </p>
+
+      <h2 data-reveal>O que fazemos</h2>
+      <ul data-reveal>
+        {empresa.servicos.map((servico) => (
+          <li><strong>{servico.nome}:</strong> {servico.descricao}</li>
+        ))}
+      </ul>
+
+      <h2 data-reveal>Onde estamos hoje</h2>
+      <p data-reveal>
+        A R.A.F.O. é uma empresa nova. Preferimos dizer isso na cara do que
+        inventar número de resultado que não temos como comprovar. O que
+        oferecemos é atenção real ao seu problema, trabalho feito sob medida e a
+        possibilidade de falar direto com quem constrói.
+      </p>
+
+      <p class="voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .sobre { max-width: 720px; }
+  .sobre p { opacity: 0.85; margin-bottom: 1.1rem; line-height: 1.7; }
+  .sobre h2 {
+    font-family: var(--font-heading);
+    color: var(--color-accent-secondary);
+    font-size: 1.35rem;
+    margin: 2.25rem 0 0.85rem;
+  }
+  .sobre ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
+  .sobre li { margin-bottom: 0.6rem; }
+  .voltar { margin-top: 2.5rem; }
+  .voltar a { color: var(--color-accent-secondary); }
+</style>

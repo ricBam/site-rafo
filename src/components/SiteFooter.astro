@@ -2,6 +2,13 @@
 // src/components/SiteFooter.astro
 import Logo from './Logo.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
+import { empresa } from '../data/empresa';
+
+// "https://www.instagram.com/rafo.tech/" vira "Instagram".
+function rotuloDoPerfil(url: string): string {
+  const dominio = new URL(url).hostname.replace(/^www\./, '').split('.')[0];
+  return dominio.charAt(0).toUpperCase() + dominio.slice(1);
+}
 ---
 <section class="section final-cta">
   <div class="container">
@@ -14,7 +21,16 @@ import WhatsAppButton from './WhatsAppButton.astro';
 <footer class="site-footer">
   <div class="container footer-inner">
     <Logo variant="compact" />
-    <p>&copy; {new Date().getFullYear()} R.A.F.O.</p>
+    <nav class="footer-links">
+      <a href="/sobre">Sobre</a>
+      {empresa.perfis.map((perfil) => (
+        <a href={perfil} rel="me noopener" target="_blank">{rotuloDoPerfil(perfil)}</a>
+      ))}
+    </nav>
+    <div class="footer-meta">
+      <p>Resende, RJ. Atendemos todo o Brasil remotamente.</p>
+      <p>&copy; {new Date().getFullYear()} {empresa.nome}</p>
+    </div>
   </div>
 </footer>
 
@@ -34,9 +50,33 @@ import WhatsAppButton from './WhatsAppButton.astro';
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
-  .footer-inner p {
+  .footer-links {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.85rem;
+  }
+  .footer-links a {
+    color: inherit;
+    opacity: 0.7;
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    opacity: 1;
+    color: var(--color-accent-secondary);
+  }
+  .footer-meta {
+    text-align: right;
+  }
+  .footer-meta p {
     font-size: 0.85rem;
     opacity: 0.6;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .footer-inner { justify-content: center; text-align: center; }
+    .footer-meta { text-align: center; }
   }
 </style>

@@ -366,6 +366,58 @@ check('llms-full.txt não expõe preço de fundação', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 7: pagina /sobre e rodape
+// ---------------------------------------------------------------
+console.log('\nPagina /sobre e rodape');
+
+check('a página /sobre existe com title e description próprios', () => {
+  const sobre = lerDist('sobre/index.html');
+  const titulo = sobre.match(/<title>([^<]+)<\/title>/);
+  assert(titulo, 'sem title');
+  assert(!titulo[1].includes('Automação de atendimento e sites institucionais sob medida'),
+    'title identico ao da home');
+  const desc = sobre.match(/<meta name="description" content="([^"]+)"/);
+  assert(desc, 'sem meta description');
+  assert(desc[1].length > 70, `description curta demais: ${desc[1].length} caracteres`);
+});
+
+check('/sobre tem canonical próprio e JSON-LD de AboutPage', () => {
+  const sobre = lerDist('sobre/index.html');
+  // Barra final opcional: o formato "directory" do Astro pode gerar
+  // /sobre ou /sobre/ dependendo da configuracao de trailingSlash. O que
+  // importa e o canonical apontar para a propria pagina, nao para a home.
+  assert(
+    /<link rel="canonical" href="https:\/\/rafolabs\.tech\/sobre\/?"/.test(sobre),
+    'canonical de /sobre ausente ou apontando para outro lugar'
+  );
+  const grafo = grafoDe(sobre);
+  no(grafo, 'AboutPage');
+  no(grafo, 'ProfessionalService');
+});
+
+check('/sobre menciona a cidade base sem posicionar por nicho', () => {
+  const sobre = lerDist('sobre/index.html');
+  assert(sobre.includes('Resende'), 'sem a cidade base');
+  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão']) {
+    assert(!sobre.includes(nicho), `nicho vazou para /sobre: "${nicho}"`);
+  }
+});
+
+check('o rodapé traz localização, Instagram e link para /sobre', () => {
+  assert(home.includes('Resende, RJ'), 'rodape sem a localizacao');
+  assert(
+    home.includes('https://www.instagram.com/rafo.tech/'),
+    'rodape sem link do Instagram'
+  );
+  assert(/href="\/sobre"/.test(home), 'rodape sem link para /sobre');
+});
+
+check('/sobre está no sitemap', () => {
+  const sitemap = lerDist('sitemap-0.xml');
+  assert(sitemap.includes('https://rafolabs.tech/sobre'), '/sobre fora do sitemap');
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
