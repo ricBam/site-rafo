@@ -56,8 +56,11 @@ export const servicos: Servico[] = [
       'Configuramos e otimizamos seu perfil no Google Negócio pra você aparecer pra quem já está procurando o que você oferece.',
     icone: 'google',
     precoBRL: 97,
-    precoNota:
-      'Valor único, sem mensalidade. R$ 48,50 quando contratado junto com um site.',
+    // O valor combinado com site saiu do site público em 2026-08-11, por
+    // decisão do fundador. Desconto de pacote é assunto de negociação, e
+    // publicado ele vira âncora: quem lê passa a esperar o menor número
+    // como preço, e o de R$ 97 passa a parecer o caro.
+    precoNota: 'Valor único, sem mensalidade.',
     tituloPagina:
       'Presença no Google por R$ 97: perfil configurado e otimizado',
     descricaoPagina:
@@ -195,12 +198,12 @@ export const servicos: Servico[] = [
       },
       {
         pergunta: 'Quanto custa?',
-        // Sujeito explícito de propósito. Esta resposta é o acceptedAnswer
-        // de uma Question chamada "Quanto custa?" na página de sites, então
-        // qualquer ambiguidade aqui vira uma IA respondendo que um site
-        // custa R$ 48,50, que é o preço do outro produto.
+        // Nenhum número aqui, de propósito. Esta resposta é o
+        // acceptedAnswer de uma Question chamada "Quanto custa?" na
+        // página de sites: qualquer valor citado nela, mesmo sendo de
+        // outro produto, vira o preço do site na resposta de uma IA.
         resposta:
-          'Sob orçamento, definido depois de entender o escopo. Quem fecha um site leva a Presença no Google por R$ 48,50 em vez de R$ 97, mas esse desconto é no preço dela, não no do site.',
+          'Sob orçamento, definido depois de entender o escopo. O que mais mexe no valor é quantas páginas o site precisa ter, quem escreve os textos e o que precisa ser integrado. A conversa inicial já dá uma noção realista, e ela não custa nada.',
       },
     ],
   },

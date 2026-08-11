@@ -6,6 +6,7 @@ resposta: 'Se o Instagram já traz clientes, ele está fazendo o trabalho dele e
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'sites-institucionais'
+gancho: 'Faça o teste de buscar no Google o que você faz mais a sua cidade. Se aparecer concorrente e não aparecer você, vale conversar: em quinze minutos dá para saber se o caminho é o perfil no Google, um site simples, ou os dois na ordem certa.'
 resumo:
   - 'Instagram e site resolvem problemas diferentes e funcionam melhor juntos.'
   - 'Rede social alcança quem não procurava; site atende quem já está procurando.'
@@ -161,7 +162,3 @@ mais:
 
 Nessa ordem, cada passo aproveita o anterior. Na ordem inversa, é comum o
 site entrar no ar e ninguém chegar nele.
-
-Se quiser conversar sobre qual desses passos faz mais sentido no seu
-caso, a primeira conversa com a R.A.F.O. é um diagnóstico gratuito, e ela
-serve exatamente para isso.

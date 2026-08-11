@@ -696,7 +696,9 @@ check('nenhuma pagina institucional contem radical de nicho', () => {
 // conhecido, entao a forma forte da regra e "nenhum valor alem destes",
 // que pega R$ 600 e R$ 850 tambem, e nao so os seis valores de fundacao
 // que alguem lembrou de listar.
-const PRECOS_PUBLICOS_PERMITIDOS = ['97', '48,50'];
+// R$ 48,50 saiu desta lista em 2026-08-11 junto com a decisao de tirar
+// o valor combinado do ar. Agora existe so um preco publico.
+const PRECOS_PUBLICOS_PERMITIDOS = ['97'];
 
 // Mesmo split que o de nicho, e pela mesma razao. Em pagina
 // institucional, todo valor em reais e preco da empresa, entao lista de
@@ -810,10 +812,34 @@ function paginaDaRota(rota) {
   return p;
 }
 
-check('/presenca-no-google/ existe e traz o preco de R$ 97', () => {
+// A verificacao mudou de sinal em 2026-08-11. Antes ela EXIGIA a
+// variante de R$ 48,50 na pagina; agora ela a PROIBE, em todo o site.
+// O fundador tirou o valor combinado do ar: desconto de pacote e assunto
+// de negociacao, e publicado ele funciona como ancora, fazendo o preco
+// cheio parecer o caro. Deixar a guarda invertida impede que o numero
+// volte por um copiar e colar de versao antiga.
+check('/presenca-no-google/ traz R$ 97 e nenhum valor combinado', () => {
   const pagina = paginaDaRota('/presenca-no-google/');
   assert(pagina.html.includes('R$ 97'), 'a pagina nao mostra o preco de R$ 97');
-  assert(pagina.html.includes('R$ 48,50'), 'a pagina nao mostra a variante de R$ 48,50');
+});
+
+check('nenhuma pagina publica o valor combinado de R$ 48,50', () => {
+  for (const pagina of PAGINAS) {
+    assert(
+      !conteudoDaPagina(pagina.html).includes('48,50'),
+      `${pagina.rota} publica o valor combinado de R$ 48,50, que saiu do ar em 2026-08-11`
+    );
+  }
+  // Os arquivos de IA saem de src/data/servicos.ts, entao em tese nao
+  // teriam como divergir. Sao conferidos mesmo assim porque sao a
+  // superficie que um assistente le, e um valor vazado ali e repetido
+  // como se fosse o preco da empresa.
+  for (const arquivo of ['llms.txt', 'llms-full.txt']) {
+    assert(
+      !lerDist(arquivo).includes('48,50'),
+      `${arquivo} publica o valor combinado de R$ 48,50`
+    );
+  }
 });
 
 check('a Presenca no Google declara Offer com preco estruturado', () => {
@@ -1143,6 +1169,44 @@ checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
     !achado,
     `${guia.rota} traz "${achado?.[0]}", que e alegacao de resultado com numero. A empresa nao tem case, entao isso nao pode existir`
   );
+});
+
+// Guia que informa e nao convida e conteudo que trabalha para o Google e
+// nao para a empresa. O gancho vem do frontmatter, entao e escrito para o
+// assunto do guia; esta verificacao cobra que ele exista, que seja
+// proprio daquele guia e que tenha um botao de WhatsApp junto.
+//
+// Frases que ESTA guarda tem que reprovar:
+//   bloco de gancho ausente
+//   bloco presente sem link de WhatsApp
+//   gancho identico ao de outro guia (texto generico de layout)
+//   gancho com menos de 80 caracteres
+// Frases que ela tem que deixar passar:
+//   um gancho por guia, texto diferente em cada, com botao de WhatsApp
+const ganchosVistos = new Map();
+
+checkPorGuia('todo guia tem gancho proprio com chamada para o WhatsApp', (guia) => {
+  const bloco = blocoPorAtributo(guia.html, 'data-gancho', 'section');
+  assert(bloco, `${guia.rota} sem o bloco de gancho`);
+  assert(
+    bloco.includes(empresaWhatsapp),
+    `${guia.rota}: o gancho nao tem link de WhatsApp, entao nao chama ninguem para nada`
+  );
+  const texto = (bloco.match(/<p class="guia-gancho"[^>]*>([\s\S]*?)<\/p>/) || [])[1];
+  assert(texto, `${guia.rota}: o bloco de gancho nao tem o paragrafo do gancho`);
+  const limpo = texto.replace(/<[^>]+>/g, '').trim();
+  assert(
+    limpo.length >= 80,
+    `${guia.rota}: gancho com ${limpo.length} caracteres, minimo 80`
+  );
+  // Gancho repetido entre guias e sinal de que voltou a ser texto de
+  // layout, que e justamente o que este campo veio substituir.
+  const jaVisto = ganchosVistos.get(limpo);
+  assert(
+    !jaVisto,
+    `${guia.rota}: gancho identico ao de ${jaVisto}, entao ele e generico e nao proprio do guia`
+  );
+  ganchosVistos.set(limpo, guia.rota);
 });
 
 checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia) => {

@@ -34,6 +34,13 @@ const guias = defineCollection({
       'agentes-whatsapp',
       'sites-institucionais',
     ]),
+    /**
+     * A frase que convida o leitor a falar com a gente, escrita para
+     * este guia. Obrigatória: guia sem gancho é conteúdo que informa e
+     * não converte, e o texto genérico que o layout usava antes valia
+     * quase nada. Ela liga o assunto do guia ao serviço relacionado.
+     */
+    gancho: z.string().min(80).max(320),
     /** Bloco de resumo citável, no fim do guia. */
     resumo: z.array(z.string().min(20)).min(3),
     faq: z

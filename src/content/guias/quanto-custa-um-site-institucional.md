@@ -1,13 +1,14 @@
 ---
 titulo: 'Quanto custa um site institucional para pequena empresa'
-descricao: 'Faixas praticadas no Brasil em 2026, o que muda o valor entre um orçamento e outro, e os custos anuais que quase ninguém coloca na conta.'
+descricao: 'O que muda o valor de um site entre um orçamento e outro, as cinco perguntas que tornam duas propostas comparáveis, e os custos anuais que continuam depois.'
 pergunta: 'Quanto custa fazer um site institucional para uma pequena empresa?'
-resposta: 'Num levantamento que fizemos em agosto de 2026 nas páginas públicas de fornecedores brasileiros, site institucional de pequena empresa apareceu com mais frequência entre R$ 2.000 e R$ 8.000, e a mesma faixa sobe para R$ 10.000 ou mais quando quem executa é agência de porte médio. Três coisas explicam quase toda a diferença entre um orçamento e outro: quem executa, quantas páginas o site tem de verdade, e quem escreve o texto. O preço de construir não é o custo total: domínio e hospedagem são anuais e continuam depois que o site fica pronto.'
+resposta: 'Não existe preço de tabela para site institucional, e a razão é que o mesmo nome descreve entregas muito diferentes: uma página única com um botão de WhatsApp e um site de oito páginas com texto escrito por alguém aparecem no mercado com o mesmo rótulo. Três coisas explicam quase toda a diferença entre um orçamento e outro: quem executa, quantas páginas o site tem de verdade, e quem escreve o texto. E o preço de construir não é o custo total, porque domínio e hospedagem são anuais e continuam depois que o site fica pronto.'
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'sites-institucionais'
+gancho: 'Se você quiser pular a parte de juntar orçamento que não dá para comparar, a gente faz esse levantamento com você: quais páginas o site precisa ter, quem escreve os textos e o que ele deve fazer com quem chegar. Sai um escopo claro, e aí o preço é uma conversa objetiva.'
 resumo:
-  - 'A faixa mais comum para pequena empresa ficou entre R$ 2.000 e R$ 8.000 num levantamento nosso de agosto de 2026.'
+  - 'Tabela de preço de site engana, porque o mesmo nome cobre entregas que não se comparam.'
   - 'Quem executa, quantas páginas existem e quem escreve o texto explicam quase toda a variação de preço.'
   - 'Domínio e hospedagem são custo anual e continuam depois da entrega.'
   - 'Orçamento sem número de páginas definido não é orçamento, é estimativa.'
@@ -23,7 +24,7 @@ faq:
     resposta: 'A parte técnica raramente é o gargalo. O que costuma atrasar é o material que só você tem: textos, fotos, logo, lista de serviços e preços. Quem junta isso antes de começar encurta bastante o prazo.'
 ---
 
-## Por que a faixa é tão larga
+## Por que não existe preço de tabela
 
 Perguntar quanto custa um site é parecido com perguntar quanto custa uma
 reforma. A resposta honesta começa com outra pergunta: reforma de quê,
@@ -40,22 +41,35 @@ Então o caminho para entender preço não é procurar uma tabela. É saber
 quais variáveis mexem no número, e conferir cada uma no orçamento que
 chegou até você.
 
-## O que o levantamento mostrou
+## Por que a gente não publica uma faixa
 
-Em agosto de 2026 levantamos páginas públicas de preço e artigos de
-fornecedores brasileiros que publicam faixa aberta. O que se repetiu:
+Existe muita tabela de preço de site circulando, e usar qualquer uma
+delas para se preparar costuma atrapalhar mais que ajudar.
 
-- Freelancer experiente ou agência pequena, para site institucional de
-  pequena empresa: a faixa mais citada foi de R$ 2.000 a R$ 8.000.
-- Agência de porte médio: os valores começam perto de R$ 10.000 e sobem
-  conforme o escopo.
-- Agências maiores, com design exclusivo e trabalho de busca desde a
-  base, publicam pisos bem acima disso.
+O motivo é simples: faixa publicada é sempre o plano de entrada, e ela
+cobre entregas que não são comparáveis entre si. O mesmo número aparece
+descrevendo uma página única montada em modelo pronto e um site de oito
+páginas com texto escrito por alguém. Quem chega numa conversa ancorado
+no menor número acaba comparando propostas pelo valor, que é justamente o
+dado que menos informa.
 
-Vale dizer o óbvio: faixa publicada é ponto de partida de negociação, não
-preço final. E a mesma faixa cobre entregas que não são comparáveis entre
-si. Use os números para calibrar expectativa, não para escolher
-fornecedor.
+O que ajuda de verdade é entender as três formas de comprar, porque cada
+uma distribui o custo de um jeito diferente:
+
+**Você monta.** O gasto em dinheiro é o menor possível: domínio,
+hospedagem e talvez uma assinatura de plataforma. O gasto em tempo é
+inteiro seu, e não termina na montagem, continua em cada mudança. Para
+quem tem tempo e pouca pressa, é uma escolha legítima.
+
+**Plataforma de assinatura.** Você paga por mês e recebe editor,
+hospedagem e modelos. O custo é previsível e baixo no começo. Em
+compensação, o site vive dentro da conta da plataforma e para de existir
+se você parar de pagar.
+
+**Alguém faz para você.** O custo se concentra numa vez só, e o que você
+compra além do site é o tempo que não vai gastar. É onde a variação de
+preço é maior, e é por isso que a próxima seção existe: sem entender o
+que move esse número, dois orçamentos viram só dois valores.
 
 ## As três variáveis que explicam quase tudo
 
@@ -150,6 +164,3 @@ o site precisa ter, quem escreve os textos, e o que a pessoa deve fazer
 ao chegar nele. Com essas três respostas, os orçamentos que você receber
 passam a ser comparáveis, e a conversa deixa de ser sobre preço para ser
 sobre escopo.
-
-É exatamente essa a primeira conversa que a gente tem com quem procura a
-R.A.F.O., e ela não custa nada.

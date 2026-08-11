@@ -6,6 +6,7 @@ resposta: 'São três camadas empilhadas, não três opções concorrentes. O Wh
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'agentes-whatsapp'
+gancho: 'Se a dúvida é em qual das três camadas você já está e qual é a próxima, a gente resolve isso numa conversa. Muita gente descobre ali que o aplicativo ainda dá conta, e a resposta honesta economiza o seu dinheiro antes de gastar o nosso tempo.'
 resumo:
   - 'São três camadas empilhadas: aplicativo, API oficial e automação.'
   - 'O aplicativo WhatsApp Business é gratuito e feito para uso manual, num celular.'
