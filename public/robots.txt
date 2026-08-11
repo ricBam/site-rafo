@@ -1,4 +1,12 @@
 User-agent: *
 Disallow: /propostas/
 
+# /propostas/ guarda propostas comerciais de clientes. O bloqueio aqui é
+# só SEO, não é controle de acesso: a URL exata continua sendo a única
+# proteção real.
+
 Sitemap: https://rafolabs.tech/sitemap-index.xml
+
+# Resumos do site para assistentes de IA:
+# https://rafolabs.tech/llms.txt
+# https://rafolabs.tech/llms-full.txt

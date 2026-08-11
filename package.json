@@ -9,7 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:logo": "node scripts/generate-logo-files.mjs",
+    "generate:og": "node scripts/generate-og-image.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs",
+    "check": "npm run build && npm run verify:seo"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

@@ -1,11 +1,7 @@
 ---
 // src/components/Faq.astro
-const faqs = [
-  { q: 'Preciso trocar de número de WhatsApp?', a: 'Não, a automação entra no número que você já usa.' },
-  { q: 'E se o cliente quiser falar com uma pessoa de verdade?', a: 'A qualquer momento ele pode pedir, e você assume a conversa.' },
-  { q: 'Quanto tempo leva pra ficar pronto?', a: 'Depende do seu fluxo hoje, mas o processo começa com uma conversa pra entender exatamente isso.' },
-  { q: 'Funciona pro meu tipo de negócio?', a: 'Se o seu contato com cliente é majoritariamente por WhatsApp e agenda, muito provavelmente sim.' },
-];
+import { empresa } from '../data/empresa';
+const faqs = empresa.faq;
 ---
 <section class="section" id="faq">
   <div class="container">
@@ -13,8 +9,8 @@ const faqs = [
     <div class="faq-list">
       {faqs.map((item, i) => (
         <details class="faq-item" data-reveal style={`transition-delay: ${i * 0.08}s`}>
-          <summary>{item.q}</summary>
-          <p>{item.a}</p>
+          <summary>{item.pergunta}</summary>
+          <p>{item.resposta}</p>
         </details>
       ))}
     </div>

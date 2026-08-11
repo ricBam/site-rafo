@@ -1,0 +1,21 @@
+---
+// src/components/JsonLd.astro
+//
+// Serializa um @graph e injeta no <head>. O escape de "<" evita que
+// qualquer conteúdo futuro consiga fechar a tag script antes da hora.
+import { negocioNode, siteNode } from '../lib/schema';
+
+interface Props {
+  extra?: Record<string, unknown>[];
+}
+
+const { extra = [] } = Astro.props;
+
+const grafo = {
+  '@context': 'https://schema.org',
+  '@graph': [negocioNode(), siteNode(), ...extra],
+};
+
+const json = JSON.stringify(grafo).replace(/</g, '\\u003c');
+---
+<script type="application/ld+json" set:html={json} />

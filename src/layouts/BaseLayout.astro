@@ -7,14 +7,20 @@ import '@fontsource/manrope/600.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '../styles/global.css';
 import ExitIntentModal from '../components/ExitIntentModal.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { empresa } from '../data/empresa';
 
 interface Props {
   title: string;
   description: string;
+  /** Caminho a partir da raiz do site. Ex.: "/og/servicos.png". */
+  ogImage?: string;
+  extraJsonLd?: Record<string, unknown>[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage = '/og/default.png', extraJsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -27,24 +33,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/png" sizes="192x192" href="/logo/rafo-compact.png" />
     <link rel="apple-touch-icon" href="/logo/rafo-compact.png" />
 
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={empresa.nome} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content={new URL('/logo/rafo-compact.png', Astro.site)} />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Cartão da R.A.F.O. com o nome da marca, a frase Atendimento no WhatsApp, sites e Google, e a linha Resende, RJ. Atendemos todo o Brasil."
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageURL} />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
-      name: 'R.A.F.O.',
-      description,
-      url: 'https://rafolabs.tech',
-      areaServed: 'BR',
-    })} />
+    <JsonLd extra={extraJsonLd} />
   </head>
   <body>
     <main>
