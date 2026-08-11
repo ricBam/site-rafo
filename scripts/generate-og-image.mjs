@@ -4,6 +4,11 @@
 // `summary_large_image` espera. Antes desta imagem o site declarava a
 // logo quadrada de 1200x1200 como imagem de compartilhamento, o que
 // deixava a prévia distorcida no WhatsApp e no Instagram.
+//
+// O texto alternativo desta imagem (og:image:alt) mora em
+// src/layouts/BaseLayout.astro, descrevendo o que a imagem mostra de
+// verdade. Se o conteúdo visual gerado aqui mudar, atualize o alt lá
+// junto, para os dois não se desalinharem.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';

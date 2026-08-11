@@ -19,7 +19,7 @@ export function negocioNode(): Record<string, unknown> {
     '@id': ID_NEGOCIO,
     name: empresa.nome,
     description: empresa.descricaoLonga,
-    url: empresa.url,
+    url: `${empresa.url}/`,
     logo: `${empresa.url}/logo/rafo-compact.png`,
     image: `${empresa.url}/og/default.png`,
     telephone: empresa.telefone,
@@ -89,7 +89,7 @@ export function siteNode(): Record<string, unknown> {
     '@type': 'WebSite',
     '@id': ID_SITE,
     name: empresa.nome,
-    url: empresa.url,
+    url: `${empresa.url}/`,
     inLanguage: 'pt-BR',
     publisher: { '@id': ID_NEGOCIO },
   };

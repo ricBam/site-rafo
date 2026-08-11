@@ -3,24 +3,7 @@
 import Logo from './Logo.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import { empresa } from '../data/empresa';
-
-// Rotulo visivel do link de perfil. Lookup explicito em vez de adivinhar
-// pelo dominio: derivar o rotulo de "m.facebook.com" pegando o primeiro
-// pedaco do hostname produziria "M". Dominio desconhecido cai no hostname
-// inteiro, que fica feio mas nunca fica errado.
-const ROTULOS_DE_PERFIL: Record<string, string> = {
-  'instagram.com': 'Instagram',
-  'facebook.com': 'Facebook',
-  'linkedin.com': 'LinkedIn',
-  'youtube.com': 'YouTube',
-  'tiktok.com': 'TikTok',
-  'github.com': 'GitHub',
-};
-
-function rotuloDoPerfil(url: string): string {
-  const hostname = new URL(url).hostname.replace(/^(www|m)\./, '');
-  return ROTULOS_DE_PERFIL[hostname] ?? hostname;
-}
+import { rotuloDoPerfil } from '../lib/perfis';
 ---
 <section class="section final-cta">
   <div class="container">
@@ -34,7 +17,7 @@ function rotuloDoPerfil(url: string): string {
   <div class="container footer-inner">
     <Logo variant="compact" />
     <nav class="footer-links" aria-label="Rodapé">
-      <a href="/sobre">Sobre</a>
+      <a href="/sobre/">Sobre</a>
       {empresa.perfis.map((perfil) => (
         <a href={perfil} rel="me noopener" target="_blank">{rotuloDoPerfil(perfil)}</a>
       ))}

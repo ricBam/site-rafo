@@ -10,6 +10,7 @@
 
 import type { APIRoute } from 'astro';
 import { empresa } from '../data/empresa';
+import { rotuloDoPerfil } from '../lib/perfis';
 
 // Explícito, ainda que a saída estática já prerenderize tudo por padrão:
 // se o projeto algum dia ganhar um adapter, este arquivo precisa
@@ -25,7 +26,9 @@ export const GET: APIRoute = () => {
     .map((s) => `- ${s.nome} (${precoDe(s.precoBRL)}): ${s.descricao}`)
     .join('\n');
 
-  const perfis = empresa.perfis.map((perfil) => `- ${perfil}`).join('\n');
+  const perfis = empresa.perfis
+    .map((perfil) => `- ${rotuloDoPerfil(perfil)}: ${perfil}`)
+    .join('\n');
 
   const corpo = `# ${empresa.nome}
 
@@ -36,7 +39,7 @@ ${empresa.descricaoLonga}
 ## Páginas
 
 - [Home](${empresa.url}/): o que a empresa faz, os três serviços e as perguntas frequentes.
-- [Sobre](${empresa.url}/sobre/): quem está por trás, onde a empresa fica e como trabalha.
+- [Sobre](${empresa.url}/sobre/): onde a empresa fica, como trabalha e o que oferece.
 
 ## Serviços
 

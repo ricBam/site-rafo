@@ -120,15 +120,41 @@ function grafoHome() {
 // o vazamento que a regra evita. Essa parte depende de revisão humana.
 const PRECOS_DE_FUNDACAO = ['500', '750', '700', '900', '1.500', '3.000'];
 
-// Termos de nicho que nunca podem aparecer em lugar nenhum do HTML visivel ou
-// em atributo. Texto em atributo oculto é keyword stuffing, que o Google trata
-// como sinal de spam. Os nichos aparecem apenas em llms-full.txt como exemplos
-// de casos de uso, nunca na home ou em qualquer pagina visivel.
+/** "Salões de Beleza" vira "saloes de beleza". */
+function normalizar(texto) {
+  return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+// Radicais, ja normalizados. Nenhum pode aparecer no HTML construido de
+// nenhuma pagina, visivel ou dentro de atributo. Nicho so vive no
+// llms-full.txt, e la como exemplo, nunca como posicionamento.
+//
+// Esta lista precisa cobrir empresa.casosDeUso em src/data/empresa.ts. O
+// check 'todo caso de uso esta coberto pela lista de termos de nicho',
+// mais abaixo, falha alto se as duas divergirem, pra essa lista nao
+// ficar pra tras quando casosDeUso ganhar um nicho novo.
 const TERMOS_DE_NICHO = [
-  'Clínica', 'clínica', 'Clínicas', 'clínicas',
-  'barbearia', 'Barbearia',
-  'salão', 'Salão',
-  'consultório', 'Consultório',
+  'clinic', 'consultori', 'odontolog', 'estetic', 'fisioterap',
+  'veterinar', 'barbear', 'salao', 'saloes', 'escola', 'curso',
+];
+
+// Casamento por radical com fronteira de palavra so na borda esquerda
+// (\b antes do radical). Os radicais sao propositalmente incompletos
+// (plural, genero, conjugacao variam), entao so a borda esquerda pode
+// ser garantida. Isso evita falso positivo tipo "curso" dentro de
+// "percurso": entre o "r" e o "c" os dois lados sao caracteres de
+// palavra, entao \b nao marca fronteira ali e o radical nao casa.
+function nichoEncontradoEm(textoNormalizado) {
+  return TERMOS_DE_NICHO.find((termo) => new RegExp(`\\b${termo}`).test(textoNormalizado));
+}
+
+// Um item de empresa.casosDeUso nao e um nicho especifico: e o criterio
+// geral reescrito como item de lista ("o negocio depender de agenda e
+// ter o WhatsApp como canal principal"), nao um exemplo de tipo de
+// negocio. Nao tem radical de nicho para bater, de proposito, entao o
+// check de cobertura abaixo o isenta por nome em vez de falhar nele.
+const CASOS_DE_USO_SEM_NICHO_ESPECIFICO = [
+  'Prestadores de serviço que agendam atendimento por WhatsApp',
 ];
 
 check('o JSON-LD é um @graph parseável com @context correto', () => {
@@ -224,7 +250,7 @@ check('a imagem OG não está vazia', () => {
   assert(png.length > 5000, `arquivo suspeito de estar em branco: ${png.length} bytes`);
 });
 
-check('as logos continuam sendo geradas corretamente', () => {
+check('as logos commitadas continuam em 1200x1200', () => {
   const compacta = lerDistBinario('logo/rafo-compact.png');
   const { largura, altura } = tamanhoPng(compacta);
   assert(largura === 1200 && altura === 1200, `logo compacta com ${largura}x${altura}`);
@@ -359,13 +385,26 @@ check('llms-full.txt lista casos de uso sem posicionar a empresa por nicho', () 
     !/especializad|focada em|voltada para|atendemos apenas/i.test(txt),
     'linguagem de posicionamento por nicho detectada (especializad*, focada em, voltada para, atendemos apenas)'
   );
+});
 
-  // A home nao pode conter termo de nicho em lugar nenhum do HTML, nem
-  // visivel nem escondido em atributo. Termo de nicho em atributo oculto
-  // e keyword stuffing, que o Google trata como sinal de spam, e nao
-  // ranqueia nada.
-  for (const nicho of TERMOS_DE_NICHO) {
-    assert(!home.includes(nicho), `nicho vazou para o HTML da home: "${nicho}"`);
+check('todo caso de uso esta coberto pela lista de termos de nicho', () => {
+  const txt = lerDist('llms-full.txt');
+  const secao = txt.split('## Casos de uso')[1]?.split('\n## ')[0] ?? '';
+  const linhas = secao
+    .split('\n')
+    .map((linha) => linha.trim())
+    .filter((linha) => linha.startsWith('- '))
+    .filter((linha) => !CASOS_DE_USO_SEM_NICHO_ESPECIFICO.includes(linha.slice(2)));
+  assert(linhas.length > 0, 'nao encontrou nenhum item em ## Casos de uso');
+
+  for (const linha of linhas) {
+    const encontrado = nichoEncontradoEm(normalizar(linha));
+    assert(
+      encontrado,
+      `caso de uso sem radical correspondente em TERMOS_DE_NICHO: "${linha}". ` +
+        'Provavelmente um nicho novo foi adicionado a empresa.casosDeUso em ' +
+        'src/data/empresa.ts sem estender TERMOS_DE_NICHO em scripts/verify-seo.mjs.'
+    );
   }
 });
 
@@ -374,6 +413,19 @@ check('llms-full.txt não expõe preço de fundação', () => {
   for (const proibido of PRECOS_DE_FUNDACAO) {
     assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
   }
+});
+
+// ---------------------------------------------------------------
+// Task 6b: nicho vazando para o HTML da home
+// ---------------------------------------------------------------
+console.log('\nNicho no HTML da home');
+
+check('a home nao contem nenhum radical de nicho, visivel ou em atributo', () => {
+  // Termo de nicho em atributo oculto e keyword stuffing, que o Google
+  // trata como sinal de spam, e nao ranqueia nada. Normaliza o HTML
+  // inteiro uma vez e testa todos os radicais contra ele.
+  const encontrado = nichoEncontradoEm(normalizar(home));
+  assert(!encontrado, `nicho vazou para o HTML da home: radical "${encontrado}"`);
 });
 
 // ---------------------------------------------------------------
@@ -425,8 +477,21 @@ check('o canonical de /sobre e a URL do AboutPage sao identicos', () => {
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
   assert(sobre.includes('Resende'), 'sem a cidade base');
-  for (const nicho of TERMOS_DE_NICHO) {
-    assert(!sobre.includes(nicho), `nicho vazou para /sobre: "${nicho}"`);
+  const encontrado = nichoEncontradoEm(normalizar(sobre));
+  assert(!encontrado, `nicho vazou para /sobre: radical "${encontrado}"`);
+});
+
+check('nenhum preco de fundacao aparece no HTML de index.html ou sobre/index.html', () => {
+  const sobre = lerDist('sobre/index.html');
+  for (const proibido of PRECOS_DE_FUNDACAO) {
+    assert(
+      !home.includes(`R$ ${proibido}`),
+      `preco de fundacao exposto em index.html: R$ ${proibido}`
+    );
+    assert(
+      !sobre.includes(`R$ ${proibido}`),
+      `preco de fundacao exposto em sobre/index.html: R$ ${proibido}`
+    );
   }
 });
 
@@ -436,7 +501,7 @@ check('o rodapé traz localização, Instagram e link para /sobre', () => {
     home.includes('https://www.instagram.com/rafo.tech/'),
     'rodape sem link do Instagram'
   );
-  assert(/href="\/sobre"/.test(home), 'rodape sem link para /sobre');
+  assert(/href="\/sobre\/"/.test(home), 'rodape sem link para /sobre/');
 });
 
 check('/sobre está no sitemap', () => {
@@ -461,7 +526,12 @@ check('robots.txt continua bloqueando /propostas/', () => {
   );
 });
 
-check('robots.txt aponta o sitemap e os arquivos para IA', () => {
+// As referencias aos arquivos de IA em robots.txt sao comentarios "#", de
+// proposito, porque nao existe diretiva padrao de robots.txt para eles.
+// Um match de substring passa tanto para uma linha comentada quanto para
+// uma diretiva de verdade, entao esse e o teste honesto que da pra fazer
+// aqui: ele confirma que a referencia existe, nao que e uma diretiva.
+check('robots.txt aponta o sitemap e menciona os arquivos para IA', () => {
   const robots = lerDist('robots.txt');
   assert(robots.includes('Sitemap: https://rafolabs.tech/sitemap-index.xml'), 'sem sitemap');
   assert(robots.includes('/llms.txt'), 'sem referencia a llms.txt');

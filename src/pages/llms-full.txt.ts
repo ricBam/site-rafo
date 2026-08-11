@@ -10,6 +10,7 @@
 
 import type { APIRoute } from 'astro';
 import { empresa } from '../data/empresa';
+import { rotuloDoPerfil } from '../lib/perfis';
 
 export const prerender = true;
 
@@ -29,7 +30,9 @@ export const GET: APIRoute = () => {
     .map((f) => `### ${f.pergunta}\n\n${f.resposta}`)
     .join('\n\n');
 
-  const perfis = empresa.perfis.map((perfil) => `- ${perfil}`).join('\n');
+  const perfis = empresa.perfis
+    .map((perfil) => `- ${rotuloDoPerfil(perfil)}: ${perfil}`)
+    .join('\n');
 
   const corpo = `# ${empresa.nome}
 
