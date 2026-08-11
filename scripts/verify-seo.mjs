@@ -103,14 +103,22 @@ function no(grafo, tipo) {
   return encontrado;
 }
 
-const grafoHome = grafoDe(home);
+// Lazy e memoizado de proposito: se o JSON-LD estiver quebrado, o erro
+// precisa ser capturado pelo check() que chamou, virar uma linha FALHA e
+// deixar as verificacoes seguintes rodarem. Parseando no escopo do modulo,
+// um throw mataria o processo e abortaria todas as secoes abaixo desta.
+let _grafoHome = null;
+function grafoHome() {
+  if (_grafoHome === null) _grafoHome = grafoDe(home);
+  return _grafoHome;
+}
 
 check('o JSON-LD é um @graph parseável com @context correto', () => {
-  assert(grafoHome.length >= 3, `esperava ao menos 3 nos, encontrou ${grafoHome.length}`);
+  assert(grafoHome().length >= 3, `esperava ao menos 3 nos, encontrou ${grafoHome().length}`);
 });
 
 check('ProfessionalService tem telefone, endereço e sameAs', () => {
-  const negocio = no(grafoHome, 'ProfessionalService');
+  const negocio = no(grafoHome(), 'ProfessionalService');
   assert(negocio.name === 'R.A.F.O.', `name errado: ${negocio.name}`);
   assert(negocio.telephone === '+5524992695804', 'telephone ausente ou errado');
   assert(negocio.address?.addressLocality === 'Resende', 'addressLocality nao e Resende');
@@ -127,14 +135,14 @@ check('ProfessionalService tem telefone, endereço e sameAs', () => {
 });
 
 check('ProfessionalService declara área atendida local e nacional', () => {
-  const negocio = no(grafoHome, 'ProfessionalService');
+  const negocio = no(grafoHome(), 'ProfessionalService');
   const areas = JSON.stringify(negocio.areaServed ?? []);
   assert(areas.includes('Resende'), 'areaServed sem Resende');
   assert(areas.includes('Brasil'), 'areaServed sem Brasil');
 });
 
 check('o catálogo de ofertas traz os 3 serviços e o preço de R$ 97', () => {
-  const negocio = no(grafoHome, 'ProfessionalService');
+  const negocio = no(grafoHome(), 'ProfessionalService');
   const itens = negocio.hasOfferCatalog?.itemListElement ?? [];
   assert(itens.length === 3, `esperava 3 ofertas, encontrou ${itens.length}`);
   const google = itens.find((o) => o.itemOffered?.name === 'Presença no Google');
@@ -149,13 +157,13 @@ check('o catálogo de ofertas traz os 3 serviços e o preço de R$ 97', () => {
 });
 
 check('WebSite aponta para a entidade do negócio', () => {
-  const site = no(grafoHome, 'WebSite');
+  const site = no(grafoHome(), 'WebSite');
   assert(site.inLanguage === 'pt-BR', 'inLanguage ausente');
   assert(site.publisher?.['@id'], 'publisher sem @id');
 });
 
 check('FAQPage existe e bate exatamente com o FAQ visível', () => {
-  const faq = no(grafoHome, 'FAQPage');
+  const faq = no(grafoHome(), 'FAQPage');
   const perguntas = (faq.mainEntity ?? []).map((q) => q.name);
   assert(
     perguntas.length === PERGUNTAS_ESPERADAS.length,
