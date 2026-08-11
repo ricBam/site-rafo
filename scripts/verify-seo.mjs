@@ -584,6 +584,121 @@ check('nenhum link de servico na home esquece a barra final', () => {
   }
 });
 
+// ---------------------------------------------------------------
+// Fase 2, Task 2: verificacoes que valem para toda pagina construida
+// ---------------------------------------------------------------
+console.log('\nToda pagina construida');
+
+// Enumera o dist em vez de citar pagina por nome. Na Fase 1 as checagens
+// de nicho e de preco listavam index.html e sobre/index.html na mao, e
+// teriam ficado para tras assim que uma rota nova entrasse. Assim, toda
+// pagina criada daqui pra frente entra na cobertura sozinha.
+function paginasHtml() {
+  const encontradas = [];
+  const varrer = (dir, prefixo) => {
+    for (const entrada of readdirSync(dir, { withFileTypes: true })) {
+      const caminho = join(dir, entrada.name);
+      if (entrada.isDirectory()) {
+        varrer(caminho, `${prefixo}${entrada.name}/`);
+      } else if (entrada.name === 'index.html') {
+        encontradas.push({
+          rota: prefixo || '/',
+          caminho,
+          html: readFileSync(caminho, 'utf-8'),
+        });
+      }
+    }
+  };
+  varrer(dist, '/');
+  return encontradas;
+}
+
+function canonicalDe(html) {
+  const m = html.match(/<link rel="canonical" href="([^"]+)"/);
+  return m ? m[1] : null;
+}
+
+const PAGINAS = paginasHtml();
+
+check('o build gerou as paginas esperadas', () => {
+  assert(PAGINAS.length >= 2, `encontrou so ${PAGINAS.length} pagina(s) no dist`);
+  const rotas = PAGINAS.map((p) => p.rota).sort();
+  console.log(`         rotas construidas: ${rotas.join(' ')}`);
+});
+
+check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
+  for (const pagina of PAGINAS) {
+    const achado = nichoEncontradoEm(normalizar(pagina.html));
+    assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
+  }
+});
+
+check('nenhuma pagina expoe preco de fundacao', () => {
+  for (const pagina of PAGINAS) {
+    for (const valor of PRECOS_DE_FUNDACAO) {
+      assert(
+        !pagina.html.includes(`R$ ${valor}`),
+        `preco de fundacao R$ ${valor} exposto na pagina ${pagina.rota}`
+      );
+    }
+  }
+});
+
+check('toda pagina tem canonical, apontando para ela mesma', () => {
+  for (const pagina of PAGINAS) {
+    const canonical = canonicalDe(pagina.html);
+    assert(canonical, `pagina ${pagina.rota} sem canonical`);
+    const esperado = `https://rafolabs.tech${pagina.rota}`;
+    assert(
+      canonical === esperado,
+      `canonical de ${pagina.rota} aponta para "${canonical}", esperado "${esperado}"`
+    );
+  }
+});
+
+check('toda pagina tem title e description proprios e nao vazios', () => {
+  const titulos = new Map();
+  const descricoes = new Map();
+  for (const pagina of PAGINAS) {
+    const t = pagina.html.match(/<title>([^<]*)<\/title>/);
+    const d = pagina.html.match(/<meta name="description" content="([^"]*)"/);
+    assert(t && t[1].trim().length > 10, `title ausente ou curto em ${pagina.rota}`);
+    assert(d && d[1].trim().length > 50, `description ausente ou curta em ${pagina.rota}`);
+    assert(!titulos.has(t[1]), `title repetido entre ${titulos.get(t[1])} e ${pagina.rota}`);
+    assert(!descricoes.has(d[1]), `description repetida entre ${descricoes.get(d[1])} e ${pagina.rota}`);
+    titulos.set(t[1], pagina.rota);
+    descricoes.set(d[1], pagina.rota);
+  }
+});
+
+check('toda pagina esta no sitemap, e o sitemap nao lista pagina inexistente', () => {
+  const sitemap = lerDist('sitemap-0.xml');
+  const noSitemap = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).sort();
+  const construidas = PAGINAS.map((p) => `https://rafolabs.tech${p.rota}`).sort();
+  assert(
+    JSON.stringify(noSitemap) === JSON.stringify(construidas),
+    `sitemap e paginas construidas divergem.\n         sitemap:     ${noSitemap.join(' ')}\n         construidas: ${construidas.join(' ')}`
+  );
+});
+
+check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
+  for (const pagina of PAGINAS) {
+    const canonical = canonicalDe(pagina.html);
+    const grafo = grafoDe(pagina.html);
+    // So os nos que representam A PAGINA carregam url de pagina. Os nos
+    // de entidade (ProfessionalService, WebSite) apontam para a home de
+    // proposito e sao ignorados aqui.
+    for (const node of grafo) {
+      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service'].includes(node['@type'])) continue;
+      if (typeof node.url !== 'string') continue;
+      assert(
+        node.url === canonical,
+        `em ${pagina.rota}, o no ${node['@type']} diz url "${node.url}" mas o canonical e "${canonical}"`
+      );
+    }
+  }
+});
+
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
   process.exit(1);
