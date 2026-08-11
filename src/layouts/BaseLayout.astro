@@ -7,13 +7,15 @@ import '@fontsource/manrope/600.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '../styles/global.css';
 import ExitIntentModal from '../components/ExitIntentModal.astro';
+import JsonLd from '../components/JsonLd.astro';
 
 interface Props {
   title: string;
   description: string;
+  extraJsonLd?: Record<string, unknown>[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, extraJsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -37,14 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image:height" content="1200" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
-      name: 'R.A.F.O.',
-      description,
-      url: 'https://rafolabs.tech',
-      areaServed: 'BR',
-    })} />
+    <JsonLd extra={extraJsonLd} />
   </head>
   <body>
     <main>

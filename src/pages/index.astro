@@ -7,11 +7,12 @@ import Services from '../components/Services.astro';
 import HowAndWho from '../components/HowAndWho.astro';
 import Faq from '../components/Faq.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { faqNode } from '../lib/schema';
 
 const title = 'R.A.F.O.: Automação de atendimento e sites institucionais sob medida';
 const description = 'Cuidamos da sua presença online de ponta a ponta: Google Negócio, site institucional e automação de atendimento no WhatsApp, tudo sob medida pro seu negócio.';
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} extraJsonLd={[faqNode()]}>
   <Hero />
   <ChatMockup />
   <Services />

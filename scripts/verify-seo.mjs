@@ -82,6 +82,98 @@ check('as 4 respostas esperadas estão no HTML', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 2: JSON-LD
+// ---------------------------------------------------------------
+console.log('\nJSON-LD');
+
+function grafoDe(html) {
+  const bloco = html.match(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/
+  );
+  assert(bloco, 'nenhum bloco JSON-LD encontrado no HTML');
+  const parsed = JSON.parse(bloco[1]);
+  assert(parsed['@context'] === 'https://schema.org', '@context ausente ou errado');
+  assert(Array.isArray(parsed['@graph']), 'JSON-LD nao usa @graph');
+  return parsed['@graph'];
+}
+
+function no(grafo, tipo) {
+  const encontrado = grafo.find((n) => n['@type'] === tipo);
+  assert(encontrado, `JSON-LD sem no do tipo ${tipo}`);
+  return encontrado;
+}
+
+const grafoHome = grafoDe(home);
+
+check('o JSON-LD é um @graph parseável com @context correto', () => {
+  assert(grafoHome.length >= 3, `esperava ao menos 3 nos, encontrou ${grafoHome.length}`);
+});
+
+check('ProfessionalService tem telefone, endereço e sameAs', () => {
+  const negocio = no(grafoHome, 'ProfessionalService');
+  assert(negocio.name === 'R.A.F.O.', `name errado: ${negocio.name}`);
+  assert(negocio.telephone === '+5524992695804', 'telephone ausente ou errado');
+  assert(negocio.address?.addressLocality === 'Resende', 'addressLocality nao e Resende');
+  assert(negocio.address?.addressRegion === 'RJ', 'addressRegion nao e RJ');
+  assert(Array.isArray(negocio.sameAs) && negocio.sameAs.length > 0, 'sameAs vazio');
+  assert(
+    negocio.sameAs.includes('https://www.instagram.com/rafo.tech/'),
+    'sameAs sem o Instagram oficial'
+  );
+  assert(
+    !JSON.stringify(negocio.sameAs).includes('instagram.com/rafotech/'),
+    'sameAs contem @rafotech, que NAO e da empresa'
+  );
+});
+
+check('ProfessionalService declara área atendida local e nacional', () => {
+  const negocio = no(grafoHome, 'ProfessionalService');
+  const areas = JSON.stringify(negocio.areaServed ?? []);
+  assert(areas.includes('Resende'), 'areaServed sem Resende');
+  assert(areas.includes('Brasil'), 'areaServed sem Brasil');
+});
+
+check('o catálogo de ofertas traz os 3 serviços e o preço de R$ 97', () => {
+  const negocio = no(grafoHome, 'ProfessionalService');
+  const itens = negocio.hasOfferCatalog?.itemListElement ?? [];
+  assert(itens.length === 3, `esperava 3 ofertas, encontrou ${itens.length}`);
+  const google = itens.find((o) => o.itemOffered?.name === 'Presença no Google');
+  assert(google, 'oferta da Presença no Google ausente');
+  assert(google.price === 97, `preco errado: ${google.price}`);
+  assert(google.priceCurrency === 'BRL', 'priceCurrency nao e BRL');
+  const comPreco = itens.filter((o) => o.price !== undefined);
+  assert(
+    comPreco.length === 1,
+    `so a Presenca no Google pode ter preco publico, encontrou ${comPreco.length}`
+  );
+});
+
+check('WebSite aponta para a entidade do negócio', () => {
+  const site = no(grafoHome, 'WebSite');
+  assert(site.inLanguage === 'pt-BR', 'inLanguage ausente');
+  assert(site.publisher?.['@id'], 'publisher sem @id');
+});
+
+check('FAQPage existe e bate exatamente com o FAQ visível', () => {
+  const faq = no(grafoHome, 'FAQPage');
+  const perguntas = (faq.mainEntity ?? []).map((q) => q.name);
+  assert(
+    perguntas.length === PERGUNTAS_ESPERADAS.length,
+    `schema tem ${perguntas.length} perguntas, a pagina tem ${PERGUNTAS_ESPERADAS.length}`
+  );
+  for (const esperada of PERGUNTAS_ESPERADAS) {
+    assert(perguntas.includes(esperada), `FAQPage sem a pergunta visivel: "${esperada}"`);
+  }
+  for (const q of faq.mainEntity) {
+    assert(q.acceptedAnswer?.text, `pergunta sem resposta: "${q.name}"`);
+    assert(
+      home.includes(q.acceptedAnswer.text),
+      `resposta do schema nao aparece na pagina: "${q.acceptedAnswer.text}"`
+    );
+  }
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
