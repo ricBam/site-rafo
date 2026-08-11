@@ -406,6 +406,22 @@ check('/sobre tem canonical próprio e JSON-LD de AboutPage', () => {
   no(grafo, 'ProfessionalService');
 });
 
+check('o canonical de /sobre e a URL do AboutPage sao identicos', () => {
+  const sobre = lerDist('sobre/index.html');
+  const canonicalMatch = sobre.match(/<link rel="canonical" href="([^"]+)"/);
+  assert(canonicalMatch, 'nao encontrou canonical em /sobre');
+  const canonicalUrl = canonicalMatch[1];
+
+  const grafo = grafoDe(sobre);
+  const aboutPage = no(grafo, 'AboutPage');
+  const aboutPageUrl = aboutPage.url;
+
+  assert(
+    canonicalUrl === aboutPageUrl,
+    `canonical: "${canonicalUrl}", AboutPage.url: "${aboutPageUrl}"`
+  );
+});
+
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
   assert(sobre.includes('Resende'), 'sem a cidade base');
