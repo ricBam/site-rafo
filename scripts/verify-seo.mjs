@@ -56,6 +56,13 @@ const PERGUNTAS_ESPERADAS = [
   'Funciona pro meu tipo de negócio?',
 ];
 
+const RESPOSTAS_ESPERADAS = [
+  'Não, a automação entra no número que você já usa.',
+  'A qualquer momento ele pode pedir, e você assume a conversa.',
+  'Depende do seu fluxo hoje, mas o processo começa com uma conversa pra entender exatamente isso.',
+  'Se o seu contato com cliente é majoritariamente por WhatsApp e agenda, muito provavelmente sim.',
+];
+
 check('a home renderiza exatamente 4 itens de FAQ', () => {
   const itens = home.match(/class="faq-item/g) ?? [];
   assert(itens.length === 4, `esperava 4 itens, encontrou ${itens.length}`);
@@ -65,6 +72,13 @@ check('as 4 perguntas esperadas estão no HTML', () => {
   for (const pergunta of PERGUNTAS_ESPERADAS) {
     assert(home.includes(pergunta), `pergunta ausente do HTML: "${pergunta}"`);
   }
+});
+
+check('as 4 respostas esperadas estão no HTML', () => {
+  for (const resposta of RESPOSTAS_ESPERADAS) {
+    assert(home.includes(resposta), `resposta ausente do HTML: "${resposta}"`);
+  }
+  assert(!home.includes('undefined'), 'HTML contém a string "undefined" (propriedade stale no Faq.astro)');
 });
 
 // ---------------------------------------------------------------
