@@ -113,6 +113,13 @@ function grafoHome() {
   return _grafoHome;
 }
 
+// Lista de preços de fundação: valores que NUNCA devem aparecer publicamente.
+// Isso é uma lista de regressão, não um detector geral, pois só pega os valores
+// conhecidos. A regra de nunca citar o nome do agente comercial interno não é
+// verificável aqui, porque escrever esse nome neste repositório seria justamente
+// o vazamento que a regra evita. Essa parte depende de revisão humana.
+const PRECOS_DE_FUNDACAO = ['500', '750', '700', '900', '1.500', '3.000'];
+
 check('o JSON-LD é um @graph parseável com @context correto', () => {
   assert(grafoHome().length >= 3, `esperava ao menos 3 nos, encontrou ${grafoHome().length}`);
 });
@@ -284,14 +291,9 @@ check('llms.txt traz contato, localização e os 3 serviços', () => {
   assert(txt.includes('R$ 97'), 'sem o preco publico da Presenca no Google');
 });
 
-// Lista de regressao, nao detector geral: so pega os valores conhecidos
-// de preco de fundacao. A regra de nunca citar o nome do agente comercial
-// interno nao e verificavel aqui, porque escrever esse nome neste
-// repositorio seria justamente o vazamento que a regra evita. Essa parte
-// depende de revisao humana.
 check('llms.txt não expõe preço de fundação', () => {
   const txt = lerDist('llms.txt');
-  for (const proibido of ['500', '750', '700', '900', '1.500', '3.000']) {
+  for (const proibido of PRECOS_DE_FUNDACAO) {
     assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
   }
 });
@@ -333,18 +335,32 @@ check('o FAQ do llms-full.txt bate com o FAQ visível', () => {
 check('llms-full.txt lista casos de uso sem posicionar a empresa por nicho', () => {
   const txt = lerDist('llms-full.txt');
   assert(txt.includes('Clínicas'), 'sem exemplos de caso de uso');
+
+  // O enquadramento, e não apenas a presença da seção, é o que este check
+  // protege. A empresa não pode ser descrita como "especializada em" ou
+  // "focada em" nichos, mas apenas como tendo nichos como exemplos de negócios
+  // que se beneficiam do que ela faz.
+  assert(
+    txt.includes('A lista é de exemplos, não de restrição'),
+    'frase de enquadramento ausente: "A lista é de exemplos, não de restrição"'
+  );
+  assert(
+    !/especializad|focada em|voltada para|atendemos apenas/i.test(txt),
+    'linguagem de posicionamento por nicho detectada (especializad*, focada em, voltada para, atendemos apenas)'
+  );
+
   // A home nao pode conter termo de nicho em lugar nenhum do HTML, nem
   // visivel nem escondido em atributo. Termo de nicho em atributo oculto
   // e keyword stuffing, que o Google trata como sinal de spam, e nao
   // ranqueia nada.
-  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão', 'consultório']) {
+  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão', 'consultório', 'Consultório']) {
     assert(!home.includes(nicho), `nicho vazou para o HTML da home: "${nicho}"`);
   }
 });
 
 check('llms-full.txt não expõe preço de fundação', () => {
   const txt = lerDist('llms-full.txt');
-  for (const proibido of ['500', '750', '700', '900', '1.500', '3.000']) {
+  for (const proibido of PRECOS_DE_FUNDACAO) {
     assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
   }
 });

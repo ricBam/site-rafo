@@ -53,7 +53,7 @@ ${servicos}
 
 ## Onde atendemos
 
-${empresa.atendimento} Todo o trabalho é feito de forma remota, incluindo a conversa inicial, a construção e o acompanhamento.
+${empresa.atendimento} Isso vale para todas as etapas: conversa inicial, construção e acompanhamento.
 
 ## Como funciona o processo
 
