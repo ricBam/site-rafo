@@ -1023,6 +1023,21 @@ checkPorGuia('guia nao usa nicho como posicionamento da empresa', (guia) => {
   assert(!achado, `${guia.rota} usa linguagem de posicionamento por nicho: "${achado?.[0]}"`);
 });
 
+checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
+  // Alvo estreito de proposito: alegacao de RESULTADO com numero, que e a
+  // forma que estatistica fabricada assume. Um numero de mercado citado
+  // com fonte no texto e permitido pelo spec e nao pode cair aqui, entao
+  // um "%" solto nao dispara: so dispara colado a palavra de resultado.
+  const promessa =
+    /\d+\s*%\s*(de\s+)?(reducao|aumento|economia|conversao|a\s+mais|a\s+menos)|\d+\s*x\s+(mais|menos)|(aumenta|reduz|economiza|multiplica)\w*\s+(em\s+)?\d+/i;
+  const texto = normalizar(conteudoDaPagina(guia.html).replace(/<[^>]+>/g, ' '));
+  const achado = texto.match(promessa);
+  assert(
+    !achado,
+    `${guia.rota} traz "${achado?.[0]}", que e alegacao de resultado com numero. A empresa nao tem case, entao isso nao pode existir`
+  );
+});
+
 checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia) => {
     assert(guia.html.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
     const servicosRotas = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
