@@ -297,6 +297,59 @@ check('llms.txt não expõe preço de fundação', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 6: llms-full.txt
+// ---------------------------------------------------------------
+console.log('\nllms-full.txt');
+
+check('llms-full.txt existe, não é HTML e tem substância', () => {
+  const txt = lerDist('llms-full.txt');
+  assert(!/<html|<!doctype/i.test(txt), 'esta servindo HTML, nao texto');
+  assert(txt.length > 1500, `conteudo curto demais: ${txt.length} caracteres`);
+});
+
+check('llms-full.txt tem todas as seções previstas', () => {
+  const txt = lerDist('llms-full.txt');
+  for (const secao of [
+    '## Site oficial',
+    '## O que a R.A.F.O. faz',
+    '## Serviços',
+    '## Onde atendemos',
+    '## Como funciona o processo',
+    '## Casos de uso',
+    '## Perguntas frequentes',
+    '## Contato',
+  ]) {
+    assert(txt.includes(secao), `secao ausente: ${secao}`);
+  }
+});
+
+check('o FAQ do llms-full.txt bate com o FAQ visível', () => {
+  const txt = lerDist('llms-full.txt');
+  for (const pergunta of PERGUNTAS_ESPERADAS) {
+    assert(txt.includes(pergunta), `pergunta ausente: "${pergunta}"`);
+  }
+});
+
+check('llms-full.txt lista casos de uso sem posicionar a empresa por nicho', () => {
+  const txt = lerDist('llms-full.txt');
+  assert(txt.includes('Clínicas'), 'sem exemplos de caso de uso');
+  // A home nao pode conter termo de nicho em lugar nenhum do HTML, nem
+  // visivel nem escondido em atributo. Termo de nicho em atributo oculto
+  // e keyword stuffing, que o Google trata como sinal de spam, e nao
+  // ranqueia nada.
+  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão', 'consultório']) {
+    assert(!home.includes(nicho), `nicho vazou para o HTML da home: "${nicho}"`);
+  }
+});
+
+check('llms-full.txt não expõe preço de fundação', () => {
+  const txt = lerDist('llms-full.txt');
+  for (const proibido of ['500', '750', '700', '900', '1.500', '3.000']) {
+    assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
+  }
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
