@@ -162,6 +162,14 @@ function conteudoDaPagina(html) {
     .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>/gi, ' ');
 }
 
+// O indice /guias/ NAO e guia: ele e pagina institucional que so lista
+// titulos. Guia mesmo e /guias/<slug>/. A distincao importa porque as
+// excecoes de nicho e de preco valem so para o conteudo do guia, e o
+// indice sem guarda nenhuma foi um buraco real achado em review.
+function ehGuia(rota) {
+  return rota.startsWith('/guias/') && rota !== '/guias/';
+}
+
 // Um item de empresa.casosDeUso nao e um nicho especifico: e o criterio
 // geral reescrito como item de lista ("o negocio depender de agenda e
 // ter o WhatsApp como canal principal"), nao um exemplo de tipo de
@@ -595,21 +603,32 @@ function canonicalDe(html) {
 
 const PAGINAS = paginasHtml();
 
-const ROTAS_ESPERADAS = [
+// Rotas institucionais, que sao fixas e precisam existir sempre. Os guias
+// nao entram aqui de proposito: eles crescem, e uma lista fixa viraria
+// manutencao a cada guia novo, que e exatamente o tipo de coisa que fica
+// para tras. Guias tem suas proprias verificacoes mais abaixo.
+const ROTAS_FIXAS = [
   '/',
   '/agentes-whatsapp/',
   '/contato/',
+  '/guias/',
   '/presenca-no-google/',
   '/sites-institucionais/',
   '/sobre/',
 ];
 
-check('o build gerou exatamente as paginas esperadas', () => {
+check('o build gerou todas as paginas institucionais', () => {
   const rotas = PAGINAS.map((p) => p.rota).sort();
   console.log(`         rotas construidas: ${rotas.join(' ')}`);
+  const faltando = ROTAS_FIXAS.filter((r) => !rotas.includes(r));
   assert(
-    JSON.stringify(rotas) === JSON.stringify(ROTAS_ESPERADAS),
-    `rotas divergem do esperado.\n         esperado:    ${ROTAS_ESPERADAS.join(' ')}\n         construidas: ${rotas.join(' ')}`
+    faltando.length === 0,
+    `rotas institucionais ausentes: ${faltando.join(' ')}`
+  );
+  const inesperadas = rotas.filter((r) => !ROTAS_FIXAS.includes(r) && !r.startsWith('/guias/'));
+  assert(
+    inesperadas.length === 0,
+    `rotas inesperadas, que nao sao institucionais nem guia: ${inesperadas.join(' ')}`
   );
 });
 
@@ -629,8 +648,15 @@ check('toda pagina e alcancavel por link interno de outra pagina', () => {
   }
 });
 
-check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
+// Guia PODE citar nicho, e so ele. A regra real nunca foi "a palavra
+// clinica nao pode existir": era a empresa nao se posicionar por nicho.
+// Num guia, "uma clinica que recebe 40 mensagens por dia" e exemplo que
+// faz o texto valer, e proibir isso empobreceria o conteudo sem proteger
+// nada. O que substitui a guarda aqui e a checagem de linguagem de
+// posicionamento, logo abaixo na secao de guias, que roda so nos guias.
+check('nenhuma pagina institucional contem radical de nicho', () => {
   for (const pagina of PAGINAS) {
+    if (ehGuia(pagina.rota)) continue;
     const achado = nichoEncontradoEm(normalizar(conteudoDaPagina(pagina.html)));
     assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
   }
@@ -642,8 +668,15 @@ check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
 // que alguem lembrou de listar.
 const PRECOS_PUBLICOS_PERMITIDOS = ['97', '48,50'];
 
-check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
+// Mesmo split que o de nicho, e pela mesma razao. Em pagina
+// institucional, todo valor em reais e preco da empresa, entao lista de
+// permissao e a forma certa. Num guia, valor em reais quase sempre e
+// numero de mercado citado com fonte, que e justamente o que faz o guia
+// responder a pergunta do titulo. O que nao pode em lugar nenhum, guia
+// inclusive, e preco de fundacao nosso: isso continua valendo abaixo.
+check('nenhuma pagina institucional mostra valor em reais fora do preco publico', () => {
   for (const pagina of PAGINAS) {
+    if (ehGuia(pagina.rota)) continue;
     // Milhar com ponto e centavos com virgula de dois digitos. Escrito
     // assim para nao engolir a pontuacao da frase: "R$ 97, mas" daria o
     // valor "97," e "R$ 97." daria "97.".
@@ -654,6 +687,20 @@ check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
       assert(
         PRECOS_PUBLICOS_PERMITIDOS.includes(valor),
         `a pagina ${pagina.rota} mostra R$ ${valor}, que nao e preco publico aprovado`
+      );
+    }
+  }
+});
+
+// O par da excecao acima. Guia pode citar numero de mercado, mas o nosso
+// preco de fundacao nao pode aparecer em lugar nenhum, e sem esta
+// verificacao os guias ficariam sem guarda de preco alguma.
+check('nenhuma pagina expoe preco de fundacao nosso', () => {
+  for (const pagina of PAGINAS) {
+    for (const valor of PRECOS_DE_FUNDACAO) {
+      assert(
+        !conteudoDaPagina(pagina.html).includes(`R$ ${valor}`),
+        `preco de fundacao R$ ${valor} exposto na pagina ${pagina.rota}`
       );
     }
   }
@@ -709,7 +756,7 @@ check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
     // de entidade (ProfessionalService, WebSite) apontam para a home de
     // proposito e sao ignorados aqui.
     for (const node of grafo) {
-      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service'].includes(node['@type'])) continue;
+      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service', 'Article'].includes(node['@type'])) continue;
       if (typeof node.url !== 'string') continue;
       assert(
         node.url === canonical,
@@ -879,6 +926,198 @@ check('llms-full.txt aponta cada servico para a pagina dele', () => {
       `llms-full.txt nao aponta para ${rota}`
     );
   }
+});
+
+// ---------------------------------------------------------------
+// Fase 3A: guias
+// ---------------------------------------------------------------
+console.log('\nGuias');
+
+const GUIAS = PAGINAS.filter((p) => ehGuia(p.rota));
+
+check('existe ao menos um guia construido', () => {
+  assert(GUIAS.length > 0, 'nenhuma rota /guias/<slug>/ no dist');
+  console.log(`         guias construidos: ${GUIAS.map((g) => g.rota).join(' ')}`);
+});
+
+/**
+ * Como `check`, mas para verificacoes que percorrem os guias. Existe
+ * porque um laco sobre array vazio passa trivialmente: sem isso, com zero
+ * guias construidos, sete verificacoes reportariam `ok` sem ter olhado
+ * nada. Aqui a lista vazia e falha, nao sucesso.
+ */
+function checkPorGuia(nome, fn) {
+  check(nome, () => {
+    assert(GUIAS.length > 0, 'nenhum guia construido, entao esta verificacao nao olhou nada');
+    for (const guia of GUIAS) fn(guia);
+  });
+}
+
+checkPorGuia('todo guia responde a pergunta no primeiro paragrafo', (guia) => {
+    const m = guia.html.match(/<p class="guia-resposta"[^>]*>([\s\S]*?)<\/p>/);
+    assert(m, `${guia.rota} sem o paragrafo de resposta direta`);
+    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    assert(texto.length >= 200, `${guia.rota}: resposta direta com ${texto.length} caracteres, minimo 200`);
+});
+
+checkPorGuia('todo guia tem Article com datas coerentes e publisher', (guia) => {
+    const artigo = no(grafoDe(guia.html), 'Article');
+    assert(artigo.headline, `${guia.rota}: Article sem headline`);
+    assert(artigo.datePublished, `${guia.rota}: Article sem datePublished`);
+    assert(artigo.dateModified, `${guia.rota}: Article sem dateModified`);
+    assert(artigo.publisher?.['@id'], `${guia.rota}: Article sem publisher apontando para a entidade`);
+    assert(artigo.author?.['@id'], `${guia.rota}: Article sem author`);
+    // Atualizado antes de publicado e incoerente, e o Google trata data
+    // de artigo como sinal. E o tipo de erro que um copiar e colar de
+    // frontmatter produz sem ninguem notar.
+    assert(
+      artigo.dateModified >= artigo.datePublished,
+      `${guia.rota}: dateModified (${artigo.dateModified}) e anterior a datePublished (${artigo.datePublished})`
+    );
+});
+
+// O spec da Fase 3 fixa de 800 a 1500 palavras por guia. Abaixo disso o
+// texto nao responde de verdade e nao compete; acima, costuma ser enchimento.
+checkPorGuia('todo guia tem entre 800 e 1500 palavras de corpo', (guia) => {
+    const corpo = guia.html.match(/<div class="guia-corpo"[^>]*>([\s\S]*?)<\/div>/);
+    assert(corpo, `${guia.rota} sem o corpo do guia`);
+    const palavras = corpo[1]
+      .replace(/<[^>]+>/g, ' ')
+      .split(/\s+/)
+      .filter((p) => p.length > 1).length;
+    assert(
+      palavras >= 800 && palavras <= 1500,
+      `${guia.rota} tem ${palavras} palavras de corpo, fora da faixa de 800 a 1500`
+    );
+});
+
+checkPorGuia('todo guia tem FAQPage batendo com o FAQ visivel', (guia) => {
+    const faq = no(grafoDe(guia.html), 'FAQPage');
+    assert(faq.mainEntity.length >= 3, `${guia.rota} tem so ${faq.mainEntity.length} perguntas`);
+    for (const q of faq.mainEntity) {
+      assert(guia.html.includes(q.name), `${guia.rota}: pergunta do schema ausente da pagina: "${q.name}"`);
+      assert(
+        guia.html.includes(q.acceptedAnswer.text),
+        `${guia.rota}: resposta do schema ausente da pagina`
+      );
+    }
+});
+
+checkPorGuia('todo guia tem BreadcrumbList de tres niveis, na ordem certa', (guia) => {
+    const trilha = no(grafoDe(guia.html), 'BreadcrumbList');
+    const itens = trilha.itemListElement;
+    assert(itens.length === 3, `${guia.rota}: trilha com ${itens.length} niveis, esperado 3`);
+    assert(itens[0].item === 'https://rafolabs.tech/', 'primeiro nivel nao e a home');
+    assert(itens[1].item === 'https://rafolabs.tech/guias/', 'segundo nivel nao e o indice de guias');
+    assert(itens[2].item === `https://rafolabs.tech${guia.rota}`, 'terceiro nivel nao e o proprio guia');
+    for (let i = 0; i < itens.length; i += 1) {
+      assert(itens[i].position === i + 1, `posicao errada no nivel ${i + 1}`);
+    }
+});
+
+checkPorGuia('todo guia tem bloco de resumo citavel', (guia) => {
+    const m = guia.html.match(/<ul class="guia-resumo"[\s\S]*?<\/ul>/);
+    assert(m, `${guia.rota} sem o bloco de resumo`);
+    const itens = (m[0].match(/<li/g) ?? []).length;
+    assert(itens >= 3, `${guia.rota}: resumo com ${itens} itens, minimo 3`);
+});
+
+// Este e o par da excecao aberta acima: guia pode citar nicho como
+// exemplo, o resto do site nao pode citar de jeito nenhum, e nem o guia
+// pode usar nicho como POSICIONAMENTO. A diferenca e entre ilustrar
+// ("uma clinica que recebe 40 mensagens") e posicionar ("somos
+// especializados em clinicas").
+//
+// Esta lista casa larga de proposito, entao pode acusar um uso legitimo,
+// como "profissional especializado" num contexto que nao e sobre a
+// empresa. Se isso acontecer, a saida e reescrever a frase do guia, nao
+// enfraquecer a lista: falso positivo aqui e barulhento e barato, falso
+// negativo publica posicionamento por nicho sem ninguem ver.
+check('o indice de guias lista todo guia construido', () => {
+  const indice = PAGINAS.find((p) => p.rota === '/guias/');
+  assert(indice, 'a rota /guias/ nao foi construida');
+  assert(GUIAS.length > 0, 'nenhum guia construido, entao esta verificacao nao olhou nada');
+  for (const guia of GUIAS) {
+    assert(
+      indice.html.includes(`href="${guia.rota}"`),
+      `o indice nao lista ${guia.rota}, entao o guia so e alcancavel pelo sitemap`
+    );
+  }
+});
+
+checkPorGuia('guia nao usa nicho como posicionamento da empresa', (guia) => {
+  const texto = normalizar(conteudoDaPagina(guia.html).replace(/<[^>]+>/g, ' '));
+
+  // Duas formas de detectar, porque uma lista de palavras soltas erra
+  // dos dois lados. "especializad" sozinho acusa "blogs especializados",
+  // que nao posiciona nada, e ao mesmo tempo deixa passar "atendemos
+  // clinicas", que posiciona.
+  //
+  // Forma 1, proximidade: palavra de posicionamento perto de um radical
+  // de nicho. E o padrao real de "somos especializados em clinicas".
+  const posicionadoras = ['especializad', 'focad', 'voltad', 'dedicad', 'feito para', 'ideal para'];
+  for (const palavra of posicionadoras) {
+    for (const nicho of TERMOS_DE_NICHO) {
+      const perto = new RegExp(`${palavra}[^.]{0,60}\\b${nicho}|\\b${nicho}[^.]{0,60}${palavra}`);
+      const achado = texto.match(perto);
+      assert(
+        !achado,
+        `${guia.rota} posiciona por nicho: "${achado?.[0]?.slice(0, 80)}"`
+      );
+    }
+  }
+
+  // Forma 2, primeira pessoa: a empresa dizendo que atende um nicho.
+  // Nao precisa de proximidade porque a construcao ja e o posicionamento.
+  for (const nicho of TERMOS_DE_NICHO) {
+    const primeiraPessoa = new RegExp(
+      `(atendemos|trabalhamos com|somos a agencia de|nosso foco (e|sao))\\s+\\w{0,12}\\s?\\b${nicho}`
+    );
+    const achado = texto.match(primeiraPessoa);
+    assert(
+      !achado,
+      `${guia.rota} posiciona por nicho em primeira pessoa: "${achado?.[0]?.slice(0, 80)}"`
+    );
+  }
+});
+
+checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
+  // Alvo estreito de proposito: alegacao de RESULTADO com numero, que e a
+  // forma que estatistica fabricada assume. Um numero de mercado citado
+  // com fonte no texto e permitido pelo spec e nao pode cair aqui, entao
+  // um "%" solto nao dispara: so dispara colado a palavra de resultado.
+  // Tres direcoes, porque em portugues a alegacao de resultado aparece
+  // nas tres e cobrir so uma e teatro. A primeira versao desta guarda
+  // pegava "reduz em 40" e deixava passar "reducao de 40%", que e a forma
+  // mais comum das duas.
+  const promessa = new RegExp(
+    [
+      // numero primeiro: "40% a mais de conversao", "3x mais rapido"
+      '\\d+\\s*%\\s*(de\\s+|d[oe]s?\\s+)?(reducao|aumento|economia|conversao|a\\s+mais|a\\s+menos|dos?\\s)',
+      '\\d+\\s*(x|vezes)\\s+(mais|menos)',
+      // substantivo primeiro: "reducao de 40%", "aumento de 25% nas vendas"
+      '(reducao|aumento|economia|queda|ganho|crescimento)\\s+de\\s+\\d+',
+      // verbo primeiro, com objeto no meio: "reduz o custo em 40%"
+      '(aumenta|reduz|economiza|multiplica|triplica|dobra)\\w*\\s+([\\w\\s]{0,25}\\s)?(em\\s+)?\\d+',
+    ].join('|'),
+    'i'
+  );
+  const texto = normalizar(conteudoDaPagina(guia.html).replace(/<[^>]+>/g, ' '));
+  const achado = texto.match(promessa);
+  assert(
+    !achado,
+    `${guia.rota} traz "${achado?.[0]}", que e alegacao de resultado com numero. A empresa nao tem case, entao isso nao pode existir`
+  );
+});
+
+checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia) => {
+    assert(guia.html.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
+    const servicosRotas = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+    const linkados = servicosRotas.filter((s) => guia.html.includes(`href="${s}"`));
+    assert(
+      linkados.length > 0,
+      `${guia.rota} nao linka para nenhuma pagina de servico, o guia nao leva a lugar nenhum`
+    );
 });
 
 if (falhas > 0) {

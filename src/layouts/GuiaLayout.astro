@@ -1,0 +1,145 @@
+---
+// src/layouts/GuiaLayout.astro
+//
+// Renderiza um guia e monta o JSON-LD dele a partir do mesmo frontmatter
+// que gera o texto visível, mantendo a regra das fases anteriores: o
+// schema nunca é uma segunda cópia do conteúdo.
+import BaseLayout from './BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import FaqList from '../components/FaqList.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { artigoNode, trilhaNode, faqNodeDe } from '../lib/schema';
+import { servicos } from '../data/servicos';
+import { empresa } from '../data/empresa';
+
+interface Props {
+  guia: {
+    titulo: string;
+    descricao: string;
+    resposta: string;
+    publicadoEm: Date;
+    atualizadoEm: Date;
+    servicoRelacionado: string | null;
+    resumo: string[];
+    faq: { pergunta: string; resposta: string }[];
+  };
+}
+
+const { guia } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const servico = guia.servicoRelacionado
+  ? servicos.find((s) => s.slug === guia.servicoRelacionado)
+  : undefined;
+
+const dataLegivel = guia.atualizadoEm.toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+---
+<BaseLayout
+  title={guia.titulo}
+  description={guia.descricao}
+  ogType="article"
+  extraJsonLd={[
+    artigoNode(guia, canonical),
+    faqNodeDe(guia.faq),
+    trilhaNode([
+      { nome: 'Início', url: `${empresa.url}/` },
+      { nome: 'Guias', url: `${empresa.url}/guias/` },
+      { nome: guia.titulo, url: canonical },
+    ]),
+  ]}
+>
+  <article class="section">
+    <div class="container guia">
+      <p class="guia-trilha" data-reveal>
+        <a href="/">Início</a> <span aria-hidden="true">/</span> <a href="/guias/">Guias</a>
+      </p>
+
+      <h1 class="section-title" data-reveal>{guia.titulo}</h1>
+      <p class="guia-data" data-reveal>Atualizado em {dataLegivel}</p>
+
+      <p class="guia-resposta" data-reveal>{guia.resposta}</p>
+
+      <div class="guia-corpo" data-reveal>
+        <slot />
+      </div>
+
+      <h2 data-reveal>Em resumo</h2>
+      <ul class="guia-resumo" data-reveal>
+        {guia.resumo.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2 data-reveal>Perguntas frequentes</h2>
+      <FaqList faq={guia.faq} />
+
+      {servico && (
+        <div class="guia-servico" data-reveal>
+          <h2>Como a R.A.F.O. resolve isso</h2>
+          <p>
+            <a href={`/${servico.slug}/`}>{servico.nome}</a>: {servico.descricao}
+          </p>
+          <WhatsAppButton label="Falar sobre isso no WhatsApp" />
+        </div>
+      )}
+
+      <p class="guia-voltar" data-reveal><a href="/guias/">Ver todos os guias</a></p>
+    </div>
+  </article>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .guia { max-width: 720px; }
+  .guia-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
+  .guia-trilha a { color: inherit; }
+  .guia-data { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.75rem; }
+  /* Diferenciado por tipografia, não por decoração: corpo maior e
+     opacidade cheia contra o 0.85 do resto. É como o site já resolve
+     hierarquia, e evita introduzir um ornamento que não existe em
+     lugar nenhum da identidade. */
+  .guia-resposta {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    opacity: 1;
+    margin-bottom: 2.5rem;
+  }
+  .guia-corpo :global(h2),
+  .guia h2 {
+    font-family: var(--font-heading);
+    color: var(--color-accent-secondary);
+    font-size: 1.35rem;
+    margin: 2.5rem 0 0.85rem;
+  }
+  .guia-corpo :global(h3) {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin: 1.75rem 0 0.6rem;
+  }
+  .guia-corpo :global(p),
+  .guia p { opacity: 0.85; line-height: 1.75; margin-bottom: 1.1rem; }
+  .guia-corpo :global(ul),
+  .guia-corpo :global(ol),
+  .guia ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.75; }
+  .guia-corpo :global(li),
+  .guia li { margin-bottom: 0.6rem; }
+  .guia-corpo :global(a) { color: var(--color-accent-secondary); }
+  .guia-corpo :global(strong) { color: var(--color-text); opacity: 1; }
+  .guia-resumo {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.5rem 2.6rem;
+  }
+  .guia-servico {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .guia-servico a { color: var(--color-accent-secondary); }
+  .guia-voltar { margin-top: 2.5rem; }
+  .guia-voltar a { color: var(--color-accent-secondary); }
+</style>

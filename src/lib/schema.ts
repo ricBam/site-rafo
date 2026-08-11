@@ -118,6 +118,48 @@ export function faqNode(): Record<string, unknown> {
   return faqNodeDe(empresa.faq);
 }
 
+/**
+ * Um guia como artigo publicado pela empresa. O autor é a própria
+ * entidade, e não uma pessoa, porque o nome público do fundador ainda
+ * não foi definido (ver `empresa.fundador`). Quando for, vale trocar
+ * aqui: autor pessoa fortalece E-E-A-T mais que autor organização.
+ */
+export function artigoNode(
+  dados: {
+    titulo: string;
+    descricao: string;
+    publicadoEm: Date;
+    atualizadoEm: Date;
+  },
+  canonical: string
+): Record<string, unknown> {
+  return {
+    '@type': 'Article',
+    headline: dados.titulo,
+    description: dados.descricao,
+    url: canonical,
+    mainEntityOfPage: canonical,
+    datePublished: dados.publicadoEm.toISOString().slice(0, 10),
+    dateModified: dados.atualizadoEm.toISOString().slice(0, 10),
+    author: { '@id': ID_NEGOCIO },
+    publisher: { '@id': ID_NEGOCIO },
+    inLanguage: 'pt-BR',
+  };
+}
+
+/** Trilha de navegação. Só vale a pena a partir do terceiro nível. */
+export function trilhaNode(itens: { nome: string; url: string }[]): Record<string, unknown> {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: itens.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.nome,
+      item: item.url,
+    })),
+  };
+}
+
 /** FAQPage a partir de um FAQ qualquer, para as páginas que têm o seu. */
 export function faqNodeDe(faq: PerguntaFrequente[]): Record<string, unknown> {
   return {

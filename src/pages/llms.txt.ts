@@ -9,6 +9,7 @@
 // do que o site diz nas outras superfícies.
 
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { empresa } from '../data/empresa';
 import { rotuloDoPerfil } from '../lib/perfis';
 
@@ -21,7 +22,15 @@ function precoDe(precoBRL: number | null): string {
   return precoBRL === null ? 'sob orçamento' : `R$ ${precoBRL}`;
 }
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const guias = (await getCollection('guias')).sort(
+    (a, b) => b.data.publicadoEm.getTime() - a.data.publicadoEm.getTime()
+  );
+
+  const listaDeGuias = guias
+    .map((g) => `- [${g.data.titulo}](${empresa.url}/guias/${g.id}/): ${g.data.pergunta}`)
+    .join('\n');
+
   // Nome, preço, descrição e link do serviço numa linha só. Antes a lista
   // de páginas e a de serviços repetiam os três serviços inteiros, o que
   // gasta o contexto de quem lê sem acrescentar nada.
@@ -53,6 +62,13 @@ Cada serviço tem página própria, listada na seção abaixo.
 ## Serviços
 
 ${servicos}
+
+## Guias
+
+Textos que respondem, no primeiro parágrafo, as perguntas mais comuns antes de contratar.
+
+- [Índice](${empresa.url}/guias/)
+${listaDeGuias}
 
 ## Onde atendemos
 

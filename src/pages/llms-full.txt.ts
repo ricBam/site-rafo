@@ -9,12 +9,32 @@
 // para saber citar a empresa quando a pergunta do usuário for de nicho.
 
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { empresa } from '../data/empresa';
 import { rotuloDoPerfil } from '../lib/perfis';
 
 export const prerender = true;
 
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const guias = (await getCollection('guias')).sort(
+    (a, b) => b.data.publicadoEm.getTime() - a.data.publicadoEm.getTime()
+  );
+
+  // A resposta curta entra aqui de proposito: e o trecho que um
+  // assistente consegue citar sem precisar buscar a pagina inteira.
+  const listaDeGuias = guias
+    .map(
+      (g) =>
+        `### ${g.data.titulo}
+
+${g.data.pergunta}
+
+Resposta curta: ${g.data.resposta}
+
+Guia completo: ${empresa.url}/guias/${g.id}/`
+    )
+    .join('\n\n');
+
   const servicos = empresa.servicos
     .map(
       (s) =>
@@ -70,6 +90,10 @@ ${empresa.atendimento} Isso vale para todas as etapas: conversa inicial, constru
 Tipos de negócio que se beneficiam do que a ${empresa.nome} faz. A lista é de exemplos, não de restrição: o critério real é o negócio depender de agenda e ter o WhatsApp como canal principal com o cliente.
 
 ${casos}
+
+## Guias
+
+${listaDeGuias}
 
 ## Perguntas frequentes
 

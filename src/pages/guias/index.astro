@@ -1,0 +1,63 @@
+---
+// src/pages/guias/index.astro
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const guias = (await getCollection('guias')).sort(
+  (a, b) => b.data.publicadoEm.getTime() - a.data.publicadoEm.getTime()
+);
+
+const title = 'Guias da R.A.F.O. sobre WhatsApp, sites e Google';
+const description =
+  'Guias diretos sobre automação de atendimento no WhatsApp, sites institucionais e perfil no Google, escritos para responder a pergunta no primeiro parágrafo.';
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container guias-indice">
+      <p class="guias-trilha" data-reveal><a href="/">Início</a></p>
+      <h1 class="section-title" data-reveal>Guias</h1>
+      <p data-reveal>
+        Textos diretos sobre as perguntas que mais aparecem antes de alguém
+        decidir automatizar o atendimento, fazer um site ou arrumar o perfil no
+        Google. Cada um responde a pergunta no primeiro parágrafo.
+      </p>
+
+      <ul class="guias-lista" data-reveal>
+        {guias.map((guia) => (
+          <li>
+            <a href={`/guias/${guia.id}/`}>{guia.data.titulo}</a>
+            <p>{guia.data.descricao}</p>
+          </li>
+        ))}
+      </ul>
+
+      <p class="guias-voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .guias-indice { max-width: 720px; }
+  .guias-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
+  .guias-trilha a { color: inherit; }
+  .guias-indice > p { opacity: 0.85; line-height: 1.7; margin-bottom: 2rem; }
+  .guias-lista { list-style: none; padding-left: 0; }
+  .guias-lista li {
+    border-top: 1px solid var(--color-border);
+    padding: 1.4rem 0;
+  }
+  .guias-lista a {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--color-accent-secondary);
+    text-decoration: none;
+  }
+  .guias-lista a:hover { text-decoration: underline; }
+  .guias-lista p { opacity: 0.8; line-height: 1.7; margin-top: 0.5rem; }
+  .guias-voltar { margin-top: 2.5rem; }
+  .guias-voltar a { color: var(--color-accent-secondary); }
+</style>
