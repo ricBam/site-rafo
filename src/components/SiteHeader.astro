@@ -1,0 +1,348 @@
+---
+// src/components/SiteHeader.astro
+//
+// Ate aqui o site nao tinha cabecalho. Quem chegava de busca num guia ou
+// numa pagina de servico so tinha o rodape para navegar, e as tres
+// paginas de servico so recebiam link da home. Um cabecalho em todas as
+// paginas resolve as duas coisas de uma vez: orientacao para quem le e
+// link interno para as paginas que vendem.
+//
+// Sem JS o menu continua funcionando: os dois desdobraveis sao <details>
+// nativos. O JS acrescenta so o que e enfeite (sombra ao rolar) e o que
+// e conveniencia (fechar com Esc ou clique fora).
+import Logo from './Logo.astro';
+import { servicos } from '../data/servicos';
+
+// A pagina atual vem da URL, nao de uma prop, para nao existir a chance
+// de uma pagina declarar errado quem ela e.
+const atual = Astro.url.pathname;
+const ehAtual = (href: string) => atual === href;
+const emServicos = servicos.some((s) => ehAtual(`/${s.slug}/`));
+
+const links = [
+  { href: '/guias/', rotulo: 'Guias' },
+  { href: '/sobre/', rotulo: 'Sobre' },
+  { href: '/contato/', rotulo: 'Contato' },
+];
+---
+
+<header class="cabecalho" data-cabecalho>
+  <div class="container cabecalho-inner">
+    <a class="marca" href="/" aria-label="R.A.F.O., ir para a página inicial">
+      <Logo />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Principal">
+      <details class="nav-drop" data-drop>
+        <summary class="nav-link" aria-current={emServicos ? 'true' : undefined}>
+          Serviços
+          <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <!-- Só os nomes. A primeira versão trazia a chamada inteira de
+             cada serviço e o painel passava de 400px de altura, tapando
+             metade da dobra. Menu aponta caminho; quem explica é a
+             página de destino. -->
+        <div class="nav-painel">
+          {servicos.map((s) => (
+            <a href={`/${s.slug}/`} aria-current={ehAtual(`/${s.slug}/`) ? 'page' : undefined}>
+              <strong>{s.nome}</strong>
+              <span class="seta" aria-hidden="true">&rarr;</span>
+            </a>
+          ))}
+        </div>
+      </details>
+
+      {links.map((l) => (
+        <a class="nav-link" href={l.href} aria-current={ehAtual(l.href) ? 'page' : undefined}>
+          {l.rotulo}
+        </a>
+      ))}
+    </nav>
+
+    <a class="cabecalho-cta" href="https://wa.me/5524992695804" target="_blank" rel="noopener noreferrer">
+      <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm0 18c-1.62 0-3.14-.44-4.45-1.2l-.32-.19-3.01.79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8Zm4.4-5.6c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" fill="currentColor"/>
+      </svg>
+      <span>Falar no WhatsApp</span>
+    </a>
+
+    <details class="menu-mobile" data-drop>
+      <summary aria-label="Abrir o menu">
+        <span class="hamburguer" aria-hidden="true"><i></i><i></i></span>
+      </summary>
+      <div class="menu-mobile-painel">
+        <nav aria-label="Principal, versão móvel">
+          <p class="menu-mobile-grupo">Serviços</p>
+          {servicos.map((s) => (
+            <a href={`/${s.slug}/`} aria-current={ehAtual(`/${s.slug}/`) ? 'page' : undefined}>
+              {s.nome}
+            </a>
+          ))}
+          <p class="menu-mobile-grupo">A empresa</p>
+          {links.map((l) => (
+            <a href={l.href} aria-current={ehAtual(l.href) ? 'page' : undefined}>{l.rotulo}</a>
+          ))}
+        </nav>
+        <a class="menu-mobile-cta" href="https://wa.me/5524992695804" target="_blank" rel="noopener noreferrer">
+          Falar no WhatsApp
+        </a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  // Sombra e fundo do cabecalho so depois que a pagina sai do topo.
+  const cabecalho = document.querySelector('[data-cabecalho]');
+  if (cabecalho) {
+    const marcarRolagem = () => cabecalho.classList.toggle('rolou', window.scrollY > 8);
+    marcarRolagem();
+    window.addEventListener('scroll', marcarRolagem, { passive: true });
+  }
+
+  // Conveniencias dos desdobraveis. O abrir e fechar em si e nativo do
+  // <details>, entao nada disso e requisito para o menu funcionar.
+  const desdobraveis = [...document.querySelectorAll<HTMLDetailsElement>('[data-drop]')];
+
+  const fecharTodos = (menos?: HTMLDetailsElement) => {
+    for (const d of desdobraveis) if (d !== menos) d.open = false;
+  };
+
+  for (const d of desdobraveis) {
+    d.addEventListener('toggle', () => {
+      if (d.open) fecharTodos(d);
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    const alvo = e.target as Node;
+    if (!desdobraveis.some((d) => d.contains(alvo))) fecharTodos();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const aberto = desdobraveis.find((d) => d.open);
+    if (!aberto) return;
+    aberto.open = false;
+    aberto.querySelector('summary')?.focus();
+  });
+</script>
+
+<style>
+  .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background-color var(--dur) var(--ease-saida),
+                border-color var(--dur) var(--ease-saida),
+                backdrop-filter var(--dur) var(--ease-saida);
+  }
+  .cabecalho.rolou {
+    background-color: color-mix(in srgb, var(--color-bg) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.3);
+    border-bottom-color: var(--color-border);
+  }
+
+  .cabecalho-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    width: 100%;
+  }
+
+  .marca {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: opacity var(--dur) var(--ease-saida);
+  }
+  .marca:hover { opacity: 0.75; }
+
+  /* Nav no centro, marca a esquerda, acao a direita. */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin: 0 auto;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--raio-s);
+    white-space: nowrap;
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--dur-rapida) var(--ease-saida),
+                background-color var(--dur-rapida) var(--ease-saida);
+  }
+  .nav-link::-webkit-details-marker { display: none; }
+  .nav-link:hover {
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+  }
+  /* A pagina em que o visitante esta fica marcada, e a marca e a mesma
+     que o leitor de tela ja anuncia por aria-current. */
+  .nav-link[aria-current] { color: var(--color-accent-secondary); }
+
+  .nav-chevron { transition: transform var(--dur) var(--ease-saida); }
+  .nav-drop[open] .nav-chevron { transform: rotate(180deg); }
+
+  .nav-drop { position: relative; }
+
+  .nav-painel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    translate: -50% 0;
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.4rem;
+    background-color: var(--color-surface-alta);
+    border: 1px solid var(--color-border);
+    border-radius: var(--raio);
+    box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.75);
+    animation: painel-abrir var(--dur) var(--ease-saida) both;
+  }
+  .nav-painel a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding: 0.65rem 0.8rem;
+    border-radius: var(--raio-s);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--dur-rapida) var(--ease-saida);
+  }
+  .nav-painel a:hover { background-color: var(--color-bg); }
+  .nav-painel strong {
+    font-family: var(--font-heading);
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .nav-painel a[aria-current] strong { color: var(--color-accent-secondary); }
+  .nav-painel .seta { color: var(--color-muted); }
+
+  @keyframes painel-abrir {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .cabecalho-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--color-ink);
+    text-decoration: none;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--color-border-forte);
+    border-radius: 999px;
+    transition: border-color var(--dur) var(--ease-saida),
+                color var(--dur) var(--ease-saida),
+                background-color var(--dur) var(--ease-saida);
+  }
+  .cabecalho-cta svg { color: var(--color-whatsapp); }
+  .cabecalho-cta:hover {
+    border-color: var(--color-whatsapp);
+    background-color: color-mix(in srgb, var(--color-whatsapp) 12%, transparent);
+  }
+
+  /* ---- Movel ---- */
+
+  .menu-mobile { display: none; position: relative; margin-left: auto; }
+  .menu-mobile > summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid var(--color-border-forte);
+    border-radius: var(--raio-s);
+  }
+  .menu-mobile > summary::-webkit-details-marker { display: none; }
+  .hamburguer {
+    display: grid;
+    gap: 5px;
+    width: 1.1rem;
+  }
+  .hamburguer i {
+    display: block;
+    height: 1.5px;
+    background-color: var(--color-ink);
+    transition: transform var(--dur) var(--ease-saida);
+  }
+  .menu-mobile[open] .hamburguer i:first-child { transform: translateY(3.25px) rotate(45deg); }
+  .menu-mobile[open] .hamburguer i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+  .menu-mobile-painel {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    right: 0;
+    width: min(20rem, calc(100vw - 2rem));
+    padding: var(--space-s);
+    background-color: var(--color-surface-alta);
+    border: 1px solid var(--color-border);
+    border-radius: var(--raio);
+    box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.8);
+    animation: painel-abrir var(--dur) var(--ease-saida) both;
+  }
+  .menu-mobile-painel nav { display: grid; }
+  .menu-mobile-grupo {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin: var(--space-xs) 0 var(--space-3xs);
+  }
+  .menu-mobile-grupo:first-child { margin-top: 0; }
+  .menu-mobile-painel nav a {
+    padding: 0.55rem 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .menu-mobile-painel nav a[aria-current] { color: var(--color-accent-secondary); }
+  .menu-mobile-cta {
+    display: block;
+    text-align: center;
+    margin-top: var(--space-s);
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background-color: var(--color-whatsapp);
+    color: #04240f;
+    font-weight: 700;
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop, .cabecalho-cta { display: none; }
+    .menu-mobile { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-painel, .menu-mobile-painel { animation: none; }
+    .nav-chevron, .hamburguer i { transition: none; }
+  }
+</style>

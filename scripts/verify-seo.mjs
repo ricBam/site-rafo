@@ -162,6 +162,36 @@ function conteudoDaPagina(html) {
     .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>/gi, ' ');
 }
 
+// Ganchos de verificacao: atributo, nunca classe de estilo.
+//
+// Antes estas verificacoes casavam em `class="servico-resposta"` e
+// `class="guia-corpo"`. Isso amarrava o harness ao CSS: renomear uma
+// classe por motivo visual derrubava o build, e acrescentar uma segunda
+// classe ao mesmo elemento derrubava tambem, porque a regex exigia a
+// aspa logo depois do nome. Atributo `data-*` nao tem funcao de estilo,
+// entao nada em CSS tem motivo para mexer nele.
+
+/** Texto do paragrafo marcado com data-resposta, ou null se nao existir. */
+function respostaDiretaDe(html) {
+  const m = html.match(/<p[^>]*\sdata-resposta[^>]*>([\s\S]*?)<\/p>/);
+  return m ? m[1].replace(/<[^>]+>/g, '').trim() : null;
+}
+
+/** Bloco marcado com o atributo dado, do inicio da tag ao fechamento. */
+function blocoPorAtributo(html, atributo, tag) {
+  const re = new RegExp(`<${tag}[^>]*\\s${atributo}[^>]*>([\\s\\S]*?)</${tag}>`);
+  const m = html.match(re);
+  return m ? m[1] : null;
+}
+
+// O cabecalho aparece em todas as paginas e linka para todas as paginas,
+// inclusive para a que o visitante esta lendo, que e o comportamento
+// certo de um menu. Verificacao de link do CONTEUDO precisa entao olhar
+// a pagina sem o cabecalho, senao acusa como defeito o menu funcionando.
+function semCabecalho(html) {
+  return html.replace(/<header[\s\S]*?<\/header>/i, ' ');
+}
+
 // O indice /guias/ NAO e guia: ele e pagina institucional que so lista
 // titulos. Guia mesmo e /guias/<slug>/. A distincao importa porque as
 // excecoes de nicho e de preco valem so para o conteudo do guia, e o
@@ -829,9 +859,8 @@ check('toda pagina de servico tem FAQPage batendo com o FAQ visivel', () => {
 check('toda pagina de servico responde a pergunta no primeiro paragrafo', () => {
   for (const rota of ROTAS_DE_SERVICO) {
     const pagina = paginaDaRota(rota);
-    const m = pagina.html.match(/<p class="servico-resposta"[^>]*>([\s\S]*?)<\/p>/);
-    assert(m, `${rota} sem o paragrafo de resposta direta`);
-    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    const texto = respostaDiretaDe(pagina.html);
+    assert(texto !== null, `${rota} sem o paragrafo de resposta direta`);
     assert(texto.length > 120, `${rota}: resposta direta curta demais (${texto.length} caracteres)`);
   }
 });
@@ -839,8 +868,12 @@ check('toda pagina de servico responde a pergunta no primeiro paragrafo', () => 
 check('toda pagina de servico linka de volta para a home e tem CTA de WhatsApp', () => {
   for (const rota of ROTAS_DE_SERVICO) {
     const pagina = paginaDaRota(rota);
-    assert(pagina.html.includes('href="/"'), `${rota} nao linka de volta para a home`);
-    assert(pagina.html.includes(empresaWhatsapp), `${rota} nao tem CTA de WhatsApp`);
+    // Sem o cabecalho: o logo do menu linka para a home em toda pagina,
+    // entao contar com ele faria esta verificacao passar para sempre sem
+    // olhar nada. O que se quer garantir e a trilha dentro do conteudo.
+    const corpo = semCabecalho(pagina.html);
+    assert(corpo.includes('href="/"'), `${rota} nao linka de volta para a home fora do cabecalho`);
+    assert(corpo.includes(empresaWhatsapp), `${rota} nao tem CTA de WhatsApp no conteudo`);
   }
 });
 
@@ -854,10 +887,13 @@ check('cada pagina de servico linka para as outras duas, e nunca para si mesma',
         `${rota} nao linka para ${outra}, o link cruzado entre servicos esta faltando`
       );
     }
-    // Auto link e sintoma de o filtro do layout estar errado, e gasta
-    // credibilidade com o visitante que clica e nao sai do lugar.
-    const autoLinks = pagina.html.split(`href="${rota}"`).length - 1;
-    assert(autoLinks === 0, `${rota} linka para ela mesma ${autoLinks} vez(es)`);
+    // Auto link NO CONTEUDO e sintoma de o filtro do layout estar
+    // errado, e gasta credibilidade com o visitante que clica e nao sai
+    // do lugar. No cabecalho e o oposto: o menu tem que listar a pagina
+    // atual, e a checagem logo abaixo cobra que ela venha marcada.
+    const corpo = semCabecalho(pagina.html);
+    const autoLinks = corpo.split(`href="${rota}"`).length - 1;
+    assert(autoLinks === 0, `${rota} linka para ela mesma ${autoLinks} vez(es) fora do cabecalho`);
   }
 });
 
@@ -954,9 +990,8 @@ function checkPorGuia(nome, fn) {
 }
 
 checkPorGuia('todo guia responde a pergunta no primeiro paragrafo', (guia) => {
-    const m = guia.html.match(/<p class="guia-resposta"[^>]*>([\s\S]*?)<\/p>/);
-    assert(m, `${guia.rota} sem o paragrafo de resposta direta`);
-    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    const texto = respostaDiretaDe(guia.html);
+    assert(texto !== null, `${guia.rota} sem o paragrafo de resposta direta`);
     assert(texto.length >= 200, `${guia.rota}: resposta direta com ${texto.length} caracteres, minimo 200`);
 });
 
@@ -979,9 +1014,9 @@ checkPorGuia('todo guia tem Article com datas coerentes e publisher', (guia) => 
 // O spec da Fase 3 fixa de 800 a 1500 palavras por guia. Abaixo disso o
 // texto nao responde de verdade e nao compete; acima, costuma ser enchimento.
 checkPorGuia('todo guia tem entre 800 e 1500 palavras de corpo', (guia) => {
-    const corpo = guia.html.match(/<div class="guia-corpo"[^>]*>([\s\S]*?)<\/div>/);
+    const corpo = blocoPorAtributo(guia.html, 'data-corpo', 'div');
     assert(corpo, `${guia.rota} sem o corpo do guia`);
-    const palavras = corpo[1]
+    const palavras = corpo
       .replace(/<[^>]+>/g, ' ')
       .split(/\s+/)
       .filter((p) => p.length > 1).length;
@@ -1016,9 +1051,9 @@ checkPorGuia('todo guia tem BreadcrumbList de tres niveis, na ordem certa', (gui
 });
 
 checkPorGuia('todo guia tem bloco de resumo citavel', (guia) => {
-    const m = guia.html.match(/<ul class="guia-resumo"[\s\S]*?<\/ul>/);
-    assert(m, `${guia.rota} sem o bloco de resumo`);
-    const itens = (m[0].match(/<li/g) ?? []).length;
+    const resumo = blocoPorAtributo(guia.html, 'data-resumo', 'ul');
+    assert(resumo, `${guia.rota} sem o bloco de resumo`);
+    const itens = (resumo.match(/<li/g) ?? []).length;
     assert(itens >= 3, `${guia.rota}: resumo com ${itens} itens, minimo 3`);
 });
 
@@ -1111,13 +1146,136 @@ checkPorGuia('guia nao inventa estatistica de resultado', (guia) => {
 });
 
 checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia) => {
-    assert(guia.html.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
+    // Sem o cabecalho de novo: ele linka para tudo em toda pagina, entao
+    // deixa-lo aqui faria esta verificacao passar mesmo com um guia que
+    // nao leva a lugar nenhum, que e exatamente o que ela existe para
+    // impedir.
+    const corpo = semCabecalho(guia.html);
+    assert(corpo.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
     const servicosRotas = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
-    const linkados = servicosRotas.filter((s) => guia.html.includes(`href="${s}"`));
+    const linkados = servicosRotas.filter((s) => corpo.includes(`href="${s}"`));
     assert(
       linkados.length > 0,
       `${guia.rota} nao linka para nenhuma pagina de servico, o guia nao leva a lugar nenhum`
     );
+});
+
+// ---------------------------------------------------------------
+// Navegacao e acessibilidade
+// ---------------------------------------------------------------
+console.log('\nNavegacao e acessibilidade');
+
+// Rotas que o menu precisa oferecer em qualquer pagina. A home fica de
+// fora porque quem a alcanca e o logo, nao um item de lista.
+const ROTAS_DO_MENU = [
+  '/presenca-no-google/',
+  '/agentes-whatsapp/',
+  '/sites-institucionais/',
+  '/guias/',
+  '/sobre/',
+  '/contato/',
+];
+
+check('toda pagina tem cabecalho com o menu completo', () => {
+  for (const pagina of PAGINAS) {
+    const m = pagina.html.match(/<header[\s\S]*?<\/header>/i);
+    assert(m, `${pagina.rota} nao tem cabecalho`);
+    const cabecalho = m[0];
+    assert(cabecalho.includes('href="/"'), `${pagina.rota}: cabecalho sem link para a home`);
+    for (const rota of ROTAS_DO_MENU) {
+      assert(
+        cabecalho.includes(`href="${rota}"`),
+        `${pagina.rota}: cabecalho nao oferece ${rota}`
+      );
+    }
+  }
+});
+
+// aria-current e o que diz a um leitor de tela onde a pessoa esta. Sem
+// isso o menu vira seis links iguais e a orientacao se perde justamente
+// para quem mais depende dela.
+check('o cabecalho marca a pagina atual com aria-current', () => {
+  const visitadas = PAGINAS.filter((p) => ROTAS_DO_MENU.includes(p.rota));
+  assert(
+    visitadas.length === ROTAS_DO_MENU.length,
+    `esperava ${ROTAS_DO_MENU.length} paginas de menu construidas, achei ${visitadas.length}`
+  );
+  for (const pagina of visitadas) {
+    const cabecalho = pagina.html.match(/<header[\s\S]*?<\/header>/i)[0];
+    // Casa a tag <a> inteira que aponta para a rota, e cobra a marca
+    // dentro dela. Procurar aria-current solto no cabecalho passaria com
+    // a marca na tag errada.
+    const tags = [...cabecalho.matchAll(new RegExp(`<a[^>]*href="${pagina.rota}"[^>]*>`, 'g'))];
+    assert(tags.length > 0, `${pagina.rota}: o cabecalho nao linka para a propria pagina`);
+    const marcadas = tags.filter((t) => t[0].includes('aria-current="page"'));
+    assert(
+      marcadas.length === tags.length,
+      `${pagina.rota}: ${tags.length - marcadas.length} de ${tags.length} link(s) do menu para a propria pagina sem aria-current="page"`
+    );
+  }
+});
+
+check('toda pagina tem link de pular para o conteudo', () => {
+  for (const pagina of PAGINAS) {
+    assert(
+      /class="pular-para-conteudo"[^>]*href="#conteudo"/.test(pagina.html),
+      `${pagina.rota} sem link de pular para o conteudo`
+    );
+    assert(pagina.html.includes('id="conteudo"'), `${pagina.rota} sem o alvo id="conteudo"`);
+  }
+});
+
+// Esta e a verificacao mais importante desta secao, e nasceu de um
+// defeito real: o padrao do [data-reveal] era opacity 0 e a classe que
+// devolvia a visibilidade vinha do JS. Quem chegasse sem JS, e qualquer
+// rastreador que nao execute script, recebia a pagina em branco.
+//
+// A regra virou: esconder conteudo so dentro do escopo
+// .sem-scroll-timeline, que so existe quando o proprio JS ja confirmou
+// que consegue revelar de volta.
+//
+// Frases que ESTA guarda tem que reprovar:
+//   [data-reveal]{opacity:0}
+//   [data-reveal]{opacity:0;transform:translateY(18px)}
+//   @media (min-width:900px){[data-reveal]{opacity:0}}
+// Frases que ela tem que deixar passar:
+//   .sem-scroll-timeline [data-reveal]{opacity:0;transform:translateY(18px)}
+//   [data-reveal]{animation:reveal-subir linear both}
+//   @keyframes reveal-subir{from{opacity:0;transform:translateY(18px)}}
+//   @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1}}
+//   [data-reveal]{opacity:0.9}
+function escondeRevealSemEscopo(css) {
+  // Separar por chave de fechamento isola cada bloco com o seletor que o
+  // abriu. Nao e um parser de CSS, e nao precisa ser: so precisa nunca
+  // juntar o seletor de um bloco com as declaracoes de outro.
+  const culpados = [];
+  for (const bloco of css.split('}')) {
+    if (!bloco.includes('[data-reveal]')) continue;
+    // opacity:0 mas nao opacity:0.9 nem opacity:0.5
+    if (!/opacity\s*:\s*0(?![.\d])/.test(bloco)) continue;
+    if (bloco.includes('sem-scroll-timeline')) continue;
+    culpados.push(bloco.trim().slice(0, 120));
+  }
+  return culpados;
+}
+
+check('nenhum conteudo depende de JS para ficar visivel', () => {
+  const dirAstro = join(dist, '_astro');
+  assert(existsSync(dirAstro), 'dist/_astro nao existe, entao esta verificacao nao olhou nada');
+  const folhas = readdirSync(dirAstro).filter((f) => f.endsWith('.css'));
+  assert(folhas.length > 0, 'nenhum CSS construido, entao esta verificacao nao olhou nada');
+
+  let viuReveal = false;
+  for (const folha of folhas) {
+    const css = readFileSync(join(dirAstro, folha), 'utf-8');
+    if (css.includes('[data-reveal]')) viuReveal = true;
+    const culpados = escondeRevealSemEscopo(css);
+    assert(
+      culpados.length === 0,
+      `${folha} esconde [data-reveal] fora do escopo .sem-scroll-timeline: ${culpados.join(' | ')}`
+    );
+  }
+  assert(viuReveal, 'nenhum CSS construido menciona [data-reveal], o seletor mudou de nome?');
 });
 
 if (falhas > 0) {

@@ -27,32 +27,55 @@ const contactPage = {
 ---
 <BaseLayout title={title} description={description} extraJsonLd={[contactPage]}>
   <section class="section">
-    <div class="container contato">
-      <p class="contato-trilha" data-reveal><a href="/">Início</a></p>
-      <h1 class="section-title" data-reveal>Falar com a gente</h1>
+    <div class="container">
+      <div class="page-head">
+        <p class="trilha"><a href="/">Início</a> <span aria-hidden="true">/</span> Contato</p>
+        <h1>Falar com a gente</h1>
+      </div>
 
-      <p data-reveal>
-        O caminho mais rápido é o WhatsApp. A primeira conversa é um diagnóstico
-        gratuito, sem compromisso: a gente entende como seu atendimento funciona
-        hoje e onde dá pra melhorar, e você decide se quer seguir.
-      </p>
+      <div class="resposta" data-reveal>
+        <span class="resposta-rotulo">resposta direta</span>
+        <p class="resposta-texto">
+          O caminho mais rápido é o WhatsApp. A primeira conversa é um diagnóstico
+          gratuito, sem compromisso: a gente entende como seu atendimento funciona
+          hoje e onde dá pra melhorar, e você decide se quer seguir.
+        </p>
+      </div>
 
       <div class="contato-cta" data-reveal>
         <WhatsAppButton label="Quero meu diagnóstico gratuito" />
       </div>
 
-      <h2 data-reveal>Canais</h2>
-      <ul data-reveal>
-        <li>WhatsApp: <a href={empresa.whatsapp} rel="noopener" target="_blank">{empresa.telefone}</a></li>
-        {empresa.perfis.map((perfil) => (
-          <li>{rotuloDoPerfil(perfil)}: <a href={perfil} rel="me noopener" target="_blank">{perfil}</a></li>
-        ))}
-      </ul>
+      <section class="contato-bloco" data-reveal>
+        <h2>Canais</h2>
+        <ul class="canais">
+          <li>
+            <a href={empresa.whatsapp} rel="noopener" target="_blank">
+              <span class="canal-nome">WhatsApp</span>
+              <span class="canal-valor">{empresa.telefone} <span class="seta" aria-hidden="true">&rarr;</span></span>
+            </a>
+          </li>
+          {empresa.perfis.map((perfil) => (
+            <li>
+              <a href={perfil} rel="me noopener" target="_blank">
+                <span class="canal-nome">{rotuloDoPerfil(perfil)}</span>
+                <span class="canal-valor">{perfil} <span class="seta" aria-hidden="true">&rarr;</span></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <h2 data-reveal>Onde ficamos</h2>
-      <p data-reveal>{empresa.atendimento}</p>
+      <section class="contato-bloco" data-reveal>
+        <h2>Onde ficamos</h2>
+        <p class="contato-local">{empresa.atendimento}</p>
+      </section>
 
-      <p class="contato-voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
+      <p class="contato-voltar" data-reveal>
+        <a class="btn-fantasma" href="/">
+          <span class="seta" aria-hidden="true">&larr;</span> Voltar para a página inicial
+        </a>
+      </p>
     </div>
   </section>
 
@@ -60,19 +83,37 @@ const contactPage = {
 </BaseLayout>
 
 <style>
-  .contato { max-width: 720px; }
-  .contato-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
-  .contato-trilha a { color: inherit; }
-  .contato p { opacity: 0.85; line-height: 1.7; margin-bottom: 1.1rem; }
-  .contato h2 {
-    font-family: var(--font-heading);
-    color: var(--color-accent-secondary);
-    font-size: 1.35rem;
-    margin: 2.25rem 0 0.85rem;
+  .contato-cta { margin-bottom: var(--space-xl); }
+
+  .contato-bloco { margin-top: var(--space-xl); max-width: var(--wrap-texto); }
+  .contato-bloco h2 { font-size: var(--step-2); margin-bottom: var(--space-m); }
+
+  .canais { list-style: none; padding: 0; display: grid; gap: 0; }
+  .canais a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-xs);
+    padding: var(--space-s) 0;
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: border-color var(--dur) var(--ease-saida);
   }
-  .contato ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
-  .contato li { margin-bottom: 0.6rem; }
-  .contato a { color: var(--color-accent-secondary); }
-  .contato-cta { margin: 1.75rem 0 0.5rem; }
-  .contato-voltar { margin-top: 2.5rem; }
+  .canais li:last-child a { border-bottom: 1px solid var(--color-border); }
+  .canais a:hover { border-top-color: var(--color-accent-secondary); }
+  .canal-nome {
+    font-family: var(--font-heading);
+    font-size: var(--step-0);
+    color: var(--color-ink);
+  }
+  .canal-valor {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--color-accent-secondary);
+    overflow-wrap: anywhere;
+  }
+
+  .contato-local { line-height: 1.7; }
+  .contato-voltar { margin-top: var(--space-xl); }
 </style>
