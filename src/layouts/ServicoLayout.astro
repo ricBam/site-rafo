@@ -5,6 +5,11 @@
 // catálogo em src/data/servicos.ts, e monta o JSON-LD dela a partir do
 // mesmo objeto. Como o texto visível e o schema saem da mesma fonte, não
 // existe como divergirem, que é violação de diretriz do Google.
+//
+// A estrutura tem duas colunas a partir de 900px. A coluna estreita é
+// fixa enquanto se rola e carrega as duas coisas que decidem a venda:
+// o preço e o botão. Antes as duas ficavam soterradas no meio do texto,
+// e quem chegava pela busca tinha que ler a página inteira para achar.
 import BaseLayout from './BaseLayout.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
@@ -23,6 +28,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 // pela busca numa página só e não sabe que existem as outras duas, e dá ao
 // buscador um caminho entre elas que não passa obrigatoriamente pela home.
 const outros = servicos.filter((s) => s.slug !== servico.slug);
+
+const precoTexto =
+  servico.precoBRL === null ? servico.precoNota : `R$ ${servico.precoBRL}. ${servico.precoNota}`;
 ---
 <BaseLayout
   title={servico.tituloPagina}
@@ -30,44 +38,74 @@ const outros = servicos.filter((s) => s.slug !== servico.slug);
   extraJsonLd={[servicoNode(servico, canonical), faqNodeDe(servico.faq)]}
 >
   <section class="section">
-    <div class="container servico">
-      <p class="servico-trilha" data-reveal><a href="/">Início</a></p>
-      <h1 class="section-title" data-reveal>{servico.nome}</h1>
-
-      <p class="servico-resposta" data-reveal>{servico.resposta}</p>
-
-      <h2 data-reveal>O que está incluso</h2>
-      <ul data-reveal>
-        {servico.incluso.map((item) => <li>{item}</li>)}
-      </ul>
-
-      <h2 data-reveal>Como funciona</h2>
-      <ol data-reveal>
-        {servico.comoFunciona.map((passo) => <li>{passo}</li>)}
-      </ol>
-
-      <h2 data-reveal>Quanto custa</h2>
-      <p data-reveal>
-        {servico.precoBRL === null
-          ? servico.precoNota
-          : `R$ ${servico.precoBRL}. ${servico.precoNota}`}
-      </p>
-
-      <div class="servico-cta" data-reveal>
-        <WhatsAppButton label="Falar sobre isso no WhatsApp" />
+    <div class="container">
+      <div class="page-head">
+        <p class="trilha">
+          <a href="/">Início</a> <span aria-hidden="true">/</span> {servico.nome}
+        </p>
+        <h1>{servico.nome}</h1>
       </div>
 
-      <h2 data-reveal>Perguntas frequentes</h2>
-      <FaqList faq={servico.faq} />
+      <div class="servico-grade">
+        <div class="servico-corpo">
+          <!-- data-resposta e o gancho que a verificacao usa. Fica num
+               atributo, e nao na classe de estilo, para o visual poder
+               mudar sem quebrar a verificacao, e para a verificacao
+               continuar valendo se a classe for renomeada. -->
+          <div class="resposta" data-reveal>
+            <span class="resposta-rotulo">resposta direta</span>
+            <p class="resposta-texto" data-resposta>{servico.resposta}</p>
+          </div>
 
-      <h2 data-reveal>Também fazemos</h2>
-      <ul class="servico-outros" data-reveal>
-        {outros.map((outro) => (
-          <li><a href={`/${outro.slug}/`}>{outro.nome}</a>: {outro.descricao}</li>
-        ))}
-      </ul>
+          <section class="bloco" data-reveal>
+            <h2>O que está incluso</h2>
+            <ul class="lista-marcada">
+              {servico.incluso.map((item) => <li><span>{item}</span></li>)}
+            </ul>
+          </section>
 
-      <p class="servico-voltar" data-reveal><a href="/">Ver tudo que a R.A.F.O. faz</a></p>
+          <section class="bloco" data-reveal>
+            <h2>Como funciona</h2>
+            <ol class="passos">
+              {servico.comoFunciona.map((passo) => <li><span>{passo}</span></li>)}
+            </ol>
+          </section>
+
+          <section class="bloco" data-reveal>
+            <h2>Quanto custa</h2>
+            <p class="prose">{precoTexto}</p>
+            <div class="cta-movel"><WhatsAppButton label="Falar sobre isso" /></div>
+          </section>
+
+          <section class="bloco" data-reveal>
+            <h2>Perguntas frequentes</h2>
+            <FaqList faq={servico.faq} />
+          </section>
+
+          <section class="bloco" data-reveal>
+            <h2>Também fazemos</h2>
+            <div class="outros">
+              {outros.map((outro) => (
+                <a href={`/${outro.slug}/`}>
+                  <strong>{outro.nome} <span class="seta" aria-hidden="true">&rarr;</span></strong>
+                  <span>{outro.descricao}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <aside class="servico-lado" aria-label="Preço e contato">
+          <div class="cartao-preco">
+            <p class="cartao-rotulo">Investimento</p>
+            <p class="cartao-valor">
+              {servico.precoBRL === null ? 'Sob orçamento' : `R$ ${servico.precoBRL}`}
+            </p>
+            <WhatsAppButton label="Falar sobre isso" />
+            <p class="cartao-rodape">Diagnóstico gratuito, sem compromisso.</p>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -75,28 +113,81 @@ const outros = servicos.filter((s) => s.slug !== servico.slug);
 </BaseLayout>
 
 <style>
-  .servico { max-width: 760px; }
-  .servico-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
-  .servico-trilha a { color: inherit; }
-  .servico-resposta {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    opacity: 0.95;
-    margin-bottom: 2rem;
+  .servico-grade {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: start;
   }
-  .servico h2 {
+  @media (min-width: 900px) {
+    .servico-grade { grid-template-columns: minmax(0, 1fr) 19rem; }
+  }
+
+  .servico-corpo { min-width: 0; }
+  .bloco + .bloco { margin-top: var(--space-xl); }
+  .bloco h2 {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-m);
+  }
+
+  .outros {
+    display: grid;
+    gap: var(--space-xs);
+    max-width: var(--wrap-texto);
+  }
+  .outros a {
+    display: grid;
+    gap: 0.2rem;
+    padding: var(--space-s) 0;
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: border-color var(--dur) var(--ease-saida);
+  }
+  .outros a:hover { border-top-color: var(--color-accent-secondary); }
+  .outros strong {
     font-family: var(--font-heading);
+    font-size: var(--step-0);
     color: var(--color-accent-secondary);
-    font-size: 1.35rem;
-    margin: 2.25rem 0 0.85rem;
   }
-  .servico p { opacity: 0.85; line-height: 1.7; }
-  .servico ul,
-  .servico ol { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
-  .servico li { margin-bottom: 0.6rem; }
-  .servico-cta { margin: 2.25rem 0; }
-  .servico-outros { list-style: none; padding-left: 0; }
-  .servico-outros a { color: var(--color-accent-secondary); }
-  .servico-voltar { margin-top: 2.5rem; }
-  .servico-voltar a { color: var(--color-accent-secondary); }
+  .outros span { color: var(--color-text); line-height: 1.6; }
+
+  /* Um botão de preço por viewport, nunca dois. No desktop o cartão fixo
+     acompanha a leitura e o botão do corpo some; no celular não existe
+     cartão fixo, então o botão do corpo é o que fica. */
+  .servico-lado { display: none; min-width: 0; }
+  .cta-movel { margin-top: var(--space-m); }
+
+  @media (min-width: 900px) {
+    .servico-lado {
+      display: block;
+      position: sticky;
+      top: calc(var(--header-h) + var(--space-m));
+    }
+    .cta-movel { display: none; }
+  }
+
+  .cartao-preco {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--raio);
+    padding: var(--space-m);
+    text-align: center;
+  }
+  .cartao-rotulo {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+  }
+  .cartao-valor {
+    font-family: var(--font-heading);
+    font-size: var(--step-3);
+    letter-spacing: -0.03em;
+    color: var(--color-ink);
+    margin: var(--space-3xs) 0 var(--space-2xs);
+  }
+  .cartao-rodape {
+    font-size: var(--step--2);
+    color: var(--color-muted);
+    margin-top: var(--space-s);
+  }
 </style>

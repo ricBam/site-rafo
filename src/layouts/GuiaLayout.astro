@@ -37,6 +37,7 @@ const dataLegivel = guia.atualizadoEm.toLocaleDateString('pt-BR', {
   month: 'long',
   year: 'numeric',
 });
+const dataMaquina = guia.atualizadoEm.toISOString().slice(0, 10);
 ---
 <BaseLayout
   title={guia.titulo}
@@ -54,38 +55,53 @@ const dataLegivel = guia.atualizadoEm.toLocaleDateString('pt-BR', {
 >
   <article class="section">
     <div class="container guia">
-      <p class="guia-trilha" data-reveal>
-        <a href="/">Início</a> <span aria-hidden="true">/</span> <a href="/guias/">Guias</a>
-      </p>
+      <div class="page-head">
+        <p class="trilha">
+          <a href="/">Início</a> <span aria-hidden="true">/</span> <a href="/guias/">Guias</a>
+        </p>
+        <h1>{guia.titulo}</h1>
+        <p class="page-meta">
+          Atualizado em <time datetime={dataMaquina}>{dataLegivel}</time>
+          <span aria-hidden="true"> · </span>{empresa.nome}
+        </p>
+      </div>
 
-      <h1 class="section-title" data-reveal>{guia.titulo}</h1>
-      <p class="guia-data" data-reveal>Atualizado em {dataLegivel}</p>
+      <div class="resposta" data-reveal>
+        <span class="resposta-rotulo">resposta direta</span>
+        <p class="resposta-texto" data-resposta>{guia.resposta}</p>
+      </div>
 
-      <p class="guia-resposta" data-reveal>{guia.resposta}</p>
-
-      <div class="guia-corpo" data-reveal>
+      <div class="guia-corpo prose" data-corpo data-reveal>
         <slot />
       </div>
 
-      <h2 data-reveal>Em resumo</h2>
-      <ul class="guia-resumo" data-reveal>
-        {guia.resumo.map((item) => <li>{item}</li>)}
-      </ul>
+      <section class="guia-bloco" data-reveal>
+        <h2>Em resumo</h2>
+        <ul class="guia-resumo lista-marcada" data-resumo>
+          {guia.resumo.map((item) => <li><span>{item}</span></li>)}
+        </ul>
+      </section>
 
-      <h2 data-reveal>Perguntas frequentes</h2>
-      <FaqList faq={guia.faq} />
+      <section class="guia-bloco" data-reveal>
+        <h2>Perguntas frequentes</h2>
+        <FaqList faq={guia.faq} />
+      </section>
 
       {servico && (
-        <div class="guia-servico" data-reveal>
-          <h2>Como a R.A.F.O. resolve isso</h2>
+        <section class="guia-servico" data-reveal>
+          <h2>Como a {empresa.nome} resolve isso</h2>
           <p>
             <a href={`/${servico.slug}/`}>{servico.nome}</a>: {servico.descricao}
           </p>
           <WhatsAppButton label="Falar sobre isso no WhatsApp" />
-        </div>
+        </section>
       )}
 
-      <p class="guia-voltar" data-reveal><a href="/guias/">Ver todos os guias</a></p>
+      <p class="guia-voltar">
+        <a class="btn-fantasma" href="/guias/">
+          <span class="seta" aria-hidden="true">&larr;</span> Ver todos os guias
+        </a>
+      </p>
     </div>
   </article>
 
@@ -93,53 +109,61 @@ const dataLegivel = guia.atualizadoEm.toLocaleDateString('pt-BR', {
 </BaseLayout>
 
 <style>
-  .guia { max-width: 720px; }
-  .guia-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
-  .guia-trilha a { color: inherit; }
-  .guia-data { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1.75rem; }
-  /* Diferenciado por tipografia, não por decoração: corpo maior e
-     opacidade cheia contra o 0.85 do resto. É como o site já resolve
-     hierarquia, e evita introduzir um ornamento que não existe em
-     lugar nenhum da identidade. */
-  .guia-resposta {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    opacity: 1;
-    margin-bottom: 2.5rem;
+  /* Nada de max-width em .guia: ela divide o elemento com .container, e
+     qualquer valor aqui vence o 1100px de lá e derruba o `margin: 0 auto`
+     que centraliza a página. A largura de leitura é aplicada nos blocos
+     de dentro, um a um. */
+  .guia .page-head,
+  .guia-corpo,
+  .guia-bloco,
+  .guia-servico,
+  .guia-voltar { max-width: var(--wrap-texto); }
+
+  .guia-bloco { margin-top: var(--space-xl); }
+  .guia-bloco h2,
+  .guia-servico h2 {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-m);
   }
-  .guia-corpo :global(h2),
-  .guia h2 {
+
+  /* O corpo do guia vem de Markdown, entao a estilizacao dele precisa
+     alcancar elementos que este arquivo nao escreve. */
+  .guia-corpo :global(h2) {
     font-family: var(--font-heading);
-    color: var(--color-accent-secondary);
-    font-size: 1.35rem;
-    margin: 2.5rem 0 0.85rem;
+    font-size: var(--step-2);
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    margin: var(--space-xl) 0 var(--space-s);
   }
   .guia-corpo :global(h3) {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
-    margin: 1.75rem 0 0.6rem;
+    font-size: var(--step-1);
+    color: var(--color-ink);
+    margin: var(--space-l) 0 var(--space-2xs);
   }
-  .guia-corpo :global(p),
-  .guia p { opacity: 0.85; line-height: 1.75; margin-bottom: 1.1rem; }
+  .guia-corpo :global(p) { line-height: 1.75; margin-bottom: var(--space-s); }
   .guia-corpo :global(ul),
-  .guia-corpo :global(ol),
-  .guia ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.75; }
-  .guia-corpo :global(li),
-  .guia li { margin-bottom: 0.6rem; }
-  .guia-corpo :global(a) { color: var(--color-accent-secondary); }
-  .guia-corpo :global(strong) { color: var(--color-text); opacity: 1; }
-  .guia-resumo {
+  .guia-corpo :global(ol) {
+    padding-left: 1.25rem;
+    line-height: 1.75;
+    margin-bottom: var(--space-s);
+  }
+  .guia-corpo :global(li) { margin-bottom: var(--space-3xs); }
+  .guia-corpo :global(a) {
+    color: var(--color-accent-secondary);
+    text-underline-offset: 3px;
+  }
+  .guia-corpo :global(strong) { color: var(--color-ink); }
+
+  .guia-servico {
+    margin-top: var(--space-xl);
+    padding: var(--space-m);
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 1.5rem 1.5rem 1.5rem 2.6rem;
+    border-radius: var(--raio);
   }
-  .guia-servico {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-  }
+  .guia-servico p { margin-bottom: var(--space-m); line-height: 1.7; }
   .guia-servico a { color: var(--color-accent-secondary); }
-  .guia-voltar { margin-top: 2.5rem; }
-  .guia-voltar a { color: var(--color-accent-secondary); }
+
+  .guia-voltar { margin-top: var(--space-xl); }
 </style>

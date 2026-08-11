@@ -3,10 +3,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import { servicos } from '../../data/servicos';
 
 const guias = (await getCollection('guias')).sort(
   (a, b) => b.data.publicadoEm.getTime() - a.data.publicadoEm.getTime()
 );
+
+const nomeDoServico = (slug: string) => servicos.find((s) => s.slug === slug)?.nome ?? '';
 
 const title = 'Guias da R.A.F.O. sobre WhatsApp, sites e Google';
 const description =
@@ -14,25 +17,38 @@ const description =
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
-    <div class="container guias-indice">
-      <p class="guias-trilha" data-reveal><a href="/">Início</a></p>
-      <h1 class="section-title" data-reveal>Guias</h1>
-      <p data-reveal>
-        Textos diretos sobre as perguntas que mais aparecem antes de alguém
-        decidir automatizar o atendimento, fazer um site ou arrumar o perfil no
-        Google. Cada um responde a pergunta no primeiro parágrafo.
-      </p>
+    <div class="container">
+      <div class="page-head">
+        <p class="trilha"><a href="/">Início</a> <span aria-hidden="true">/</span> Guias</p>
+        <h1>Guias</h1>
+        <p class="guias-lead">
+          Textos diretos sobre as perguntas que mais aparecem antes de alguém
+          decidir automatizar o atendimento, fazer um site ou arrumar o perfil no
+          Google. Cada um responde a pergunta no primeiro parágrafo.
+        </p>
+      </div>
 
-      <ul class="guias-lista" data-reveal>
+      <ol class="guias-lista">
         {guias.map((guia) => (
-          <li>
-            <a href={`/guias/${guia.id}/`}>{guia.data.titulo}</a>
-            <p>{guia.data.descricao}</p>
+          <li data-reveal>
+            <a href={`/guias/${guia.id}/`}>
+              <span class="guia-assunto">{nomeDoServico(guia.data.servicoRelacionado)}</span>
+              <h2>{guia.data.titulo}</h2>
+              <!-- descricao, e não pergunta: a pergunta costuma ser quase
+                   o próprio título, e listar as duas juntas faz a entrada
+                   repetir a mesma frase duas vezes seguidas. -->
+              <p class="guia-pergunta">{guia.data.descricao}</p>
+              <span class="guia-ler">Ler o guia <span class="seta" aria-hidden="true">&rarr;</span></span>
+            </a>
           </li>
         ))}
-      </ul>
+      </ol>
 
-      <p class="guias-voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
+      <p class="guias-voltar" data-reveal>
+        <a class="btn-fantasma" href="/">
+          <span class="seta" aria-hidden="true">&larr;</span> Voltar para a página inicial
+        </a>
+      </p>
     </div>
   </section>
 
@@ -40,24 +56,47 @@ const description =
 </BaseLayout>
 
 <style>
-  .guias-indice { max-width: 720px; }
-  .guias-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
-  .guias-trilha a { color: inherit; }
-  .guias-indice > p { opacity: 0.85; line-height: 1.7; margin-bottom: 2rem; }
-  .guias-lista { list-style: none; padding-left: 0; }
-  .guias-lista li {
-    border-top: 1px solid var(--color-border);
-    padding: 1.4rem 0;
+  .guias-lead {
+    margin-top: var(--space-s);
+    line-height: 1.7;
+    max-width: 58ch;
   }
+
+  /* Lista, não grade de cartões: cada guia é uma entrada de índice, e a
+     largura cheia deixa o título ser lido de uma vez em vez de quebrar
+     em quatro linhas dentro de uma caixa estreita. */
+  .guias-lista {
+    list-style: none;
+    padding: 0;
+    max-width: var(--wrap-texto);
+  }
+  .guias-lista li { border-top: 1px solid var(--color-border); }
+  .guias-lista li:last-child { border-bottom: 1px solid var(--color-border); }
   .guias-lista a {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--color-accent-secondary);
+    display: grid;
+    gap: var(--space-2xs);
+    padding: var(--space-m) 0;
     text-decoration: none;
   }
-  .guias-lista a:hover { text-decoration: underline; }
-  .guias-lista p { opacity: 0.8; line-height: 1.7; margin-top: 0.5rem; }
-  .guias-voltar { margin-top: 2.5rem; }
-  .guias-voltar a { color: var(--color-accent-secondary); }
+  .guia-assunto {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+  }
+  .guias-lista h2 {
+    font-size: var(--step-2);
+    color: var(--color-ink);
+    transition: color var(--dur) var(--ease-saida);
+  }
+  .guias-lista a:hover h2 { color: var(--color-accent-secondary); }
+  .guia-pergunta { color: var(--color-text); line-height: 1.65; }
+  .guia-ler {
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-accent-secondary);
+    margin-top: var(--space-3xs);
+  }
+
+  .guias-voltar { margin-top: var(--space-xl); }
 </style>

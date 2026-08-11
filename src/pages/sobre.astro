@@ -9,6 +9,7 @@
 // citado, nome do agente comercial interno nunca aparece.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Icon from '../components/Icon.astro';
 import { empresa } from '../data/empresa';
 
 const title = 'Sobre a R.A.F.O.: onde ficamos e como trabalhamos';
@@ -23,54 +24,91 @@ const aboutPage = {
   about: { '@id': `${empresa.url}/#negocio` },
   inLanguage: 'pt-BR',
 };
+
+// Só fato verificável. Nada aqui é número de resultado, porque a empresa
+// não tem caso publicado para sustentar nenhum.
+const fatos = [
+  { rotulo: 'Base', valor: `${empresa.endereco.cidade}, ${empresa.endereco.uf}` },
+  { rotulo: 'Alcance', valor: 'Todo o Brasil, remoto' },
+  { rotulo: 'Atendimento', valor: 'Direto com quem constrói' },
+];
 ---
 <BaseLayout title={title} description={description} extraJsonLd={[aboutPage]}>
   <section class="section">
-    <div class="container sobre">
-      <h1 class="section-title" data-reveal>Sobre a R.A.F.O.</h1>
+    <div class="container">
+      <div class="page-head">
+        <p class="trilha"><a href="/">Início</a> <span aria-hidden="true">/</span> Sobre</p>
+        <h1>Sobre a R.A.F.O.</h1>
+      </div>
 
-      <p data-reveal>
-        A R.A.F.O. ajuda pequenos negócios a ter presença online profissional e a
-        automatizar o atendimento no WhatsApp, sem a complexidade nem o custo de
-        uma agência grande.
-      </p>
+      <div class="resposta" data-reveal>
+        <span class="resposta-rotulo">resposta direta</span>
+        <p class="resposta-texto">
+          A R.A.F.O. ajuda pequenos negócios a ter presença online profissional e a
+          automatizar o atendimento no WhatsApp, sem a complexidade nem o custo de
+          uma agência grande.
+        </p>
+      </div>
 
-      <h2 data-reveal>Onde ficamos</h2>
-      <p data-reveal>
-        Somos baseados em Resende, no Rio de Janeiro, e atendemos todo o Brasil de
-        forma remota. Conversa inicial, construção e acompanhamento acontecem à
-        distância, o que mantém o custo baixo sem tirar proximidade do processo.
-      </p>
-
-      <h2 data-reveal>Como trabalhamos</h2>
-      <p data-reveal>
-        O atendimento é direto com o fundador, sem camadas de agência e sem
-        intermediário repassando recado. Quem entende o seu problema é quem
-        constrói a solução.
-      </p>
-      <p data-reveal>
-        Não vendemos pacote pronto. Antes de propor qualquer coisa, a gente
-        entende como o seu atendimento funciona hoje, e o que for construído é
-        construído em cima desse fluxo real. Você não precisa mudar sua rotina
-        para caber numa ferramenta.
-      </p>
-
-      <h2 data-reveal>O que fazemos</h2>
-      <ul data-reveal>
-        {empresa.servicos.map((servico) => (
-          <li><strong>{servico.nome}:</strong> {servico.descricao}</li>
+      <dl class="fatos" data-reveal>
+        {fatos.map((f) => (
+          <div>
+            <dt>{f.rotulo}</dt>
+            <dd>{f.valor}</dd>
+          </div>
         ))}
-      </ul>
+      </dl>
 
-      <h2 data-reveal>Onde estamos hoje</h2>
-      <p data-reveal>
-        A R.A.F.O. é uma empresa nova. Preferimos dizer isso na cara do que
-        inventar número de resultado que não temos como comprovar. O que
-        oferecemos é atenção real ao seu problema, trabalho feito sob medida e a
-        possibilidade de falar direto com quem constrói.
+      <div class="prose sobre-corpo" data-reveal>
+        <h2>Onde ficamos</h2>
+        <p>
+          Somos baseados em Resende, no Rio de Janeiro, e atendemos todo o Brasil de
+          forma remota. Conversa inicial, construção e acompanhamento acontecem à
+          distância, o que mantém o custo baixo sem tirar proximidade do processo.
+        </p>
+
+        <h2>Como trabalhamos</h2>
+        <p>
+          O atendimento é direto com o fundador, sem camadas de agência e sem
+          intermediário repassando recado. Quem entende o seu problema é quem
+          constrói a solução.
+        </p>
+        <p>
+          Não vendemos pacote pronto. Antes de propor qualquer coisa, a gente
+          entende como o seu atendimento funciona hoje, e o que for construído é
+          construído em cima desse fluxo real. Você não precisa mudar sua rotina
+          para caber numa ferramenta.
+        </p>
+      </div>
+
+      <section class="sobre-servicos" data-reveal>
+        <h2>O que fazemos</h2>
+        <div class="servicos-lista">
+          {empresa.servicos.map((servico) => (
+            <a href={`/${servico.slug}/`}>
+              <span class="servico-icone"><Icon name={servico.icone} size={22} /></span>
+              <strong>{servico.nome} <span class="seta" aria-hidden="true">&rarr;</span></strong>
+              <span class="servico-desc">{servico.descricao}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div class="prose sobre-corpo" data-reveal>
+        <h2>Onde estamos hoje</h2>
+        <p>
+          A R.A.F.O. é uma empresa nova. Preferimos dizer isso na cara do que
+          inventar número de resultado que não temos como comprovar. O que
+          oferecemos é atenção real ao seu problema, trabalho feito sob medida e a
+          possibilidade de falar direto com quem constrói.
+        </p>
+      </div>
+
+      <p class="sobre-voltar" data-reveal>
+        <a class="btn-fantasma" href="/contato/">
+          Falar com a gente <span class="seta" aria-hidden="true">&rarr;</span>
+        </a>
       </p>
-
-      <p class="voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
     </div>
   </section>
 
@@ -78,16 +116,67 @@ const aboutPage = {
 </BaseLayout>
 
 <style>
-  .sobre { max-width: 720px; }
-  .sobre p { opacity: 0.85; margin-bottom: 1.1rem; line-height: 1.7; }
-  .sobre h2 {
-    font-family: var(--font-heading);
-    color: var(--color-accent-secondary);
-    font-size: 1.35rem;
-    margin: 2.25rem 0 0.85rem;
+  .sobre-corpo { margin-top: var(--space-xl); }
+  .sobre-corpo h2 { font-size: var(--step-2); }
+  /* Só o primeiro h2 perde a margem de topo: o bloco já vem com o
+     espaçamento do container. Sem o :first-child isto zerava a margem de
+     todos os h2 do bloco e colava "Como trabalhamos" no parágrafo
+     anterior, que foi o que apareceu na captura de tela. */
+  .sobre-corpo h2:first-child { margin-top: 0; }
+
+  /* Faixa de fatos. É uma <dl> porque é literalmente uma lista de
+     rótulo e valor, e um leitor de tela anuncia o par. */
+  .fatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: var(--space-s);
+    max-width: var(--wrap-texto);
+    margin-top: var(--space-l);
+    padding: var(--space-m) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
   }
-  .sobre ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
-  .sobre li { margin-bottom: 0.6rem; }
-  .voltar { margin-top: 2.5rem; }
-  .voltar a { color: var(--color-accent-secondary); }
+  .fatos dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin-bottom: var(--space-3xs);
+  }
+  .fatos dd {
+    font-family: var(--font-heading);
+    font-size: var(--step-1);
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .sobre-servicos { margin-top: var(--space-xl); }
+  .sobre-servicos h2 { font-size: var(--step-2); margin-bottom: var(--space-m); }
+  .servicos-lista {
+    display: grid;
+    gap: var(--space-xs);
+    max-width: var(--wrap-texto);
+  }
+  .servicos-lista a {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-areas: 'icone titulo' '. desc';
+    gap: 0.15rem var(--space-s);
+    align-items: center;
+    padding: var(--space-s) 0;
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: border-color var(--dur) var(--ease-saida);
+  }
+  .servicos-lista a:hover { border-top-color: var(--color-accent-secondary); }
+  .servico-icone { grid-area: icone; color: var(--color-accent-secondary); }
+  .servicos-lista strong {
+    grid-area: titulo;
+    font-family: var(--font-heading);
+    font-size: var(--step-0);
+    color: var(--color-accent-secondary);
+  }
+  .servico-desc { grid-area: desc; color: var(--color-text); line-height: 1.6; }
+
+  .sobre-voltar { margin-top: var(--space-xl); }
 </style>
