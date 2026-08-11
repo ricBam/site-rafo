@@ -182,6 +182,37 @@ check('FAQPage existe e bate exatamente com o FAQ visível', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 3: imagem de compartilhamento
+// ---------------------------------------------------------------
+console.log('\nImagem de compartilhamento');
+
+/** Lê largura e altura do cabeçalho IHDR de um PNG. */
+function tamanhoPng(buffer) {
+  assert(
+    buffer.subarray(1, 4).toString('ascii') === 'PNG',
+    'o arquivo nao e um PNG valido'
+  );
+  return { largura: buffer.readUInt32BE(16), altura: buffer.readUInt32BE(20) };
+}
+
+check('existe uma imagem OG em 1200x630', () => {
+  const png = lerDistBinario('og/default.png');
+  const { largura, altura } = tamanhoPng(png);
+  assert(largura === 1200 && altura === 630, `dimensoes erradas: ${largura}x${altura}`);
+});
+
+check('a imagem OG não está vazia', () => {
+  const png = lerDistBinario('og/default.png');
+  assert(png.length > 5000, `arquivo suspeito de estar em branco: ${png.length} bytes`);
+});
+
+check('as logos continuam sendo geradas corretamente', () => {
+  const compacta = lerDistBinario('logo/rafo-compact.png');
+  const { largura, altura } = tamanhoPng(compacta);
+  assert(largura === 1200 && altura === 1200, `logo compacta com ${largura}x${altura}`);
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
