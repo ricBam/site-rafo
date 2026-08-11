@@ -451,7 +451,14 @@ console.log('\nrobots.txt');
 
 check('robots.txt continua bloqueando /propostas/', () => {
   const robots = lerDist('robots.txt');
-  assert(/Disallow: \/propostas\//.test(robots), 'PROTECAO REMOVIDA: /propostas/ liberado');
+  // Ancorado no inicio da linha de proposito: um teste de substring
+  // simples passaria mesmo com a diretiva comentada, e a regra estaria
+  // morta com a verificacao dizendo ok. Isso guarda propostas comerciais
+  // de cliente.
+  assert(
+    /^Disallow: \/propostas\/\s*$/m.test(robots),
+    'PROTECAO REMOVIDA OU COMENTADA: /propostas/ liberado'
+  );
 });
 
 check('robots.txt aponta o sitemap e os arquivos para IA', () => {
