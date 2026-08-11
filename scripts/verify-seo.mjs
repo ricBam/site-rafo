@@ -120,6 +120,17 @@ function grafoHome() {
 // o vazamento que a regra evita. Essa parte depende de revisão humana.
 const PRECOS_DE_FUNDACAO = ['500', '750', '700', '900', '1.500', '3.000'];
 
+// Termos de nicho que nunca podem aparecer em lugar nenhum do HTML visivel ou
+// em atributo. Texto em atributo oculto é keyword stuffing, que o Google trata
+// como sinal de spam. Os nichos aparecem apenas em llms-full.txt como exemplos
+// de casos de uso, nunca na home ou em qualquer pagina visivel.
+const TERMOS_DE_NICHO = [
+  'Clínica', 'clínica', 'Clínicas', 'clínicas',
+  'barbearia', 'Barbearia',
+  'salão', 'Salão',
+  'consultório', 'Consultório',
+];
+
 check('o JSON-LD é um @graph parseável com @context correto', () => {
   assert(grafoHome().length >= 3, `esperava ao menos 3 nos, encontrou ${grafoHome().length}`);
 });
@@ -353,7 +364,7 @@ check('llms-full.txt lista casos de uso sem posicionar a empresa por nicho', () 
   // visivel nem escondido em atributo. Termo de nicho em atributo oculto
   // e keyword stuffing, que o Google trata como sinal de spam, e nao
   // ranqueia nada.
-  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão', 'consultório', 'Consultório']) {
+  for (const nicho of TERMOS_DE_NICHO) {
     assert(!home.includes(nicho), `nicho vazou para o HTML da home: "${nicho}"`);
   }
 });
@@ -398,7 +409,7 @@ check('/sobre tem canonical próprio e JSON-LD de AboutPage', () => {
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
   assert(sobre.includes('Resende'), 'sem a cidade base');
-  for (const nicho of ['Clínica', 'clínica', 'barbearia', 'Barbearia', 'salão', 'Salão']) {
+  for (const nicho of TERMOS_DE_NICHO) {
     assert(!sobre.includes(nicho), `nicho vazou para /sobre: "${nicho}"`);
   }
 });

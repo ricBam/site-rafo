@@ -36,7 +36,7 @@ ${empresa.descricaoLonga}
 ## Páginas
 
 - [Home](${empresa.url}/): o que a empresa faz, os três serviços e as perguntas frequentes.
-- [Sobre](${empresa.url}/sobre): quem está por trás, onde a empresa fica e como trabalha.
+- [Sobre](${empresa.url}/sobre/): quem está por trás, onde a empresa fica e como trabalha.
 
 ## Serviços
 

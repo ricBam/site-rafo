@@ -38,7 +38,7 @@ export const GET: APIRoute = () => {
 ## Site oficial
 
 - Home: ${empresa.url}/
-- Sobre: ${empresa.url}/sobre
+- Sobre: ${empresa.url}/sobre/
 - Mapa curto para IA: ${empresa.url}/llms.txt
 
 ## O que a ${empresa.nome} faz
