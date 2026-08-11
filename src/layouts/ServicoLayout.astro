@@ -1,0 +1,129 @@
+---
+// src/layouts/ServicoLayout.astro
+//
+// Renderiza uma página de serviço inteira a partir de um item do
+// catálogo em src/data/servicos.ts, e monta o JSON-LD dela a partir do
+// mesmo objeto. Como o texto visível e o schema saem da mesma fonte, não
+// existe como divergirem, que é violação de diretriz do Google.
+import BaseLayout from './BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { servicoNode, faqNodeDe } from '../lib/schema';
+import { servicos, type Servico } from '../data/servicos';
+
+interface Props {
+  servico: Servico;
+}
+
+const { servico } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Link cruzado entre as páginas de serviço. Serve ao visitante que chegou
+// pela busca numa página só e não sabe que existem as outras duas, e dá ao
+// buscador um caminho entre elas que não passa obrigatoriamente pela home.
+const outros = servicos.filter((s) => s.slug !== servico.slug);
+---
+<BaseLayout
+  title={servico.tituloPagina}
+  description={servico.descricaoPagina}
+  extraJsonLd={[servicoNode(servico, canonical), faqNodeDe(servico.faq)]}
+>
+  <section class="section">
+    <div class="container servico">
+      <p class="servico-trilha" data-reveal><a href="/">Início</a></p>
+      <h1 class="section-title" data-reveal>{servico.nome}</h1>
+
+      <p class="servico-resposta" data-reveal>{servico.resposta}</p>
+
+      <h2 data-reveal>O que está incluso</h2>
+      <ul data-reveal>
+        {servico.incluso.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2 data-reveal>Como funciona</h2>
+      <ol data-reveal>
+        {servico.comoFunciona.map((passo) => <li>{passo}</li>)}
+      </ol>
+
+      <h2 data-reveal>Quanto custa</h2>
+      <p data-reveal>
+        {servico.precoBRL === null
+          ? servico.precoNota
+          : `R$ ${servico.precoBRL}. ${servico.precoNota}`}
+      </p>
+
+      <div class="servico-cta" data-reveal>
+        <WhatsAppButton label="Falar sobre isso no WhatsApp" />
+      </div>
+
+      <h2 data-reveal>Perguntas frequentes</h2>
+      <div class="faq-list" data-reveal>
+        {servico.faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.pergunta}</summary>
+            <p>{item.resposta}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2 data-reveal>Também fazemos</h2>
+      <ul class="servico-outros" data-reveal>
+        {outros.map((outro) => (
+          <li><a href={`/${outro.slug}/`}>{outro.nome}</a>: {outro.descricao}</li>
+        ))}
+      </ul>
+
+      <p class="servico-voltar" data-reveal><a href="/">Ver tudo que a R.A.F.O. faz</a></p>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .servico { max-width: 760px; }
+  .servico-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
+  .servico-trilha a { color: inherit; }
+  .servico-resposta {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+  }
+  .servico h2 {
+    font-family: var(--font-heading);
+    color: var(--color-accent-secondary);
+    font-size: 1.35rem;
+    margin: 2.25rem 0 0.85rem;
+  }
+  .servico p { opacity: 0.85; line-height: 1.7; }
+  .servico ul,
+  .servico ol { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
+  .servico li { margin-bottom: 0.6rem; }
+  .servico-cta { margin: 2.25rem 0; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    float: right;
+    font-family: var(--font-mono);
+    color: var(--color-accent-secondary);
+  }
+  .faq-item[open] summary::after { content: '\2212'; }
+  .faq-item p { margin-top: 0.85rem; opacity: 0.85; }
+  .servico-outros { list-style: none; padding-left: 0; }
+  .servico-outros a { color: var(--color-accent-secondary); }
+  .servico-voltar { margin-top: 2.5rem; }
+  .servico-voltar a { color: var(--color-accent-secondary); }
+</style>

@@ -148,6 +148,20 @@ function nichoEncontradoEm(textoNormalizado) {
   return TERMOS_DE_NICHO.find((termo) => new RegExp(`\\b${termo}`).test(textoNormalizado));
 }
 
+// Conteudo de <style> e <script> sai antes da varredura de nicho. Nome de
+// propriedade CSS nao e conteudo de pagina, e produz alarme falso: o
+// radical "curso" casa a borda esquerda de "cursor: pointer", que e a
+// regra do FAQ. Atributos continuam sendo varridos de proposito, porque
+// foi num aria-label que o nicho estava escondido antes da Fase 1.
+// O bloco de JSON-LD e preservado de proposito: ele tambem e <script>,
+// mas e conteudo de verdade, lido por buscador e por IA, e um nicho que
+// vazasse para la contaria tanto quanto um vazado para o texto.
+function conteudoDaPagina(html) {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>/gi, ' ');
+}
+
 // Um item de empresa.casosDeUso nao e um nicho especifico: e o criterio
 // geral reescrito como item de lista ("o negocio depender de agenda e
 // ter o WhatsApp como canal principal"), nao um exemplo de tipo de
@@ -424,7 +438,7 @@ check('a home nao contem nenhum radical de nicho, visivel ou em atributo', () =>
   // Termo de nicho em atributo oculto e keyword stuffing, que o Google
   // trata como sinal de spam, e nao ranqueia nada. Normaliza o HTML
   // inteiro uma vez e testa todos os radicais contra ele.
-  const encontrado = nichoEncontradoEm(normalizar(home));
+  const encontrado = nichoEncontradoEm(normalizar(conteudoDaPagina(home)));
   assert(!encontrado, `nicho vazou para o HTML da home: radical "${encontrado}"`);
 });
 
@@ -477,7 +491,7 @@ check('o canonical de /sobre e a URL do AboutPage sao identicos', () => {
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
   assert(sobre.includes('Resende'), 'sem a cidade base');
-  const encontrado = nichoEncontradoEm(normalizar(sobre));
+  const encontrado = nichoEncontradoEm(normalizar(conteudoDaPagina(sobre)));
   assert(!encontrado, `nicho vazou para /sobre: radical "${encontrado}"`);
 });
 
@@ -628,7 +642,7 @@ check('o build gerou as paginas esperadas', () => {
 
 check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
   for (const pagina of PAGINAS) {
-    const achado = nichoEncontradoEm(normalizar(pagina.html));
+    const achado = nichoEncontradoEm(normalizar(conteudoDaPagina(pagina.html)));
     assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
   }
 });
@@ -696,6 +710,101 @@ check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
         `em ${pagina.rota}, o no ${node['@type']} diz url "${node.url}" mas o canonical e "${canonical}"`
       );
     }
+  }
+});
+
+// ---------------------------------------------------------------
+// Fase 2, Task 3: paginas de servico
+// ---------------------------------------------------------------
+console.log('\nPaginas de servico');
+
+const ROTAS_DE_SERVICO = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+const empresaWhatsapp = 'https://wa.me/5524992695804';
+
+function paginaDaRota(rota) {
+  const p = PAGINAS.find((x) => x.rota === rota);
+  assert(p, `pagina ${rota} nao foi construida`);
+  return p;
+}
+
+check('/presenca-no-google/ existe e traz o preco de R$ 97', () => {
+  const pagina = paginaDaRota('/presenca-no-google/');
+  assert(pagina.html.includes('R$ 97'), 'a pagina nao mostra o preco de R$ 97');
+  assert(pagina.html.includes('R$ 48,50'), 'a pagina nao mostra a variante de R$ 48,50');
+});
+
+check('a Presenca no Google declara Offer com preco estruturado', () => {
+  const pagina = paginaDaRota('/presenca-no-google/');
+  const grafo = grafoDe(pagina.html);
+  const servico = no(grafo, 'Service');
+  assert(servico.name === 'Presença no Google', `name errado: ${servico.name}`);
+  const oferta = servico.offers;
+  assert(oferta, 'Service sem offers');
+  assert(oferta.price === 97, `price errado: ${oferta.price}`);
+  assert(oferta.priceCurrency === 'BRL', 'priceCurrency nao e BRL');
+  assert(servico.provider?.['@id'], 'Service sem provider apontando para a entidade');
+});
+
+check('as outras duas paginas de servico nao mostram nenhum preco', () => {
+  for (const rota of ['/agentes-whatsapp/', '/sites-institucionais/']) {
+    const pagina = paginaDaRota(rota);
+    const grafo = grafoDe(pagina.html);
+    const servico = no(grafo, 'Service');
+    assert(
+      servico.offers?.price === undefined,
+      `${rota} declara preco estruturado, e so a Presenca no Google pode`
+    );
+  }
+});
+
+check('toda pagina de servico tem FAQPage batendo com o FAQ visivel', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const grafo = grafoDe(pagina.html);
+    const faq = no(grafo, 'FAQPage');
+    assert(faq.mainEntity.length >= 3, `${rota} tem so ${faq.mainEntity.length} perguntas`);
+    for (const q of faq.mainEntity) {
+      assert(pagina.html.includes(q.name), `${rota}: pergunta do schema ausente da pagina: "${q.name}"`);
+      assert(
+        pagina.html.includes(q.acceptedAnswer.text),
+        `${rota}: resposta do schema ausente da pagina: "${q.acceptedAnswer.text}"`
+      );
+    }
+  }
+});
+
+check('toda pagina de servico responde a pergunta no primeiro paragrafo', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const m = pagina.html.match(/<p class="servico-resposta"[^>]*>([\s\S]*?)<\/p>/);
+    assert(m, `${rota} sem o paragrafo de resposta direta`);
+    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    assert(texto.length > 120, `${rota}: resposta direta curta demais (${texto.length} caracteres)`);
+  }
+});
+
+check('toda pagina de servico linka de volta para a home e tem CTA de WhatsApp', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    assert(pagina.html.includes('href="/"'), `${rota} nao linka de volta para a home`);
+    assert(pagina.html.includes(empresaWhatsapp), `${rota} nao tem CTA de WhatsApp`);
+  }
+});
+
+check('cada pagina de servico linka para as outras duas, e nunca para si mesma', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const outras = ROTAS_DE_SERVICO.filter((r) => r !== rota);
+    for (const outra of outras) {
+      assert(
+        pagina.html.includes(`href="${outra}"`),
+        `${rota} nao linka para ${outra}, o link cruzado entre servicos esta faltando`
+      );
+    }
+    // Auto link e sintoma de o filtro do layout estar errado, e gasta
+    // credibilidade com o visitante que clica e nao sai do lugar.
+    const autoLinks = pagina.html.split(`href="${rota}"`).length - 1;
+    assert(autoLinks === 0, `${rota} linka para ela mesma ${autoLinks} vez(es)`);
   }
 });
 
