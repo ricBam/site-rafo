@@ -434,13 +434,6 @@ check('llms-full.txt não expõe preço de fundação', () => {
 // ---------------------------------------------------------------
 console.log('\nNicho no HTML da home');
 
-check('a home nao contem nenhum radical de nicho, visivel ou em atributo', () => {
-  // Termo de nicho em atributo oculto e keyword stuffing, que o Google
-  // trata como sinal de spam, e nao ranqueia nada. Normaliza o HTML
-  // inteiro uma vez e testa todos os radicais contra ele.
-  const encontrado = nichoEncontradoEm(normalizar(conteudoDaPagina(home)));
-  assert(!encontrado, `nicho vazou para o HTML da home: radical "${encontrado}"`);
-});
 
 // ---------------------------------------------------------------
 // Task 7: pagina /sobre e rodape
@@ -472,21 +465,6 @@ check('/sobre tem canonical próprio e JSON-LD de AboutPage', () => {
   no(grafo, 'ProfessionalService');
 });
 
-check('o canonical de /sobre e a URL do AboutPage sao identicos', () => {
-  const sobre = lerDist('sobre/index.html');
-  const canonicalMatch = sobre.match(/<link rel="canonical" href="([^"]+)"/);
-  assert(canonicalMatch, 'nao encontrou canonical em /sobre');
-  const canonicalUrl = canonicalMatch[1];
-
-  const grafo = grafoDe(sobre);
-  const aboutPage = no(grafo, 'AboutPage');
-  const aboutPageUrl = aboutPage.url;
-
-  assert(
-    canonicalUrl === aboutPageUrl,
-    `canonical: "${canonicalUrl}", AboutPage.url: "${aboutPageUrl}"`
-  );
-});
 
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
@@ -495,19 +473,6 @@ check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   assert(!encontrado, `nicho vazou para /sobre: radical "${encontrado}"`);
 });
 
-check('nenhum preco de fundacao aparece no HTML de index.html ou sobre/index.html', () => {
-  const sobre = lerDist('sobre/index.html');
-  for (const proibido of PRECOS_DE_FUNDACAO) {
-    assert(
-      !home.includes(`R$ ${proibido}`),
-      `preco de fundacao exposto em index.html: R$ ${proibido}`
-    );
-    assert(
-      !sobre.includes(`R$ ${proibido}`),
-      `preco de fundacao exposto em sobre/index.html: R$ ${proibido}`
-    );
-  }
-});
 
 check('o rodapé traz localização, Instagram e link para /sobre', () => {
   assert(home.includes('Resende, RJ'), 'rodape sem a localizacao');
@@ -518,10 +483,6 @@ check('o rodapé traz localização, Instagram e link para /sobre', () => {
   assert(/href="\/sobre\/"/.test(home), 'rodape sem link para /sobre/');
 });
 
-check('/sobre está no sitemap', () => {
-  const sitemap = lerDist('sitemap-0.xml');
-  assert(sitemap.includes('https://rafolabs.tech/sobre'), '/sobre fora do sitemap');
-});
 
 // ---------------------------------------------------------------
 // Task 8: robots.txt
@@ -634,10 +595,38 @@ function canonicalDe(html) {
 
 const PAGINAS = paginasHtml();
 
-check('o build gerou as paginas esperadas', () => {
-  assert(PAGINAS.length >= 2, `encontrou so ${PAGINAS.length} pagina(s) no dist`);
+const ROTAS_ESPERADAS = [
+  '/',
+  '/agentes-whatsapp/',
+  '/contato/',
+  '/presenca-no-google/',
+  '/sites-institucionais/',
+  '/sobre/',
+];
+
+check('o build gerou exatamente as paginas esperadas', () => {
   const rotas = PAGINAS.map((p) => p.rota).sort();
   console.log(`         rotas construidas: ${rotas.join(' ')}`);
+  assert(
+    JSON.stringify(rotas) === JSON.stringify(ROTAS_ESPERADAS),
+    `rotas divergem do esperado.\n         esperado:    ${ROTAS_ESPERADAS.join(' ')}\n         construidas: ${rotas.join(' ')}`
+  );
+});
+
+// Pagina que nenhum link interno alcanca e orfa: o visitante nao chega
+// nela navegando, e o buscador da a ela prioridade minima de rastreio,
+// por mais que ela esteja no sitemap. Foi assim que /contato/ nasceu.
+check('toda pagina e alcancavel por link interno de outra pagina', () => {
+  for (const pagina of PAGINAS) {
+    if (pagina.rota === '/') continue; // a home e a raiz, nao precisa de quem aponte
+    const apontam = PAGINAS.filter(
+      (outra) => outra.rota !== pagina.rota && outra.html.includes(`href="${pagina.rota}"`)
+    );
+    assert(
+      apontam.length > 0,
+      `${pagina.rota} e orfa: nenhuma outra pagina linka para ela, so o sitemap a conhece`
+    );
+  }
 });
 
 check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
@@ -647,12 +636,24 @@ check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
   }
 });
 
-check('nenhuma pagina expoe preco de fundacao', () => {
+// Lista de permissao, nao de proibicao. Todo preco publico da empresa e
+// conhecido, entao a forma forte da regra e "nenhum valor alem destes",
+// que pega R$ 600 e R$ 850 tambem, e nao so os seis valores de fundacao
+// que alguem lembrou de listar.
+const PRECOS_PUBLICOS_PERMITIDOS = ['97', '48,50'];
+
+check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
   for (const pagina of PAGINAS) {
-    for (const valor of PRECOS_DE_FUNDACAO) {
+    // Milhar com ponto e centavos com virgula de dois digitos. Escrito
+    // assim para nao engolir a pontuacao da frase: "R$ 97, mas" daria o
+    // valor "97," e "R$ 97." daria "97.".
+    const valores = [
+      ...conteudoDaPagina(pagina.html).matchAll(/R\$\s*(\d{1,3}(?:\.\d{3})*(?:,\d{2})?)/g),
+    ].map((m) => m[1]);
+    for (const valor of valores) {
       assert(
-        !pagina.html.includes(`R$ ${valor}`),
-        `preco de fundacao R$ ${valor} exposto na pagina ${pagina.rota}`
+        PRECOS_PUBLICOS_PERMITIDOS.includes(valor),
+        `a pagina ${pagina.rota} mostra R$ ${valor}, que nao e preco publico aprovado`
       );
     }
   }
@@ -676,8 +677,13 @@ check('toda pagina tem title e description proprios e nao vazios', () => {
   for (const pagina of PAGINAS) {
     const t = pagina.html.match(/<title>([^<]*)<\/title>/);
     const d = pagina.html.match(/<meta name="description" content="([^"]*)"/);
+    // Limite superior tambem: o Google corta o title por volta de 60
+    // caracteres e a description por volta de 160, entao o que passa
+    // disso nao chega ao resultado de busca.
     assert(t && t[1].trim().length > 10, `title ausente ou curto em ${pagina.rota}`);
+    assert(t[1].trim().length <= 62, `title de ${pagina.rota} tem ${t[1].trim().length} caracteres, o Google corta perto de 60`);
     assert(d && d[1].trim().length > 50, `description ausente ou curta em ${pagina.rota}`);
+    assert(d[1].trim().length <= 160, `description de ${pagina.rota} tem ${d[1].trim().length} caracteres, o Google corta perto de 160`);
     assert(!titulos.has(t[1]), `title repetido entre ${titulos.get(t[1])} e ${pagina.rota}`);
     assert(!descricoes.has(d[1]), `description repetida entre ${descricoes.get(d[1])} e ${pagina.rota}`);
     titulos.set(t[1], pagina.rota);
@@ -828,12 +834,25 @@ check('/contato/ existe com ContactPage e os canais reais', () => {
 // aparecer.
 check('/contato/ nao inventa canal que a empresa nao tem', () => {
   const pagina = paginaDaRota('/contato/');
-  for (const inventado of ['mailto:', 'telefone fixo', 'Segunda a sexta']) {
+
+  // Forma positiva: todo destino externo da pagina precisa ser um canal
+  // que a empresa publicou. Uma lista de proibicoes so pega o que alguem
+  // lembrou de proibir, e deixa passar um "Atendimento das 9h as 18h" ou
+  // um telefone que nao existe.
+  // So <a>, e so para fora do proprio dominio: canonical, og:url e links
+  // internos nao sao canal de contato.
+  const PERMITIDOS = [empresaWhatsapp, 'https://www.instagram.com/rafo.tech/'];
+  const externos = [...pagina.html.matchAll(/<a\s[^>]*href="(https?:\/\/[^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((destino) => !destino.startsWith('https://rafolabs.tech'));
+  for (const destino of externos) {
     assert(
-      !pagina.html.includes(inventado),
-      `a pagina de contato menciona "${inventado}", que a empresa nao publicou em lugar nenhum`
+      PERMITIDOS.includes(destino),
+      `a pagina de contato aponta para "${destino}", que nao e um canal publicado pela empresa`
     );
   }
+
+  assert(!pagina.html.includes('mailto:'), 'a pagina de contato oferece email, que a empresa nao publicou');
 });
 
 // ---------------------------------------------------------------

@@ -43,7 +43,7 @@ const contactPage = {
 
       <h2 data-reveal>Canais</h2>
       <ul data-reveal>
-        <li>WhatsApp: <a href={empresa.whatsapp}>{empresa.telefone}</a></li>
+        <li>WhatsApp: <a href={empresa.whatsapp} rel="noopener" target="_blank">{empresa.telefone}</a></li>
         {empresa.perfis.map((perfil) => (
           <li>{rotuloDoPerfil(perfil)}: <a href={perfil} rel="me noopener" target="_blank">{perfil}</a></li>
         ))}

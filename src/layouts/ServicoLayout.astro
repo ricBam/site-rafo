@@ -8,6 +8,7 @@
 import BaseLayout from './BaseLayout.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import FaqList from '../components/FaqList.astro';
 import { servicoNode, faqNodeDe } from '../lib/schema';
 import { servicos, type Servico } from '../data/servicos';
 
@@ -57,14 +58,7 @@ const outros = servicos.filter((s) => s.slug !== servico.slug);
       </div>
 
       <h2 data-reveal>Perguntas frequentes</h2>
-      <div class="faq-list" data-reveal>
-        {servico.faq.map((item) => (
-          <details class="faq-item">
-            <summary>{item.pergunta}</summary>
-            <p>{item.resposta}</p>
-          </details>
-        ))}
-      </div>
+      <FaqList faq={servico.faq} />
 
       <h2 data-reveal>Também fazemos</h2>
       <ul class="servico-outros" data-reveal>
@@ -101,27 +95,6 @@ const outros = servicos.filter((s) => s.slug !== servico.slug);
   .servico ol { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
   .servico li { margin-bottom: 0.6rem; }
   .servico-cta { margin: 2.25rem 0; }
-  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
-  .faq-item {
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    padding: 1.1rem 1.4rem;
-  }
-  .faq-item summary {
-    cursor: pointer;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    list-style: none;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: '+';
-    float: right;
-    font-family: var(--font-mono);
-    color: var(--color-accent-secondary);
-  }
-  .faq-item[open] summary::after { content: '\2212'; }
-  .faq-item p { margin-top: 0.85rem; opacity: 0.85; }
   .servico-outros { list-style: none; padding-left: 0; }
   .servico-outros a { color: var(--color-accent-secondary); }
   .servico-voltar { margin-top: 2.5rem; }

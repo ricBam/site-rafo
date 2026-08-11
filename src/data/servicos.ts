@@ -59,9 +59,9 @@ export const servicos: Servico[] = [
     precoNota:
       'Valor único, sem mensalidade. R$ 48,50 quando contratado junto com um site.',
     tituloPagina:
-      'Presença no Google por R$ 97: perfil no Google Meu Negócio configurado',
+      'Presença no Google por R$ 97: perfil configurado e otimizado',
     descricaoPagina:
-      'Configuramos e otimizamos seu perfil no Google Meu Negócio por R$ 97, valor único e sem mensalidade. Você passa a aparecer no Maps e na busca local de quem já procura o que você faz.',
+      'Configuramos e otimizamos seu perfil no Google Meu Negócio por R$ 97, valor único. Você passa a aparecer no Maps e na busca de quem já procura o que faz.',
     resposta:
       'A Presença no Google custa R$ 97, valor único e sem mensalidade. Configuramos e otimizamos o perfil do seu negócio no Google Meu Negócio, que é o que faz você aparecer no Google Maps e na busca local quando alguém procura o serviço que você oferece na sua região.',
     incluso: [
@@ -111,9 +111,9 @@ export const servicos: Servico[] = [
     precoNota:
       'Sob orçamento, definido depois de uma conversa para entender o fluxo de atendimento atual.',
     tituloPagina:
-      'Agentes autônomos para WhatsApp: atendimento e agendamento automatizados',
+      'Agentes autônomos para WhatsApp: atendimento automatizado',
     descricaoPagina:
-      'Automação de atendimento no WhatsApp construída sob medida para o fluxo do seu negócio. Responde, qualifica e agenda 24 horas por dia, no número que você já usa, e passa para você quando o cliente pedir.',
+      'Automação de atendimento no WhatsApp sob medida para o fluxo do seu negócio. Responde, qualifica e agenda 24 horas por dia, no número que você já usa.',
     resposta:
       'Um agente autônomo de WhatsApp é uma automação que atende seus clientes no número que você já usa, 24 horas por dia. Ele responde as perguntas de sempre, qualifica quem chega e agenda, e transfere a conversa para você a qualquer momento que o cliente pedir. A gente constrói em cima do fluxo que seu negócio já tem, em vez de encaixar você numa ferramenta pronta.',
     incluso: [
@@ -121,12 +121,12 @@ export const servicos: Servico[] = [
       'Construção do agente em cima do seu número, sem trocar de número e sem perder o histórico',
       'Agendamento integrado, quando o seu negócio trabalha com agenda',
       'Passagem para atendimento humano a qualquer momento, por pedido do cliente ou por regra sua',
-      'Acompanhamento próximo depois de ligar, ajustando com base em conversa real',
+      'Acompanhamento próximo depois de entrar no ar, ajustando com base em conversa real',
     ],
     comoFunciona: [
       'Conversamos sobre como o seu atendimento funciona hoje, o que se repete e onde você perde cliente.',
       'Construímos o agente em cima desse fluxo real e testamos com você antes de qualquer cliente falar com ele.',
-      'Ligamos, acompanhamos as primeiras conversas de verdade e ajustamos até ficar do jeito certo.',
+      'Colocamos no ar, acompanhamos as primeiras conversas de verdade e ajustamos até ficar do jeito certo.',
     ],
     faq: [
       {
@@ -160,9 +160,9 @@ export const servicos: Servico[] = [
     precoBRL: null,
     precoNota: 'Sob orçamento, definido depois de entender o escopo.',
     tituloPagina:
-      'Sites institucionais: presença online profissional, rápida e leve',
+      'Sites institucionais: rápidos, leves e fáceis de manter',
     descricaoPagina:
-      'Site institucional feito para carregar rápido no celular, passar confiança e levar o visitante direto para o seu WhatsApp. Sem construtor genérico e sem o preço de uma agência grande.',
+      'Site institucional feito para carregar rápido no celular, passar confiança e levar o visitante direto ao seu WhatsApp. Sem construtor genérico.',
     resposta:
       'Um site institucional é a página que mostra quem você é, o que você entrega e como falar com você. O que a gente faz é um site rápido no celular, com o caminho até o seu WhatsApp curto e claro, e fácil de manter depois. Não usamos construtor genérico com subdomínio de terceiro, porque isso passa a impressão errada logo na primeira olhada.',
     incluso: [
@@ -195,8 +195,12 @@ export const servicos: Servico[] = [
       },
       {
         pergunta: 'Quanto custa?',
+        // Sujeito explícito de propósito. Esta resposta é o acceptedAnswer
+        // de uma Question chamada "Quanto custa?" na página de sites, então
+        // qualquer ambiguidade aqui vira uma IA respondendo que um site
+        // custa R$ 48,50, que é o preço do outro produto.
         resposta:
-          'Sob orçamento, definido depois de entender o escopo. Vale dizer que o site sai com metade do preço da Presença no Google junto, R$ 48,50 em vez de R$ 97.',
+          'Sob orçamento, definido depois de entender o escopo. Quem fecha um site leva a Presença no Google por R$ 48,50 em vez de R$ 97, mas esse desconto é no preço dela, não no do site.',
       },
     ],
   },

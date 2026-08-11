@@ -11,8 +11,18 @@ import { empresa } from '../data/empresa';
 import type { Servico } from '../data/servicos';
 import type { PerguntaFrequente } from '../data/empresa';
 
-const ID_NEGOCIO = `${empresa.url}/#negocio`;
+export const ID_NEGOCIO = `${empresa.url}/#negocio`;
 const ID_SITE = `${empresa.url}/#site`;
+
+/**
+ * Identidade estável de um serviço, usada dos dois lados: no catálogo de
+ * ofertas da empresa e no nó dedicado da página do serviço. Sem isso, o
+ * mesmo produto aparece como duas entidades soltas com o mesmo nome e o
+ * mesmo preço, e quem faz resolução de entidade vê duas ofertas onde
+ * existe uma.
+ */
+const idServico = (slug: string) => `${empresa.url}/${slug}/#servico`;
+const urlServico = (slug: string) => `${empresa.url}/${slug}/`;
 
 /** A entidade da empresa. É o nó que permite resolver "R.A.F.O." como negócio real. */
 export function negocioNode(): Record<string, unknown> {
@@ -57,9 +67,11 @@ export function negocioNode(): Record<string, unknown> {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            '@id': idServico(servico.slug),
             name: servico.nome,
             description: servico.descricao,
             serviceType: servico.nome,
+            url: urlServico(servico.slug),
             provider: { '@id': ID_NEGOCIO },
           },
         };
@@ -126,6 +138,9 @@ export function faqNodeDe(faq: PerguntaFrequente[]): Record<string, unknown> {
 export function servicoNode(servico: Servico, canonical: string): Record<string, unknown> {
   const node: Record<string, unknown> = {
     '@type': 'Service',
+    // Mesmo @id do item no catálogo de ofertas da empresa, de propósito:
+    // é o que faz os dois nós resolverem para um único produto.
+    '@id': idServico(servico.slug),
     name: servico.nome,
     description: servico.descricao,
     serviceType: servico.nome,
