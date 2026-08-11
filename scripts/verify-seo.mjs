@@ -257,6 +257,41 @@ check('a meta robots libera prévia de imagem grande', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 5: llms.txt
+// ---------------------------------------------------------------
+console.log('\nllms.txt');
+
+check('llms.txt existe e não é HTML', () => {
+  const txt = lerDist('llms.txt');
+  assert(!/<html|<!doctype/i.test(txt), 'llms.txt esta servindo HTML, nao texto');
+  assert(txt.length > 300, `conteudo curto demais: ${txt.length} caracteres`);
+});
+
+check('llms.txt segue o formato da proposta', () => {
+  const txt = lerDist('llms.txt');
+  assert(txt.startsWith('# R.A.F.O.'), 'primeira linha precisa ser o H1 com o nome');
+  assert(/\n> .+/.test(txt), 'falta o blockquote de resumo em uma linha');
+});
+
+check('llms.txt traz contato, localização e os 3 serviços', () => {
+  const txt = lerDist('llms.txt');
+  assert(txt.includes('wa.me/5524992695804'), 'sem WhatsApp');
+  assert(txt.includes('instagram.com/rafo.tech'), 'sem Instagram');
+  assert(txt.includes('Resende'), 'sem a cidade base');
+  for (const nome of ['Presença no Google', 'Agentes autônomos para WhatsApp', 'Sites institucionais']) {
+    assert(txt.includes(nome), `servico ausente: ${nome}`);
+  }
+  assert(txt.includes('R$ 97'), 'sem o preco publico da Presenca no Google');
+});
+
+check('llms.txt não expõe preço de fundação nem nome de agente interno', () => {
+  const txt = lerDist('llms.txt');
+  for (const proibido of ['500', '750', '700', '900', '1.500', '3.000']) {
+    assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
+  }
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
