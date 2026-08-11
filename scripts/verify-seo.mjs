@@ -595,21 +595,32 @@ function canonicalDe(html) {
 
 const PAGINAS = paginasHtml();
 
-const ROTAS_ESPERADAS = [
+// Rotas institucionais, que sao fixas e precisam existir sempre. Os guias
+// nao entram aqui de proposito: eles crescem, e uma lista fixa viraria
+// manutencao a cada guia novo, que e exatamente o tipo de coisa que fica
+// para tras. Guias tem suas proprias verificacoes mais abaixo.
+const ROTAS_FIXAS = [
   '/',
   '/agentes-whatsapp/',
   '/contato/',
+  '/guias/',
   '/presenca-no-google/',
   '/sites-institucionais/',
   '/sobre/',
 ];
 
-check('o build gerou exatamente as paginas esperadas', () => {
+check('o build gerou todas as paginas institucionais', () => {
   const rotas = PAGINAS.map((p) => p.rota).sort();
   console.log(`         rotas construidas: ${rotas.join(' ')}`);
+  const faltando = ROTAS_FIXAS.filter((r) => !rotas.includes(r));
   assert(
-    JSON.stringify(rotas) === JSON.stringify(ROTAS_ESPERADAS),
-    `rotas divergem do esperado.\n         esperado:    ${ROTAS_ESPERADAS.join(' ')}\n         construidas: ${rotas.join(' ')}`
+    faltando.length === 0,
+    `rotas institucionais ausentes: ${faltando.join(' ')}`
+  );
+  const inesperadas = rotas.filter((r) => !ROTAS_FIXAS.includes(r) && !r.startsWith('/guias/'));
+  assert(
+    inesperadas.length === 0,
+    `rotas inesperadas, que nao sao institucionais nem guia: ${inesperadas.join(' ')}`
   );
 });
 
@@ -629,8 +640,15 @@ check('toda pagina e alcancavel por link interno de outra pagina', () => {
   }
 });
 
-check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
+// Guia PODE citar nicho, e so ele. A regra real nunca foi "a palavra
+// clinica nao pode existir": era a empresa nao se posicionar por nicho.
+// Num guia, "uma clinica que recebe 40 mensagens por dia" e exemplo que
+// faz o texto valer, e proibir isso empobreceria o conteudo sem proteger
+// nada. O que substitui a guarda aqui e a checagem de linguagem de
+// posicionamento, logo abaixo na secao de guias, que roda so nos guias.
+check('nenhuma pagina institucional contem radical de nicho', () => {
   for (const pagina of PAGINAS) {
+    if (pagina.rota.startsWith('/guias/')) continue;
     const achado = nichoEncontradoEm(normalizar(conteudoDaPagina(pagina.html)));
     assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
   }
@@ -879,6 +897,128 @@ check('llms-full.txt aponta cada servico para a pagina dele', () => {
       `llms-full.txt nao aponta para ${rota}`
     );
   }
+});
+
+// ---------------------------------------------------------------
+// Fase 3A: guias
+// ---------------------------------------------------------------
+console.log('\nGuias');
+
+const GUIAS = PAGINAS.filter((p) => p.rota.startsWith('/guias/') && p.rota !== '/guias/');
+
+check('existe ao menos um guia construido', () => {
+  assert(GUIAS.length > 0, 'nenhuma rota /guias/<slug>/ no dist');
+  console.log(`         guias construidos: ${GUIAS.map((g) => g.rota).join(' ')}`);
+});
+
+/**
+ * Como `check`, mas para verificacoes que percorrem os guias. Existe
+ * porque um laco sobre array vazio passa trivialmente: sem isso, com zero
+ * guias construidos, sete verificacoes reportariam `ok` sem ter olhado
+ * nada. Aqui a lista vazia e falha, nao sucesso.
+ */
+function checkPorGuia(nome, fn) {
+  check(nome, () => {
+    assert(GUIAS.length > 0, 'nenhum guia construido, entao esta verificacao nao olhou nada');
+    for (const guia of GUIAS) fn(guia);
+  });
+}
+
+checkPorGuia('todo guia responde a pergunta no primeiro paragrafo', (guia) => {
+    const m = guia.html.match(/<p class="guia-resposta"[^>]*>([\s\S]*?)<\/p>/);
+    assert(m, `${guia.rota} sem o paragrafo de resposta direta`);
+    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    assert(texto.length > 200, `${guia.rota}: resposta direta com ${texto.length} caracteres, minimo 200`);
+});
+
+checkPorGuia('todo guia tem Article com datas coerentes e publisher', (guia) => {
+    const artigo = no(grafoDe(guia.html), 'Article');
+    assert(artigo.headline, `${guia.rota}: Article sem headline`);
+    assert(artigo.datePublished, `${guia.rota}: Article sem datePublished`);
+    assert(artigo.dateModified, `${guia.rota}: Article sem dateModified`);
+    assert(artigo.publisher?.['@id'], `${guia.rota}: Article sem publisher apontando para a entidade`);
+    assert(artigo.author?.['@id'], `${guia.rota}: Article sem author`);
+    // Atualizado antes de publicado e incoerente, e o Google trata data
+    // de artigo como sinal. E o tipo de erro que um copiar e colar de
+    // frontmatter produz sem ninguem notar.
+    assert(
+      artigo.dateModified >= artigo.datePublished,
+      `${guia.rota}: dateModified (${artigo.dateModified}) e anterior a datePublished (${artigo.datePublished})`
+    );
+});
+
+// O spec da Fase 3 fixa de 800 a 1500 palavras por guia. Abaixo disso o
+// texto nao responde de verdade e nao compete; acima, costuma ser enchimento.
+checkPorGuia('todo guia tem entre 800 e 1500 palavras de corpo', (guia) => {
+    const corpo = guia.html.match(/<div class="guia-corpo"[^>]*>([\s\S]*?)<\/div>/);
+    assert(corpo, `${guia.rota} sem o corpo do guia`);
+    const palavras = corpo[1]
+      .replace(/<[^>]+>/g, ' ')
+      .split(/\s+/)
+      .filter((p) => p.length > 1).length;
+    assert(
+      palavras >= 800 && palavras <= 1500,
+      `${guia.rota} tem ${palavras} palavras de corpo, fora da faixa de 800 a 1500`
+    );
+});
+
+checkPorGuia('todo guia tem FAQPage batendo com o FAQ visivel', (guia) => {
+    const faq = no(grafoDe(guia.html), 'FAQPage');
+    assert(faq.mainEntity.length >= 3, `${guia.rota} tem so ${faq.mainEntity.length} perguntas`);
+    for (const q of faq.mainEntity) {
+      assert(guia.html.includes(q.name), `${guia.rota}: pergunta do schema ausente da pagina: "${q.name}"`);
+      assert(
+        guia.html.includes(q.acceptedAnswer.text),
+        `${guia.rota}: resposta do schema ausente da pagina`
+      );
+    }
+});
+
+checkPorGuia('todo guia tem BreadcrumbList de tres niveis, na ordem certa', (guia) => {
+    const trilha = no(grafoDe(guia.html), 'BreadcrumbList');
+    const itens = trilha.itemListElement;
+    assert(itens.length === 3, `${guia.rota}: trilha com ${itens.length} niveis, esperado 3`);
+    assert(itens[0].item === 'https://rafolabs.tech/', 'primeiro nivel nao e a home');
+    assert(itens[1].item === 'https://rafolabs.tech/guias/', 'segundo nivel nao e o indice de guias');
+    assert(itens[2].item === `https://rafolabs.tech${guia.rota}`, 'terceiro nivel nao e o proprio guia');
+    for (let i = 0; i < itens.length; i += 1) {
+      assert(itens[i].position === i + 1, `posicao errada no nivel ${i + 1}`);
+    }
+});
+
+checkPorGuia('todo guia tem bloco de resumo citavel', (guia) => {
+    const m = guia.html.match(/<ul class="guia-resumo"[\s\S]*?<\/ul>/);
+    assert(m, `${guia.rota} sem o bloco de resumo`);
+    const itens = (m[0].match(/<li/g) ?? []).length;
+    assert(itens >= 3, `${guia.rota}: resumo com ${itens} itens, minimo 3`);
+});
+
+// Este e o par da excecao aberta acima: guia pode citar nicho como
+// exemplo, o resto do site nao pode citar de jeito nenhum, e nem o guia
+// pode usar nicho como POSICIONAMENTO. A diferenca e entre ilustrar
+// ("uma clinica que recebe 40 mensagens") e posicionar ("somos
+// especializados em clinicas").
+//
+// Esta lista casa larga de proposito, entao pode acusar um uso legitimo,
+// como "profissional especializado" num contexto que nao e sobre a
+// empresa. Se isso acontecer, a saida e reescrever a frase do guia, nao
+// enfraquecer a lista: falso positivo aqui e barulhento e barato, falso
+// negativo publica posicionamento por nicho sem ninguem ver.
+checkPorGuia('guia nao usa nicho como posicionamento da empresa', (guia) => {
+  const posicionamento = /especializad|focad[ao] em|voltad[ao] para|atendemos apenas|somos a agencia de/i;
+  const texto = normalizar(conteudoDaPagina(guia.html));
+  const achado = texto.match(posicionamento);
+  assert(!achado, `${guia.rota} usa linguagem de posicionamento por nicho: "${achado?.[0]}"`);
+});
+
+checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia) => {
+    assert(guia.html.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
+    const servicosRotas = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+    const linkados = servicosRotas.filter((s) => guia.html.includes(`href="${s}"`));
+    assert(
+      linkados.length > 0,
+      `${guia.rota} nao linka para nenhuma pagina de servico, o guia nao leva a lugar nenhum`
+    );
 });
 
 if (falhas > 0) {

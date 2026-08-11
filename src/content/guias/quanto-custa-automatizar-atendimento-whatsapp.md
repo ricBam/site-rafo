@@ -90,7 +90,7 @@ por alguém.
 
 ## Faixas praticadas no mercado brasileiro
 
-Uma pesquisa em blogs especializados brasileiros em agosto de 2026,
+Uma pesquisa em blogs brasileiros do setor em agosto de 2026,
 incluindo Zap Trend, Chat Inteligente e SocialHub, encontrou faixas
 recorrentes na casa das centenas de reais por mês para pequenas empresas,
 somando plataforma e API. Agentes com camada de inteligência artificial
