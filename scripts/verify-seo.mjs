@@ -213,6 +213,50 @@ check('as logos continuam sendo geradas corretamente', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 4: metadados do head
+// ---------------------------------------------------------------
+console.log('\nMetadados do head');
+
+check('og:site_name está presente', () => {
+  assert(
+    /<meta property="og:site_name" content="R\.A\.F\.O\."/.test(home),
+    'og:site_name ausente ou com nome de marca errado'
+  );
+});
+
+check('og:image aponta para a imagem 1200x630 e é URL absoluta', () => {
+  const m = home.match(/<meta property="og:image" content="([^"]+)"/);
+  assert(m, 'og:image ausente');
+  assert(m[1].startsWith('https://'), `og:image precisa ser absoluta, veio "${m[1]}"`);
+  assert(m[1].endsWith('/og/default.png'), `og:image aponta para "${m[1]}"`);
+});
+
+check('as dimensões declaradas batem com a imagem real', () => {
+  assert(
+    /<meta property="og:image:width" content="1200"/.test(home),
+    'og:image:width nao e 1200'
+  );
+  assert(
+    /<meta property="og:image:height" content="630"/.test(home),
+    'og:image:height nao e 630'
+  );
+});
+
+check('og:image:alt está presente', () => {
+  assert(/<meta property="og:image:alt" content="[^"]+"/.test(home), 'og:image:alt ausente');
+});
+
+check('a meta robots libera prévia de imagem grande', () => {
+  const m = home.match(/<meta name="robots" content="([^"]+)"/);
+  assert(m, 'meta robots ausente');
+  assert(m[1].includes('index'), 'meta robots nao permite indexacao');
+  assert(
+    m[1].includes('max-image-preview:large'),
+    'sem max-image-preview:large, o Google nao mostra imagem grande no resultado'
+  );
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
