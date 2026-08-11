@@ -836,6 +836,32 @@ check('/contato/ nao inventa canal que a empresa nao tem', () => {
   }
 });
 
+// ---------------------------------------------------------------
+// Fase 2, Task 7: arquivos de IA cobrem as rotas novas
+// ---------------------------------------------------------------
+console.log('\nArquivos de IA x rotas construidas');
+
+// Deriva a lista das paginas realmente construidas, entao qualquer rota
+// criada na Fase 3 vai cobrar sua propria entrada no llms.txt sem ninguem
+// precisar lembrar de editar checagem.
+check('llms.txt lista toda pagina construida, com a barra final', () => {
+  const txt = lerDist('llms.txt');
+  for (const pagina of PAGINAS) {
+    const url = `https://rafolabs.tech${pagina.rota}`;
+    assert(txt.includes(url), `llms.txt nao cita a pagina construida ${url}`);
+  }
+});
+
+check('llms-full.txt aponta cada servico para a pagina dele', () => {
+  const txt = lerDist('llms-full.txt');
+  for (const rota of ROTAS_DE_SERVICO) {
+    assert(
+      txt.includes(`https://rafolabs.tech${rota}`),
+      `llms-full.txt nao aponta para ${rota}`
+    );
+  }
+});
+
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
   process.exit(1);

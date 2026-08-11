@@ -22,8 +22,14 @@ function precoDe(precoBRL: number | null): string {
 }
 
 export const GET: APIRoute = () => {
+  // Nome, preço, descrição e link do serviço numa linha só. Antes a lista
+  // de páginas e a de serviços repetiam os três serviços inteiros, o que
+  // gasta o contexto de quem lê sem acrescentar nada.
   const servicos = empresa.servicos
-    .map((s) => `- ${s.nome} (${precoDe(s.precoBRL)}): ${s.descricao}`)
+    .map(
+      (s) =>
+        `- [${s.nome}](${empresa.url}/${s.slug}/) (${precoDe(s.precoBRL)}): ${s.descricao}`
+    )
     .join('\n');
 
   const perfis = empresa.perfis
@@ -40,6 +46,9 @@ ${empresa.descricaoLonga}
 
 - [Home](${empresa.url}/): o que a empresa faz, os três serviços e as perguntas frequentes.
 - [Sobre](${empresa.url}/sobre/): onde a empresa fica, como trabalha e o que oferece.
+- [Contato](${empresa.url}/contato/): canais reais de contato e a cidade base.
+
+Cada serviço tem página própria, listada na seção abaixo.
 
 ## Serviços
 

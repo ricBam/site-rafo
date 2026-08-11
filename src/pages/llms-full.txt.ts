@@ -18,7 +18,7 @@ export const GET: APIRoute = () => {
   const servicos = empresa.servicos
     .map(
       (s) =>
-        `### ${s.nome}\n\n${s.descricao}\n\nPreço: ${
+        `### ${s.nome}\n\n${s.descricao}\n\nPágina: ${empresa.url}/${s.slug}/\n\nPreço: ${
           s.precoBRL === null ? s.precoNota : `R$ ${s.precoBRL}. ${s.precoNota}`
         }`
     )
@@ -42,6 +42,7 @@ export const GET: APIRoute = () => {
 
 - Home: ${empresa.url}/
 - Sobre: ${empresa.url}/sobre/
+- Contato: ${empresa.url}/contato/
 - Mapa curto para IA: ${empresa.url}/llms.txt
 
 ## O que a ${empresa.nome} faz
