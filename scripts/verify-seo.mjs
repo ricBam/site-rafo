@@ -808,6 +808,34 @@ check('cada pagina de servico linka para as outras duas, e nunca para si mesma',
   }
 });
 
+// ---------------------------------------------------------------
+// Fase 2, Task 6: pagina de contato
+// ---------------------------------------------------------------
+console.log('\nPagina de contato');
+
+check('/contato/ existe com ContactPage e os canais reais', () => {
+  const pagina = paginaDaRota('/contato/');
+  const grafo = grafoDe(pagina.html);
+  no(grafo, 'ContactPage');
+  assert(pagina.html.includes(empresaWhatsapp), 'sem link de WhatsApp');
+  assert(pagina.html.includes('instagram.com/rafo.tech'), 'sem link do Instagram');
+  assert(pagina.html.includes('Resende'), 'sem a cidade base');
+});
+
+// Pagina de contato e onde mais se inventa dado plausivel: um email que
+// ninguem le, um horario de atendimento que ninguem combinou. A empresa
+// publicou WhatsApp, telefone, Instagram e cidade. Nada alem disso pode
+// aparecer.
+check('/contato/ nao inventa canal que a empresa nao tem', () => {
+  const pagina = paginaDaRota('/contato/');
+  for (const inventado of ['mailto:', 'telefone fixo', 'Segunda a sexta']) {
+    assert(
+      !pagina.html.includes(inventado),
+      `a pagina de contato menciona "${inventado}", que a empresa nao publicou em lugar nenhum`
+    );
+  }
+});
+
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
   process.exit(1);

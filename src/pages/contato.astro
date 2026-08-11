@@ -1,0 +1,78 @@
+---
+// src/pages/contato.astro
+//
+// Só canais que a empresa realmente publicou. Nada de email de fachada
+// nem de horário de atendimento que ninguém combinou: a verificação
+// falha o build se aparecer.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { empresa } from '../data/empresa';
+import { rotuloDoPerfil } from '../lib/perfis';
+
+const title = 'Contato da R.A.F.O.: fale direto no WhatsApp';
+const description =
+  'Fale com a R.A.F.O. pelo WhatsApp para um diagnóstico gratuito e sem compromisso. Baseada em Resende, RJ, atendendo todo o Brasil de forma remota.';
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const contactPage = {
+  '@type': 'ContactPage',
+  name: title,
+  description,
+  url: canonical,
+  inLanguage: 'pt-BR',
+  about: { '@id': `${empresa.url}/#negocio` },
+};
+---
+<BaseLayout title={title} description={description} extraJsonLd={[contactPage]}>
+  <section class="section">
+    <div class="container contato">
+      <p class="contato-trilha" data-reveal><a href="/">Início</a></p>
+      <h1 class="section-title" data-reveal>Falar com a gente</h1>
+
+      <p data-reveal>
+        O caminho mais rápido é o WhatsApp. A primeira conversa é um diagnóstico
+        gratuito, sem compromisso: a gente entende como seu atendimento funciona
+        hoje e onde dá pra melhorar, e você decide se quer seguir.
+      </p>
+
+      <div class="contato-cta" data-reveal>
+        <WhatsAppButton label="Quero meu diagnóstico gratuito" />
+      </div>
+
+      <h2 data-reveal>Canais</h2>
+      <ul data-reveal>
+        <li>WhatsApp: <a href={empresa.whatsapp}>{empresa.telefone}</a></li>
+        {empresa.perfis.map((perfil) => (
+          <li>{rotuloDoPerfil(perfil)}: <a href={perfil} rel="me noopener" target="_blank">{perfil}</a></li>
+        ))}
+      </ul>
+
+      <h2 data-reveal>Onde ficamos</h2>
+      <p data-reveal>{empresa.atendimento}</p>
+
+      <p class="contato-voltar" data-reveal><a href="/">Voltar para a página inicial</a></p>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .contato { max-width: 720px; }
+  .contato-trilha { font-size: 0.85rem; opacity: 0.6; margin-bottom: 1rem; }
+  .contato-trilha a { color: inherit; }
+  .contato p { opacity: 0.85; line-height: 1.7; margin-bottom: 1.1rem; }
+  .contato h2 {
+    font-family: var(--font-heading);
+    color: var(--color-accent-secondary);
+    font-size: 1.35rem;
+    margin: 2.25rem 0 0.85rem;
+  }
+  .contato ul { opacity: 0.85; padding-left: 1.2rem; line-height: 1.7; }
+  .contato li { margin-bottom: 0.6rem; }
+  .contato a { color: var(--color-accent-secondary); }
+  .contato-cta { margin: 1.75rem 0 0.5rem; }
+  .contato-voltar { margin-top: 2.5rem; }
+</style>
