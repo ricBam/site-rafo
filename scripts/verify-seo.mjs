@@ -445,6 +445,30 @@ check('/sobre está no sitemap', () => {
 });
 
 // ---------------------------------------------------------------
+// Task 8: robots.txt
+// ---------------------------------------------------------------
+console.log('\nrobots.txt');
+
+check('robots.txt continua bloqueando /propostas/', () => {
+  const robots = lerDist('robots.txt');
+  assert(/Disallow: \/propostas\//.test(robots), 'PROTECAO REMOVIDA: /propostas/ liberado');
+});
+
+check('robots.txt aponta o sitemap e os arquivos para IA', () => {
+  const robots = lerDist('robots.txt');
+  assert(robots.includes('Sitemap: https://rafolabs.tech/sitemap-index.xml'), 'sem sitemap');
+  assert(robots.includes('/llms.txt'), 'sem referencia a llms.txt');
+  assert(robots.includes('/llms-full.txt'), 'sem referencia a llms-full.txt');
+});
+
+check('robots.txt não bloqueia as novas rotas', () => {
+  const robots = lerDist('robots.txt');
+  for (const rota of ['/sobre', '/llms.txt', '/llms-full.txt']) {
+    assert(!robots.includes(`Disallow: ${rota}`), `rota bloqueada por engano: ${rota}`);
+  }
+});
+
+// ---------------------------------------------------------------
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
