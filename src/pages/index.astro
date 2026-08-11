@@ -9,7 +9,10 @@ import Faq from '../components/Faq.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { faqNode } from '../lib/schema';
 
-const title = 'R.A.F.O.: Automação de atendimento e sites institucionais sob medida';
+// Metadado, não copy visível: o título anterior tinha 68 caracteres e o
+// Google corta perto de 60, então a cauda dele nunca chegava ao resultado
+// de busca.
+const title = 'R.A.F.O.: automação de WhatsApp, sites e Google Meu Negócio';
 const description = 'Cuidamos da sua presença online de ponta a ponta: Google Negócio, site institucional e automação de atendimento no WhatsApp, tudo sob medida pro seu negócio.';
 ---
 <BaseLayout title={title} description={description} extraJsonLd={[faqNode()]}>

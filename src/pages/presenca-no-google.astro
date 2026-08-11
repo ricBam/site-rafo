@@ -1,0 +1,8 @@
+---
+// src/pages/presenca-no-google.astro
+import ServicoLayout from '../layouts/ServicoLayout.astro';
+import { servicos } from '../data/servicos';
+
+const servico = servicos.find((s) => s.slug === 'presenca-no-google')!;
+---
+<ServicoLayout servico={servico} />

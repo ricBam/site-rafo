@@ -1,0 +1,53 @@
+---
+// src/components/FaqList.astro
+//
+// Acordeão de perguntas frequentes. Existe porque a marcação e o estilo
+// estavam duplicados entre Faq.astro (home) e ServicoLayout.astro, e a
+// Fase 3 acrescenta mais páginas com FAQ próprio. Dado já era de fonte
+// única; agora a apresentação também é.
+import type { PerguntaFrequente } from '../data/empresa';
+
+interface Props {
+  faq: PerguntaFrequente[];
+  /** Atraso incremental do reveal por item. 0 desliga. */
+  passoDelay?: number;
+}
+
+const { faq, passoDelay = 0 } = Astro.props;
+---
+<div class="faq-list">
+  {faq.map((item, i) => (
+    <details
+      class="faq-item"
+      data-reveal
+      style={passoDelay ? `transition-delay: ${i * passoDelay}s` : undefined}
+    >
+      <summary>{item.pergunta}</summary>
+      <p>{item.resposta}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    float: right;
+    font-family: var(--font-mono);
+    color: var(--color-accent-secondary);
+  }
+  .faq-item[open] summary::after { content: '\2212'; }
+  .faq-item p { margin-top: 0.85rem; opacity: 0.85; }
+</style>

@@ -1,0 +1,8 @@
+---
+// src/pages/sites-institucionais.astro
+import ServicoLayout from '../layouts/ServicoLayout.astro';
+import { servicos } from '../data/servicos';
+
+const servico = servicos.find((s) => s.slug === 'sites-institucionais')!;
+---
+<ServicoLayout servico={servico} />

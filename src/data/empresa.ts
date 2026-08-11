@@ -15,14 +15,9 @@
 // de diretriz do Google, e duplicar o fato é exatamente como isso
 // acontece na prática.
 
-export interface Servico {
-  slug: string;
-  nome: string;
-  descricao: string;
-  /** Preço público em reais, ou null quando é sob orçamento. */
-  precoBRL: number | null;
-  precoNota: string;
-}
+import { servicos, type Servico } from './servicos';
+
+export type { Servico };
 
 export interface PerguntaFrequente {
   pergunta: string;
@@ -77,34 +72,7 @@ export const empresa: Empresa = {
   // nó `founder` do JSON-LD simplesmente não é emitido nesse caso.
   fundador: null,
 
-  servicos: [
-    {
-      slug: 'presenca-no-google',
-      nome: 'Presença no Google',
-      descricao:
-        'Configuração e otimização do perfil no Google Meu Negócio, para o negócio aparecer para quem já está procurando o que ele oferece.',
-      precoBRL: 97,
-      precoNota:
-        'Valor único, sem mensalidade. R$ 48,50 quando contratado junto com um site.',
-    },
-    {
-      slug: 'agentes-whatsapp',
-      nome: 'Agentes autônomos para WhatsApp',
-      descricao:
-        'Atendimento e agendamento automatizados, construídos em cima do jeito que o negócio já funciona hoje.',
-      precoBRL: null,
-      precoNota:
-        'Sob orçamento, definido depois de uma conversa para entender o fluxo de atendimento atual.',
-    },
-    {
-      slug: 'sites-institucionais',
-      nome: 'Sites institucionais',
-      descricao:
-        'Presença online profissional, rápida de lançar e fácil de manter.',
-      precoBRL: null,
-      precoNota: 'Sob orçamento, definido depois de entender o escopo.',
-    },
-  ],
+  servicos,
 
   faq: [
     {

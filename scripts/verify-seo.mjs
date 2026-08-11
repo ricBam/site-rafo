@@ -6,8 +6,8 @@
 //
 // Uso: npm run build && npm run verify:seo   (ou npm run check)
 
-import { readFileSync, existsSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -146,6 +146,20 @@ const TERMOS_DE_NICHO = [
 // palavra, entao \b nao marca fronteira ali e o radical nao casa.
 function nichoEncontradoEm(textoNormalizado) {
   return TERMOS_DE_NICHO.find((termo) => new RegExp(`\\b${termo}`).test(textoNormalizado));
+}
+
+// Conteudo de <style> e <script> sai antes da varredura de nicho. Nome de
+// propriedade CSS nao e conteudo de pagina, e produz alarme falso: o
+// radical "curso" casa a borda esquerda de "cursor: pointer", que e a
+// regra do FAQ. Atributos continuam sendo varridos de proposito, porque
+// foi num aria-label que o nicho estava escondido antes da Fase 1.
+// O bloco de JSON-LD e preservado de proposito: ele tambem e <script>,
+// mas e conteudo de verdade, lido por buscador e por IA, e um nicho que
+// vazasse para la contaria tanto quanto um vazado para o texto.
+function conteudoDaPagina(html) {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<script(?![^>]*application\/ld\+json)[\s\S]*?<\/script>/gi, ' ');
 }
 
 // Um item de empresa.casosDeUso nao e um nicho especifico: e o criterio
@@ -420,13 +434,6 @@ check('llms-full.txt não expõe preço de fundação', () => {
 // ---------------------------------------------------------------
 console.log('\nNicho no HTML da home');
 
-check('a home nao contem nenhum radical de nicho, visivel ou em atributo', () => {
-  // Termo de nicho em atributo oculto e keyword stuffing, que o Google
-  // trata como sinal de spam, e nao ranqueia nada. Normaliza o HTML
-  // inteiro uma vez e testa todos os radicais contra ele.
-  const encontrado = nichoEncontradoEm(normalizar(home));
-  assert(!encontrado, `nicho vazou para o HTML da home: radical "${encontrado}"`);
-});
 
 // ---------------------------------------------------------------
 // Task 7: pagina /sobre e rodape
@@ -458,42 +465,14 @@ check('/sobre tem canonical próprio e JSON-LD de AboutPage', () => {
   no(grafo, 'ProfessionalService');
 });
 
-check('o canonical de /sobre e a URL do AboutPage sao identicos', () => {
-  const sobre = lerDist('sobre/index.html');
-  const canonicalMatch = sobre.match(/<link rel="canonical" href="([^"]+)"/);
-  assert(canonicalMatch, 'nao encontrou canonical em /sobre');
-  const canonicalUrl = canonicalMatch[1];
-
-  const grafo = grafoDe(sobre);
-  const aboutPage = no(grafo, 'AboutPage');
-  const aboutPageUrl = aboutPage.url;
-
-  assert(
-    canonicalUrl === aboutPageUrl,
-    `canonical: "${canonicalUrl}", AboutPage.url: "${aboutPageUrl}"`
-  );
-});
 
 check('/sobre menciona a cidade base sem posicionar por nicho', () => {
   const sobre = lerDist('sobre/index.html');
   assert(sobre.includes('Resende'), 'sem a cidade base');
-  const encontrado = nichoEncontradoEm(normalizar(sobre));
+  const encontrado = nichoEncontradoEm(normalizar(conteudoDaPagina(sobre)));
   assert(!encontrado, `nicho vazou para /sobre: radical "${encontrado}"`);
 });
 
-check('nenhum preco de fundacao aparece no HTML de index.html ou sobre/index.html', () => {
-  const sobre = lerDist('sobre/index.html');
-  for (const proibido of PRECOS_DE_FUNDACAO) {
-    assert(
-      !home.includes(`R$ ${proibido}`),
-      `preco de fundacao exposto em index.html: R$ ${proibido}`
-    );
-    assert(
-      !sobre.includes(`R$ ${proibido}`),
-      `preco de fundacao exposto em sobre/index.html: R$ ${proibido}`
-    );
-  }
-});
 
 check('o rodapé traz localização, Instagram e link para /sobre', () => {
   assert(home.includes('Resende, RJ'), 'rodape sem a localizacao');
@@ -504,10 +483,6 @@ check('o rodapé traz localização, Instagram e link para /sobre', () => {
   assert(/href="\/sobre\/"/.test(home), 'rodape sem link para /sobre/');
 });
 
-check('/sobre está no sitemap', () => {
-  const sitemap = lerDist('sitemap-0.xml');
-  assert(sitemap.includes('https://rafolabs.tech/sobre'), '/sobre fora do sitemap');
-});
 
 // ---------------------------------------------------------------
 // Task 8: robots.txt
@@ -546,6 +521,365 @@ check('robots.txt não bloqueia as novas rotas', () => {
 });
 
 // ---------------------------------------------------------------
+
+// ---------------------------------------------------------------
+// Fase 2, Task 1: catalogo de servicos na home
+// ---------------------------------------------------------------
+console.log('\nCatalogo de servicos na home');
+
+const SERVICOS_ESPERADOS = [
+  { nome: 'Presença no Google', slug: 'presenca-no-google' },
+  { nome: 'Agentes autônomos para WhatsApp', slug: 'agentes-whatsapp' },
+  { nome: 'Sites institucionais', slug: 'sites-institucionais' },
+];
+
+check('a home mostra os 3 servicos com os nomes corretos', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    assert(home.includes(s.nome), `servico ausente da home: "${s.nome}"`);
+  }
+});
+
+check('cada card de servico linka para a pagina dele, com barra final', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    const href = `/${s.slug}/`;
+    assert(
+      home.includes(`href="${href}"`),
+      `a home nao linka para ${href}, o card de "${s.nome}" nao virou link`
+    );
+  }
+});
+
+check('nenhum link de servico na home esquece a barra final', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    const semBarra = new RegExp(`href="/${s.slug}"[^/]`);
+    assert(
+      !semBarra.test(home),
+      `link sem barra final para /${s.slug}, causa um salto de redirect a mais`
+    );
+  }
+});
+
+// ---------------------------------------------------------------
+// Fase 2, Task 2: verificacoes que valem para toda pagina construida
+// ---------------------------------------------------------------
+console.log('\nToda pagina construida');
+
+// Enumera o dist em vez de citar pagina por nome. Na Fase 1 as checagens
+// de nicho e de preco listavam index.html e sobre/index.html na mao, e
+// teriam ficado para tras assim que uma rota nova entrasse. Assim, toda
+// pagina criada daqui pra frente entra na cobertura sozinha.
+function paginasHtml() {
+  const encontradas = [];
+  const varrer = (dir, prefixo) => {
+    for (const entrada of readdirSync(dir, { withFileTypes: true })) {
+      const caminho = join(dir, entrada.name);
+      if (entrada.isDirectory()) {
+        varrer(caminho, `${prefixo}${entrada.name}/`);
+      } else if (entrada.name === 'index.html') {
+        encontradas.push({
+          rota: prefixo || '/',
+          caminho,
+          html: readFileSync(caminho, 'utf-8'),
+        });
+      }
+    }
+  };
+  varrer(dist, '/');
+  return encontradas;
+}
+
+function canonicalDe(html) {
+  const m = html.match(/<link rel="canonical" href="([^"]+)"/);
+  return m ? m[1] : null;
+}
+
+const PAGINAS = paginasHtml();
+
+const ROTAS_ESPERADAS = [
+  '/',
+  '/agentes-whatsapp/',
+  '/contato/',
+  '/presenca-no-google/',
+  '/sites-institucionais/',
+  '/sobre/',
+];
+
+check('o build gerou exatamente as paginas esperadas', () => {
+  const rotas = PAGINAS.map((p) => p.rota).sort();
+  console.log(`         rotas construidas: ${rotas.join(' ')}`);
+  assert(
+    JSON.stringify(rotas) === JSON.stringify(ROTAS_ESPERADAS),
+    `rotas divergem do esperado.\n         esperado:    ${ROTAS_ESPERADAS.join(' ')}\n         construidas: ${rotas.join(' ')}`
+  );
+});
+
+// Pagina que nenhum link interno alcanca e orfa: o visitante nao chega
+// nela navegando, e o buscador da a ela prioridade minima de rastreio,
+// por mais que ela esteja no sitemap. Foi assim que /contato/ nasceu.
+check('toda pagina e alcancavel por link interno de outra pagina', () => {
+  for (const pagina of PAGINAS) {
+    if (pagina.rota === '/') continue; // a home e a raiz, nao precisa de quem aponte
+    const apontam = PAGINAS.filter(
+      (outra) => outra.rota !== pagina.rota && outra.html.includes(`href="${pagina.rota}"`)
+    );
+    assert(
+      apontam.length > 0,
+      `${pagina.rota} e orfa: nenhuma outra pagina linka para ela, so o sitemap a conhece`
+    );
+  }
+});
+
+check('nenhuma pagina contem radical de nicho, visivel ou em atributo', () => {
+  for (const pagina of PAGINAS) {
+    const achado = nichoEncontradoEm(normalizar(conteudoDaPagina(pagina.html)));
+    assert(!achado, `nicho "${achado}" vazou para a pagina ${pagina.rota}`);
+  }
+});
+
+// Lista de permissao, nao de proibicao. Todo preco publico da empresa e
+// conhecido, entao a forma forte da regra e "nenhum valor alem destes",
+// que pega R$ 600 e R$ 850 tambem, e nao so os seis valores de fundacao
+// que alguem lembrou de listar.
+const PRECOS_PUBLICOS_PERMITIDOS = ['97', '48,50'];
+
+check('nenhuma pagina mostra valor em reais que nao seja preco publico', () => {
+  for (const pagina of PAGINAS) {
+    // Milhar com ponto e centavos com virgula de dois digitos. Escrito
+    // assim para nao engolir a pontuacao da frase: "R$ 97, mas" daria o
+    // valor "97," e "R$ 97." daria "97.".
+    const valores = [
+      ...conteudoDaPagina(pagina.html).matchAll(/R\$\s*(\d{1,3}(?:\.\d{3})*(?:,\d{2})?)/g),
+    ].map((m) => m[1]);
+    for (const valor of valores) {
+      assert(
+        PRECOS_PUBLICOS_PERMITIDOS.includes(valor),
+        `a pagina ${pagina.rota} mostra R$ ${valor}, que nao e preco publico aprovado`
+      );
+    }
+  }
+});
+
+check('toda pagina tem canonical, apontando para ela mesma', () => {
+  for (const pagina of PAGINAS) {
+    const canonical = canonicalDe(pagina.html);
+    assert(canonical, `pagina ${pagina.rota} sem canonical`);
+    const esperado = `https://rafolabs.tech${pagina.rota}`;
+    assert(
+      canonical === esperado,
+      `canonical de ${pagina.rota} aponta para "${canonical}", esperado "${esperado}"`
+    );
+  }
+});
+
+check('toda pagina tem title e description proprios e nao vazios', () => {
+  const titulos = new Map();
+  const descricoes = new Map();
+  for (const pagina of PAGINAS) {
+    const t = pagina.html.match(/<title>([^<]*)<\/title>/);
+    const d = pagina.html.match(/<meta name="description" content="([^"]*)"/);
+    // Limite superior tambem: o Google corta o title por volta de 60
+    // caracteres e a description por volta de 160, entao o que passa
+    // disso nao chega ao resultado de busca.
+    assert(t && t[1].trim().length > 10, `title ausente ou curto em ${pagina.rota}`);
+    assert(t[1].trim().length <= 62, `title de ${pagina.rota} tem ${t[1].trim().length} caracteres, o Google corta perto de 60`);
+    assert(d && d[1].trim().length > 50, `description ausente ou curta em ${pagina.rota}`);
+    assert(d[1].trim().length <= 160, `description de ${pagina.rota} tem ${d[1].trim().length} caracteres, o Google corta perto de 160`);
+    assert(!titulos.has(t[1]), `title repetido entre ${titulos.get(t[1])} e ${pagina.rota}`);
+    assert(!descricoes.has(d[1]), `description repetida entre ${descricoes.get(d[1])} e ${pagina.rota}`);
+    titulos.set(t[1], pagina.rota);
+    descricoes.set(d[1], pagina.rota);
+  }
+});
+
+check('toda pagina esta no sitemap, e o sitemap nao lista pagina inexistente', () => {
+  const sitemap = lerDist('sitemap-0.xml');
+  const noSitemap = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).sort();
+  const construidas = PAGINAS.map((p) => `https://rafolabs.tech${p.rota}`).sort();
+  assert(
+    JSON.stringify(noSitemap) === JSON.stringify(construidas),
+    `sitemap e paginas construidas divergem.\n         sitemap:     ${noSitemap.join(' ')}\n         construidas: ${construidas.join(' ')}`
+  );
+});
+
+check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
+  for (const pagina of PAGINAS) {
+    const canonical = canonicalDe(pagina.html);
+    const grafo = grafoDe(pagina.html);
+    // So os nos que representam A PAGINA carregam url de pagina. Os nos
+    // de entidade (ProfessionalService, WebSite) apontam para a home de
+    // proposito e sao ignorados aqui.
+    for (const node of grafo) {
+      if (!['AboutPage', 'ContactPage', 'WebPage', 'Service'].includes(node['@type'])) continue;
+      if (typeof node.url !== 'string') continue;
+      assert(
+        node.url === canonical,
+        `em ${pagina.rota}, o no ${node['@type']} diz url "${node.url}" mas o canonical e "${canonical}"`
+      );
+    }
+  }
+});
+
+// ---------------------------------------------------------------
+// Fase 2, Task 3: paginas de servico
+// ---------------------------------------------------------------
+console.log('\nPaginas de servico');
+
+const ROTAS_DE_SERVICO = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+const empresaWhatsapp = 'https://wa.me/5524992695804';
+
+function paginaDaRota(rota) {
+  const p = PAGINAS.find((x) => x.rota === rota);
+  assert(p, `pagina ${rota} nao foi construida`);
+  return p;
+}
+
+check('/presenca-no-google/ existe e traz o preco de R$ 97', () => {
+  const pagina = paginaDaRota('/presenca-no-google/');
+  assert(pagina.html.includes('R$ 97'), 'a pagina nao mostra o preco de R$ 97');
+  assert(pagina.html.includes('R$ 48,50'), 'a pagina nao mostra a variante de R$ 48,50');
+});
+
+check('a Presenca no Google declara Offer com preco estruturado', () => {
+  const pagina = paginaDaRota('/presenca-no-google/');
+  const grafo = grafoDe(pagina.html);
+  const servico = no(grafo, 'Service');
+  assert(servico.name === 'Presença no Google', `name errado: ${servico.name}`);
+  const oferta = servico.offers;
+  assert(oferta, 'Service sem offers');
+  assert(oferta.price === 97, `price errado: ${oferta.price}`);
+  assert(oferta.priceCurrency === 'BRL', 'priceCurrency nao e BRL');
+  assert(servico.provider?.['@id'], 'Service sem provider apontando para a entidade');
+});
+
+check('as outras duas paginas de servico nao mostram nenhum preco', () => {
+  for (const rota of ['/agentes-whatsapp/', '/sites-institucionais/']) {
+    const pagina = paginaDaRota(rota);
+    const grafo = grafoDe(pagina.html);
+    const servico = no(grafo, 'Service');
+    assert(
+      servico.offers?.price === undefined,
+      `${rota} declara preco estruturado, e so a Presenca no Google pode`
+    );
+  }
+});
+
+check('toda pagina de servico tem FAQPage batendo com o FAQ visivel', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const grafo = grafoDe(pagina.html);
+    const faq = no(grafo, 'FAQPage');
+    assert(faq.mainEntity.length >= 3, `${rota} tem so ${faq.mainEntity.length} perguntas`);
+    for (const q of faq.mainEntity) {
+      assert(pagina.html.includes(q.name), `${rota}: pergunta do schema ausente da pagina: "${q.name}"`);
+      assert(
+        pagina.html.includes(q.acceptedAnswer.text),
+        `${rota}: resposta do schema ausente da pagina: "${q.acceptedAnswer.text}"`
+      );
+    }
+  }
+});
+
+check('toda pagina de servico responde a pergunta no primeiro paragrafo', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const m = pagina.html.match(/<p class="servico-resposta"[^>]*>([\s\S]*?)<\/p>/);
+    assert(m, `${rota} sem o paragrafo de resposta direta`);
+    const texto = m[1].replace(/<[^>]+>/g, '').trim();
+    assert(texto.length > 120, `${rota}: resposta direta curta demais (${texto.length} caracteres)`);
+  }
+});
+
+check('toda pagina de servico linka de volta para a home e tem CTA de WhatsApp', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    assert(pagina.html.includes('href="/"'), `${rota} nao linka de volta para a home`);
+    assert(pagina.html.includes(empresaWhatsapp), `${rota} nao tem CTA de WhatsApp`);
+  }
+});
+
+check('cada pagina de servico linka para as outras duas, e nunca para si mesma', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
+    const pagina = paginaDaRota(rota);
+    const outras = ROTAS_DE_SERVICO.filter((r) => r !== rota);
+    for (const outra of outras) {
+      assert(
+        pagina.html.includes(`href="${outra}"`),
+        `${rota} nao linka para ${outra}, o link cruzado entre servicos esta faltando`
+      );
+    }
+    // Auto link e sintoma de o filtro do layout estar errado, e gasta
+    // credibilidade com o visitante que clica e nao sai do lugar.
+    const autoLinks = pagina.html.split(`href="${rota}"`).length - 1;
+    assert(autoLinks === 0, `${rota} linka para ela mesma ${autoLinks} vez(es)`);
+  }
+});
+
+// ---------------------------------------------------------------
+// Fase 2, Task 6: pagina de contato
+// ---------------------------------------------------------------
+console.log('\nPagina de contato');
+
+check('/contato/ existe com ContactPage e os canais reais', () => {
+  const pagina = paginaDaRota('/contato/');
+  const grafo = grafoDe(pagina.html);
+  no(grafo, 'ContactPage');
+  assert(pagina.html.includes(empresaWhatsapp), 'sem link de WhatsApp');
+  assert(pagina.html.includes('instagram.com/rafo.tech'), 'sem link do Instagram');
+  assert(pagina.html.includes('Resende'), 'sem a cidade base');
+});
+
+// Pagina de contato e onde mais se inventa dado plausivel: um email que
+// ninguem le, um horario de atendimento que ninguem combinou. A empresa
+// publicou WhatsApp, telefone, Instagram e cidade. Nada alem disso pode
+// aparecer.
+check('/contato/ nao inventa canal que a empresa nao tem', () => {
+  const pagina = paginaDaRota('/contato/');
+
+  // Forma positiva: todo destino externo da pagina precisa ser um canal
+  // que a empresa publicou. Uma lista de proibicoes so pega o que alguem
+  // lembrou de proibir, e deixa passar um "Atendimento das 9h as 18h" ou
+  // um telefone que nao existe.
+  // So <a>, e so para fora do proprio dominio: canonical, og:url e links
+  // internos nao sao canal de contato.
+  const PERMITIDOS = [empresaWhatsapp, 'https://www.instagram.com/rafo.tech/'];
+  const externos = [...pagina.html.matchAll(/<a\s[^>]*href="(https?:\/\/[^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((destino) => !destino.startsWith('https://rafolabs.tech'));
+  for (const destino of externos) {
+    assert(
+      PERMITIDOS.includes(destino),
+      `a pagina de contato aponta para "${destino}", que nao e um canal publicado pela empresa`
+    );
+  }
+
+  assert(!pagina.html.includes('mailto:'), 'a pagina de contato oferece email, que a empresa nao publicou');
+});
+
+// ---------------------------------------------------------------
+// Fase 2, Task 7: arquivos de IA cobrem as rotas novas
+// ---------------------------------------------------------------
+console.log('\nArquivos de IA x rotas construidas');
+
+// Deriva a lista das paginas realmente construidas, entao qualquer rota
+// criada na Fase 3 vai cobrar sua propria entrada no llms.txt sem ninguem
+// precisar lembrar de editar checagem.
+check('llms.txt lista toda pagina construida, com a barra final', () => {
+  const txt = lerDist('llms.txt');
+  for (const pagina of PAGINAS) {
+    const url = `https://rafolabs.tech${pagina.rota}`;
+    assert(txt.includes(url), `llms.txt nao cita a pagina construida ${url}`);
+  }
+});
+
+check('llms-full.txt aponta cada servico para a pagina dele', () => {
+  const txt = lerDist('llms-full.txt');
+  for (const rota of ROTAS_DE_SERVICO) {
+    assert(
+      txt.includes(`https://rafolabs.tech${rota}`),
+      `llms-full.txt nao aponta para ${rota}`
+    );
+  }
+});
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
