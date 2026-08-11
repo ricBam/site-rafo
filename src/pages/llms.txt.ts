@@ -25,6 +25,8 @@ export const GET: APIRoute = () => {
     .map((s) => `- ${s.nome} (${precoDe(s.precoBRL)}): ${s.descricao}`)
     .join('\n');
 
+  const perfis = empresa.perfis.map((perfil) => `- ${perfil}`).join('\n');
+
   const corpo = `# ${empresa.nome}
 
 > ${empresa.descricaoCurta} ${empresa.atendimento}
@@ -51,7 +53,7 @@ ${empresa.atendimento}
 ## Contato
 
 - WhatsApp: ${empresa.whatsapp}
-- Instagram: ${empresa.perfis[0]}
+${perfis}
 `;
 
   return new Response(corpo, {

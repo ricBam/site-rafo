@@ -284,7 +284,12 @@ check('llms.txt traz contato, localização e os 3 serviços', () => {
   assert(txt.includes('R$ 97'), 'sem o preco publico da Presenca no Google');
 });
 
-check('llms.txt não expõe preço de fundação nem nome de agente interno', () => {
+// Lista de regressao, nao detector geral: so pega os valores conhecidos
+// de preco de fundacao. A regra de nunca citar o nome do agente comercial
+// interno nao e verificavel aqui, porque escrever esse nome neste
+// repositorio seria justamente o vazamento que a regra evita. Essa parte
+// depende de revisao humana.
+check('llms.txt não expõe preço de fundação', () => {
   const txt = lerDist('llms.txt');
   for (const proibido of ['500', '750', '700', '900', '1.500', '3.000']) {
     assert(!txt.includes(`R$ ${proibido}`), `preco de fundacao exposto: R$ ${proibido}`);
