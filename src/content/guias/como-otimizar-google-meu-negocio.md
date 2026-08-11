@@ -6,6 +6,7 @@ resposta: 'O cadastro é gratuito e se faz em google.com/business, mas ele só p
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'presenca-no-google'
+gancho: 'Esse é um trabalho totalmente possível de fazer sozinho, e também o tipo de coisa que fica pela metade quando a semana aperta. Se preferir receber o perfil criado, verificado e preenchido, é isso que a Presença no Google entrega, por R$ 97, valor único.'
 resumo:
   - 'O cadastro é gratuito, mas só vale depois da verificação.'
   - 'Em 2026 a verificação mais pedida é por vídeo, mostrando fachada e operação.'
@@ -159,6 +160,4 @@ longo dos meses.
 
 Vale fazer a conta do seu tempo antes de decidir se faz sozinho. É um
 trabalho totalmente possível de fazer por conta própria, e é também o
-tipo de coisa que fica pela metade quando a semana aperta. Se preferir
-que alguém faça e entregue pronto, é exatamente isso que a
-[Presença no Google](/presenca-no-google/) resolve.
+tipo de coisa que fica pela metade quando a semana aperta.

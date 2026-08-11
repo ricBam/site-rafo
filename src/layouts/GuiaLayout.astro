@@ -17,6 +17,7 @@ interface Props {
     titulo: string;
     descricao: string;
     resposta: string;
+    gancho: string;
     publicadoEm: Date;
     atualizadoEm: Date;
     servicoRelacionado: string | null;
@@ -87,13 +88,17 @@ const dataMaquina = guia.atualizadoEm.toISOString().slice(0, 10);
         <FaqList faq={guia.faq} />
       </section>
 
+      {/* O gancho vem do frontmatter do guia, não do layout. Um texto
+          único para todos os guias é o que existia antes, e um convite
+          genérico no fim de um texto específico não convida ninguém. */}
       {servico && (
-        <section class="guia-servico" data-reveal>
-          <h2>Como a {empresa.nome} resolve isso</h2>
-          <p>
-            <a href={`/${servico.slug}/`}>{servico.nome}</a>: {servico.descricao}
+        <section class="guia-servico" data-gancho data-reveal>
+          <h2>Quer resolver isso com a gente?</h2>
+          <p class="guia-gancho">{guia.gancho}</p>
+          <WhatsAppButton label="Quero meu diagnóstico gratuito" />
+          <p class="guia-servico-link">
+            Ou conheça <a href={`/${servico.slug}/`}>{servico.nome}</a>: {servico.descricao}
           </p>
-          <WhatsAppButton label="Falar sobre isso no WhatsApp" />
         </section>
       )}
 
@@ -157,12 +162,25 @@ const dataMaquina = guia.atualizadoEm.toISOString().slice(0, 10);
 
   .guia-servico {
     margin-top: var(--space-xl);
-    padding: var(--space-m);
+    padding: var(--space-l) var(--space-m);
     background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-forte);
     border-radius: var(--raio);
   }
-  .guia-servico p { margin-bottom: var(--space-m); line-height: 1.7; }
+  .guia-servico h2 { margin-bottom: var(--space-2xs); }
+  .guia-gancho {
+    font-size: var(--step-1);
+    line-height: 1.6;
+    color: var(--color-ink);
+    margin-bottom: var(--space-m);
+  }
+  .guia-servico-link {
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin-top: var(--space-m);
+    margin-bottom: 0;
+  }
   .guia-servico a { color: var(--color-accent-secondary); }
 
   .guia-voltar { margin-top: var(--space-xl); }

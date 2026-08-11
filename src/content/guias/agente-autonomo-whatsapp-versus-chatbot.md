@@ -6,6 +6,7 @@ resposta: 'A diferença está em quem decide o caminho da conversa. Um chatbot s
 publicadoEm: 2026-08-11
 atualizadoEm: 2026-08-11
 servicoRelacionado: 'agentes-whatsapp'
+gancho: 'Aquela separação das últimas cinquenta conversas em três pilhas é exatamente o que a gente faz na primeira conversa, junto com você. É ela que diz se o seu caso pede um fluxo simples ou um agente de verdade, e é melhor descobrir isso antes de contratar qualquer coisa.'
 resumo:
   - 'Chatbot segue uma árvore fixa; agente autônomo interpreta o texto e decide a ação.'
   - 'Agente consulta e escreve em sistemas, como agenda, antes de responder.'
@@ -156,6 +157,3 @@ agente faz diferença de verdade. A terceira é o que continua com você, e
 Se a segunda pilha for pequena, um chatbot bem desenhado provavelmente
 basta, e é bom ouvir isso de quem vende automação. Se ela for a maior das
 três, um menu de opções nunca vai dar conta, por melhor que seja escrito.
-
-Essa separação é a primeira coisa que a gente faz numa conversa de
-diagnóstico, e é ela que define o que faz sentido construir.
