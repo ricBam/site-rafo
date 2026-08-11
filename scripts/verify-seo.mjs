@@ -1004,6 +1004,18 @@ checkPorGuia('todo guia tem bloco de resumo citavel', (guia) => {
 // empresa. Se isso acontecer, a saida e reescrever a frase do guia, nao
 // enfraquecer a lista: falso positivo aqui e barulhento e barato, falso
 // negativo publica posicionamento por nicho sem ninguem ver.
+check('o indice de guias lista todo guia construido', () => {
+  const indice = PAGINAS.find((p) => p.rota === '/guias/');
+  assert(indice, 'a rota /guias/ nao foi construida');
+  assert(GUIAS.length > 0, 'nenhum guia construido, entao esta verificacao nao olhou nada');
+  for (const guia of GUIAS) {
+    assert(
+      indice.html.includes(`href="${guia.rota}"`),
+      `o indice nao lista ${guia.rota}, entao o guia so e alcancavel pelo sitemap`
+    );
+  }
+});
+
 checkPorGuia('guia nao usa nicho como posicionamento da empresa', (guia) => {
   const posicionamento = /especializad|focad[ao] em|voltad[ao] para|atendemos apenas|somos a agencia de/i;
   const texto = normalizar(conteudoDaPagina(guia.html));
