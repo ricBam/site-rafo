@@ -6,8 +6,8 @@
 //
 // Uso: npm run build && npm run verify:seo   (ou npm run check)
 
-import { readFileSync, existsSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -546,6 +546,43 @@ check('robots.txt não bloqueia as novas rotas', () => {
 });
 
 // ---------------------------------------------------------------
+
+// ---------------------------------------------------------------
+// Fase 2, Task 1: catalogo de servicos na home
+// ---------------------------------------------------------------
+console.log('\nCatalogo de servicos na home');
+
+const SERVICOS_ESPERADOS = [
+  { nome: 'Presença no Google', slug: 'presenca-no-google' },
+  { nome: 'Agentes autônomos para WhatsApp', slug: 'agentes-whatsapp' },
+  { nome: 'Sites institucionais', slug: 'sites-institucionais' },
+];
+
+check('a home mostra os 3 servicos com os nomes corretos', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    assert(home.includes(s.nome), `servico ausente da home: "${s.nome}"`);
+  }
+});
+
+check('cada card de servico linka para a pagina dele, com barra final', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    const href = `/${s.slug}/`;
+    assert(
+      home.includes(`href="${href}"`),
+      `a home nao linka para ${href}, o card de "${s.nome}" nao virou link`
+    );
+  }
+});
+
+check('nenhum link de servico na home esquece a barra final', () => {
+  for (const s of SERVICOS_ESPERADOS) {
+    const semBarra = new RegExp(`href="/${s.slug}"[^/]`);
+    assert(
+      !semBarra.test(home),
+      `link sem barra final para /${s.slug}, causa um salto de redirect a mais`
+    );
+  }
+});
 
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);

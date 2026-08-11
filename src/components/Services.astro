@@ -1,34 +1,19 @@
 ---
 // src/components/Services.astro
 import Icon from './Icon.astro';
-const services = [
-  {
-    icon: 'google',
-    title: 'Presença no Google',
-    text: 'Configuramos e otimizamos seu perfil no Google Negócio pra você aparecer pra quem já está procurando o que você oferece.',
-  },
-  {
-    icon: 'whatsapp',
-    title: 'Agentes autônomos para WhatsApp',
-    text: 'Atendimento e agendamento automatizado, construído em cima do jeito que seu negócio já funciona hoje, sem forçar você a mudar sua rotina pra caber numa ferramenta pronta.',
-  },
-  {
-    icon: 'site',
-    title: 'Sites institucionais',
-    text: 'Presença online profissional, rápida de lançar e fácil de manter, sem a complexidade nem o preço de uma agência grande.',
-  },
-] as const;
+import { servicos } from '../data/servicos';
 ---
 <section class="section" id="servicos">
   <div class="container">
     <h2 class="section-title" data-reveal>O que fazemos</h2>
     <div class="services-grid">
-      {services.map((s, i) => (
-        <article class="service-card" data-reveal style={`transition-delay: ${i * 0.1}s`}>
-          <div class="service-icon"><Icon name={s.icon} /></div>
-          <h3>{s.title}</h3>
-          <p>{s.text}</p>
-        </article>
+      {servicos.map((s, i) => (
+        <a class="service-card" href={`/${s.slug}/`} data-reveal style={`transition-delay: ${i * 0.1}s`}>
+          <div class="service-icon"><Icon name={s.icone} /></div>
+          <h3>{s.nome}</h3>
+          <p>{s.chamadaHome}</p>
+          <span class="service-mais">Ver detalhes</span>
+        </a>
       ))}
     </div>
   </div>
@@ -76,5 +61,19 @@ const services = [
   .service-card p {
     opacity: 0.85;
     font-size: 0.98rem;
+  }
+  .service-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .service-mais {
+    display: inline-block;
+    margin-top: 1.1rem;
+    font-size: 0.9rem;
+    color: var(--color-accent-secondary);
+  }
+  .service-card:hover .service-mais {
+    text-decoration: underline;
   }
 </style>
