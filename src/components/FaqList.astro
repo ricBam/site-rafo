@@ -47,7 +47,27 @@ const { faq, passoDelay = 0 } = Astro.props;
     float: right;
     font-family: var(--font-mono);
     color: var(--color-accent-secondary);
+    display: inline-block;
+    transition: transform var(--dur) var(--ease-saida);
   }
-  .faq-item[open] summary::after { content: '\2212'; }
+  .faq-item[open] summary::after { content: '\2212'; transform: rotate(180deg); }
   .faq-item p { margin-top: 0.85rem; opacity: 0.85; }
+
+  /* Abrir/fechar sem transição nenhuma destoava do resto do site (nav,
+     cards, hero, todos com o mesmo easing). CSS transition não roda no
+     salto de display:none pra block que o navegador faz ao abrir um
+     <details> — só @keyframes toca nesse instante, que é o mesmo motivo
+     pelo qual .nav-painel/.menu-mobile-painel (SiteHeader.astro) já usam
+     animação em vez de transição para o mesmo tipo de salto. */
+  .faq-item[open] p {
+    animation: faq-resposta-entrar var(--dur-lenta) var(--ease-saida) both;
+  }
+  @keyframes faq-resposta-entrar {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 0.85; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-item summary::after { transition: none; }
+    .faq-item[open] p { animation: none; }
+  }
 </style>
