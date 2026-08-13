@@ -3,7 +3,7 @@
 import WhatsAppButton from './WhatsAppButton.astro';
 ---
 <div class="exit-modal-overlay" id="exit-modal-overlay">
-  <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+  <div class="exit-modal" id="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title" tabindex="-1">
     <button class="exit-modal-close" id="exit-modal-close" aria-label="Fechar">&times;</button>
     <p class="exit-modal-eyebrow">Antes de sair</p>
     <h2 id="exit-modal-title" class="exit-modal-title">Descubra onde seu negócio pode estar perdendo cliente</h2>
@@ -13,17 +13,28 @@ import WhatsAppButton from './WhatsAppButton.astro';
 </div>
 
 <script>
+  import { createFocusTrap, lockBodyScroll, unlockBodyScroll } from '../lib/focusTrap';
+
   const overlay = document.getElementById('exit-modal-overlay');
+  const modal = document.getElementById('exit-modal');
   const closeBtn = document.getElementById('exit-modal-close');
   const STORAGE_KEY = 'rafo-exit-modal-shown';
 
+  const trap = modal ? createFocusTrap(modal) : null;
+
   function showModal() {
-    if (!overlay) return;
+    if (!overlay || !modal) return;
     overlay.classList.add('is-visible');
     sessionStorage.setItem(STORAGE_KEY, '1');
+    lockBodyScroll();
+    trap?.activate();
+    modal.focus();
   }
   function hideModal() {
-    overlay?.classList.remove('is-visible');
+    if (!overlay || !overlay.classList.contains('is-visible')) return;
+    overlay.classList.remove('is-visible');
+    unlockBodyScroll();
+    trap?.deactivate();
   }
 
   closeBtn?.addEventListener('click', hideModal);

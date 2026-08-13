@@ -94,6 +94,8 @@ const links = [
 </header>
 
 <script>
+  import { createFocusTrap, lockBodyScroll, unlockBodyScroll } from '../lib/focusTrap';
+
   // Sombra e fundo do cabecalho so depois que a pagina sai do topo.
   const cabecalho = document.querySelector('[data-cabecalho]');
   if (cabecalho) {
@@ -105,6 +107,25 @@ const links = [
   // Conveniencias dos desdobraveis. O abrir e fechar em si e nativo do
   // <details>, entao nada disso e requisito para o menu funcionar.
   const desdobraveis = [...document.querySelectorAll<HTMLDetailsElement>('[data-drop]')];
+
+  // Gestao de foco so no painel movel: e o unico que cobre a tela toda e
+  // esconde o resto do conteudo atras dele. O dropdown de Servicos do
+  // desktop e pequeno, nao bloqueia o resto da pagina, e nao entra nesse
+  // tratamento.
+  const menuMobile = document.querySelector<HTMLDetailsElement>('.menu-mobile');
+  const menuMobilePainel = menuMobile?.querySelector<HTMLElement>('.menu-mobile-painel') ?? null;
+  const menuMobileTrap = menuMobilePainel ? createFocusTrap(menuMobilePainel) : null;
+
+  menuMobile?.addEventListener('toggle', () => {
+    if (menuMobile.open) {
+      lockBodyScroll();
+      menuMobileTrap?.activate();
+      menuMobilePainel?.querySelector<HTMLElement>('a')?.focus();
+    } else {
+      unlockBodyScroll();
+      menuMobileTrap?.deactivate();
+    }
+  });
 
   const fecharTodos = (menos?: HTMLDetailsElement) => {
     for (const d of desdobraveis) if (d !== menos) d.open = false;
