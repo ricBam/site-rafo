@@ -1394,6 +1394,14 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
+  // Rede de seguranca: qualquer captura automatizada (screenshot de pagina inteira,
+  // print, scraper de preview) que redimensione a viewport sem gerar um scroll real
+  // pode nunca disparar o IntersectionObserver para elementos abaixo da dobra
+  // original. Depois de 1.2s, forca tudo visivel de qualquer forma - nunca deixa
+  // conteudo escondido para sempre por causa da tecnica de revelacao.
+  window.setTimeout(function () {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }, 1200);
 
   // FAQ accordion (a animacao de abrir/fechar e 100% CSS via grid-template-rows,
   // o JS so alterna o estado data-open/aria-expanded)
