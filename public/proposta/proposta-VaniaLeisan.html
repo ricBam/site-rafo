@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Vânia Leisan — Estética & Bem-Estar | Taubaté</title>
+<meta name="description" content="Limpeza de pele, massagem corporal, escalda-pés e drenagem linfática com atenção especial ao pós-parto. Um espaço para desacelerar, em Taubaté.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Mrs+Saint+Delafield&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400;1,6..12,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F1EA;
+    --cream-deep:#F1E7DD;
+    --ink:#241B2E;
+    --ink-soft:#362743;
+    --plum:#5B3E6B;
+    --plum-deep:#432C52;
+    --rose:#B98290;
+    --rose-deep:#8E5C68;
+    --text:#2B2130;
+    --text-faint:#6B5D6E;
+    --text-on-dark:#F3EAF6;
+    --text-on-dark-faint:#C9B8D1;
+    --border:rgba(36,27,46,.14);
+    --border-dark:rgba(243,234,246,.18);
+
+    --font-display:"Antic Didone", "Times New Roman", serif;
+    --font-body:"Nunito Sans", system-ui, sans-serif;
+    --font-script:"Mrs Saint Delafield", cursive;
+
+    --fs-hero:clamp(2.75rem, 2rem + 3.4vw, 5.35rem);
+    --fs-h2:clamp(2rem, 1.55rem + 2vw, 3.35rem);
+    --fs-h3:clamp(1.3rem, 1.15rem + 0.7vw, 1.75rem);
+    --fs-lead:clamp(1.1rem, 1.02rem + 0.35vw, 1.35rem);
+    --fs-body:clamp(1rem, 0.95rem + 0.15vw, 1.1rem);
+    --fs-script-lg:clamp(2.6rem, 1.9rem + 3vw, 5rem);
+    --fs-script-md:clamp(1.5rem, 1.25rem + 1.1vw, 2.25rem);
+
+    --space-section: clamp(4.5rem, 3.5rem + 4vw, 8.5rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:var(--fs-body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.08;margin:0;letter-spacing:.005em;}
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+
+  .container{width:100%;max-width:1160px;margin-inline:auto;padding-inline:clamp(1.25rem,4.5vw,3rem);}
+
+  /* paper grain overlay, whole page */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    pointer-events:none;
+    opacity:.035;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  :focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:2px;}
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--rose-deep);
+  }
+  .on-dark .eyebrow{color:var(--rose);}
+
+  .script{font-family:var(--font-script);font-weight:400;line-height:1;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    padding:.95rem 1.9rem;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--text-on-dark);
+    border:1.5px solid var(--rose);
+    font-weight:700;
+    font-size:.98rem;
+    text-decoration:none;
+    transition:background .25s ease, border-color .25s ease, transform .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover,.btn:focus-visible{
+    background:var(--ink-soft);
+    border-color:var(--text-on-dark);
+    transform:translateY(-2px);
+  }
+  .btn svg{width:18px;height:18px;flex:0 0 auto;}
+
+  /* ---------- reveal on scroll, with safety net ---------- */
+  [data-reveal]{transition:opacity .8s ease, transform .8s ease;}
+  html.js [data-reveal]{opacity:0;transform:translateY(18px);}
+  html.js [data-reveal].is-visible{opacity:1;transform:translateY(0);}
+  .thread-path{stroke-dasharray:2400;stroke-dashoffset:2400;transition:stroke-dashoffset 1.6s ease;}
+  .is-visible .thread-path{stroke-dashoffset:0;}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:500;
+    background:rgba(248,241,234,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:.85rem;gap:1rem;}
+  .brand{display:flex;flex-direction:column;line-height:1;text-decoration:none;color:var(--text);}
+  .brand-name{font-family:var(--font-script);font-size:1.9rem;color:var(--plum);}
+  .brand-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);margin-top:.15rem;}
+  .nav-links{display:flex;align-items:center;gap:clamp(1rem,2vw,2rem);}
+  .nav-links a{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--text);position:relative;}
+  .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--rose-deep);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
+  .nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1);}
+  .nav-cta{font-size:.88rem;font-weight:700;text-decoration:none;color:var(--plum-deep);white-space:nowrap;}
+  .nav-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:50%;}
+  .nav-toggle svg{width:18px;height:18px;}
+  .nav-panel{display:none;}
+
+  @media (max-width:820px){
+    .nav-links{display:none;}
+    .nav-toggle{display:inline-flex;}
+    .nav-panel.open{
+      display:flex;flex-direction:column;gap:1rem;
+      padding:1.25rem clamp(1.25rem,4.5vw,3rem) 1.5rem;
+      border-top:1px solid var(--border);
+    }
+    .nav-panel a{font-weight:700;text-decoration:none;color:var(--text);font-size:1rem;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    padding-block:clamp(3rem,6vw,5rem);
+  }
+  .hero-blob{
+    position:absolute;
+    border-radius:62% 38% 55% 45% / 48% 52% 48% 52%;
+    filter:blur(70px);
+    opacity:.55;
+    z-index:0;
+  }
+  .hero-blob.b1{width:38vw;height:38vw;max-width:560px;max-height:560px;background:radial-gradient(circle at 30% 30%, var(--rose) 0%, transparent 70%);top:-8%;right:-8%;}
+  .hero-blob.b2{width:26vw;height:26vw;max-width:420px;max-height:420px;background:radial-gradient(circle at 60% 60%, var(--plum) 0%, transparent 72%);bottom:-10%;left:-6%;opacity:.4;}
+  .hero-thread{position:absolute;inset:0;z-index:0;opacity:.9;pointer-events:none;}
+  .hero-inner{position:relative;z-index:1;max-width:760px;}
+  .hero-kicker{font-size:var(--fs-script-md);color:var(--plum);margin-bottom:.5rem;display:block;}
+  .hero h1{font-size:var(--fs-hero);color:var(--ink);}
+  .hero p.lead{margin-top:1.6rem;max-width:46ch;font-size:var(--fs-lead);color:var(--text-faint);}
+  .hero-actions{margin-top:2.4rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+  .scroll-cue{display:flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:.08em;}
+  .scroll-cue svg{width:16px;height:16px;animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+  /* ---------- filosofia ---------- */
+  .filosofia{padding-block:var(--space-section);background:var(--cream-deep);}
+  .filosofia-inner{max-width:920px;margin-inline:auto;text-align:center;}
+  .filosofia h2{font-size:var(--fs-h2);color:var(--ink);}
+  .filosofia h2 em{font-style:normal;color:var(--rose-deep);}
+
+  /* ---------- sobre ---------- */
+  .sobre{padding-block:var(--space-section);}
+  .sobre-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,5rem);align-items:center;}
+  .sobre-mark{
+    font-family:var(--font-script);
+    font-size:var(--fs-script-lg);
+    color:var(--plum);
+    line-height:.95;
+    transform:rotate(-3deg);
+    display:inline-block;
+  }
+  .sobre-mark-sub{margin-top:1rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);transform:rotate(-3deg);}
+  .sobre-text h2{font-size:var(--fs-h2);color:var(--ink);margin-bottom:1.4rem;}
+  .sobre-text p{color:var(--text-faint);font-size:var(--fs-body);max-width:56ch;}
+  .sobre-text p + p{margin-top:1.1rem;}
+  .sobre-values{margin-top:1.6rem;font-weight:700;color:var(--plum-deep);font-size:.95rem;}
+  @media (max-width:760px){
+    .sobre-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- serviços ---------- */
+  .servicos{background:var(--ink);color:var(--text-on-dark);padding-block:var(--space-section);position:relative;}
+  .servicos-head{max-width:640px;margin-bottom:clamp(2.5rem,5vw,4rem);}
+  .servicos-head h2{font-size:var(--fs-h2);color:var(--text-on-dark);}
+  .servicos-head p{margin-top:1rem;color:var(--text-on-dark-faint);font-size:var(--fs-lead);max-width:52ch;}
+  .servico-band{
+    display:flex;
+    align-items:center;
+    gap:clamp(1.5rem,4vw,3.5rem);
+    padding-block:clamp(1.75rem,3vw,2.75rem);
+    border-top:1px solid var(--border-dark);
+  }
+  .servico-band:last-child{border-bottom:1px solid var(--border-dark);}
+  .servico-band:nth-child(even){flex-direction:row-reverse;text-align:right;}
+  .servico-icon{
+    flex:0 0 auto;
+    width:64px;height:64px;
+    border-radius:50%;
+    border:1px solid var(--border-dark);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--rose);
+  }
+  .servico-icon svg{width:28px;height:28px;}
+  .servico-copy h3{font-size:var(--fs-h3);color:var(--text-on-dark);}
+  .servico-copy p{margin-top:.5rem;color:var(--text-on-dark-faint);font-size:var(--fs-body);max-width:52ch;}
+  .servico-band:nth-child(even) .servico-copy p{margin-left:auto;}
+  @media (max-width:640px){
+    .servico-band,.servico-band:nth-child(even){flex-direction:row;text-align:left;}
+    .servico-band:nth-child(even) .servico-copy p{margin-left:0;}
+  }
+
+  /* ---------- pós-parto ---------- */
+  .posparto{
+    padding-block:var(--space-section);
+    background:var(--ink-soft);
+    color:var(--text-on-dark);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .posparto-mark{width:110px;height:110px;margin-inline:auto 1.75rem;color:var(--rose);}
+  .posparto-inner{max-width:760px;margin-inline:auto;position:relative;z-index:1;}
+  .posparto h2{font-size:var(--fs-h2);color:var(--text-on-dark);}
+  .posparto p{margin-top:1.4rem;color:var(--text-on-dark-faint);font-size:var(--fs-lead);}
+
+  /* ---------- ritual ---------- */
+  .ritual{padding-block:var(--space-section);}
+  .ritual-head{max-width:640px;margin-bottom:clamp(2.5rem,5vw,4rem);}
+  .ritual-head h2{font-size:var(--fs-h2);color:var(--ink);}
+  .ritual-wave{position:relative;}
+  .ritual-svg{width:100%;height:auto;color:var(--rose-deep);opacity:.9;}
+  .ritual-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:-1.5rem;}
+  .ritual-step h3{font-family:var(--font-script);font-size:1.9rem;color:var(--plum);}
+  .ritual-step p{margin-top:.4rem;color:var(--text-faint);font-size:.95rem;}
+  @media (max-width:760px){
+    .ritual-steps{grid-template-columns:1fr 1fr;}
+    .ritual-svg{display:none;}
+  }
+
+  /* ---------- ambiente ---------- */
+  .ambiente{padding-block:var(--space-section);background:var(--cream-deep);}
+  .ambiente-card{
+    max-width:760px;margin-inline:auto;
+    background:var(--cream);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:clamp(2rem,5vw,3.5rem);
+    text-align:center;
+    position:relative;
+    box-shadow:0 30px 60px -40px rgba(36,27,46,.35);
+  }
+  .ambiente-seal{width:56px;height:56px;margin-inline:auto 1.25rem;color:var(--rose-deep);}
+  .ambiente-card .eyebrow{display:block;margin-bottom:.9rem;}
+  .ambiente-card h2{font-size:var(--fs-h2);color:var(--ink);}
+  .ambiente-card p{margin-top:1.2rem;color:var(--text-faint);font-size:var(--fs-lead);max-width:52ch;margin-inline:auto;}
+  .ambiente-sign{margin-top:1.6rem;font-family:var(--font-script);font-size:2.2rem;color:var(--plum);}
+
+  /* ---------- avaliações ---------- */
+  .avaliacoes{padding-block:var(--space-section);}
+  .avaliacoes-head{text-align:center;max-width:680px;margin-inline:auto;}
+  .avaliacoes-head .eyebrow{display:block;margin-bottom:.9rem;}
+  .avaliacoes-head h2{font-size:var(--fs-h2);color:var(--ink);}
+  .avaliacoes-head p{margin-top:1rem;color:var(--text-faint);font-size:var(--fs-lead);}
+  .collage{
+    margin-top:clamp(2.5rem,5vw,4rem);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:.75rem 1.25rem;
+    max-width:920px;
+    margin-inline:auto;
+  }
+  .collage span{
+    font-family:var(--font-script);
+    font-size:clamp(1.4rem,1rem + 1.6vw,2.4rem);
+    color:var(--plum);
+    line-height:1;
+  }
+  .collage span:nth-child(2n){color:var(--rose-deep);transform:rotate(-3deg);}
+  .collage span:nth-child(3n){color:var(--ink);transform:rotate(2deg);}
+  .avaliacoes-anchor{
+    margin-top:clamp(2rem,4vw,3rem);
+    text-align:center;
+    font-weight:800;
+    font-size:1.05rem;
+    color:var(--plum-deep);
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--ink);color:var(--text-on-dark);padding-block:var(--space-section);}
+  .faq-head{max-width:640px;margin-bottom:clamp(2rem,4vw,3rem);}
+  .faq-head h2{font-size:var(--fs-h2);color:var(--text-on-dark);}
+  .faq-list{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--border-dark);}
+  .faq-item:first-child{border-top:1px solid var(--border-dark);}
+  .faq-q{
+    width:100%;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding-block:1.4rem;
+    text-align:left;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--text-on-dark);
+  }
+  .faq-q-icon{flex:0 0 auto;width:26px;height:26px;position:relative;color:var(--rose);}
+  .faq-q-icon svg{position:absolute;inset:0;width:100%;height:100%;transition:opacity .2s ease, transform .3s ease;}
+  .faq-q-icon .icon-minus{opacity:0;transform:rotate(-90deg);}
+  .faq-item.open .faq-q-icon .icon-plus{opacity:0;transform:rotate(90deg);}
+  .faq-item.open .faq-q-icon .icon-minus{opacity:1;transform:rotate(0);}
+  .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;}
+  .faq-item.open .faq-a{grid-template-rows:1fr;}
+  .faq-a-inner{overflow:hidden;min-height:0;}
+  .faq-a-content{padding:0 0 1.4rem;color:var(--text-on-dark-faint);font-size:var(--fs-body);max-width:64ch;}
+
+  /* ---------- localização ---------- */
+  .local{padding-block:var(--space-section);}
+  .local-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:start;}
+  .local h2{font-size:var(--fs-h2);color:var(--ink);}
+  .local-list{margin-top:1.75rem;display:flex;flex-direction:column;gap:1.4rem;}
+  .local-row{display:flex;align-items:flex-start;gap:.9rem;}
+  .local-icon{flex:0 0 auto;width:22px;height:22px;margin-top:.15rem;color:var(--rose-deep);}
+  .local-row strong{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:.2rem;}
+  .local-row p,.local-row a{color:var(--text);font-size:1.02rem;font-weight:600;text-decoration:none;}
+  .local-row a:hover{color:var(--plum-deep);}
+  .local-panel{
+    background:var(--plum);
+    color:var(--text-on-dark);
+    border-radius:24px;
+    padding:clamp(2rem,4vw,2.75rem);
+  }
+  .local-panel .script{font-size:2.4rem;color:var(--text-on-dark);}
+  .local-panel p{margin-top:1rem;color:var(--text-on-dark-faint);}
+  @media (max-width:760px){.local-grid{grid-template-columns:1fr;}}
+
+  /* ---------- contato / cta final ---------- */
+  .contato{background:var(--ink-soft);color:var(--text-on-dark);padding-block:var(--space-section);text-align:center;}
+  .contato-inner{max-width:640px;margin-inline:auto;}
+  .contato h2{font-size:var(--fs-h2);color:var(--text-on-dark);}
+  .contato p.lead{margin-top:1.2rem;color:var(--text-on-dark-faint);font-size:var(--fs-lead);}
+  .wa-pending{
+    margin-top:2.25rem;
+    display:inline-flex;
+    align-items:center;
+    gap:.75rem;
+    padding:1.05rem 2rem;
+    border-radius:999px;
+    border:1.5px dashed var(--rose);
+    color:var(--text-on-dark-faint);
+    font-weight:700;
+    position:relative;
+  }
+  .wa-pending svg{width:20px;height:20px;color:var(--rose);}
+  .wa-badge{
+    position:absolute;top:-.65rem;right:-.5rem;
+    background:var(--rose-deep);
+    color:var(--text-on-dark);
+    font-size:.62rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:800;
+    padding:.28rem .6rem;
+    border-radius:999px;
+  }
+  .contato-note{margin-top:1.1rem;font-size:.88rem;color:var(--text-on-dark-faint);opacity:.85;max-width:44ch;margin-inline:auto;}
+
+  /* ---------- footer ---------- */
+  footer{padding-block:2.5rem;border-top:1px solid var(--border);}
+  .footer-inner{display:flex;flex-wrap:wrap;gap:.75rem 2rem;align-items:center;justify-content:space-between;}
+  .footer-brand{font-family:var(--font-script);font-size:1.5rem;color:var(--plum);}
+  footer p{font-size:.85rem;color:var(--text-faint);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav container">
+    <a href="#top" class="brand">
+      <span class="brand-name">Vânia Leisan</span>
+      <span class="brand-tag">Estética &amp; Bem-Estar</span>
+    </a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#posparto">Pós-parto</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#contato" class="nav-cta">Agendar</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </nav>
+  <div class="nav-panel container" id="navPanel">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#posparto">Pós-parto</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#contato">Agendar</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob b1" aria-hidden="true"></div>
+    <div class="hero-blob b2" aria-hidden="true"></div>
+    <svg class="hero-thread" viewBox="0 0 800 600" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <path class="thread-path" d="M40,480 C180,420 220,300 340,320 C460,340 480,220 620,180 C700,155 720,90 770,40" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" style="color:var(--rose-deep);opacity:.55;"/>
+    </svg>
+    <div class="container">
+      <div class="hero-inner" data-reveal>
+        <span class="hero-kicker script">um cuidado que se sente na pele</span>
+        <h1>Mãos que cuidam<br>de verdade.</h1>
+        <p class="lead">Limpeza de pele, massagem corporal, drenagem e escalda-pés num espaço pensado para você desacelerar de verdade, em Taubaté. Atenção especial para quem está no pós-parto.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contato">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Agendar meu horário
+          </a>
+          <span class="scroll-cue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            role para conhecer o espaço
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFIA -->
+  <section class="filosofia">
+    <div class="container filosofia-inner" data-reveal>
+      <h2>Aqui, cuidar de você é o <em>único</em> assunto da sala. Sem pressa, sem fórmula pronta &mdash; só atenção de verdade.</h2>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre-grid">
+      <div data-reveal>
+        <span class="sobre-mark">mãos de fada</span>
+        <div class="sobre-mark-sub">é assim que chamam</div>
+      </div>
+      <div class="sobre-text" data-reveal>
+        <span class="eyebrow" style="display:block;margin-bottom:.9rem;">Quem cuida</span>
+        <h2>Vânia Leisan</h2>
+        <p>Biomédica, fisioterapeuta e massoterapeuta &mdash; e para quem já passou pelas mãos dela, isso não é currículo, é promessa. Ano após ano, os relatos se repetem: alguém que chegou tensa e saiu leve, alguém que se sentiu ouvida antes de ser tratada, alguém que voltou a se sentir bem na própria pele.</p>
+        <p>Não existe protocolo genérico por aqui. Existe escuta, técnica de verdade e um espaço pensado para acolher, no Parque Sr. do Bonfim, em Taubaté.</p>
+        <p class="sobre-values">Escuta real &middot; Técnica de verdade &middot; Espaço que acolhe</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div class="container">
+      <div class="servicos-head" data-reveal>
+        <span class="eyebrow">O que fazemos por você</span>
+        <h2 style="margin-top:.9rem;">Cuidado para cada parte do seu bem-estar</h2>
+        <p>Quatro cuidados, um único fio condutor: atenção de verdade, do primeiro minuto ao último.</p>
+      </div>
+
+      <div class="servico-band" data-reveal>
+        <div class="servico-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c8 10 14 18 14 26a14 14 0 1 1-28 0c0-8 6-16 14-26Z"/><path d="M18 34c0 4 3 7 7 8"/></svg>
+        </div>
+        <div class="servico-copy">
+          <h3>Limpeza de pele</h3>
+          <p>Uma limpeza de verdade, sem pressa, para uma pele que respira e agradece.</p>
+        </div>
+      </div>
+
+      <div class="servico-band" data-reveal>
+        <div class="servico-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28c0-6 4-11 9-13M10 28c0 8 6 13 14 13s14-5 14-13M38 28c0-6-4-11-9-13"/><path d="M19 15c0-4 2-7 5-7s5 3 5 7"/></svg>
+        </div>
+        <div class="servico-copy">
+          <h3>Massagem corporal</h3>
+          <p>As mãos que viraram motivo de elogio recorrente: alívio de tensão com técnica de verdade.</p>
+        </div>
+      </div>
+
+      <div class="servico-band" data-reveal>
+        <div class="servico-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 42c-5 0-8-4-8-9 0-4 2-6 2-11 0-6-3-9-3-14 0-4 3-6 6-6 4 0 5 4 5 9 0 6 2 9 6 13 4 4 8 6 8 12 0 4-3 6-7 6Z"/></svg>
+        </div>
+        <div class="servico-copy">
+          <h3>Escalda-pés</h3>
+          <p>Um ritual pequeno com efeito grande: aquece, relaxa e devolve o chão sob os seus pés.</p>
+        </div>
+      </div>
+
+      <div class="servico-band" data-reveal>
+        <div class="servico-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a18 18 0 1 0 18 18"/><path d="M42 18v6h-6"/></svg>
+        </div>
+        <div class="servico-copy">
+          <h3>Drenagem linfática</h3>
+          <p>Para reduzir inchaço e retenção, com resultado que se sente já na primeira sessão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÓS-PARTO -->
+  <section class="posparto" id="posparto">
+    <div class="container posparto-inner" data-reveal>
+      <svg class="posparto-mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M50 78C22 60 14 42 14 28c0-10 8-16 16-16 9 0 16 7 20 14 4-7 11-14 20-14 8 0 16 6 16 16 0 14-8 32-36 50Z"/>
+      </svg>
+      <span class="eyebrow">Cuidado especial</span>
+      <h2 style="margin-top:.9rem;">Cuidado especial para o pós-parto</h2>
+      <p>Muita gente pensa em pós-parto só como recuperação física. Aqui é mais do que isso: é colo, é escuta, é um espaço para o corpo, e a cabeça, respirarem depois de uma das maiores transformações da vida. Já recebemos mães que chegaram com dores e inseguranças reais do pós-parto e saíram, nas palavras delas, mais leves e mais elas mesmas. Se você é mãe recente, esse cuidado é para você, no seu tempo.</p>
+    </div>
+  </section>
+
+  <!-- RITUAL -->
+  <section class="ritual">
+    <div class="container">
+      <div class="ritual-head" data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2 style="margin-top:.9rem;">Como é a sua sessão</h2>
+      </div>
+      <div class="ritual-wave" data-reveal>
+        <svg class="ritual-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+          <path class="thread-path" d="M10,60 C130,10 220,110 340,60 C460,10 550,110 670,60 C790,10 880,110 990,60" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="ritual-steps">
+          <div class="ritual-step">
+            <h3>Chegada</h3>
+            <p>Você chega, respira, e o relógio para de importar.</p>
+          </div>
+          <div class="ritual-step">
+            <h3>Escuta</h3>
+            <p>Uma conversa curta para entender o que o seu corpo pede hoje.</p>
+          </div>
+          <div class="ritual-step">
+            <h3>Cuidado</h3>
+            <p>O procedimento certo, no ritmo certo, sem pressa nenhuma.</p>
+          </div>
+          <div class="ritual-step">
+            <h3>Saída leve</h3>
+            <p>Você sai diferente de como entrou. É esse o objetivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMBIENTE -->
+  <section class="ambiente">
+    <div class="container">
+      <div class="ambiente-card" data-reveal>
+        <svg class="ambiente-seal" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="30" cy="30" r="22"/>
+          <circle cx="30" cy="30" r="15"/>
+        </svg>
+        <span class="eyebrow">O espaço</span>
+        <h2>Lindo, aconchegante, sem pressa nenhuma no relógio</h2>
+        <p>Um espaço pensado para acolher. Cada detalhe existe para que você desacelere assim que entra pela porta, e continue sentindo esse cuidado muito depois de sair.</p>
+        <span class="ambiente-sign">com carinho, Vânia</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="avaliacoes" id="avaliacoes">
+    <div class="container">
+      <div class="avaliacoes-head" data-reveal>
+        <span class="eyebrow">O que dizem sobre esse cuidado</span>
+        <h2 style="margin-top:.9rem;">Nenhuma nota abaixo de cinco estrelas</h2>
+        <p>Os mesmos elogios se repetem, avaliação após avaliação:</p>
+      </div>
+      <div class="collage" data-reveal>
+        <span>mãos de fada</span>
+        <span>acolhedora</span>
+        <span>carismática</span>
+        <span>espaço lindo e aconchegante</span>
+        <span>uma Diva</span>
+      </div>
+      <p class="avaliacoes-anchor" data-reveal>Não são elogios isolados. É o padrão.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="faq-head" data-reveal>
+        <span class="eyebrow">Dúvidas comuns</span>
+        <h2 style="margin-top:.9rem;">Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso levar alguma coisa para a sessão?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">
+            Não. Chegue como estiver. O espaço já tem tudo preparado para o seu conforto durante o procedimento.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Atende no pós-parto logo nas primeiras semanas?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">
+            O atendimento é sempre avaliado caso a caso, respeitando sua liberação médica. Na conversa antes da sessão, alinhamos o melhor momento e o cuidado mais indicado para o seu corpo agora.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como escolho entre os procedimentos?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">
+            Você não precisa chegar sabendo. A escuta no início da sessão existe justamente para isso: entender o que você sente e indicar o cuidado certo, sem empurrar nada que não faça sentido para você.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Atende por encaixe ou só com agendamento?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <svg class="icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">
+            O agendamento garante que você tenha o tempo e a atenção reservados só para você. Fale com a gente para encontrar o melhor horário.
+          </div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="local">
+    <div class="container local-grid">
+      <div data-reveal>
+        <span class="eyebrow">Onde fica</span>
+        <h2 style="margin-top:.9rem;">No Parque Sr. do Bonfim, em Taubaté</h2>
+        <div class="local-list">
+          <div class="local-row">
+            <svg class="local-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+            <div>
+              <strong>Endereço</strong>
+              <p>Av. Charles Schnneider, 1796 &mdash; Parque Sr. do Bonfim, Taubaté/SP</p>
+            </div>
+          </div>
+          <div class="local-row">
+            <svg class="local-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <div>
+              <strong>Horários</strong>
+              <p>Flexíveis, sempre sob agendamento</p>
+            </div>
+          </div>
+          <div class="local-row">
+            <svg class="local-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-7-7 18-3-8-8-3Z"/></svg>
+            <div>
+              <strong>Como chegar</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+Charles+Schnneider+1796+Parque+Sr.+do+Bonfim+Taubat%C3%A9+SP" target="_blank" rel="noopener">Ver no mapa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="local-panel" data-reveal>
+        <span class="script">até já</span>
+        <p>Cada sessão é um convite para desacelerar. Reserve o seu horário e deixe o resto com a gente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO / CTA FINAL -->
+  <section class="contato" id="contato">
+    <div class="container contato-inner" data-reveal>
+      <span class="eyebrow">Vamos combinar</span>
+      <h2 style="margin-top:.9rem;">Vamos combinar o seu cuidado</h2>
+      <p class="lead">Conte um pouco do que você precisa e a gente encontra o melhor horário para você.</p>
+      <div class="wa-pending" aria-disabled="true">
+        <span class="wa-badge">em breve</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+        Fale pelo WhatsApp
+      </div>
+      <p class="contato-note">O contato direto por WhatsApp está em confirmação e chega em breve por aqui. Enquanto isso, o endereço acima já está de portas abertas.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">Vânia Leisan</span>
+    <p>Estética &amp; Bem-Estar &middot; Av. Charles Schnneider, 1796, Parque Sr. do Bonfim, Taubaté/SP</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var panel = document.getElementById('navPanel');
+    toggle.addEventListener('click', function(){
+      var open = panel.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        panel.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function(){
+        var isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  })();
+
+  (function(){
+    var items = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function(el){ observer.observe(el); });
+    }
+    // safety net: never leave content permanently invisible
+    setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }, 1200);
+  })();
+</script>
+
+</body>
+</html>
