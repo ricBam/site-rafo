@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Prado Estética — Cuidado, conforto e respeito | Taubaté, SP</title>
+<meta name="description" content="Limpeza de pele, Botox, dermaplaning, epilação a laser e drenagem linfática no Centro de Taubaté. 10 anos cuidando da autoestima feminina. Fale agora no WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#241512">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Paula Prado Estética — Cuidado, conforto e respeito">
+<meta property="og:description" content="10 anos cuidando da autoestima feminina, no Centro de Taubaté, SP.">
+<meta property="og:image" content="paula-prado/paula-perfil.jpg">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Mulish:wght@400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #241512;
+    --bg-alt: #2c1a16;
+    --surface: #34211c;
+    --surface-2: #3d2822;
+    --border: #5a3c33;
+    --border-soft: #3a2721;
+    --text: #f7ece2;
+    --text-muted: #d9c0b0;
+    --text-faint: #b9987f;
+    --terracotta: #c9724a;
+    --terracotta-soft: #e3a37c;
+    --terracotta-deep: #9c5333;
+    --wine: #8a3b34;
+    --wine-soft: #c06b5c;
+    --shadow-lg: 0 30px 80px -30px rgba(0,0,0,0.65);
+    --shadow-sm: 0 10px 30px -15px rgba(0,0,0,0.55);
+    --radius: 14px;
+    --radius-sm: 10px;
+    --container: 1180px;
+    --container-narrow: 760px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --fs-xs: clamp(0.78rem, 0.74rem + 0.18vw, 0.88rem);
+    --fs-sm: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+    --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --fs-md: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+    --fs-lg: clamp(1.5rem, 1.3rem + 0.85vw, 2.1rem);
+    --fs-xl: clamp(2rem, 1.6rem + 1.7vw, 3.1rem);
+    --fs-2xl: clamp(2.4rem, 1.8rem + 2.6vw, 4rem);
+    --fs-3xl: clamp(2.8rem, 1.9rem + 4vw, 5.4rem);
+
+    --sp-1: clamp(0.5rem, 0.45rem + 0.2vw, 0.65rem);
+    --sp-2: clamp(0.9rem, 0.8rem + 0.4vw, 1.2rem);
+    --sp-3: clamp(1.5rem, 1.3rem + 0.8vw, 2.1rem);
+    --sp-4: clamp(2.2rem, 1.8rem + 1.6vw, 3.4rem);
+    --sp-5: clamp(3.2rem, 2.4rem + 3vw, 5.6rem);
+    --sp-6: clamp(4.2rem, 3rem + 4.6vw, 7.8rem);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Mulish', system-ui, sans-serif;
+    font-size: var(--fs-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Petrona', serif;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  .script { font-family: 'Yellowtail', cursive; font-weight: 400; }
+  .serif-italic { font-family: 'Petrona', serif; font-style: italic; font-weight: 500; }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(1.25rem, 3vw, 2.5rem); }
+  .container-narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 clamp(1.25rem, 3vw, 2.5rem); }
+
+  section { position: relative; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--terracotta-soft);
+    color: #1c0f09;
+    padding: 0.8em 1.2em;
+    z-index: 200;
+    font-weight: 700;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--terracotta-soft);
+    outline-offset: 3px;
+  }
+
+  /* Rabisco/assinatura reutilizado como marca, sem selo/brasao */
+  .swash { display: block; width: 132px; height: 16px; color: var(--terracotta); }
+  .swash-center { margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+  header.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(36, 21, 18, 0.5);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+    padding: 1.1rem 0;
+  }
+  header.site-header.is-scrolled {
+    background: rgba(36, 21, 18, 0.92);
+    border-bottom-color: var(--border-soft);
+  }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+  .brand .script { font-size: 1.7rem; color: var(--text); transition: font-size 0.4s var(--ease); }
+  header.site-header.is-scrolled .brand .script { font-size: 1.4rem; }
+  .brand-sub { font-family: 'Mulish', sans-serif; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.28em; color: var(--text-faint); margin-top: 0.3rem; }
+
+  nav.main-nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); }
+  nav.main-nav a { text-decoration: none; font-size: var(--fs-sm); color: var(--text-muted); font-weight: 600; transition: color 0.25s; }
+  nav.main-nav a:hover { color: var(--terracotta-soft); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    text-decoration: none;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    padding: 0.85em 1.6em;
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  .btn-terracotta {
+    background: linear-gradient(135deg, var(--terracotta-soft), var(--terracotta));
+    color: #1c0f09;
+    box-shadow: 0 12px 30px -12px rgba(201,114,74,0.5);
+  }
+  .btn-terracotta:hover { transform: translateY(-2px); box-shadow: 0 18px 38px -14px rgba(201,114,74,0.65); }
+  /* CTAs de WhatsApp: fundo escuro com borda terracota, para ficar reconhecivel
+     como botao de acao real. Hover sempre escurece, nunca esbranquica. */
+  .btn-terracotta.whatsapp-cta {
+    background: linear-gradient(135deg, #33201a, #140b08);
+    color: var(--text);
+    border: 1px solid var(--terracotta);
+    box-shadow: 0 12px 30px -14px rgba(0,0,0,0.7);
+  }
+  .btn-terracotta.whatsapp-cta:hover {
+    background: linear-gradient(135deg, #3d2620, #1c110d);
+    border-color: var(--terracotta-soft);
+    box-shadow: 0 18px 38px -14px rgba(0,0,0,0.8);
+    transform: translateY(-2px);
+  }
+  .btn-sm { padding: 0.6em 1.2em; font-size: var(--fs-xs); }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.15em;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .text-link:hover { color: var(--terracotta-soft); border-color: var(--terracotta); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+  }
+
+  [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  /* so esconde quando o JS confirmou que vai rodar (classe .js no html, definida
+     por script sincrono no head). Sem JS, ou se falhar/demorar, o conteudo fica
+     visivel desde o primeiro render, nunca escondido para sempre. */
+  html.js [data-reveal] { opacity: 0; transform: translateY(24px); }
+  html.js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  [data-reveal-delay="1"] { transition-delay: 0.08s; }
+  [data-reveal-delay="2"] { transition-delay: 0.16s; }
+  [data-reveal-delay="3"] { transition-delay: 0.24s; }
+
+  /* ---------- Hero editorial ---------- */
+  .hero { padding: clamp(7.5rem, 11vw, 10.5rem) 0 var(--sp-5); background: var(--bg); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.92fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+  }
+  .hero-photo { position: relative; }
+  .hero-photo-frame { aspect-ratio: 3 / 4; overflow: hidden; }
+  .hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(1.03) contrast(1.02);
+    -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+  }
+  .hero-photo-caption {
+    margin-top: 0.9rem;
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+  }
+  .hero-copy h1 {
+    font-family: 'Yellowtail', cursive;
+    font-weight: 400;
+    font-size: var(--fs-3xl);
+    color: var(--text);
+    line-height: 1;
+  }
+  .hero-dek {
+    margin-top: var(--sp-3);
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    color: var(--text-muted);
+    max-width: 30ch;
+    line-height: 1.35;
+  }
+  .hero-dek strong { color: var(--terracotta-soft); font-style: normal; font-weight: 600; }
+  .hero-meta {
+    margin-top: var(--sp-3);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 0.9em;
+  }
+  .hero-meta span:not(:last-child)::after { content: "·"; margin-left: 0.9em; color: var(--border); }
+  .hero-actions { margin-top: var(--sp-4); display: flex; align-items: center; flex-wrap: wrap; gap: 1.4rem; }
+
+  /* ---------- Section shared ---------- */
+  .section { padding: var(--sp-6) 0; }
+  .section-head { max-width: 60ch; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker {
+    display: block;
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--terracotta-soft);
+    margin-bottom: var(--sp-1);
+  }
+  .section-head h2 { font-size: var(--fs-2xl); }
+  .section-head p { margin-top: var(--sp-2); color: var(--text-muted); font-size: var(--fs-md); max-width: 56ch; }
+  .section-head.center p { margin-left: auto; margin-right: auto; }
+
+  /* ---------- Sobre ---------- */
+  .sobre { background: var(--bg-alt); }
+  .sobre-quote {
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 1.3rem + 2.4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--text);
+    max-width: 18ch;
+  }
+  .sobre-quote em { font-style: italic; color: var(--terracotta-soft); }
+  .sobre-body {
+    margin-top: var(--sp-4);
+    display: grid;
+    grid-template-columns: 0.62fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .sobre-portrait-blob {
+    border-radius: 44% 56% 62% 38% / 46% 40% 60% 54%;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    aspect-ratio: 1 / 1.05;
+    max-width: 320px;
+  }
+  .sobre-portrait-blob img { width: 100%; height: 100%; object-fit: cover; }
+  .sobre-text p { color: var(--text-muted); margin: 0 0 1.2em; }
+  .sobre-text p:first-of-type { color: var(--text); font-size: var(--fs-md); }
+  .sobre-valores {
+    margin-top: var(--sp-3);
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--terracotta-soft);
+  }
+  .sobre-valores span { color: var(--border); margin: 0 0.5em; font-style: normal; }
+
+  /* ---------- Servicos: lista editorial, sem cards ---------- */
+  .servicos { background: var(--bg); }
+  .servicos-lista { margin-top: var(--sp-4); border-top: 1px solid var(--border-soft); }
+  .servico-row {
+    display: grid;
+    grid-template-columns: 0.9fr 1.6fr;
+    gap: clamp(1rem, 3vw, 3rem);
+    padding: clamp(1.4rem, 2.5vw, 2.1rem) 0;
+    border-bottom: 1px solid var(--border-soft);
+    transition: background 0.3s var(--ease);
+  }
+  .servico-row:hover { background: rgba(201,114,74,0.05); }
+  .servico-row h3 {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s var(--ease);
+  }
+  .servico-row:hover h3 { color: var(--terracotta-soft); }
+  .servico-row p { margin: 0.5rem 0 0; color: var(--text-muted); font-size: var(--fs-sm); max-width: 50ch; }
+  .servico-row.destaque-row { background: rgba(201,114,74,0.06); }
+  .servico-row.destaque-row h3 { color: var(--terracotta-soft); }
+
+  /* ---------- Diferencial: faixa full-bleed ---------- */
+  .diferencial-band { background: var(--wine); padding: var(--sp-5) 0; margin-top: var(--sp-3); }
+  .diferencial-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+  .diferencial-band .kicker { color: #f0c9b8; }
+  .diferencial-band h2 { font-size: var(--fs-xl); color: var(--text); max-width: 16ch; }
+  .diferencial-band p { margin-top: var(--sp-2); color: #ecd9d0; font-size: var(--fs-md); max-width: 46ch; }
+  .diferencial-band .btn-terracotta.whatsapp-cta { margin-top: var(--sp-3); }
+
+  /* ---------- Como funciona: linha do tempo vertical ---------- */
+  .processo { background: var(--bg-alt); }
+  .processo-timeline { margin-top: var(--sp-4); max-width: 640px; position: relative; }
+  .processo-timeline::before {
+    content: "";
+    position: absolute;
+    left: 1.15rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-step { position: relative; padding: 0 0 var(--sp-4) 3.4rem; }
+  .timeline-step:last-child { padding-bottom: 0; }
+  .timeline-step-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Petrona', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--terracotta-soft);
+  }
+  .timeline-step h3 { font-size: var(--fs-md); font-weight: 600; color: var(--text); }
+  .timeline-step p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0.4rem 0 0; }
+
+  /* ---------- O que se repete: colagem tipografica ---------- */
+  .cuidado { background: var(--bg); }
+  .colagem {
+    margin-top: var(--sp-4);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5em 1.1em;
+    max-width: 900px;
+  }
+  .colagem span { display: inline-block; }
+  .colagem .c1 { font-family: 'Yellowtail', cursive; font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem); color: var(--terracotta-soft); transform: rotate(-2deg); }
+  .colagem .c2 { font-family: 'Petrona', serif; font-style: italic; font-size: clamp(1.3rem, 1.1rem + 1vw, 1.9rem); color: var(--text); }
+  .colagem .c3 { font-family: 'Mulish', sans-serif; font-weight: 700; font-size: var(--fs-md); color: var(--text-muted); transform: rotate(1deg); }
+  .colagem .c4 { font-family: 'Petrona', serif; font-style: italic; font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.3rem); color: var(--wine-soft); }
+  .cuidado-note { margin-top: var(--sp-4); color: var(--text-faint); font-size: var(--fs-xs); max-width: 60ch; }
+
+  /* ---------- FAQ: lista simples, sem caixas ---------- */
+  .faq { background: var(--bg-alt); }
+  .faq-list { margin-top: var(--sp-4); max-width: 780px; border-top: 1px solid var(--border-soft); }
+  .faq-item { border-bottom: 1px solid var(--border-soft); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: var(--fs-md);
+    font-family: 'Petrona', serif;
+    font-weight: 600;
+    padding: 1.3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  .faq-q .sign { font-family: 'Mulish', sans-serif; font-size: 1.4rem; font-weight: 300; color: var(--terracotta); flex-shrink: 0; width: 1em; text-align: center; }
+  .faq-item[data-open="true"] .faq-q .sign::before { content: "\2212"; }
+  .faq-item:not([data-open="true"]) .faq-q .sign::before { content: "+"; }
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease); }
+  .faq-item[data-open="true"] .faq-a { grid-template-rows: 1fr; }
+  .faq-a-inner { overflow: hidden; min-height: 0; }
+  .faq-a-content { padding: 0 0 1.4rem; color: var(--text-muted); font-size: var(--fs-sm); max-width: 65ch; }
+
+  /* ---------- Localizacao: bloco simples ---------- */
+  .local { background: var(--bg); }
+  .local-block { margin-top: var(--sp-4); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 4rem); }
+  .local-info p { color: var(--text-muted); font-size: var(--fs-md); margin: 0 0 0.6rem; max-width: 42ch; }
+  .local-info .text-link { margin-top: 0.6rem; }
+  .local-ig { border-left: 1px solid var(--border-soft); padding-left: clamp(1.5rem, 3vw, 3rem); }
+  .local-ig .script { font-size: 1.9rem; color: var(--terracotta-soft); display: block; }
+  .local-ig p { margin: 0.6rem 0 var(--sp-2); color: var(--text-faint); font-size: var(--fs-sm); }
+
+  /* ---------- CTA final ---------- */
+  .cta-final { background: var(--bg-alt); text-align: center; padding: var(--sp-6) 0; border-top: 1px solid var(--border-soft); }
+  .cta-final h2 { font-family: 'Yellowtail', cursive; font-weight: 400; font-size: clamp(2.4rem, 1.8rem + 2.6vw, 4.2rem); max-width: 18ch; margin-left: auto; margin-right: auto; }
+  .cta-final p { color: var(--text-muted); margin-top: var(--sp-2); font-size: var(--fs-md); }
+  .cta-final .hero-actions { justify-content: center; }
+  .cta-address { margin-top: var(--sp-3); color: var(--text-faint); font-size: var(--fs-sm); }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer { background: var(--bg); border-top: 1px solid var(--border-soft); padding: var(--sp-5) 0 var(--sp-3); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--sp-4); }
+  .footer-brand .script { font-size: 1.5rem; }
+  footer p { color: var(--text-faint); font-size: var(--fs-xs); line-height: 1.7; margin: 0.6rem 0 0; }
+  .footer-col h3 { font-family: 'Mulish', sans-serif; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-faint); margin-bottom: 1rem; }
+  .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: var(--fs-sm); margin-bottom: 0.6rem; }
+  .footer-col a:hover { color: var(--terracotta-soft); }
+  .footer-bottom { margin-top: var(--sp-4); padding-top: var(--sp-2); border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: var(--fs-xs); color: var(--text-faint); }
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 90;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #33201a, #140b08);
+    border: 1px solid var(--terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 36px -12px rgba(0,0,0,0.7);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .wa-float:hover { transform: scale(1.08); background: linear-gradient(135deg, #3d2620, #1c110d); border-color: var(--terracotta-soft); }
+  .wa-float svg { width: 27px; height: 27px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    nav.main-nav { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; max-width: 340px; margin: 0 auto; }
+    .sobre-body { grid-template-columns: 1fr; }
+    .sobre-portrait-blob { max-width: 260px; }
+    .servico-row { grid-template-columns: 1fr; gap: 0.4rem; }
+    .diferencial-grid { grid-template-columns: 1fr; text-align: left; }
+    .local-block { grid-template-columns: 1fr; }
+    .local-ig { border-left: none; border-top: 1px solid var(--border-soft); padding-left: 0; padding-top: var(--sp-3); }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="#conteudo-principal" class="brand" aria-label="Paula Prado Estética, início">
+      <span class="script">Paula Prado</span>
+      <span class="brand-sub">Estética</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Cuidados</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#local">Localização</a>
+      <a href="#contato" class="btn btn-terracotta btn-sm whatsapp-cta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO editorial: foto grande + assinatura script, sem eyebrow, sem crest -->
+  <section class="hero" id="topo">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <h1>Paula Prado</h1>
+        <p class="hero-dek">Cuidado, conforto e respeito. Há <strong>10 anos</strong> ouvindo antes de indicar, cuidando da autoestima de mulheres no Centro de Taubaté.</p>
+        <p class="hero-meta">
+          <span>Esteticista &amp; Fisioterapeuta</span>
+          <span>10 anos de cuidado</span>
+          <span>Edifício Manchester, Taubaté/SP</span>
+        </p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-terracotta whatsapp-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+            Falar agora no WhatsApp
+          </a>
+          <a href="#servicos" class="text-link">Conhecer os cuidados ↓</a>
+        </div>
+      </div>
+      <div class="hero-photo" data-reveal data-reveal-delay="2">
+        <div class="hero-photo-frame">
+          <img src="paula-prado/paula-perfil.jpg" alt="Paula Prado, esteticista e fisioterapeuta" width="320" height="320">
+        </div>
+        <p class="hero-photo-caption">Paula, no consultório em Taubaté.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE: pull-quote grande + foto organica + texto -->
+  <section class="section sobre" id="sobre">
+    <div class="container">
+      <p class="kicker" data-reveal>quem cuida de você</p>
+      <h2 class="sobre-quote" data-reveal>&ldquo;Cuidado, conforto <em>e respeito.</em>&rdquo;</h2>
+      <div class="sobre-body">
+        <div class="sobre-portrait-blob" data-reveal data-reveal-delay="1">
+          <img src="paula-prado/paula-perfil.jpg" alt="Retrato de Paula Prado" width="320" height="320" loading="lazy">
+        </div>
+        <div data-reveal data-reveal-delay="2">
+          <div class="sobre-text">
+            <p>Há 10 anos, Paula Prado cuida da autoestima de mulheres em Taubaté, num consultório pensado para ser aconchegante desde a primeira visita, não só clínico.</p>
+            <p>É <strong>esteticista e fisioterapeuta</strong>, uma combinação pouco comum que dá profundidade técnica a cuidados como a drenagem linfática, sem perder o lado humano do atendimento.</p>
+            <p>Quem passa pelo consultório costuma voltar. Não como uma cliente qualquer, mas como alguém que a Paula já conhece pelo nome, pela pele e pela história.</p>
+          </div>
+          <p class="sobre-valores">Cuidado<span>&mdash;</span>Conforto<span>&mdash;</span>Respeito</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS: lista editorial, sem cards -->
+  <section class="section servicos" id="servicos">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>O que a Paula Prado Estética cuida por você</h2>
+        <p>Facial, corporal e depilação a laser, sempre com avaliação individual antes de qualquer indicação.</p>
+      </div>
+      <ul class="servicos-lista" data-reveal data-reveal-delay="1" style="list-style: none; padding: 0; margin: 0;">
+        <li class="servico-row">
+          <h3>Limpeza de Pele</h3>
+          <p>Higienização profunda com técnica e cuidado, para uma pele que respira e recomeça.</p>
+        </li>
+        <li class="servico-row">
+          <h3>Botox</h3>
+          <p>Aplicação com avaliação individual, para um resultado natural, respeitando a expressão do rosto.</p>
+        </li>
+        <li class="servico-row">
+          <h3>Dermaplaning</h3>
+          <p>Esfoliação física que renova a textura da pele e prepara o rosto para absorver melhor outros cuidados.</p>
+        </li>
+        <li class="servico-row">
+          <h3>Epilação a Laser</h3>
+          <p>Redução progressiva de pelos com tecnologia segura, sessão após sessão.</p>
+        </li>
+        <li class="servico-row">
+          <h3>Drenagem Linfática</h3>
+          <p>Técnica com base em fisioterapia, para aliviar retenção de líquido e trazer sensação de leveza.</p>
+        </li>
+        <li class="servico-row destaque-row">
+          <h3>Avaliação Personalizada</h3>
+          <p>Não sabe por onde começar? Conta pra Paula no WhatsApp e ela te orienta sobre o melhor caminho.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="diferencial-band" data-reveal>
+      <div class="container diferencial-grid">
+        <div>
+          <span class="kicker">um diferencial real</span>
+          <h2>Esteticista e fisioterapeuta na mesma pessoa</h2>
+        </div>
+        <div>
+          <p>Poucos consultórios em Taubaté reúnem as duas formações. Na prática, cuidados como a drenagem linfática são conduzidos com um olhar clínico apurado, sem perder o lado acolhedor que já é marca registrada do atendimento da Paula.</p>
+          <a href="#contato" class="btn btn-terracotta whatsapp-cta">Conversar sobre meu caso</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA: linha do tempo vertical (unica sequencia numerada da pagina) -->
+  <section class="section processo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="kicker">como funciona</p>
+        <h2>Do primeiro &ldquo;oi&rdquo; no WhatsApp ao seu autocuidado</h2>
+      </div>
+      <div class="processo-timeline">
+        <div class="timeline-step" data-reveal>
+          <span class="timeline-step-num">1</span>
+          <h3>Você chama no WhatsApp</h3>
+          <p>Conta o que sente ou o que gostaria de cuidar, sem compromisso.</p>
+        </div>
+        <div class="timeline-step" data-reveal data-reveal-delay="1">
+          <span class="timeline-step-num">2</span>
+          <h3>Paula ouve com calma</h3>
+          <p>Uma avaliação de verdade da sua pele ou do seu corpo, sem pressa.</p>
+        </div>
+        <div class="timeline-step" data-reveal data-reveal-delay="2">
+          <span class="timeline-step-num">3</span>
+          <h3>Protocolo sob medida</h3>
+          <p>O cuidado certo pra você, não uma fórmula pronta pra qualquer pessoa.</p>
+        </div>
+        <div class="timeline-step" data-reveal data-reveal-delay="3">
+          <span class="timeline-step-num">4</span>
+          <h3>Acompanhamento de perto</h3>
+          <p>Sessão após sessão, com atenção aos detalhes que fazem diferença.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE SE REPETE: colagem tipografica das avaliacoes reais -->
+  <section class="section cuidado" id="cuidado">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Palavras que aparecem sempre nas avaliações reais</h2>
+        <p>Expressões recorrentes de quem já passou pelo consultório, no Google.</p>
+      </div>
+      <div class="colagem" data-reveal data-reveal-delay="1">
+        <span class="c1">mãos de fada</span>
+        <span class="c2">&ldquo;ambiente aconchegante&rdquo;</span>
+        <span class="c3">atendimento cauteloso e humano</span>
+        <span class="c4">virei cliente periódica</span>
+      </div>
+      <p class="cuidado-note">Palavras e expressões que se repetem nas avaliações reais deixadas por clientes no perfil do Google da Paula Prado Estética.</p>
+    </div>
+  </section>
+
+  <!-- FAQ: lista simples, sem caixas -->
+  <section class="section faq" id="duvidas">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="kicker">dúvidas frequentes</p>
+        <h2>Perguntas que quase toda cliente traz na primeira mensagem</h2>
+        <p>Respostas gerais para começar a entender o cuidado. A avaliação de cada caso é sempre individual.</p>
+      </div>
+      <div class="faq-list" data-reveal data-reveal-delay="1">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Como faço para agendar uma avaliação?
+            <span class="sign" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Chame direto no WhatsApp. É o canal mais rápido de falar com a Paula, contar o que você procura e já sair com um horário marcado.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Preciso já saber qual procedimento quero fazer?
+            <span class="sign" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Não. Muita gente chega só contando o que está incomodando (pele, inchaço, autoestima) e a Paula ajuda a entender qual caminho faz mais sentido, na conversa ou na avaliação presencial.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Toda aplicação de Botox passa por avaliação?
+            <span class="sign" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Sim, sempre. Cada rosto é avaliado individualmente antes de qualquer aplicação, para um resultado que respeita sua expressão natural.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Drenagem linfática serve para quê, na prática?
+            <span class="sign" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Ajuda a aliviar a sensação de inchaço e retenção de líquido, trazendo mais leveza ao corpo. Por ser fisioterapeuta, Paula conduz a técnica com um olhar clínico, não só estético.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            E se eu tiver mais dúvidas antes de decidir?
+            <span class="sign" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Sem problema nenhum. Chame no WhatsApp e pergunte à vontade, antes de marcar qualquer coisa.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZACAO: bloco de texto simples -->
+  <section class="section local" id="local">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2>Um espaço no Centro de Taubaté</h2>
+      </div>
+      <div class="local-block" data-reveal data-reveal-delay="1">
+        <div class="local-info">
+          <p>Edifício Manchester &mdash; R. Visc. do Rio Branco, 100, Sl 43, Centro, Taubaté/SP.</p>
+          <p>Agendamento e atendimento via WhatsApp.</p>
+          <a href="#" class="text-link" data-map-link="true">Ver no mapa ↗</a>
+        </div>
+        <div class="local-ig">
+          <span class="script">@paulapradoestetica</span>
+          <p>Acompanhe o dia a dia do consultório no Instagram.</p>
+          <a href="https://www.instagram.com/paulapradoestetica/" target="_blank" rel="noopener" class="btn btn-terracotta btn-sm">Seguir no Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <h2>Vamos cuidar da sua autoestima?</h2>
+      <p>Sem compromisso. Conta pra Paula o que você procura.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-terracotta whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+      <p class="cta-address">Centro de Taubaté &mdash; Edifício Manchester, Sl 43</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="script">Paula Prado</span>
+        <p>Edifício Manchester &mdash; R. Visc. do Rio Branco, 100, Sl 43<br>
+        Centro, Taubaté/SP</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Navegue</h3>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Cuidados</a>
+      <a href="#duvidas">Dúvidas frequentes</a>
+      <a href="#local">Localização</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="#" class="whatsapp-cta">WhatsApp</a>
+      <a href="https://www.instagram.com/paulapradoestetica/" target="_blank" rel="noopener">@paulapradoestetica</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="ano"></span> Paula Prado Estética. Todos os direitos reservados.</span>
+    <span>Taubaté &mdash; SP</span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float whatsapp-cta" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  // WhatsApp: monta o link com numero certo e mensagem pre-escrita, sempre corretamente encodada
+  var WA_NUMBER = "5512981237849";
+  var WA_MESSAGE = "Olá, Paula! Vim pelo seu Instagram e queria saber mais sobre os cuidados da clínica.";
+  var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+  document.querySelectorAll(".whatsapp-cta").forEach(function (el) {
+    el.setAttribute("href", waHref);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Link de mapa da unidade, montado via query encodada
+  var mapQuery = "Edifício Manchester, Rua Visconde do Rio Branco, 100, Centro, Taubaté, SP";
+  var mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(mapQuery);
+  document.querySelectorAll("[data-map-link]").forEach(function (el) {
+    el.setAttribute("href", mapHref);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Header muda de aparencia ao rolar
+  var header = document.getElementById("siteHeader");
+  var onScroll = function () {
+    if (window.scrollY > 40) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Menu mobile
+  var navToggle = document.getElementById("navToggle");
+  var mainNav = document.querySelector(".main-nav");
+  if (navToggle && mainNav) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.style.display === "flex";
+      if (isOpen) {
+        mainNav.style.display = "";
+        navToggle.setAttribute("aria-expanded", "false");
+      } else {
+        mainNav.style.display = "flex";
+        mainNav.style.position = "fixed";
+        mainNav.style.top = "76px";
+        mainNav.style.left = "0";
+        mainNav.style.right = "0";
+        mainNav.style.flexDirection = "column";
+        mainNav.style.alignItems = "flex-start";
+        mainNav.style.gap = "1.2rem";
+        mainNav.style.background = "rgba(36,21,18,0.98)";
+        mainNav.style.padding = "1.5rem clamp(1.25rem, 3vw, 2.5rem) 2rem";
+        mainNav.style.borderBottom = "1px solid var(--border-soft)";
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+    });
+    mainNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.innerWidth <= 980) {
+          mainNav.style.display = "";
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  // FAQ accordion (a animacao de abrir/fechar e 100% CSS via grid-template-rows,
+  // o JS so alterna o estado data-open/aria-expanded)
+  document.querySelectorAll(".faq-item").forEach(function (item) {
+    var btn = item.querySelector(".faq-q");
+    btn.addEventListener("click", function () {
+      var isOpen = item.getAttribute("data-open") === "true";
+      document.querySelectorAll(".faq-item").forEach(function (other) {
+        other.setAttribute("data-open", "false");
+        other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.setAttribute("data-open", "true");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  // Ano no rodape
+  var anoEl = document.getElementById("ano");
+  if (anoEl) { anoEl.textContent = new Date().getFullYear(); }
+})();
+</script>
+
+</body>
+</html>
