@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cris Bertoldo, Biomédica Esteta em Taubaté | 24 anos de experiência</title>
+<meta name="description" content="Biomédica esteta com CRBM 49751 e 24 anos de experiência em Taubaté. Limpeza de pele, Botox e tratamentos faciais com resultados reais. Agende pelo WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cris Bertoldo, Biomédica Esteta em Taubaté">
+<meta property="og:description" content="24 anos de experiência cuidando da pele e da autoestima de Taubaté. CRBM 49751.">
+<meta property="og:image" content="https://rafolabs.tech/proposta/cris-bertoldo/cris-perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --creme:#f6efe4;
+    --creme-alt:#efe4d2;
+    --tinta:#2a2117;
+    --vinho:#6b1f33;
+    --vinho-escuro:#3d0f1c;
+    --vinho-escuro-2:#260a13;
+    --bronze:#a97d4f;
+    --bronze-escuro:#7a5730;
+    --bronze-claro:#c79a63;
+    --verde:#33422f;
+    --text-faint:#6b5847;
+    --border:#ddd0ba;
+
+    --serif:'Frank Ruhl Libre', Georgia, serif;
+    --sans:'Archivo', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+
+    --fs-h1: clamp(2.6rem, 1.9rem + 3.2vw, 5.2rem);
+    --fs-h2: clamp(1.9rem, 1.5rem + 1.7vw, 3.1rem);
+    --fs-num: clamp(8rem, 4rem + 18vw, 24rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--creme);
+    color:var(--tinta);
+    font-family:var(--sans);
+    font-size:1.05rem;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  .skip-link{position:absolute;left:1rem;top:-3rem;background:var(--tinta);color:var(--creme);padding:.7rem 1.2rem;border-radius:4px;z-index:200;transition:top .2s ease;}
+  .skip-link:focus{top:1rem;}
+
+  /* reveal-on-scroll: nunca esconder conteudo permanentemente se JS nao rodar/nao disparar */
+  html.js [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  html.js [data-reveal].is-visible{opacity:1;transform:none;}
+
+  /* ---------- botao WhatsApp: fundo escuro + borda de destaque + texto claro, nunca clareia no hover ---------- */
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:var(--vinho-escuro);
+    border:1.5px solid var(--bronze);
+    color:var(--creme);
+    font-family:var(--sans);font-weight:600;font-size:1rem;
+    padding:.95rem 1.7rem;
+    text-decoration:none;
+    border-radius:3px 14px 3px 14px;
+    transition:background-color .2s ease, border-color .2s ease;
+    line-height:1;
+  }
+  .btn-wa:hover,.btn-wa:focus-visible{
+    background:var(--vinho-escuro-2);
+    border-color:var(--bronze-claro);
+    outline:none;
+  }
+  .btn-wa:focus-visible{box-shadow:0 0 0 3px rgba(169,125,79,.45);}
+  .btn-wa svg{width:20px;height:20px;flex:none;}
+  .btn-wa-small{padding:.55rem 1.15rem;font-size:.82rem;border-radius:2px 10px 2px 10px;}
+
+  .wa-float{
+    position:fixed;right:1.25rem;bottom:1.25rem;z-index:70;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--vinho-escuro);border:1.5px solid var(--bronze);color:var(--creme);
+    box-shadow:0 10px 28px rgba(42,33,23,.32);
+    transition:background-color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .wa-float:hover,.wa-float:focus-visible{background:var(--vinho-escuro-2);border-color:var(--bronze-claro);transform:translateY(-2px);outline:none;}
+  .wa-float svg{width:27px;height:27px;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(246,239,228,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .header-inner{
+    max-width:1240px;margin:0 auto;padding:.8rem 1.5rem;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--tinta);}
+  .brand-photo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1.5px solid var(--bronze);flex:none;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{font-family:var(--serif);font-size:1.15rem;letter-spacing:.005em;}
+  .brand-crbm{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--bronze-escuro);text-transform:uppercase;}
+
+  .main-nav{display:flex;gap:2rem;}
+  .main-nav a{font-size:.95rem;text-decoration:none;position:relative;padding-bottom:.2rem;}
+  .main-nav a:hover,.main-nav a:focus-visible{color:var(--vinho);outline:none;}
+
+  .header-cta{display:flex;align-items:center;gap:.9rem;}
+  .nav-toggle{
+    display:none;background:none;border:1.5px solid var(--tinta);border-radius:4px;
+    width:42px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;
+  }
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+    content:'';display:block;width:20px;height:2px;background:var(--tinta);position:relative;
+  }
+  .nav-toggle span::before{position:absolute;top:-6px;}
+  .nav-toggle span::after{position:absolute;top:6px;}
+
+  #mobile-nav{display:none;}
+
+  @media (max-width:860px){
+    .main-nav{display:none;}
+    .header-cta .btn-wa-small{display:none;}
+    .nav-toggle{display:inline-flex;}
+    #mobile-nav{
+      display:grid;grid-template-rows:0fr;background:var(--creme-alt);
+      border-bottom:1px solid var(--border);transition:grid-template-rows .3s ease;
+    }
+    #mobile-nav.open{grid-template-rows:1fr;}
+    #mobile-nav .mobile-nav-inner{overflow:hidden;min-height:0;}
+    #mobile-nav ul{list-style:none;margin:0;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:1rem;}
+    #mobile-nav a{text-decoration:none;font-size:1.05rem;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(2.5rem,1.6rem+4vw,5.5rem) 1.5rem 4rem;}
+  .hero-grid{
+    max-width:1240px;margin:0 auto;
+    display:grid;grid-template-columns:180px 1fr 300px;gap:3rem;align-items:start;
+  }
+  .hero-rail{display:flex;flex-direction:column;gap:0;padding-top:.5rem;}
+  .hero-rail span{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--bronze-escuro);padding:.85rem 0;border-top:1px solid var(--border);
+  }
+  .hero-rail span:first-child{border-top:2px solid var(--tinta);}
+
+  .hero-main .kicker{
+    font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--vinho);margin-bottom:1.1rem;display:inline-block;
+  }
+  .hero-main h1{font-size:var(--fs-h1);line-height:1.02;color:var(--tinta);margin-bottom:1.4rem;}
+  .hero-main .lede{font-size:1.2rem;line-height:1.55;max-width:38ch;margin-bottom:2.1rem;color:#3a2f22;}
+
+  .hero-portrait figure{margin:0;}
+  .hero-portrait img{width:100%;height:auto;aspect-ratio:1/1.08;object-fit:cover;border-radius:4px 32px 4px 32px;border:1.5px solid var(--bronze);}
+  .hero-portrait figcaption{font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;color:var(--text-faint);margin-top:.7rem;text-transform:uppercase;}
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:2rem;}
+    .hero-rail{flex-direction:row;flex-wrap:wrap;gap:0 1.6rem;}
+    .hero-rail span{border-top:none;padding:0;}
+    .hero-rail span:first-child{border-top:none;}
+    .hero-portrait{max-width:280px;}
+  }
+
+  /* ---------- trajetoria (24 anos) ---------- */
+  .trajetoria{position:relative;background:var(--creme-alt);padding:clamp(3rem,2rem+5vw,7rem) 1.5rem;overflow:hidden;}
+  .trajetoria-num{
+    position:absolute;right:-1rem;top:50%;transform:translateY(-50%);
+    font-family:var(--mono);font-weight:600;font-size:var(--fs-num);line-height:1;
+    color:transparent;-webkit-text-stroke:2px var(--bronze);opacity:.4;
+    z-index:0;pointer-events:none;user-select:none;
+  }
+  .trajetoria-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+  .trajetoria h2{font-size:var(--fs-h2);margin-bottom:1.3rem;color:var(--tinta);}
+  .trajetoria p{font-size:1.1rem;line-height:1.7;margin-bottom:1.2rem;color:#3a2f22;}
+  .trajetoria p:last-child{margin-bottom:0;}
+
+  @media (max-width:700px){
+    .trajetoria-num{opacity:.25;right:-.5rem;}
+  }
+
+  /* ---------- procedimentos ---------- */
+  .procedimentos{padding:clamp(3rem,2rem+4vw,6rem) 1.5rem;}
+  .procedimentos-inner{max-width:980px;margin:0 auto;}
+  .section-heading{font-size:var(--fs-h2);margin-bottom:.6rem;color:var(--tinta);}
+  .section-lede{color:var(--text-faint);max-width:52ch;margin-bottom:2.6rem;font-size:1.02rem;}
+
+  .proc-row{display:grid;grid-template-columns:1fr 1.35fr;gap:2.4rem;padding:2.4rem 0;border-top:1px solid var(--border);align-items:start;}
+  .proc-row:last-of-type{border-bottom:1px solid var(--border);}
+  .proc-name{font-size:1.65rem;color:var(--vinho);margin-bottom:.8rem;}
+  .proc-desc{color:#3a2f22;line-height:1.65;}
+  .proc-diptych{display:flex;gap:.6rem;margin-top:1.3rem;max-width:420px;}
+  .proc-diptych figure{flex:1;margin:0;}
+  .proc-diptych img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1.5px solid var(--bronze);border-radius:2px;}
+  .proc-diptych figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-top:.5rem;color:var(--bronze-escuro);}
+  .proc-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--text-faint);margin-top:.9rem;text-transform:uppercase;}
+
+  @media (max-width:700px){
+    .proc-row{grid-template-columns:1fr;gap:1rem;}
+  }
+
+  /* ---------- depoimentos / reputacao ---------- */
+  .depoimentos{background:var(--tinta);color:var(--creme);padding:clamp(3.5rem,2.5rem+5vw,7.5rem) 1.5rem;text-align:center;}
+  .depoimentos-inner{max-width:840px;margin:0 auto;}
+  .depoimentos .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-claro);margin-bottom:1.6rem;display:inline-block;}
+  .depoimentos blockquote{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:clamp(1.35rem,1.1rem+1.1vw,2.1rem);line-height:1.48;margin:0 0 2.4rem;
+  }
+  .trust-row{
+    font-family:var(--mono);font-size:.82rem;letter-spacing:.03em;color:#d8c8a8;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 0;
+  }
+  .trust-row span{padding:0 1rem;position:relative;}
+  .trust-row span:not(:last-child)::after{content:'·';position:absolute;right:-.1rem;color:var(--bronze-claro);}
+
+  /* ---------- perguntas (FAQ estilo entrevista) ---------- */
+  .perguntas{padding:clamp(3rem,2rem+4vw,6rem) 1.5rem;}
+  .perguntas-inner{max-width:740px;margin:0 auto;}
+  .qa{margin:0 0 2.6rem;padding-left:1.3rem;border-left:2px solid var(--bronze);}
+  .qa dt{font-family:var(--serif);font-weight:700;font-size:1.18rem;margin-bottom:.55rem;color:var(--tinta);}
+  .qa dd{margin:0;color:var(--text-faint);line-height:1.65;}
+
+  /* ---------- contato final ---------- */
+  .contato{background:var(--vinho-escuro);color:var(--creme);padding:clamp(3.5rem,2.5rem+5vw,7.5rem) 1.5rem;text-align:center;}
+  .contato-inner{max-width:640px;margin:0 auto;}
+  .contato h2{font-size:var(--fs-h2);margin-bottom:1.1rem;}
+  .contato p{color:#e9dcc4;margin-bottom:2.3rem;font-size:1.08rem;line-height:1.6;}
+  .contato address{
+    font-family:var(--mono);font-style:normal;font-size:.85rem;color:#d8c8a8;
+    margin-top:2.8rem;line-height:1.9;
+  }
+  .contato address a{text-decoration:underline;text-decoration-color:var(--bronze);}
+
+  /* ---------- footer ---------- */
+  .site-footer{background:var(--tinta);color:#a8998a;padding:2rem 1.5rem;text-align:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;}
+  .site-footer p{margin:0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#top-conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <img class="brand-photo" src="cris-bertoldo/cris-perfil.jpg" alt="Foto de Dra. Cris Bertoldo" width="42" height="42">
+      <span class="brand-text">
+        <span class="brand-name">Cris Bertoldo</span>
+        <span class="brand-crbm">CRBM 49751</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#procedimentos">Procedimentos</a>
+      <a href="#depoimentos">Reputação</a>
+      <a href="#perguntas">Perguntas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn-wa btn-wa-small" href="https://wa.me/5512991248818?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Cris%20Bertoldo." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" id="nav-toggle-btn">
+        <span class="visually-hidden">Abrir menu</span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" aria-label="Navegação mobile">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#procedimentos">Procedimentos</a></li>
+        <li><a href="#depoimentos">Reputação</a></li>
+        <li><a href="#perguntas">Perguntas</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="btn-wa btn-wa-small" href="https://wa.me/5512991248818?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Cris%20Bertoldo." target="_blank" rel="noopener">Falar no WhatsApp</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <div id="top-conteudo"></div>
+
+  <!-- HERO: layout tipo ficha/dossie, sem crest, sem foto de fundo full-bleed -->
+  <section class="hero" aria-label="Apresentação">
+    <div class="hero-grid">
+      <div class="hero-rail" data-reveal>
+        <span>CRBM 49751</span>
+        <span>24 anos de atuação</span>
+        <span>Taubaté, SP</span>
+      </div>
+      <div class="hero-main" data-reveal>
+        <span class="kicker">Estética e saúde</span>
+        <h1>Cris Bertoldo</h1>
+        <p class="lede">Biomédica esteta há 24 anos cuidando da pele e da autoestima de quem confia em Taubaté.</p>
+        <a class="btn-wa" href="https://wa.me/5512991248818?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Cris%20Bertoldo." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+          Agendar avaliação
+        </a>
+      </div>
+      <div class="hero-portrait" data-reveal>
+        <figure>
+          <img src="cris-bertoldo/cris-perfil.jpg" alt="Retrato de Dra. Cris Bertoldo, biomédica esteta" width="320" height="320">
+          <figcaption>Dra. Cris Bertoldo · Biomédica</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24 ANOS: numeral gigante como grafismo, nao cards de estatistica -->
+  <section class="trajetoria" id="sobre" aria-labelledby="sobre-titulo">
+    <span class="trajetoria-num" aria-hidden="true">24</span>
+    <div class="trajetoria-inner" data-reveal>
+      <h2 id="sobre-titulo">Vinte e quatro anos dedicados à pele e à autoestima de Taubaté</h2>
+      <p>Formada em Biomedicina e especializada em estética, a Dra. Cris Bertoldo (CRBM 49751) atende em Taubaté há mais de duas décadas. Nesse tempo, construiu uma reputação que se sustenta menos em promessa e mais em resultado: pacientes que voltam ano após ano, indicam para a família e continuam confiando os próprios cuidados a ela.</p>
+      <p>É esse tipo de experiência que só se acumula com o tempo: saber ler cada pele, ajustar cada protocolo, e entregar um resultado natural, sem exageros.</p>
+    </div>
+  </section>
+
+  <!-- PROCEDIMENTOS: lista tipo ficha clinica, nao grid de cards -->
+  <section class="procedimentos" id="procedimentos" aria-labelledby="proc-titulo">
+    <div class="procedimentos-inner">
+      <h2 class="section-heading" id="proc-titulo" data-reveal>Procedimentos</h2>
+      <p class="section-lede" data-reveal>Uma seleção enxuta de procedimentos, feitos com a mesma atenção de sempre, sem linha de produção.</p>
+
+      <div class="proc-row" data-reveal>
+        <h3 class="proc-name">Limpeza de pele</h3>
+        <div>
+          <p class="proc-desc">Higienização profunda, extração e hidratação para renovar a pele do rosto. O procedimento mais procurado por quem está começando a cuidar da pele com regularidade, e também por quem já tem uma rotina de manutenção.</p>
+        </div>
+      </div>
+
+      <div class="proc-row" data-reveal>
+        <h3 class="proc-name">Botox</h3>
+        <div>
+          <p class="proc-desc">Suavização de linhas de expressão com técnica precisa e resultado natural, sem perder a expressividade do rosto. Um dos procedimentos mais pedidos por quem já é paciente de longa data.</p>
+          <div class="proc-diptych">
+            <figure>
+              <img src="cris-bertoldo/testa-antes.jpg" alt="Testa com linhas de expressão marcadas, antes do procedimento de Botox" width="445" height="330" loading="lazy">
+              <figcaption>Antes</figcaption>
+            </figure>
+            <figure>
+              <img src="cris-bertoldo/testa-depois.jpg" alt="Mesma testa lisa, depois do procedimento de Botox" width="445" height="210" loading="lazy">
+              <figcaption>Depois</figcaption>
+            </figure>
+          </div>
+          <p class="proc-note">Registro real de atendimento no consultório</p>
+        </div>
+      </div>
+
+      <div class="proc-row" data-reveal>
+        <h3 class="proc-name">Tratamentos faciais</h3>
+        <div>
+          <p class="proc-desc">Protocolos personalizados para as necessidades específicas de cada pele, da oleosidade aos sinais de idade, montados a partir de uma avaliação individual, não de um pacote pronto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPUTACAO: painel escuro, sintese das reviews sem aspas atribuidas -->
+  <section class="depoimentos" id="depoimentos" aria-labelledby="dep-titulo">
+    <div class="depoimentos-inner" data-reveal>
+      <h2 class="kicker" id="dep-titulo">Reputação</h2>
+      <blockquote>Quem já é paciente da Dra. Cris costuma descrever a mesma coisa: cuidado de verdade, atenção aos detalhes e resultados que se mantêm, a ponto de muitas pacientes seguirem com ela há mais de vinte anos.</blockquote>
+      <p class="trust-row">
+        <span>24 anos de atuação</span>
+        <span>CRBM 49751</span>
+        <span>Avaliações consistentemente de nota máxima no Google</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ: formato entrevista corrida, sem accordion/caixas -->
+  <section class="perguntas" id="perguntas" aria-labelledby="faq-titulo">
+    <div class="perguntas-inner">
+      <h2 class="section-heading" id="faq-titulo" data-reveal>Perguntas frequentes</h2>
+      <dl>
+        <div class="qa" data-reveal>
+          <dt>Preciso de indicação médica para agendar?</dt>
+          <dd>Não. Você pode agendar diretamente uma avaliação, e a partir dela a Dra. Cris indica o procedimento mais adequado para o seu caso.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Quanto tempo dura uma sessão de limpeza de pele?</dt>
+          <dd>Varia de acordo com a condição da pele no dia, mas o atendimento é feito com calma, sem pressa: cada etapa é respeitada.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>O resultado do Botox fica natural?</dt>
+          <dd>Sim. A proposta é suavizar as linhas de expressão sem travar os movimentos do rosto. O objetivo é parecer descansada, não parecer "feita".</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Onde fica o consultório?</dt>
+          <dd>Na R. Bahia, 272, Vila São Geraldo, Taubaté. O atendimento é feito mediante agendamento prévio pelo WhatsApp.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CONTATO final -->
+  <section class="contato" id="contato" aria-labelledby="contato-titulo">
+    <div class="contato-inner" data-reveal>
+      <h2 id="contato-titulo">Vinte e quatro anos de experiência a uma mensagem de distância</h2>
+      <p>Fale agora com a Dra. Cris Bertoldo pelo WhatsApp e agende sua avaliação em Taubaté.</p>
+      <a class="btn-wa" href="https://wa.me/5512991248818?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Cris%20Bertoldo." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <address>
+        R. Bahia, 272, Vila São Geraldo, Taubaté, SP<br>
+        <a href="https://instagram.com/dracrisbertoldo_biomedica" target="_blank" rel="noopener">@dracrisbertoldo_biomedica</a>
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Página de apresentação. Consulte a Dra. Cris Bertoldo para avaliação individual antes de qualquer procedimento.</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5512991248818?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Dra.%20Cris%20Bertoldo." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com Dra. Cris Bertoldo">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var toggleBtn = document.getElementById('nav-toggle-btn');
+    var panel = document.getElementById('mobile-nav');
+    if(toggleBtn && panel){
+      toggleBtn.addEventListener('click', function(){
+        var isOpen = panel.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      panel.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          panel.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // reveal-on-scroll com rede de seguranca (setTimeout) para nunca esconder conteudo pra sempre
+    var items = document.querySelectorAll('[data-reveal]');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      items.forEach(function(el){ obs.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+    setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }, 1200);
+  })();
+</script>
+</body>
+</html>
