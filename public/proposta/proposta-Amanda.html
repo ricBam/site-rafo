@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Cabeleireiros · Tradição e coloração no Jardim Vale do Sol, SJC</title>
+<meta name="description" content="Mais de 35 anos de tradição no Jardim Vale do Sol. Coloração assinada pelo Beto e um Dia da Noiva pensado nos mínimos detalhes. Agende pelo WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#142920">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amanda Cabeleireiros · Jardim Vale do Sol, São José dos Campos">
+<meta property="og:description" content="Mais de 35 anos de tradição, a coloração do Beto e um Dia da Noiva pensado nos mínimos detalhes.">
+<meta property="og:image" content="amanda/dia-da-noiva.jpg">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Parisienne&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #142920;
+    --bg-alt: #183024;
+    --surface: #1d3a2c;
+    --surface-2: #234432;
+    --border: #3c5a48;
+    --border-soft: #29452f;
+    --text: #f5efe1;
+    --text-muted: #d9d2be;
+    --text-faint: #9fae9c;
+    --brass: #c7ab6c;
+    --brass-deep: #9c7d3e;
+    --wine: #6b1f2a;
+    --wine-soft: #8a2c39;
+    --paper: #f3ecd9;
+    --paper-alt: #ece2c8;
+    --paper-ink: #2a2115;
+    --paper-brass: #7c631f;
+    --paper-border: #cdbb8f;
+    --shadow-lg: 0 30px 80px -30px rgba(0,0,0,0.7);
+    --shadow-sm: 0 10px 30px -15px rgba(0,0,0,0.6);
+    --container: 1180px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --fs-xs: clamp(0.78rem, 0.74rem + 0.18vw, 0.88rem);
+    --fs-sm: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+    --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --fs-md: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+    --fs-lg: clamp(1.5rem, 1.3rem + 0.85vw, 2.1rem);
+    --fs-xl: clamp(2rem, 1.6rem + 1.7vw, 3.1rem);
+    --fs-2xl: clamp(2.6rem, 1.9rem + 3vw, 4.4rem);
+    --fs-3xl: clamp(3.2rem, 2.2rem + 4.6vw, 5.6rem);
+
+    --sp-1: clamp(0.5rem, 0.45rem + 0.2vw, 0.65rem);
+    --sp-2: clamp(0.9rem, 0.8rem + 0.4vw, 1.2rem);
+    --sp-3: clamp(1.5rem, 1.3rem + 0.8vw, 2.1rem);
+    --sp-4: clamp(2.2rem, 1.8rem + 1.6vw, 3.4rem);
+    --sp-5: clamp(3.2rem, 2.4rem + 3vw, 5.6rem);
+    --sp-6: clamp(4.5rem, 3.2rem + 5vw, 8.5rem);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Karla', system-ui, sans-serif;
+    font-size: var(--fs-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { margin: 0; font-weight: 400; }
+  p { margin: 0; }
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(1.25rem, 3vw, 2.5rem); }
+  section { position: relative; scroll-margin-top: 92px; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--brass);
+    color: #1a150a;
+    padding: 0.8em 1.2em;
+    z-index: 200;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Flourish: risco horizontal com um losango de latao no meio.
+     Substitui crest/monograma/numeracao 01-02-03 como elemento decorativo
+     recorrente da pagina. ---------- */
+  .flourish {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .flourish::before, .flourish::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .flourish-mark {
+    width: 7px;
+    height: 7px;
+    background: var(--brass);
+    transform: rotate(45deg);
+    flex: none;
+  }
+  .flourish.on-paper::before, .flourish.on-paper::after { background: var(--paper-border); }
+  .flourish.on-paper .flourish-mark { background: var(--paper-brass); }
+
+  /* ---------- kicker: usado no maximo 3 vezes na pagina inteira (disciplina
+     deliberada contra o tell de eyebrow-tag em toda secao) ---------- */
+  .kicker {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--brass);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    text-decoration: none;
+    font-family: 'Karla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 0.9em 1.8em;
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  /* CTA de WhatsApp: fundo escuro com borda de latao, nunca clareia no hover
+     (so escurece mais e ganha sombra maior) — regra fixa do lote. */
+  .btn-whatsapp {
+    background: linear-gradient(135deg, #1d3a2c, #0c1712);
+    color: var(--text);
+    border: 1px solid var(--brass);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-whatsapp:hover {
+    background: linear-gradient(135deg, #234432, #0e1a15);
+    border-color: var(--brass-deep);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
+  .btn svg { width: 1.1em; height: 1.1em; flex: none; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0.9rem 0;
+    transition: background 0.35s var(--ease), border-color 0.35s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.is-scrolled {
+    background: rgba(20, 41, 32, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .brand { display: flex; align-items: baseline; gap: 0.6rem; text-decoration: none; }
+  .brand-script {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
+    color: var(--text);
+    line-height: 1;
+  }
+  .brand-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  nav.main-nav { display: flex; align-items: center; gap: clamp(1.1rem, 1.8vw, 2rem); }
+  nav.main-nav a:not(.btn) {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: color 0.25s;
+  }
+  nav.main-nav a:not(.btn):hover { color: var(--brass); }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+  }
+
+  /* ---------- Hero: moldura de certidao, sem foto — a assinatura visual da
+     pagina inteira e tipografica/ornamental, nao fotografica ---------- */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: min(94vh, 900px);
+    padding: calc(var(--sp-6) + 3rem) clamp(1.25rem, 4vw, 3rem) var(--sp-6);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(156,125,62,0.14), transparent 60%),
+      var(--bg);
+  }
+  .hero-frame {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    padding: var(--sp-5) clamp(1.5rem, 5vw, var(--sp-5));
+    border: 1.5px solid var(--brass-deep);
+    outline: 1px solid rgba(156,125,62,0.55);
+    outline-offset: 12px;
+    text-align: center;
+    background: rgba(29,58,44,0.25);
+  }
+  .hero-numeral {
+    position: absolute;
+    top: -4%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Italiana', serif;
+    font-size: clamp(8rem, 4rem + 18vw, 20rem);
+    color: var(--brass-deep);
+    opacity: 0.16;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    white-space: nowrap;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-location {
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-size: var(--fs-xs);
+    color: var(--text-faint);
+  }
+  .hero h1 {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-3xl);
+    line-height: 1.06;
+    color: var(--text);
+    margin: var(--sp-3) 0 var(--sp-3);
+  }
+  .hero-dek {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: var(--text-muted);
+    max-width: 46ch;
+    margin: 0 auto var(--sp-4);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .hero-seal {
+    position: absolute;
+    bottom: clamp(-38px, -5%, -20px);
+    right: clamp(-8px, -3%, 4px);
+    width: clamp(84px, 5vw + 60px, 128px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--bg);
+    box-shadow: var(--shadow-lg);
+    transform: rotate(-9deg);
+    z-index: 2;
+  }
+  .hero-seal img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 640px) {
+    .hero-frame { outline-offset: 8px; }
+    .hero-seal { width: 76px; bottom: -30px; right: 6px; transform: rotate(-9deg); }
+  }
+
+  /* ---------- Faixa "livro-caixa": estatisticas em linha, separadas por
+     regua vertical, sem grid de cards com icone ---------- */
+  .ledger {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    padding: var(--sp-4) 0;
+  }
+  .ledger-row { display: flex; flex-wrap: wrap; }
+  .ledger-item {
+    flex: 1 1 220px;
+    text-align: center;
+    padding: var(--sp-2) var(--sp-3);
+    border-left: 1px solid var(--border-soft);
+  }
+  .ledger-item:first-child { border-left: none; }
+  .ledger-num {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-xl);
+    color: var(--brass);
+    line-height: 1;
+  }
+  .ledger-label {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+    max-width: 26ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 720px) {
+    .ledger-row { flex-direction: column; }
+    .ledger-item { border-left: none; border-top: 1px solid var(--border-soft); padding: var(--sp-3) 0; }
+    .ledger-item:first-child { border-top: none; }
+  }
+
+  /* ---------- Sobre: texto-forward, sem foto, pull-quote grande em vez de
+     imagem — reforca a linguagem "certidao/tipografia" em vez de encher a
+     secao com fotografia ---------- */
+  .sobre { padding: var(--sp-6) 0; }
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--sp-5);
+    align-items: start;
+  }
+  @media (max-width: 880px) { .sobre-grid { grid-template-columns: 1fr; gap: var(--sp-4); } }
+  .sobre h2 {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-xl);
+    margin: var(--sp-2) 0 var(--sp-3);
+    max-width: 14ch;
+  }
+  .sobre p + p { margin-top: 1.1rem; }
+  .sobre p { color: var(--text-muted); max-width: 54ch; }
+  .sobre-quote-wrap {
+    position: relative;
+    padding: var(--sp-4) var(--sp-3);
+    border-left: 2px solid var(--brass-deep);
+  }
+  .sobre-quote {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: 1.35;
+    color: var(--brass);
+  }
+  .sobre-quote-note {
+    display: block;
+    margin-top: var(--sp-2);
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+  }
+
+  /* ---------- Beto: "cartao de visita" inclinado, sem foto, wordmark
+     script — device proprio, nao repete grid de cards/icones ---------- */
+  .beto {
+    padding: var(--sp-6) 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .beto-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: var(--sp-5);
+    align-items: center;
+  }
+  @media (max-width: 880px) { .beto-grid { grid-template-columns: 1fr; } }
+  .beto-copy h2 {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-xl);
+    margin: var(--sp-2) 0 var(--sp-3);
+    max-width: 13ch;
+  }
+  .beto-copy p { color: var(--text-muted); max-width: 50ch; }
+  .beto-copy p + p { margin-top: 1.1rem; }
+  .beto-card-wrap { display: flex; justify-content: center; }
+  .beto-card {
+    width: min(100%, 380px);
+    padding: var(--sp-4) var(--sp-3);
+    background: var(--surface);
+    border: 1px solid var(--brass-deep);
+    outline: 1px solid rgba(156,125,62,0.4);
+    outline-offset: 8px;
+    text-align: center;
+    transform: rotate(-2deg);
+    box-shadow: var(--shadow-lg);
+    margin: 1.4rem;
+  }
+  .beto-card-name {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(2.2rem, 1.8rem + 1.4vw, 2.9rem);
+    color: var(--text);
+    line-height: 1;
+  }
+  .beto-card-role {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: var(--fs-xs);
+    color: var(--brass);
+  }
+  .beto-card-flourish { margin: var(--sp-3) 0; }
+  .beto-card-desc {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+  }
+
+  /* ---------- Dia da Noiva: unica secao full-bleed da pagina, com foto
+     real e overlay em tom de vinho (ecoa as rosas vermelhas da foto) ---------- */
+  .noiva {
+    position: relative;
+    min-height: min(88vh, 820px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .noiva-bg { position: absolute; inset: 0; }
+  .noiva-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+  .noiva-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20,10,10,0.35) 0%, rgba(30,10,14,0.55) 45%, rgba(107,31,42,0.72) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0.15) 45%, rgba(10,8,6,0.05) 100%);
+  }
+  .noiva-content { position: relative; z-index: 1; padding: var(--sp-6) 0; }
+  .noiva-content .container { max-width: 640px; }
+  .noiva-script {
+    font-family: 'Parisienne', cursive;
+    font-size: clamp(3rem, 2.2rem + 3.6vw, 5.2rem);
+    color: #fff;
+    line-height: 1;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  .noiva-dek {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: var(--fs-md);
+    color: #f3e9dd;
+    max-width: 40ch;
+    margin: var(--sp-3) 0 var(--sp-4);
+  }
+
+  /* ---------- Servicos: "quadro" em papel — unica secao clara da pagina,
+     eco da moldura ornamental do hero em outra paleta ---------- */
+  .servicos {
+    padding: var(--sp-6) 0;
+    background: var(--paper);
+    color: var(--paper-ink);
+  }
+  .servicos-frame {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: var(--sp-5) clamp(1.25rem, 4vw, var(--sp-5));
+    border: 1.5px solid var(--paper-brass);
+    outline: 1px solid rgba(124,99,31,0.4);
+    outline-offset: 10px;
+  }
+  .servicos-head { text-align: center; margin-bottom: var(--sp-4); }
+  .servicos h2 {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-xl);
+    color: var(--paper-ink);
+  }
+  .servicos-dek {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #4a3d24;
+    margin-top: 0.6rem;
+  }
+  .servico-row {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: flex-start;
+    padding: var(--sp-3) 0;
+    border-top: 1px dotted var(--paper-border);
+  }
+  .servico-row:first-of-type { border-top: none; }
+  .servico-cat {
+    flex: 0 0 auto;
+    width: 11ch;
+    font-family: 'Karla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: var(--paper-brass);
+    padding-top: 0.15em;
+  }
+  .servico-items { flex: 1; color: #3a3220; }
+  .servico-thumb {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--paper-brass);
+  }
+  .servico-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .servico-link {
+    color: var(--wine);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+
+  /* ---------- CTA final ---------- */
+  .cta-final {
+    padding: var(--sp-6) 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(156,125,62,0.12), transparent 60%),
+      var(--bg);
+    text-align: center;
+  }
+  .cta-final h2 {
+    font-family: 'Italiana', serif;
+    font-size: var(--fs-xl);
+    max-width: 16ch;
+    margin: var(--sp-2) auto var(--sp-2);
+  }
+  .cta-final-dek {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    max-width: 42ch;
+    margin: 0 auto var(--sp-4);
+    font-size: var(--fs-md);
+  }
+  .cta-final-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: var(--sp-3); }
+  .cta-final-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.6rem;
+    font-size: var(--fs-sm);
+    color: var(--text-faint);
+  }
+  .cta-final-meta a { text-decoration: underline; text-underline-offset: 3px; color: var(--text-faint); }
+  .cta-final-meta a:hover { color: var(--brass); }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    padding: var(--sp-4) 0 var(--sp-3);
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border-soft);
+    font-size: var(--fs-sm);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: var(--sp-4);
+  }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; gap: var(--sp-3); } }
+  .footer-brand { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.7rem; }
+  .footer-brand .brand-script { font-size: 1.6rem; }
+  .site-footer p { color: var(--text-faint); }
+  .footer-col h3 {
+    font-family: 'Karla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: var(--fs-xs);
+    color: var(--text-faint);
+    margin-bottom: 0.7rem;
+  }
+  .footer-col a { display: block; text-decoration: none; color: var(--text-muted); margin-bottom: 0.45rem; }
+  .footer-col a:hover { color: var(--brass); }
+  .footer-bottom {
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-2);
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--text-faint);
+    font-size: var(--fs-xs);
+  }
+
+  /* ---------- WhatsApp flutuante ---------- */
+  .wa-float {
+    position: fixed;
+    right: clamp(1rem, 3vw, 1.8rem);
+    bottom: clamp(1rem, 3vw, 1.8rem);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1d3a2c, #0c1712);
+    border: 1px solid var(--brass);
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+    z-index: 90;
+    transition: transform 0.3s var(--ease), background 0.3s, border-color 0.3s;
+  }
+  .wa-float:hover { transform: scale(1.08); background: linear-gradient(135deg, #234432, #0e1a15); border-color: var(--brass-deep); }
+  .wa-float svg { width: 28px; height: 28px; }
+
+  /* ---------- Reveal on scroll: gate por classe js no <html>, nunca esconde
+     conteudo se o JS nao rodar (mesma regra do sistema de design da RAFO
+     aplicada a esta tecnica) ---------- */
+  [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  html.js [data-reveal] { opacity: 0; transform: translateY(26px); }
+  html.js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  [data-reveal-delay="1"] { transition-delay: 0.08s; }
+  [data-reveal-delay="2"] { transition-delay: 0.16s; }
+  [data-reveal-delay="3"] { transition-delay: 0.24s; }
+</style>
+</head>
+<body>
+
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="#topo" class="brand">
+      <span class="brand-script">Amanda</span>
+      <span class="brand-tag">Cabeleireiros</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#beto">O Beto</a>
+      <a href="#noiva">Dia da Noiva</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato" class="btn btn-whatsapp btn-sm whatsapp-cta" style="padding:0.6em 1.2em; font-size:var(--fs-xs); border-radius:3px;">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO: moldura de certidao (borda dupla via outline), numeral 35
+       como marca d'agua, selo real da marca como carimbo de cera no
+       canto — nada de foto de fundo, nada de crest generico -->
+  <section class="hero" id="topo">
+    <div class="hero-frame" data-reveal>
+      <span class="hero-numeral" aria-hidden="true">35</span>
+      <div class="hero-content">
+        <span class="hero-location">Jardim Vale do Sol · São José dos Campos</span>
+        <h1>Mais de 35 anos cuidando da beleza do bairro.</h1>
+        <p class="hero-dek">Um salão de bairro que virou tradição de família: geração depois de geração, sempre o mesmo cuidado, sempre a mesma casa.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-whatsapp whatsapp-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+            Agendar meu horário
+          </a>
+          <a href="#beto" class="btn btn-ghost">Conhecer o Beto</a>
+        </div>
+      </div>
+      <span class="hero-seal">
+        <img src="amanda/selo-amanda.jpg" alt="Selo do salão Amanda Cabeleireiros" loading="eager">
+      </span>
+    </div>
+  </section>
+
+  <!-- FAIXA "livro-caixa": estatisticas reais, sem inventar numero nenhum -->
+  <section class="ledger" aria-label="Números do salão">
+    <div class="container">
+      <div class="ledger-row">
+        <div class="ledger-item" data-reveal>
+          <span class="ledger-num">35+</span>
+          <span class="ledger-label">anos de tradição no Jardim Vale do Sol</span>
+        </div>
+        <div class="ledger-item" data-reveal data-reveal-delay="1">
+          <span class="ledger-num">~5 mil</span>
+          <span class="ledger-label">pessoas acompanham o trabalho no Instagram</span>
+        </div>
+        <div class="ledger-item" data-reveal data-reveal-delay="2">
+          <span class="ledger-num">2008</span>
+          <span class="ledger-label">ano em que uma cliente começou a vir ao salão ainda criança, e nunca parou</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE: texto-forward, sem foto, pull-quote grande no lugar de imagem -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre-grid">
+      <div data-reveal>
+        <span class="kicker">Sobre o salão</span>
+        <h2>Uma casa de bairro, não uma franquia.</h2>
+        <p>O Amanda Cabeleireiros está no Jardim Vale do Sol há mais de 35 anos. Antes de virar tendência, o salão já era o lugar em que as famílias do bairro se conheciam pelo nome, não pela ficha de cadastro.</p>
+        <p>É esse tipo de casa em que quem chega uma vez costuma voltar por anos, e às vezes por décadas: filha que cresceu vindo com a mãe, cliente que virou amiga da equipe, corte que vira ritual de toda semana.</p>
+      </div>
+      <div class="sobre-quote-wrap" data-reveal data-reveal-delay="1">
+        <p class="sobre-quote">&ldquo;Tem cliente que chegou aqui ainda criança, em 2008, e continua vindo até hoje.&rdquo;</p>
+        <span class="sobre-quote-note">É esse tipo de fidelidade que 35 anos de bairro constroem.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETO: cartao de visita inclinado, sem foto, wordmark script proprio -->
+  <section class="beto" id="beto">
+    <div class="container beto-grid">
+      <div class="beto-card-wrap" data-reveal>
+        <div class="beto-card">
+          <span class="beto-card-name">Beto Júnior</span>
+          <span class="beto-card-role">Colorista</span>
+          <div class="flourish beto-card-flourish"><span class="flourish-mark" aria-hidden="true"></span></div>
+          <p class="beto-card-desc">Correção de cor, loiro, mechas e tonalização.</p>
+        </div>
+      </div>
+      <div class="beto-copy" data-reveal data-reveal-delay="1">
+        <span class="kicker">O colorista</span>
+        <h2>A coloração que vira assunto no bairro.</h2>
+        <p>Tem colorista que só faz a cor combinada. Tem colorista que as clientes fazem questão de esperar a agenda abrir. No Amanda Cabeleireiros, esse colorista é o Beto Júnior.</p>
+        <p>É o nome que aparece primeiro quando uma cliente indica o salão para uma amiga, e o motivo de muita gente não trocar de cabeleireiro nem quando muda de bairro.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIA DA NOIVA: unica secao full-bleed da pagina, foto real, overlay
+       em vinho ecoando as rosas vermelhas da propria foto -->
+  <section class="noiva" id="noiva">
+    <div class="noiva-bg">
+      <img src="amanda/dia-da-noiva.jpg" alt="Noiva descendo uma escadaria com buquê de rosas vermelhas, em um dos casamentos atendidos pela equipe" loading="lazy">
+    </div>
+    <div class="noiva-content">
+      <div class="container">
+        <span class="noiva-script" data-reveal>O Dia da Noiva</span>
+        <p class="noiva-dek" data-reveal data-reveal-delay="1">Cabelo e maquiagem pensados para o dia mais importante, com o mesmo cuidado que faz o salão ser referência no bairro há mais de 35 anos.</p>
+        <div data-reveal data-reveal-delay="2">
+          <a href="#" class="btn btn-whatsapp noiva-cta" data-wa-message="Olá! Vou me casar e gostaria de saber mais sobre o Dia da Noiva no Amanda Cabeleireiros.">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+            Falar sobre o meu casamento
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS: quadro em papel, unica secao clara da pagina — eco da
+       moldura ornamental do hero em outra paleta -->
+  <section class="servicos" id="servicos">
+    <div class="container">
+      <div class="servicos-frame" data-reveal>
+        <div class="servicos-head">
+          <span class="kicker" style="color: var(--paper-brass);">Serviços</span>
+          <h2>O quadro de serviços</h2>
+          <p class="servicos-dek">Tudo o que o salão oferece, num só lugar. Para agendar, é só chamar no WhatsApp.</p>
+        </div>
+
+        <div class="servico-row" data-reveal>
+          <span class="servico-cat">Cabelo</span>
+          <span class="servico-items">Corte, escova, hidratação e tratamentos capilares.</span>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="1">
+          <span class="servico-cat">Coloração</span>
+          <span class="servico-items">Mechas, loiro, correção de cor e tonalização, assinada pelo <a href="#beto" class="servico-link">Beto</a>.</span>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="2">
+          <span class="servico-thumb">
+            <img src="amanda/detalhe-unhas.jpg" alt="Detalhe de unhas feitas no salão" loading="lazy">
+          </span>
+          <span class="servico-cat">Unhas</span>
+          <span class="servico-items">Manicure e esmaltação em gel.</span>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="3">
+          <span class="servico-cat">Dia da Noiva</span>
+          <span class="servico-items">Penteado e maquiagem para casamentos. <a href="#noiva" class="servico-link">Ver mais</a>.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <div class="flourish" style="max-width:220px; margin:0 auto var(--sp-3);" data-reveal><span class="flourish-mark" aria-hidden="true"></span></div>
+      <h2 data-reveal>Vamos marcar o seu horário?</h2>
+      <p class="cta-final-dek" data-reveal data-reveal-delay="1">Chame no WhatsApp e a equipe do Amanda Cabeleireiros confirma o melhor horário para você.</p>
+      <div class="cta-final-actions" data-reveal data-reveal-delay="2">
+        <a href="#" class="btn btn-whatsapp whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+      </div>
+      <div class="cta-final-meta" data-reveal data-reveal-delay="3">
+        <a href="tel:+5512981410033">(12) 98141-0033</a>
+        <a href="#" data-map-query="Amanda Cabeleireiros, Jardim Vale do Sol, São José dos Campos, SP" target="_blank" rel="noopener">Jardim Vale do Sol, São José dos Campos, SP</a>
+        <a href="https://www.instagram.com/amandacabeleireiros/" target="_blank" rel="noopener">@amandacabeleireiros</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-script" style="font-size:1.6rem;">Amanda</span>
+        <span class="brand-tag">Cabeleireiros</span>
+      </div>
+      <p>Jardim Vale do Sol<br>São José dos Campos, SP</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegue</h3>
+      <a href="#sobre">Sobre</a>
+      <a href="#beto">O Beto</a>
+      <a href="#noiva">Dia da Noiva</a>
+      <a href="#servicos">Serviços</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="#" class="whatsapp-cta">WhatsApp</a>
+      <a href="tel:+5512981410033">(12) 98141-0033</a>
+      <a href="https://www.instagram.com/amandacabeleireiros/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="ano"></span> Amanda Cabeleireiros. Todos os direitos reservados.</span>
+    <span>Jardim Vale do Sol, São José dos Campos, SP</span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float whatsapp-cta" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  // WhatsApp: monta o link com numero certo e mensagem pre-escrita (sempre
+  // corretamente encodada). Elementos com data-wa-message usam uma mensagem
+  // propria (ex: CTA do Dia da Noiva); os demais usam a mensagem padrao.
+  var WA_NUMBER = "5512981410033";
+  var WA_DEFAULT_MESSAGE = "Olá! Vim pelo perfil do Amanda Cabeleireiros e gostaria de agendar um horário.";
+  document.querySelectorAll(".whatsapp-cta").forEach(function (el) {
+    var msg = el.getAttribute("data-wa-message") || WA_DEFAULT_MESSAGE;
+    el.setAttribute("href", "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg));
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Links de mapa, montados via query encodada
+  document.querySelectorAll("[data-map-query]").forEach(function (el) {
+    var q = el.getAttribute("data-map-query");
+    el.setAttribute("href", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q));
+  });
+
+  // Header muda de aparencia ao rolar
+  var header = document.getElementById("siteHeader");
+  var onScroll = function () {
+    if (window.scrollY > 40) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Menu mobile
+  var navToggle = document.getElementById("navToggle");
+  var mainNav = document.querySelector(".main-nav");
+  if (navToggle && mainNav) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.style.display === "flex";
+      if (isOpen) {
+        mainNav.style.display = "";
+        navToggle.setAttribute("aria-expanded", "false");
+      } else {
+        mainNav.style.display = "flex";
+        mainNav.style.position = "fixed";
+        mainNav.style.top = "72px";
+        mainNav.style.left = "0";
+        mainNav.style.right = "0";
+        mainNav.style.flexDirection = "column";
+        mainNav.style.alignItems = "flex-start";
+        mainNav.style.gap = "1.2rem";
+        mainNav.style.background = "rgba(20,41,32,0.98)";
+        mainNav.style.padding = "1.5rem clamp(1.25rem, 3vw, 2.5rem) 2rem";
+        mainNav.style.borderBottom = "1px solid var(--border-soft)";
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+    });
+    mainNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.innerWidth <= 980) {
+          mainNav.style.display = "";
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+  // Rede de seguranca: qualquer captura automatizada (screenshot de pagina
+  // inteira, print, scraper de preview) que redimensione a viewport sem
+  // gerar um scroll real pode nunca disparar o IntersectionObserver para
+  // elementos abaixo da dobra original. Depois de 1.2s, forca tudo visivel
+  // de qualquer forma — nunca deixa conteudo escondido para sempre por
+  // causa da tecnica de revelacao.
+  window.setTimeout(function () {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }, 1200);
+
+  // Ano no rodape
+  var anoEl = document.getElementById("ano");
+  if (anoEl) { anoEl.textContent = new Date().getFullYear(); }
+})();
+</script>
+
+</body>
+</html>
