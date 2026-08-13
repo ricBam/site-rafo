@@ -192,7 +192,6 @@ const stats = [
     display: block;
     font-family: var(--font-mono);
     font-size: var(--step--2);
-    opacity: 0.6;
     margin-top: 0.25rem;
     text-align: right;
   }
@@ -202,6 +201,13 @@ const stats = [
     color: var(--color-text);
     border-bottom-left-radius: 4px;
   }
+  /* Opacidade calculada por par cor/fundo, não um valor único repetido:
+     0.6 falhava contraste real (4.44:1 e 3.67:1, medido por Lighthouse)
+     porque o fundo verde da bolha enviada é mais escuro que o cinza da
+     recebida. Cada bolha precisa do próprio ajuste para os dois passarem
+     de 4.5:1. */
+  .bubble-them .bubble-meta { opacity: 0.68; }
+  .bubble-us .bubble-meta { opacity: 0.8; }
   .bubble-us {
     align-self: flex-end;
     background: color-mix(in srgb, var(--color-whatsapp) 22%, var(--color-surface));
