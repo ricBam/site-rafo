@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essentia Cuidado &amp; Beleza · Salão de Beleza no Centro de São José dos Campos</title>
+<meta name="description" content="Cabelo, unhas, podologia, estética facial e corporal e depilação no Centro de São José dos Campos. Ambiente botânico e acolhedor. Agende pelo WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12201a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Essentia Cuidado &amp; Beleza · São José dos Campos">
+<meta property="og:description" content="Cabelo, unhas, podologia, estética e depilação em um espaço botânico no Centro de São José dos Campos.">
+<meta property="og:image" content="essentia/essentia-ambiente.jpg">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12201a;
+    --bg-alt: #16281f;
+    --surface: #1b3026;
+    --surface-2: #22392d;
+    --border: #3a5346;
+    --border-soft: #263b30;
+    --text: #f6f1e6;
+    --text-muted: #cfc6ae;
+    --text-faint: #9aa696;
+    --sage: #8fac97;
+    --sage-soft: #b9cdbe;
+    --sage-deep: #5c7c66;
+    --champagne: #d8bd8a;
+    --champagne-soft: #ecdcb6;
+    --champagne-deep: #b3915a;
+    --shadow-lg: 0 30px 80px -30px rgba(0,0,0,0.7);
+    --shadow-sm: 0 10px 30px -15px rgba(0,0,0,0.6);
+    --radius: 22px;
+    --radius-sm: 12px;
+    --container: 1200px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --fs-xs: clamp(0.78rem, 0.74rem + 0.18vw, 0.88rem);
+    --fs-sm: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+    --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --fs-md: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+    --fs-lg: clamp(1.5rem, 1.3rem + 0.85vw, 2.1rem);
+    --fs-xl: clamp(2rem, 1.6rem + 1.7vw, 3.1rem);
+    --fs-2xl: clamp(2.6rem, 1.9rem + 3vw, 4.6rem);
+    --fs-3xl: clamp(3.4rem, 2.3rem + 5vw, 6.2rem);
+
+    --sp-1: clamp(0.5rem, 0.45rem + 0.2vw, 0.65rem);
+    --sp-2: clamp(0.9rem, 0.8rem + 0.4vw, 1.2rem);
+    --sp-3: clamp(1.5rem, 1.3rem + 0.8vw, 2.1rem);
+    --sp-4: clamp(2.2rem, 1.8rem + 1.6vw, 3.4rem);
+    --sp-5: clamp(3.2rem, 2.4rem + 3vw, 5.6rem);
+    --sp-6: clamp(4.5rem, 3.2rem + 5vw, 8.5rem);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', system-ui, sans-serif;
+    font-size: var(--fs-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Spectral', serif;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .script {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  /* "kicker": rotulo em formato de chip com contorno suave — deliberadamente
+     diferente do padrao "eyebrow com risco horizontal" usado em outras
+     propostas da mesma leva, pra nao repetir a mesma assinatura visual. */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: var(--fs-xs);
+    color: var(--champagne-soft);
+    background: rgba(216,189,138,0.09);
+    border: 1px solid rgba(216,189,138,0.3);
+    padding: 0.5em 1em 0.5em 0.8em;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .kicker svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+  section { position: relative; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--champagne);
+    color: #16241d;
+    padding: 0.8em 1.2em;
+    z-index: 200;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--champagne-soft);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Marca (sem crest/monograma em circulo — a "letra I" da
+     wordmark carrega uma folha no lugar do ponto, ecoando a logo real do
+     salao, em vez de um simbolo generico) ---------- */
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text);
+  }
+  .wordmark .leaf-i {
+    width: 0.42em;
+    height: 1.55em;
+    color: var(--champagne);
+    margin: 0 0.02em;
+  }
+  .brand { display: flex; flex-direction: column; gap: 0.2rem; text-decoration: none; }
+  .brand .wordmark { font-size: 1.05rem; }
+  .brand-tagline {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--sage-soft);
+  }
+
+  /* ---------- Header ---------- */
+  header.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(18, 32, 26, 0.5);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+    padding: 1.1rem 0;
+  }
+  header.site-header.is-scrolled {
+    background: rgba(18, 32, 26, 0.94);
+    border-bottom-color: var(--border-soft);
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  nav.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+  nav.main-nav a {
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: color 0.25s;
+  }
+  nav.main-nav a:hover { color: var(--champagne-soft); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0.85em 1.7em;
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  /* CTA de WhatsApp: fundo escuro com borda champagne (nao preenchido de dourado
+     claro) para ficar reconhecivel como botao de acao e nunca "esbranquecar" no
+     hover — licao aplicada logo na primeira versao desta pagina. */
+  .btn-whatsapp {
+    background: linear-gradient(135deg, #1a2b21, #0a130f);
+    color: var(--text);
+    border: 1px solid var(--champagne);
+    box-shadow: 0 12px 30px -14px rgba(0,0,0,0.75);
+  }
+  .btn-whatsapp:hover {
+    background: linear-gradient(135deg, #22392b, #0d1712);
+    border-color: var(--champagne-soft);
+    box-shadow: 0 18px 38px -14px rgba(0,0,0,0.85);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--sage); color: var(--sage-soft); }
+  .btn-sm { padding: 0.6em 1.2em; font-size: var(--fs-xs); border-radius: 8px; }
+  .btn svg { width: 1.1em; height: 1.1em; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+  }
+
+  /* ---------- Hero (foto de fundo em tela cheia, texto assimetrico no
+     rodape — nao e o padrao "grid dividido + foto emoldurada" ) ---------- */
+  .hero-full {
+    position: relative;
+    min-height: min(94vh, 920px);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg-wrap { position: absolute; inset: 0; }
+  .hero-bg-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(18,32,26,0.05) 0%, rgba(18,32,26,0.35) 45%, rgba(18,32,26,0.94) 92%),
+      linear-gradient(100deg, rgba(18,32,26,0.85) 0%, rgba(18,32,26,0.35) 42%, rgba(18,32,26,0.1) 68%);
+  }
+  .hero-full-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 640px;
+    padding: clamp(9rem, 20vw, 13rem) clamp(1.25rem, 3vw, 2.5rem) var(--sp-5);
+  }
+  .hero-quote {
+    margin-top: var(--sp-3);
+    font-size: var(--fs-3xl);
+    color: var(--champagne-soft);
+    line-height: 1.12;
+  }
+  .hero-quote em { color: var(--sage-soft); font-style: italic; }
+  .hero-sub {
+    margin-top: var(--sp-3);
+    color: var(--text-muted);
+    font-size: var(--fs-md);
+    max-width: 44ch;
+  }
+  .hero-actions {
+    margin-top: var(--sp-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ---------- Highlights: fita de chips sobrepondo a base do hero, nao uma
+     faixa de colunas com divisorias ---------- */
+  .highlights-row { background: var(--bg-alt); padding: var(--sp-4) 0 var(--sp-3); }
+  .highlights-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: calc(-1 * var(--sp-5));
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    padding: 0.7em 1.3em;
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    box-shadow: var(--shadow-sm);
+  }
+  .chip svg { width: 16px; height: 16px; color: var(--champagne); flex-shrink: 0; }
+
+  /* ---------- Section shared ---------- */
+  .section { padding: var(--sp-6) 0; }
+  .section-head { max-width: 62ch; margin-bottom: var(--sp-5); }
+  .section-head h2 { font-size: var(--fs-2xl); margin-top: var(--sp-2); }
+  .section-head p { margin-top: var(--sp-2); color: var(--text-muted); font-size: var(--fs-md); }
+
+  [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  /* so esconde quando o JS confirmou que vai rodar (classe .js no html,
+     definida por um script sincrono no head). Sem JS, ou se o JS falhar/
+     demorar, o conteudo fica visivel desde o primeiro render, nunca
+     escondido para sempre. */
+  html.js [data-reveal] { opacity: 0; transform: translateY(28px); }
+  html.js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  [data-reveal-delay="1"] { transition-delay: 0.08s; }
+  [data-reveal-delay="2"] { transition-delay: 0.16s; }
+  [data-reveal-delay="3"] { transition-delay: 0.24s; }
+  [data-reveal-delay="4"] { transition-delay: 0.32s; }
+
+  /* ---------- Espaco (Sobre + Ambiente fundidos numa composicao de
+     colagem assimetrica — foto grande + foto menor sobreposta no canto,
+     em vez de um grid limpo lado a lado) ---------- */
+  .espaco { background: var(--bg); }
+  .espaco-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+  .espaco-media { position: relative; padding-bottom: clamp(2rem, 6vw, 3.5rem); padding-right: clamp(2rem, 6vw, 3.5rem); }
+  .espaco-img-main {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 3 / 4;
+  }
+  .espaco-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+  .espaco-img-accent {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 46%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 4px solid var(--bg);
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4 / 5;
+  }
+  .espaco-img-accent img { width: 100%; height: 100%; object-fit: cover; }
+  .espaco-text p { color: var(--text-muted); margin: var(--sp-2) 0 0; }
+  .espaco-text p:first-of-type { color: var(--text); font-size: var(--fs-md); }
+  .espaco-list { list-style: none; margin: var(--sp-4) 0 0; padding: 0; display: grid; gap: 1.3rem; }
+  .espaco-list li {
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    align-items: flex-start;
+  }
+  .espaco-list svg {
+    width: 16px;
+    height: 16px;
+    color: var(--champagne);
+    margin-top: 0.3em;
+  }
+
+  /* ---------- Servicos: lista editorial numerada, sem cards com borda ---------- */
+  .servicos { background: var(--bg-alt); }
+  .servicos-list { border-top: 1px solid var(--border-soft); }
+  .servico-row {
+    display: grid;
+    grid-template-columns: 3.6rem 1fr;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.4rem, 3vw, 2rem) 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .servico-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage-soft);
+    flex-shrink: 0;
+    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), color 0.35s var(--ease);
+  }
+  .servico-row:hover .servico-icon { transform: translateX(4px); border-color: var(--champagne); color: var(--champagne-soft); }
+  .servico-icon svg { width: 24px; height: 24px; }
+  .servico-info h3 { font-size: var(--fs-lg); font-family: 'Jost', sans-serif; font-weight: 600; color: var(--text); }
+  .servico-info p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0.5rem 0 0; max-width: 56ch; }
+  @media (max-width: 700px) {
+    .servico-row { grid-template-columns: 2.8rem 1fr; }
+  }
+
+  /* ---------- Portfolio: mosaico com blocos de tamanhos variados, nao
+     uma grade uniforme ---------- */
+  .portfolio { background: var(--bg); }
+  .portfolio-mosaic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, clamp(150px, 20vw, 240px));
+    grid-template-areas:
+      "a a b c"
+      "d e e c";
+    gap: 0.9rem;
+  }
+  .m-a { grid-area: a; } .m-b { grid-area: b; } .m-c { grid-area: c; } .m-d { grid-area: d; } .m-e { grid-area: e; }
+  .mosaic-item { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-soft); }
+  .mosaic-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .mosaic-item:hover img { transform: scale(1.06); }
+  @media (max-width: 760px) {
+    .portfolio-mosaic {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, clamp(160px, 40vw, 220px));
+      grid-template-areas: "a a" "b c" "d e";
+    }
+  }
+  .portfolio-cta { text-align: center; margin-top: var(--sp-4); }
+  .portfolio-cta p { color: var(--text-faint); font-size: var(--fs-sm); margin: 0 0 1rem; }
+
+  /* ---------- FAQ: mesma linguagem de lista com divisorias dos Servicos,
+     sem caixas com borda/fundo proprio ---------- */
+  .faq { background: var(--bg-alt); }
+  .faq-list { border-top: 1px solid var(--border-soft); }
+  .faq-item { border-bottom: 1px solid var(--border-soft); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: var(--fs-md);
+    font-family: 'Spectral', serif;
+    font-weight: 500;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  .faq-q svg { width: 18px; height: 18px; color: var(--champagne); flex-shrink: 0; transition: transform 0.3s var(--ease); }
+  .faq-item[data-open="true"] .faq-q svg { transform: rotate(45deg); }
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease); }
+  .faq-item[data-open="true"] .faq-a { grid-template-rows: 1fr; }
+  /* padding fica no wrapper interno (.faq-a-content), nunca no item medido
+     pelo grid (.faq-a-inner) — senao o padding continua contribuindo pro
+     tamanho renderizado mesmo com grid-template-rows:0fr, e a resposta
+     fechada mostra uma sobra de texto cortado. */
+  .faq-a-inner { overflow: hidden; min-height: 0; }
+  .faq-a-content { padding: 0 0 1.6rem; color: var(--text-muted); font-size: var(--fs-sm); max-width: 68ch; }
+
+  /* ---------- Localizacao: bloco unico assimetrico, sem painel decorativo
+     ao lado ---------- */
+  .localizacao { background: var(--bg); }
+  .local-address {
+    font-family: 'Spectral', serif;
+    font-size: var(--fs-lg);
+    color: var(--text);
+    max-width: 30ch;
+    margin-top: var(--sp-2);
+  }
+  .local-actions { margin-top: var(--sp-3); display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem; }
+  .local-actions a.map-link { display: inline-flex; align-items: center; gap: 0.5em; color: var(--champagne-soft); text-decoration: none; font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+  .local-actions a.map-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .local-actions a.map-link:hover { text-decoration: underline; }
+  .local-actions a.local-phone { color: var(--text-muted); text-decoration: none; font-size: var(--fs-sm); }
+  .local-actions a.local-phone:hover { color: var(--champagne-soft); }
+
+  /* ---------- CTA final: assimetrico (titulo e acao lado a lado), nao
+     centralizado ---------- */
+  .cta-final { background: var(--bg-alt); padding: var(--sp-6) 0; border-top: 1px solid var(--border-soft); }
+  .cta-final-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--sp-4); align-items: center; }
+  .cta-final h2 { font-size: var(--fs-2xl); margin-top: var(--sp-2); max-width: 16ch; }
+  .cta-final-action p { color: var(--text-muted); font-size: var(--fs-base); margin: 0 0 var(--sp-3); }
+  .cta-phone { margin-top: var(--sp-3); color: var(--text-faint); font-size: var(--fs-sm); }
+  .cta-phone a { color: var(--text-muted); text-decoration: none; }
+  .cta-phone a:hover { color: var(--champagne-soft); }
+  @media (max-width: 860px) { .cta-final-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer { background: var(--bg); border-top: 1px solid var(--border-soft); padding: var(--sp-5) 0 var(--sp-3); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--sp-4); }
+  .footer-brand { margin-bottom: 1rem; }
+  footer p { color: var(--text-faint); font-size: var(--fs-xs); line-height: 1.7; margin: 0; }
+  .footer-col h3 {
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: var(--fs-xs);
+    color: var(--text-faint);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: var(--fs-sm); margin-bottom: 0.7rem; }
+  .footer-col a:hover { color: var(--champagne-soft); }
+  .footer-bottom {
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--text-faint);
+    font-size: var(--fs-xs);
+  }
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 90;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a2b21, #0a130f);
+    border: 1px solid var(--champagne);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 16px 36px -12px rgba(0,0,0,0.75);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .wa-float:hover { transform: scale(1.08); background: linear-gradient(135deg, #22392b, #0d1712); border-color: var(--champagne-soft); }
+  .wa-float svg { width: 28px; height: 28px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    nav.main-nav { display: none; }
+    .nav-toggle { display: flex; }
+    .espaco-grid { grid-template-columns: 1fr; }
+    .espaco-media { max-width: 420px; margin: 0 auto; }
+  }
+  @media (max-width: 620px) {
+    .hero-full { min-height: 88vh; }
+    .highlights-inline { margin-top: calc(-1 * var(--sp-4)); }
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+<!-- Icone de folha reutilizado em pontos pontuais (kicker, chips) — nunca
+     dentro de um badge circular de marca -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="es-leaf-icon" viewBox="0 0 24 24">
+    <path d="M4 20c8-1 14-7 15-15-8 1-14 7-15 15z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="#topo" class="brand">
+      <span class="wordmark">ESSENT<svg class="leaf-i" viewBox="0 0 10 34" aria-hidden="true"><rect x="3" y="11" width="4" height="23" fill="currentColor"/><path d="M5 0c-3 2-4 5-3 8 3 1 6 0 7-3 1-3-1-6-4-5z" fill="currentColor"/></svg>A</span>
+      <span class="brand-tagline">cuidado &amp; beleza</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Espaço</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato" class="btn btn-whatsapp btn-sm whatsapp-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO: foto de fundo em tela cheia (a parede verde viva do salao),
+       texto assimetrico ancorado no rodape do bloco -->
+  <section class="hero-full" id="topo">
+    <div class="hero-bg-wrap">
+      <img src="essentia/essentia-ambiente.jpg" alt="Parede verde viva e sinalização do Essentia, com cliente no salão" loading="eager">
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="container hero-full-inner" data-reveal>
+      <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Salão de Beleza · Centro, São José dos Campos</span>
+      <p class="hero-quote script">&ldquo;Você não precisa,<br><em>você merece.</em>&rdquo;</p>
+      <p class="hero-sub">Cabelo, unhas, podologia, estética facial e corporal e depilação, num salão pensado pro seu cuidado, no coração do Centro de São José dos Campos.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-whatsapp whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Agendar no WhatsApp
+        </a>
+        <a href="#servicos" class="btn btn-ghost">Conhecer os serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights-row">
+    <div class="container highlights-inline">
+      <span class="chip" data-reveal><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Ambiente botânico e acolhedor</span>
+      <span class="chip" data-reveal data-reveal-delay="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>Profissionais experientes</span>
+      <span class="chip" data-reveal data-reveal-delay="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6 6.6.6-5 4.5 1.5 6.5L12 16.3 6 19.6l1.5-6.5-5-4.5 6.6-.6z"/></svg>Produtos profissionais de qualidade</span>
+      <span class="chip" data-reveal data-reveal-delay="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>Bem no Centro de São José dos Campos</span>
+    </div>
+  </section>
+
+  <!-- ESPACO (Sobre + Ambiente) -->
+  <section class="section espaco" id="sobre">
+    <div class="container espaco-grid">
+      <div class="espaco-media" data-reveal>
+        <div class="espaco-img-main">
+          <img src="essentia/essentia-cabelo.jpg" alt="Trabalho de cabelo finalizado em cliente do Essentia" loading="lazy">
+        </div>
+        <div class="espaco-img-accent">
+          <img src="essentia/essentia-atendimento.jpg" alt="Detalhe de atendimento no Essentia, com xícara personalizada da marca" loading="lazy">
+        </div>
+      </div>
+      <div class="espaco-text" data-reveal data-reveal-delay="1">
+        <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>O espaço</span>
+        <h2 style="margin-top: var(--sp-2);">Onde o cuidado tem tempo para acontecer</h2>
+        <p>O Essentia fica no Centro de São José dos Campos e foi pensado como um respiro dentro da rotina da cidade: parede verde viva, luz natural e um clima de spa que convida a desacelerar antes mesmo do primeiro atendimento começar.</p>
+        <p>À frente do salão está a Tati, apoiada por uma equipe que acompanha de perto cada etapa do serviço, do primeiro corte de cabelo até o último retoque no esmalte.</p>
+        <ul class="espaco-list">
+          <li><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg><span>Ambiente projetado pra relaxar: a parede verde viva e a luz natural criam um clima de spa, bem diferente do corre-corre do Centro lá fora.</span></li>
+          <li><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg><span>Atendimento próximo, com a Tati e a equipe acompanhando o dia a dia do salão de perto.</span></li>
+          <li><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg><span>Produtos profissionais em cada etapa, do hair spa à estética.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS -->
+  <section class="section servicos" id="servicos">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>O que fazemos</span>
+        <h2>Serviços em destaque</h2>
+        <p>Cada atendimento é pensado pra unir técnica e cuidado, com o profissional certo pra cada procedimento.</p>
+      </div>
+      <div class="servicos-list">
+        <div class="servico-row" data-reveal>
+          <span class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
+          <div class="servico-info">
+            <h3>Cabelo</h3>
+            <p>Cortes, coloração e hair spa, com produtos profissionais e acabamento pensado pro seu dia a dia.</p>
+          </div>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="1">
+          <span class="servico-icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3c-3 0-5 3-5 7 0 6 2 10 5 10s5-4 5-10c0-4-2-7-5-7z"/></svg></span>
+          <div class="servico-info">
+            <h3>Manicure &amp; Pedicure</h3>
+            <p>Unhas cuidadas com atenção ao detalhe, do esmalte clássico ao trabalho mais elaborado.</p>
+          </div>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="2">
+          <span class="servico-icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><ellipse cx="10" cy="15" rx="4.2" ry="6.2"/><circle cx="6.5" cy="6.3" r="1.3"/><circle cx="9.2" cy="4.6" r="1.3"/><circle cx="12" cy="5.1" r="1.2"/><circle cx="14.2" cy="6.8" r="1.1"/></svg></span>
+          <div class="servico-info">
+            <h3>Podologia</h3>
+            <p>Cuidado técnico com os pés, pensado pra quem precisa de atenção que vai além da estética.</p>
+          </div>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="3">
+          <span class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></span>
+          <div class="servico-info">
+            <h3>Estética facial &amp; corporal</h3>
+            <p>Procedimentos para cuidar da pele e do corpo, com técnicas e produtos profissionais.</p>
+          </div>
+        </div>
+        <div class="servico-row" data-reveal data-reveal-delay="4">
+          <span class="servico-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></span>
+          <div class="servico-info">
+            <h3>Depilação</h3>
+            <p>Pele lisa e cuidada, com técnicas pensadas pro seu conforto do início ao fim.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Prova de trabalho</span>
+        <h2>Um pouco do dia a dia do salão</h2>
+        <p>Registros reais de trabalhos feitos no Essentia. O portfólio completo está sempre sendo atualizado no Instagram.</p>
+      </div>
+      <div class="portfolio-mosaic">
+        <div class="mosaic-item m-a" data-reveal>
+          <img src="essentia/essentia-unhas-detalhe.jpg" alt="Detalhe de manicure no Essentia" loading="lazy">
+        </div>
+        <div class="mosaic-item m-b" data-reveal data-reveal-delay="1">
+          <img src="essentia/essentia-podologia.jpg" alt="Atendimento de podologia no Essentia" loading="lazy">
+        </div>
+        <div class="mosaic-item m-c" data-reveal data-reveal-delay="2">
+          <img src="essentia/essentia-estetica.jpg" alt="Procedimento de estética facial no Essentia" loading="lazy">
+        </div>
+        <div class="mosaic-item m-d" data-reveal data-reveal-delay="3">
+          <img src="essentia/essentia-unhas-finalizadas.jpg" alt="Unhas finalizadas no Essentia" loading="lazy">
+        </div>
+        <div class="mosaic-item m-e" data-reveal data-reveal-delay="4">
+          <img src="essentia/essentia-ambiente.jpg" alt="Parede verde viva do Essentia" loading="lazy">
+        </div>
+      </div>
+      <div class="portfolio-cta" data-reveal>
+        <p>Você pode acompanhar mais do dia a dia do salão no Instagram.</p>
+        <a href="https://www.instagram.com/essentiabeleza/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          Ver no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="duvidas">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Dúvidas frequentes</span>
+        <h2>Perguntas que a gente ouve bastante</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" data-open="false" data-reveal>
+          <button class="faq-q" aria-expanded="false">
+            Preciso agendar horário?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Sim, recomendamos sempre agendar pelo WhatsApp. Assim a gente garante um horário certo com o profissional mais indicado pro serviço que você quer.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false" data-reveal data-reveal-delay="1">
+          <button class="faq-q" aria-expanded="false">
+            Quais serviços vocês fazem?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Cabelo (cortes, coloração e hair spa), manicure e pedicure, podologia, estética facial e corporal, e depilação. Se tiver dúvida sobre algum procedimento específico, é só chamar no WhatsApp.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false" data-reveal data-reveal-delay="2">
+          <button class="faq-q" aria-expanded="false">
+            Onde fica o Essentia?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Na R. Euclídes Miragaia, 449, Centro de São José dos Campos, SP. Tem mais detalhes e o link do mapa logo abaixo, na seção de localização.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false" data-reveal data-reveal-delay="3">
+          <button class="faq-q" aria-expanded="false">
+            Como tiro dúvidas antes de agendar?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">O WhatsApp é o canal mais rápido. Manda uma mensagem contando o que você precisa que a equipe te responde por lá.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZACAO -->
+  <section class="section localizacao" id="localizacao">
+    <div class="container">
+      <span class="kicker" data-reveal><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Como chegar</span>
+      <h2 style="margin-top: var(--sp-2);" data-reveal>Bem no Centro de São José dos Campos</h2>
+      <p class="local-address" data-reveal data-reveal-delay="1">R. Euclídes Miragaia, 449, Centro, São José dos Campos, SP</p>
+      <div class="local-actions" data-reveal data-reveal-delay="2">
+        <a href="#" class="map-link" data-map-query="R. Euclídes Miragaia, 449, Centro, São José dos Campos - SP" target="_blank" rel="noopener">
+          Ver no mapa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="tel:+5512982455536" class="local-phone">(12) 98245-5536</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <div class="container cta-final-grid">
+      <div data-reveal>
+        <span class="kicker"><svg viewBox="0 0 24 24"><use href="#es-leaf-icon"></use></svg>Vamos agendar?</span>
+        <h2>Seu horário de cuidado começa com uma mensagem</h2>
+      </div>
+      <div class="cta-final-action" data-reveal data-reveal-delay="1">
+        <p>Fale com a gente no WhatsApp e agende no dia e horário que fizer mais sentido pra você.</p>
+        <a href="#" class="btn btn-whatsapp whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Falar agora no WhatsApp
+        </a>
+        <p class="cta-phone">Prefere ligar? <a href="tel:+5512982455536">(12) 98245-5536</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="wordmark">ESSENT<svg class="leaf-i" viewBox="0 0 10 34" aria-hidden="true"><rect x="3" y="11" width="4" height="23" fill="currentColor"/><path d="M5 0c-3 2-4 5-3 8 3 1 6 0 7-3 1-3-1-6-4-5z" fill="currentColor"/></svg>A</span>
+      </div>
+      <p>R. Euclídes Miragaia, 449<br>Centro, São José dos Campos, SP</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegue</h3>
+      <a href="#sobre">Espaço</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#duvidas">Dúvidas</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="#" class="whatsapp-cta">WhatsApp</a>
+      <a href="tel:+5512982455536">(12) 98245-5536</a>
+      <a href="https://www.instagram.com/essentiabeleza/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="ano"></span> Essentia Cuidado &amp; Beleza. Todos os direitos reservados.</span>
+    <span>Centro, São José dos Campos, SP</span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float whatsapp-cta" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  // WhatsApp: monta o link com numero certo e mensagem pre-escrita, sempre corretamente encodada
+  var WA_NUMBER = "5512982455536";
+  var WA_MESSAGE = "Olá! Vim pelo perfil do Essentia e gostaria de agendar um horário.";
+  var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+  document.querySelectorAll(".whatsapp-cta").forEach(function (el) {
+    el.setAttribute("href", waHref);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Links de mapa, montados via query encodada
+  document.querySelectorAll("[data-map-query]").forEach(function (el) {
+    var q = el.getAttribute("data-map-query");
+    el.setAttribute("href", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q));
+  });
+
+  // Header muda de aparencia ao rolar
+  var header = document.getElementById("siteHeader");
+  var onScroll = function () {
+    if (window.scrollY > 40) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Menu mobile
+  var navToggle = document.getElementById("navToggle");
+  var mainNav = document.querySelector(".main-nav");
+  if (navToggle && mainNav) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.style.display === "flex";
+      if (isOpen) {
+        mainNav.style.display = "";
+        navToggle.setAttribute("aria-expanded", "false");
+      } else {
+        mainNav.style.display = "flex";
+        mainNav.style.position = "fixed";
+        mainNav.style.top = "72px";
+        mainNav.style.left = "0";
+        mainNav.style.right = "0";
+        mainNav.style.flexDirection = "column";
+        mainNav.style.alignItems = "flex-start";
+        mainNav.style.gap = "1.2rem";
+        mainNav.style.background = "rgba(18,32,26,0.98)";
+        mainNav.style.padding = "1.5rem clamp(1.25rem, 3vw, 2.5rem) 2rem";
+        mainNav.style.borderBottom = "1px solid var(--border-soft)";
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+    });
+    mainNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.innerWidth <= 980) {
+          mainNav.style.display = "";
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  // FAQ accordion (a animacao de abrir/fechar e 100% CSS via grid-template-rows,
+  // o JS so alterna o estado data-open/aria-expanded)
+  document.querySelectorAll(".faq-item").forEach(function (item) {
+    var btn = item.querySelector(".faq-q");
+    btn.addEventListener("click", function () {
+      var isOpen = item.getAttribute("data-open") === "true";
+      document.querySelectorAll(".faq-item").forEach(function (other) {
+        other.setAttribute("data-open", "false");
+        other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.setAttribute("data-open", "true");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  // Ano no rodape
+  var anoEl = document.getElementById("ano");
+  if (anoEl) { anoEl.textContent = new Date().getFullYear(); }
+})();
+</script>
+
+</body>
+</html>
