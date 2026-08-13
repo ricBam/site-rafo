@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Inspire — Dra. Catielly Rocha | Biomedicina Estética em São José dos Campos</title>
+<meta name="description" content="Harmonização facial, Botox e preenchimento labial com a Dra. Catielly Rocha, biomédica esteta em São José dos Campos (SP). Agende sua avaliação pelo WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d2e2a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clínica Inspire — Dra. Catielly Rocha, Biomedicina Estética">
+<meta property="og:description" content="Harmonização facial, Botox e preenchimento labial em São José dos Campos (SP).">
+<meta property="og:image" content="clinica-inspire/resultado-harmonizacao-frontal.jpg">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500;1,6..96,600&family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Beau+Rivage&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6ef;
+    --bg-alt: #f2e9d8;
+    --surface: #ffffff;
+    --surface-2: #f5efe3;
+    --border: #e3d6bf;
+    --border-soft: #ece2cf;
+    --text: #211c17;
+    --text-muted: #5c5346;
+    --text-faint: #6b6252;
+    --teal: #0f4c46;
+    --teal-deep: #0a3733;
+    --teal-soft: #2f8f83;
+    --teal-tint: #e4efec;
+    --terracotta: #bd7c62;
+    --terracotta-soft: #d99b80;
+    --terracotta-text: #96543c;
+    --cream-text: #f5efe4;
+
+    /* Faixas escuras (hero, resultados, conteudo, cta final) - o "antes" tecnico
+       que intercala com o "depois" claro do restante da pagina. */
+    --ink: #0d2e2a;
+    --ink-2: #071916;
+    --ink-text: #f5efe4;
+    --ink-muted: #cfc7b4;
+    --ink-accent: #9fd6cb;
+    --ink-border: rgba(159,214,203,0.25);
+
+    --shadow-lg: 0 30px 80px -30px rgba(15,30,27,0.22);
+    --shadow-sm: 0 10px 30px -15px rgba(15,30,27,0.18);
+    --radius: 18px;
+    --radius-sm: 10px;
+    --container: 1180px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --fs-xs: clamp(0.78rem, 0.74rem + 0.18vw, 0.88rem);
+    --fs-sm: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+    --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --fs-md: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+    --fs-lg: clamp(1.5rem, 1.3rem + 0.85vw, 2.1rem);
+    --fs-xl: clamp(2rem, 1.6rem + 1.7vw, 3.1rem);
+    --fs-2xl: clamp(2.5rem, 1.9rem + 2.8vw, 4.2rem);
+    --fs-3xl: clamp(2.7rem, 1.9rem + 3.8vw, 5.1rem);
+
+    --sp-1: clamp(0.5rem, 0.45rem + 0.2vw, 0.65rem);
+    --sp-2: clamp(0.9rem, 0.8rem + 0.4vw, 1.2rem);
+    --sp-3: clamp(1.5rem, 1.3rem + 0.8vw, 2.1rem);
+    --sp-4: clamp(2.2rem, 1.8rem + 1.6vw, 3.4rem);
+    --sp-5: clamp(3.2rem, 2.4rem + 3vw, 5.6rem);
+    --sp-6: clamp(4rem, 3rem + 4.5vw, 7.5rem);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: var(--fs-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.06;
+    color: var(--text);
+  }
+
+  .script { font-family: 'Beau Rivage', cursive; font-weight: 400; letter-spacing: 0; }
+  .mono-tag { font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; font-size: var(--fs-xs); }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  /* Rotulo padrao usado nas secoes claras: mono, com marca de "cota" a esquerda
+     (dois tracos curtos em L), lembrando anotacao tecnica em vez do
+     tradicional "dash + texto" de eyebrow genérico. */
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    padding-left: 0.9em;
+    border-left: 2px solid var(--teal);
+  }
+  .kicker.on-ink { color: var(--ink-accent); border-left-color: var(--ink-accent); }
+
+  section { position: relative; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--teal);
+    color: var(--cream-text);
+    padding: 0.8em 1.2em;
+    z-index: 200;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  .on-ink a:focus-visible, .on-ink button:focus-visible { outline-color: var(--ink-accent); }
+
+  /* ---------- Header ---------- */
+  header.site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13, 46, 42, 0.42);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+    padding: 1.1rem 0;
+    color: var(--ink-text);
+  }
+  header.site-header.is-scrolled {
+    background: rgba(7, 25, 22, 0.92);
+    border-bottom-color: var(--ink-border);
+  }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+  .brand-word { font-family: 'Beau Rivage', cursive; font-size: 2rem; color: var(--ink-text); }
+  .brand-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-accent);
+    margin-top: 0.1rem;
+  }
+
+  nav.main-nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
+  nav.main-nav a {
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    color: var(--ink-muted);
+    font-weight: 500;
+    transition: color 0.25s;
+  }
+  nav.main-nav a:hover { color: var(--ink-text); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.85em 1.7em;
+    font-size: var(--fs-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s, border-color 0.3s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--cream-text);
+    box-shadow: 0 12px 30px -14px rgba(15,76,70,0.55);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: var(--teal-deep); box-shadow: 0 18px 38px -16px rgba(15,76,70,0.6); }
+  /* CTAs de WhatsApp: fundo escuro com borda na cor de destaque e texto/icone claros,
+     nunca clareando no hover. Em secoes claras E escuras, mesma logica. */
+  .btn-primary.whatsapp-cta, .btn-ghost.whatsapp-cta {
+    background: linear-gradient(135deg, #16342f, #081714);
+    color: var(--cream-text);
+    border: 1px solid var(--teal-soft);
+    box-shadow: 0 12px 30px -14px rgba(8,23,20,0.55);
+  }
+  .btn-primary.whatsapp-cta:hover, .btn-ghost.whatsapp-cta:hover {
+    background: linear-gradient(135deg, #1e433c, #0b201c);
+    border-color: #57ab9e;
+    box-shadow: 0 18px 38px -16px rgba(8,23,20,0.65);
+    transform: translateY(-2px);
+  }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-ghost.on-ink { color: var(--ink-text); border-color: var(--ink-border); }
+  .btn-ghost.on-ink:hover { border-color: var(--ink-accent); color: var(--ink-accent); }
+  .btn-sm { padding: 0.65em 1.3em; font-size: var(--fs-xs); }
+  .btn svg { width: 1.1em; height: 1.1em; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--ink-border);
+    border-radius: 8px;
+    width: 42px; height: 42px;
+    align-items: center; justify-content: center;
+    color: var(--ink-text);
+  }
+
+  /* ---------- Faixa escura generica (hero / resultados / conteudo / cta final) ---------- */
+  .ink-band {
+    background: linear-gradient(155deg, var(--ink), var(--ink-2));
+    color: var(--ink-text);
+    position: relative;
+    overflow: hidden;
+  }
+  .ink-band .eyebrow-txt, .ink-band h2 { color: var(--ink-text); }
+  .ink-band p { color: var(--ink-muted); }
+
+  [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  /* Fica visivel por padrao. So esconde quando o JS confirmou que vai rodar
+     (classe .js no html, definida por script sincrono no head) - sem JS, ou se
+     o JS falhar/demorar, o conteudo nunca fica escondido para sempre. */
+  html.js [data-reveal] { opacity: 0; transform: translateY(24px); }
+  html.js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  [data-reveal-delay="1"] { transition-delay: 0.08s; }
+  [data-reveal-delay="2"] { transition-delay: 0.16s; }
+  [data-reveal-delay="3"] { transition-delay: 0.24s; }
+  [data-reveal-delay="4"] { transition-delay: 0.32s; }
+
+  /* ---------- Hero (split assimetrico, sem card/badge flutuante) ---------- */
+  .hero-band { padding-top: clamp(6.5rem, 9vw, 8.5rem); }
+  .hero-watermark {
+    position: absolute;
+    top: 2%;
+    right: -2%;
+    font-size: clamp(6rem, 16vw, 15rem);
+    color: rgba(159,214,203,0.07);
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: stretch;
+    min-height: clamp(520px, 72vh, 780px);
+  }
+  .hero-copy {
+    padding: var(--sp-5) clamp(1.25rem, 4vw, 4.5rem) var(--sp-5) clamp(1.25rem, 4vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-copy h1 { font-size: var(--fs-3xl); margin-top: var(--sp-2); color: var(--ink-text); }
+  .hero-copy h1 em { font-style: italic; color: var(--ink-accent); }
+  .hero-tagline { margin-top: var(--sp-2); font-size: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem); color: var(--terracotta-soft); max-width: 20ch; }
+  .hero-desc { margin-top: var(--sp-3); color: var(--ink-muted); font-size: var(--fs-md); max-width: 44ch; }
+  .hero-actions { margin-top: var(--sp-4); display: flex; flex-wrap: wrap; gap: 1rem; }
+  .hero-photo { position: relative; min-height: 340px; }
+  .hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);
+    filter: saturate(1.02) contrast(1.03);
+  }
+  .hero-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7,25,22,0) 45%, rgba(7,25,22,0.75) 100%);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 1;
+  }
+  .hero-photo-caption {
+    position: absolute;
+    left: clamp(1.5rem, 6%, 3rem);
+    bottom: 1.6rem;
+    z-index: 2;
+    color: var(--ink-text);
+  }
+  .hero-photo-caption strong { display: block; font-family: 'Bodoni Moda', serif; font-weight: 600; font-size: 1.05rem; }
+  .hero-photo-caption span { display: block; margin-top: 0.2rem; color: var(--ink-accent); }
+
+  /* ---------- Stats (linha assimetrica, sem grid simetrico) ---------- */
+  .stats-line { background: var(--bg); border-bottom: 1px solid var(--border-soft); }
+  .stats-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-4) 0;
+  }
+  .stats-lead { display: flex; align-items: baseline; gap: 0.9rem; padding-right: var(--sp-4); border-right: 1px solid var(--border-soft); }
+  .stats-lead-num { font-family: 'Bodoni Moda', serif; font-size: var(--fs-xl); color: var(--terracotta-text); letter-spacing: 0.04em; }
+  .stats-lead-label { font-size: var(--fs-xs); color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; max-width: 16ch; }
+  .stats-mini { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+  .stats-mini li { display: flex; flex-direction: column; }
+  .stats-mini strong { font-family: 'Bodoni Moda', serif; font-size: var(--fs-lg); font-weight: 600; color: var(--teal); }
+  .stats-mini span { font-size: var(--fs-xs); color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+  /* ---------- Section shared (claras) ---------- */
+  .section { padding: var(--sp-6) 0; }
+  .section-head { max-width: 62ch; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 { font-size: var(--fs-2xl); margin-top: var(--sp-2); }
+  .section-head p { margin-top: var(--sp-2); color: var(--text-muted); font-size: var(--fs-md); }
+  .section-head.on-ink p { color: var(--ink-muted); }
+
+  /* ---------- Sobre (editorial empilhado, sem retrato lateral fixo) ---------- */
+  .sobre { background: var(--bg); }
+  .sobre-intro { max-width: 78ch; margin: 0 auto; text-align: center; }
+  .sobre-intro p { color: var(--text-muted); margin: 0 0 1.1em; font-size: var(--fs-md); }
+  .sobre-intro p:first-of-type { color: var(--text); font-size: var(--fs-lg); font-family: 'Bodoni Moda', serif; font-weight: 500; line-height: 1.35; }
+  .sobre-banner {
+    margin-top: var(--sp-5);
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 21 / 9;
+    box-shadow: var(--shadow-sm);
+  }
+  .sobre-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+  .sobre-banner::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(7,25,22,0.82) 0%, rgba(7,25,22,0.15) 55%, transparent 80%);
+  }
+  .sobre-banner-quote {
+    position: absolute;
+    left: clamp(1.5rem, 5%, 3rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    max-width: 26ch;
+  }
+  .sobre-banner-quote p {
+    margin: 0;
+    font-family: 'Beau Rivage', cursive;
+    font-size: clamp(1.7rem, 1.4rem + 1.4vw, 2.4rem);
+    color: var(--terracotta-soft);
+    line-height: 1.3;
+  }
+  .sobre-banner-quote span {
+    display: block; margin-top: 0.6rem;
+    font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- Procedimentos (lista/menu numerada, nao grid de cards) ---------- */
+  .procedimentos { background: var(--bg-alt); }
+  .menu-list { margin-top: var(--sp-4); border-top: 1px solid var(--border); }
+  .menu-row {
+    display: grid;
+    grid-template-columns: 56px 52px 1fr;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .menu-row:hover { padding-left: 0.6rem; background: var(--surface-2); }
+  .menu-index { font-family: 'Space Mono', monospace; font-size: 1rem; color: var(--terracotta-text); }
+  .menu-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--teal-tint);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal);
+  }
+  .menu-icon svg { width: 22px; height: 22px; }
+  .menu-body h3 { font-size: var(--fs-lg); font-weight: 600; }
+  .menu-body p { margin-top: 0.4rem; color: var(--text-muted); font-size: var(--fs-sm); max-width: 62ch; }
+
+  /* ---------- Resultados (faixa escura, filme horizontal) ---------- */
+  .resultados-band { padding: var(--sp-6) 0; }
+  .filmstrip {
+    display: flex;
+    gap: var(--sp-3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: var(--sp-4) clamp(1.25rem, 3vw, 2.5rem) 0.5rem;
+    margin: 0 calc(-1 * clamp(1.25rem, 3vw, 2.5rem));
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal-soft) transparent;
+  }
+  .film-item {
+    position: relative;
+    flex: 0 0 clamp(230px, 32vw, 320px);
+    scroll-snap-align: start;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--ink-border);
+  }
+  .film-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+  .film-item:hover img { transform: scale(1.06); }
+  .film-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,25,22,0) 58%, rgba(7,25,22,0.85) 100%); }
+  .film-tag { position: absolute; left: 0.9rem; bottom: 0.9rem; z-index: 2; color: var(--ink-text); }
+  .gallery-note-dark { margin-top: var(--sp-3); color: var(--ink-muted); font-size: var(--fs-xs); }
+  .scroll-hint { display: inline-flex; align-items: center; gap: 0.5em; color: var(--ink-accent); font-size: var(--fs-xs); margin-top: var(--sp-2); }
+  .scroll-hint svg { width: 16px; height: 16px; }
+
+  /* ---------- Avaliacoes (painel unico, nao grid de 3 cards) ---------- */
+  .avaliacoes { background: var(--bg); }
+  .aval-panel {
+    margin-top: var(--sp-4);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--sp-4);
+    max-width: 900px;
+    margin-left: auto; margin-right: auto;
+  }
+  .aval-panel-head { display: flex; align-items: center; gap: 0.7em; }
+  .aval-panel-head svg { width: 22px; height: 22px; color: var(--terracotta); }
+  .aval-panel-head strong { font-family: 'Bodoni Moda', serif; font-size: var(--fs-lg); font-weight: 600; }
+  .aval-list { list-style: none; margin: var(--sp-3) 0 0; padding: 0; display: grid; gap: 0; }
+  .aval-list li { display: grid; grid-template-columns: 28px 1fr; gap: 0.9rem; padding: 1.1rem 0; border-top: 1px solid var(--border-soft); }
+  .aval-list li:first-child { border-top: none; }
+  .aval-list svg { width: 22px; height: 22px; color: var(--teal); margin-top: 0.15rem; }
+  .aval-list strong { display: block; font-size: var(--fs-base); }
+  .aval-list p { margin: 0.35rem 0 0; color: var(--text-muted); font-size: var(--fs-sm); }
+  .aval-footnote { margin-top: var(--sp-3); color: var(--text-faint); font-size: var(--fs-xs); max-width: 68ch; text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* ---------- Processo (tira horizontal com setas, nao cards com linha) ---------- */
+  .processo { background: var(--bg-alt); }
+  .protocol-strip { margin-top: var(--sp-4); display: flex; align-items: flex-start; flex-wrap: wrap; gap: var(--sp-2); }
+  .protocol-step { flex: 1 1 190px; min-width: 190px; }
+  .protocol-num { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 2.4rem; color: var(--terracotta-text); line-height: 1; }
+  .protocol-step h3 { font-size: var(--fs-md); font-weight: 600; margin-top: 0.5rem; }
+  .protocol-step p { margin-top: 0.4rem; color: var(--text-muted); font-size: var(--fs-sm); }
+  .protocol-arrow { align-self: center; color: var(--terracotta-soft); font-size: 1.4rem; padding-top: 1.6rem; display: none; }
+  @media (min-width: 900px) { .protocol-arrow { display: block; } }
+
+  /* ---------- Conteudo/Instagram (faixa escura banner) ---------- */
+  .conteudo-band { padding: var(--sp-5) 0; }
+  .conteudo-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+  .conteudo-row-text { max-width: 46ch; }
+  .conteudo-row-text p { color: var(--ink-muted); margin-top: 0.6rem; }
+  .conteudo-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: var(--sp-2); }
+  .tag { font-size: var(--fs-xs); padding: 0.5em 1em; border-radius: 999px; border: 1px solid var(--ink-border); color: var(--ink-muted); }
+  .conteudo-stats { display: flex; gap: var(--sp-4); align-items: center; }
+  .conteudo-stats div { text-align: center; }
+  .conteudo-stats strong { display: block; font-family: 'Bodoni Moda', serif; font-size: var(--fs-lg); color: var(--ink-text); }
+  .conteudo-stats span { font-size: var(--fs-xs); color: var(--ink-accent); text-transform: uppercase; letter-spacing: 0.08em; }
+  .ig-handle { font-family: 'Beau Rivage', cursive; font-size: 1.8rem; color: var(--ink-text); display: block; margin-bottom: 0.4rem; }
+
+  /* ---------- FAQ (linhas corridas, sem card por item) ---------- */
+  .faq { background: var(--bg); }
+  .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: var(--sp-4); align-items: start; }
+  .faq-list { border-top: 1px solid var(--border); }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; text-align: left;
+    background: none; border: none; color: var(--text);
+    font-size: var(--fs-md); font-family: 'Sora', sans-serif; font-weight: 600;
+    padding: 1.3rem 0; display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; cursor: pointer;
+  }
+  .faq-q svg { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; transition: transform 0.3s var(--ease); }
+  .faq-item[data-open="true"] .faq-q svg { transform: rotate(45deg); }
+  .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease); }
+  .faq-item[data-open="true"] .faq-a { grid-template-rows: 1fr; }
+  .faq-a-inner { overflow: hidden; min-height: 0; }
+  .faq-a-content { padding: 0 0 1.4rem; color: var(--text-muted); font-size: var(--fs-sm); max-width: 60ch; }
+
+  /* ---------- CTA final (bookend escuro) ---------- */
+  .cta-band { padding: var(--sp-6) 0; text-align: center; }
+  .cta-band h2 { font-size: var(--fs-2xl); margin-top: var(--sp-2); max-width: 20ch; margin-left: auto; margin-right: auto; }
+  .cta-band .hero-actions { justify-content: center; }
+  .cta-contact {
+    margin-top: var(--sp-4);
+    display: inline-flex; flex-direction: column; gap: 0.6rem;
+    color: var(--ink-muted); font-size: var(--fs-sm);
+  }
+  .cta-contact a { color: var(--ink-text); text-decoration: none; }
+  .cta-contact a:hover { color: var(--ink-accent); }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer { background: var(--bg-alt); border-top: 1px solid var(--border-soft); padding: var(--sp-5) 0 var(--sp-3); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--sp-4); }
+  .footer-brand-word { font-family: 'Beau Rivage', cursive; font-size: 1.8rem; color: var(--teal); }
+  .footer-brand-sub { font-family: 'Space Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-faint); margin: 0.2rem 0 1rem; }
+  footer p { color: var(--text-faint); font-size: var(--fs-xs); line-height: 1.7; margin: 0; }
+  .footer-col h3 { font-family: 'Sora', sans-serif; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-faint); margin-bottom: 1rem; }
+  .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: var(--fs-sm); margin-bottom: 0.6rem; }
+  .footer-col a:hover { color: var(--teal); }
+  .footer-bottom { margin-top: var(--sp-4); padding-top: var(--sp-2); border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: var(--fs-xs); color: var(--text-faint); }
+
+  /* ---------- WhatsApp float button ---------- */
+  .wa-float {
+    position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 90;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, #16342f, #081714);
+    border: 1px solid var(--teal-soft);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 16px 36px -12px rgba(8,23,20,0.55);
+    text-decoration: none; color: var(--cream-text);
+    transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .wa-float:hover { transform: scale(1.08); background: linear-gradient(135deg, #1e433c, #0b201c); border-color: #57ab9e; }
+  .wa-float svg { width: 28px; height: 28px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    nav.main-nav { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-split { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { padding: var(--sp-4) clamp(1.25rem, 4vw, 2.5rem) var(--sp-3); order: 2; }
+    .hero-photo { order: 1; min-height: 320px; }
+    .hero-photo img, .hero-photo::before { clip-path: none; }
+    .sobre-banner { aspect-ratio: 4/5; }
+    .sobre-banner-quote { max-width: 20ch; }
+    .menu-row { grid-template-columns: 40px 44px 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .stats-flex { flex-direction: column; align-items: flex-start; }
+    .stats-lead { border-right: none; padding-right: 0; }
+    .conteudo-row { flex-direction: column; align-items: flex-start; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .protocol-step { flex: 1 1 100%; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a href="#conteudo-principal" class="brand">
+      <span class="brand-word">Inspire</span>
+      <span class="brand-sub">Dra. Catielly Rocha &middot; Biomedicina Estética</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#procedimentos">Procedimentos</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato" class="btn btn-primary btn-sm whatsapp-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        WhatsApp
+      </a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO: faixa escura, split assimetrico com foto sangrada (sem card/badge flutuante) -->
+  <section class="hero-band ink-band" id="topo">
+    <span class="hero-watermark script" aria-hidden="true">inspire</span>
+    <div class="hero-split">
+      <div class="hero-copy" data-reveal>
+        <span class="kicker on-ink">Biomedicina Estética &nbsp;/&nbsp; São José dos Campos</span>
+        <h1>Dra. Catielly<br><em>Rocha</em></h1>
+        <p class="hero-tagline script">inspire-se a se sentir bem na sua pele</p>
+        <p class="hero-desc">Harmonização facial, Botox e preenchimento com técnica apurada e um olhar clínico que explica cada etapa antes de agir. Atendimento no Jardim São Dimas.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary whatsapp-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+            Agendar avaliação
+          </a>
+          <a href="#procedimentos" class="btn btn-ghost on-ink">Ver procedimentos</a>
+        </div>
+      </div>
+      <div class="hero-photo" data-reveal data-reveal-delay="2">
+        <img src="clinica-inspire/resultado-harmonizacao-frontal.jpg" alt="Resultado real de harmonização facial realizada na Clínica Inspire, antes e depois" width="1024" height="1024">
+        <div class="hero-photo-caption mono-tag">
+          <strong>Resultado real</strong>
+          <span>Harmonização facial &mdash; antes / depois</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS: linha assimetrica -->
+  <section class="stats-line">
+    <div class="container stats-flex">
+      <div class="stats-lead" data-reveal>
+        <span class="stats-lead-num">★★★★★</span>
+        <span class="stats-lead-label">Nas avaliações do Google que analisamos</span>
+      </div>
+      <ul class="stats-mini" data-reveal data-reveal-delay="1">
+        <li><strong>SJC</strong><span>Jardim São Dimas</span></li>
+        <li><strong>4,9 mil+</strong><span>Seguidores</span></li>
+        <li><strong>287</strong><span>Posts com resultados reais</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOBRE: editorial empilhado, banner largo em vez de retrato lateral -->
+  <section class="section sobre" id="sobre">
+    <div class="container">
+      <div class="sobre-intro" data-reveal>
+        <span class="kicker">Quem cuida do seu rosto</span>
+        <h2 style="margin-top: var(--sp-2); font-size: var(--fs-2xl);">Uma biomédica esteta que explica antes de agir</h2>
+        <p style="margin-top: var(--sp-3);">A Dra. Catielly Rocha é biomédica especializada em estética avançada, à frente da Clínica Inspire em São José dos Campos. Seu trabalho concentra-se em harmonização facial, toxina botulínica e preenchimento com ácido hialurônico, sempre buscando resultados que respeitem a expressão natural do rosto.</p>
+        <p>Entre quem avalia o atendimento publicamente, um ponto se repete: a atenção ao detalhe. Cada etapa é explicada antes de começar, o que transmite segurança a quem está pela primeira vez em uma cadeira de harmonização.</p>
+        <p>Além do consultório, a Dra. Catielly também dedica parte do seu trabalho à formação de outros profissionais da estética, levando a mesma exigência técnica para dentro da sala de aula.</p>
+      </div>
+      <div class="sobre-banner" data-reveal data-reveal-delay="1">
+        <img src="clinica-inspire/clinica-atendimento.jpg" alt="Equipe da Clínica Inspire durante um atendimento" width="640" height="1136" loading="lazy">
+        <div class="sobre-banner-quote">
+          <p class="script">&ldquo;explicar cada etapa é tão importante quanto o resultado&rdquo;</p>
+          <span>O jeito de atender que os pacientes mais comentam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCEDIMENTOS: lista numerada, nao grid de cards -->
+  <section class="section procedimentos" id="procedimentos">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Procedimentos</span>
+        <h2>O que a Clínica Inspire faz por você</h2>
+        <p>Cada indicação parte de uma avaliação individual. Nada é aplicado sem que você entenda o porquê.</p>
+      </div>
+      <div class="menu-list">
+        <div class="menu-row" data-reveal>
+          <span class="menu-index mono-tag">01</span>
+          <div class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="12" r="6.5"/><circle cx="15" cy="12" r="6.5"/></svg></div>
+          <div class="menu-body">
+            <h3>Harmonização Facial</h3>
+            <p>Conjunto de procedimentos pensado para equilibrar as proporções do rosto, sem perder a identidade de quem está sendo tratado.</p>
+          </div>
+        </div>
+        <div class="menu-row" data-reveal data-reveal-delay="1">
+          <span class="menu-index mono-tag">02</span>
+          <div class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c2.5 3 4 6 4 9a4 4 0 01-8 0c0-3 1.5-6 4-9z"/><circle cx="12" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+          <div class="menu-body">
+            <h3>Botox &mdash; Toxina Botulínica</h3>
+            <p>Suaviza linhas de expressão em áreas como testa, glabela e ao redor dos olhos, preservando a naturalidade dos movimentos do rosto.</p>
+          </div>
+        </div>
+        <div class="menu-row" data-reveal data-reveal-delay="2">
+          <span class="menu-index mono-tag">03</span>
+          <div class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11c3-2 6-2 9 0s6 2 9 0"/><path d="M3 13c3 2 6 2 9 0s6-2 9 0"/></svg></div>
+          <div class="menu-body">
+            <h3>Preenchimento Labial</h3>
+            <p>Volume e contorno para os lábios com técnica que respeita a anatomia natural, evitando o efeito artificial.</p>
+          </div>
+        </div>
+        <div class="menu-row" data-reveal data-reveal-delay="3">
+          <span class="menu-index mono-tag">04</span>
+          <div class="menu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg></div>
+          <div class="menu-body">
+            <h3>Estética Avançada</h3>
+            <p>Protocolos de rejuvenescimento e bioestimulação de colágeno para melhorar textura, firmeza e viço da pele ao longo do tempo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS: faixa escura, filme horizontal com scroll -->
+  <section class="resultados-band ink-band" id="resultados">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker on-ink">Resultados reais</span>
+        <h2>O que fala mais alto que qualquer promessa</h2>
+        <p>Antes e depois divulgados pela própria clínica, registrados durante o acompanhamento real dos casos.</p>
+        <span class="scroll-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>arraste para o lado</span>
+      </div>
+    </div>
+    <div class="filmstrip" data-reveal data-reveal-delay="1">
+      <div class="film-item">
+        <img src="clinica-inspire/resultado-harmonizacao-sorriso.jpg" alt="Antes e depois de harmonização facial, perfil sorrindo" width="1024" height="1276" loading="lazy">
+        <span class="film-tag mono-tag">Harmonização Facial</span>
+      </div>
+      <div class="film-item">
+        <img src="clinica-inspire/resultado-botox-testa.jpg" alt="Antes e depois de aplicação de toxina botulínica na testa" width="1080" height="1080" loading="lazy">
+        <span class="film-tag mono-tag">Toxina Botulínica</span>
+      </div>
+      <div class="film-item">
+        <img src="clinica-inspire/resultado-labial-sorriso.jpg" alt="Antes e depois de preenchimento labial" width="1080" height="1080" loading="lazy">
+        <span class="film-tag mono-tag">Preenchimento Labial</span>
+      </div>
+      <div class="film-item">
+        <img src="clinica-inspire/resultado-preenchimento-labial.jpg" alt="Antes e depois de preenchimento labial, close" width="1080" height="1080" loading="lazy">
+        <span class="film-tag mono-tag">Preenchimento Labial</span>
+      </div>
+      <div class="film-item">
+        <img src="clinica-inspire/resultado-harmonizacao-masculina.jpg" alt="Antes e depois de harmonização facial masculina" width="1080" height="1080" loading="lazy">
+        <span class="film-tag mono-tag">Harmonização Masculina</span>
+      </div>
+    </div>
+    <div class="container">
+      <p class="gallery-note-dark">Imagens reais, divulgadas pela própria Clínica Inspire no Instagram.</p>
+    </div>
+  </section>
+
+  <!-- AVALIACOES: painel unico -->
+  <section class="section avaliacoes" id="avaliacoes">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="kicker">O que dizem sobre o atendimento</span>
+        <h2>Antes de fechar, muita gente pesquisa. É isso que encontram.</h2>
+      </div>
+      <div class="aval-panel" data-reveal data-reveal-delay="1">
+        <div class="aval-panel-head">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.3 1.1 6-5.3-3-5.3 3 1.1-6-4.5-4.3 6.1-.7L12 3z"/></svg>
+          <strong>Avaliações 5 estrelas no Google</strong>
+        </div>
+        <ul class="aval-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12a8 8 0 11-4.7-7.3"/></svg>
+            <div>
+              <strong>Atenção a cada detalhe</strong>
+              <p>Explica cada etapa do procedimento antes de começar &mdash; um ponto que aparece com frequência nos relatos de quem já passou pela clínica.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/></svg>
+            <div>
+              <strong>Perfeccionismo técnico</strong>
+              <p>A busca por um resultado equilibrado e natural é um ponto comum nas avaliações públicas sobre o trabalho da Dra. Catielly.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9.5-9C.7 8.4 2.4 4.5 6 4.2c2.1-.2 3.6 1 4.9 2.5C12.4 5.2 13.9 4 16 4.2c3.6.3 5.3 4.2 3.5 7.8-2.5 4.5-9.5 9-9.5 9z"/></svg>
+            <div>
+              <strong>Segurança do início ao fim</strong>
+              <p>Pacientes descrevem se sentir acompanhados e informados durante todo o procedimento, não só no momento da aplicação.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <p class="aval-footnote">Síntese elaborada a partir de avaliações públicas do Google analisadas pela nossa equipe, sem citação literal a pacientes específicos.</p>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA: tira horizontal com setas -->
+  <section class="section processo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Como funciona</span>
+        <h2>Do primeiro contato ao resultado acompanhado</h2>
+      </div>
+      <div class="protocol-strip">
+        <div class="protocol-step" data-reveal>
+          <span class="protocol-num">01</span>
+          <h3>Você chama no WhatsApp</h3>
+          <p>Conta o que te incomoda ou o que gostaria de melhorar, sem compromisso.</p>
+        </div>
+        <span class="protocol-arrow" aria-hidden="true">&rarr;</span>
+        <div class="protocol-step" data-reveal data-reveal-delay="1">
+          <span class="protocol-num">02</span>
+          <h3>Avaliação individual</h3>
+          <p>Análise do rosto, da pele e do histórico, presencial, antes de qualquer indicação.</p>
+        </div>
+        <span class="protocol-arrow" aria-hidden="true">&rarr;</span>
+        <div class="protocol-step" data-reveal data-reveal-delay="2">
+          <span class="protocol-num">03</span>
+          <h3>Plano personalizado</h3>
+          <p>Definição das técnicas certas para o seu objetivo, com cada etapa explicada.</p>
+        </div>
+        <span class="protocol-arrow" aria-hidden="true">&rarr;</span>
+        <div class="protocol-step" data-reveal data-reveal-delay="3">
+          <span class="protocol-num">04</span>
+          <h3>Acompanhamento</h3>
+          <p>Retorno para avaliar o resultado e ajustar o que for necessário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEUDO / INSTAGRAM: faixa escura banner -->
+  <section class="conteudo-band ink-band">
+    <div class="container conteudo-row" data-reveal>
+      <div class="conteudo-row-text">
+        <span class="kicker on-ink">Conteúdo real, toda semana</span>
+        <p>No Instagram da Clínica Inspire, cada transformação é registrada e publicada: antes e depois reais, sem edição de proporções, sem promessas vazias.</p>
+        <div class="conteudo-tags">
+          <span class="tag">Harmonização Facial</span>
+          <span class="tag">Botox</span>
+          <span class="tag">Preenchimento Labial</span>
+          <span class="tag">Skincare</span>
+        </div>
+      </div>
+      <div>
+        <span class="ig-handle">@clinica.inspire.sjc</span>
+        <div class="conteudo-stats">
+          <div><strong>4,9 mil+</strong><span>Seguidores</span></div>
+          <div><strong>287</strong><span>Posts</span></div>
+        </div>
+        <a href="https://www.instagram.com/clinica.inspire.sjc/" target="_blank" rel="noopener" class="btn btn-ghost on-ink btn-sm" style="margin-top: 1.2rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          Seguir no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: colunas, linhas corridas sem card -->
+  <section class="section faq" id="duvidas">
+    <div class="container faq-grid">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Dúvidas frequentes</span>
+        <h2>Perguntas que quase toda pessoa traz na primeira conversa</h2>
+        <p>Respostas gerais para começar a entender o assunto. A indicação real é sempre feita após avaliação individual.</p>
+      </div>
+      <div class="faq-list" data-reveal data-reveal-delay="1">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Harmonização facial dói muito?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">A maioria dos procedimentos usa anestésicos tópicos e agulhas finas, o que reduz bastante o desconforto. A sensação varia de pessoa para pessoa, e isso é conversado antes de cada aplicação.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo dura o efeito da toxina botulínica?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Em geral, entre 4 e 6 meses, variando conforme o metabolismo e a área tratada. Retoques periódicos ajudam a manter o resultado ao longo do tempo.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Preenchimento labial fica com aparência artificial?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Não é essa a proposta. O objetivo é valorizar o formato natural dos lábios, com técnica que evita o efeito inchado ou desproporcional ao restante do rosto.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Preciso de avaliação antes de qualquer procedimento?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Sim. Toda indicação começa por uma avaliação individual do rosto e do histórico da pessoa, para definir o que realmente faz sentido no seu caso.</div></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">
+            Em quanto tempo aparece o resultado?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-content">Depende do procedimento: a toxina botulínica costuma levar de 3 a 15 dias para o efeito completo aparecer, enquanto o preenchimento já mostra diferença logo após a aplicação, com o inchaço inicial diminuindo nos dias seguintes.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL: bookend escuro, mesma faixa do hero -->
+  <section class="cta-band ink-band" id="contato">
+    <div class="container">
+      <span class="kicker on-ink" style="justify-content: center;">Fale agora</span>
+      <h2>Vamos cuidar do seu rosto com o cuidado que ele merece?</h2>
+      <p>Sem compromisso. Conta o que você procura e a Dra. Catielly te explica o caminho.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary whatsapp-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+      <div class="cta-contact">
+        <span>Av. Dr. Nélson d'Ávila, 1837 &mdash; Sl 919, Jardim São Dimas, São José dos Campos/SP</span>
+        <a href="#" data-map-query="Av. Dr. Nelson d'Avila, 1837, Jardim Sao Dimas, Sao Jose dos Campos, SP" target="_blank" rel="noopener">Ver no mapa</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <span class="footer-brand-word">Inspire</span>
+      <span class="footer-brand-sub">Dra. Catielly Rocha &middot; Biomedicina Estética</span>
+      <p>Jardim São Dimas, São José dos Campos/SP</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegue</h3>
+      <a href="#sobre">Sobre</a>
+      <a href="#procedimentos">Procedimentos</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#duvidas">Dúvidas frequentes</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <a href="#" class="whatsapp-cta" style="display:inline-block; padding: 0;">WhatsApp</a>
+      <a href="https://www.instagram.com/clinica.inspire.sjc/" target="_blank" rel="noopener">@clinica.inspire.sjc</a>
+      <a href="#" data-map-query="Av. Dr. Nelson d'Avila, 1837, Jardim Sao Dimas, Sao Jose dos Campos, SP" target="_blank" rel="noopener">Ver endereço no mapa</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="ano"></span> Clínica Inspire. Todos os direitos reservados.</span>
+    <span>São José dos Campos &mdash; SP</span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float whatsapp-cta" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.1L2 22l5.1-1.4C8.6 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.9.9-3.1-.2-.3c-.9-1.4-1.3-3-1.3-4.6C3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+
+  // WhatsApp: monta o link com numero certo e mensagem pre-escrita, sempre corretamente encodada
+  var WA_NUMBER = "5512981413336";
+  var WA_MESSAGE = "Olá! Vi o perfil da Clínica Inspire e gostaria de agendar uma avaliação com a Dra. Catielly.";
+  var waHref = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+  document.querySelectorAll(".whatsapp-cta").forEach(function (el) {
+    el.setAttribute("href", waHref);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // Links de mapa, montados via query encodada
+  document.querySelectorAll("[data-map-query]").forEach(function (el) {
+    var q = el.getAttribute("data-map-query");
+    el.setAttribute("href", "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q));
+  });
+
+  // Header muda de aparencia ao rolar
+  var header = document.getElementById("siteHeader");
+  var onScroll = function () {
+    if (window.scrollY > 40) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Menu mobile
+  var navToggle = document.getElementById("navToggle");
+  var mainNav = document.querySelector(".main-nav");
+  if (navToggle && mainNav) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.style.display === "flex";
+      if (isOpen) {
+        mainNav.style.display = "";
+        navToggle.setAttribute("aria-expanded", "false");
+      } else {
+        mainNav.style.display = "flex";
+        mainNav.style.position = "fixed";
+        mainNav.style.top = "72px";
+        mainNav.style.left = "0";
+        mainNav.style.right = "0";
+        mainNav.style.flexDirection = "column";
+        mainNav.style.alignItems = "flex-start";
+        mainNav.style.gap = "1.2rem";
+        mainNav.style.background = "rgba(7,25,22,0.98)";
+        mainNav.style.padding = "1.5rem clamp(1.25rem, 3vw, 2.5rem) 2rem";
+        mainNav.style.borderBottom = "1px solid var(--ink-border)";
+        navToggle.setAttribute("aria-expanded", "true");
+      }
+    });
+    mainNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.innerWidth <= 980) {
+          mainNav.style.display = "";
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+  // Rede de seguranca: qualquer captura automatizada (screenshot de pagina inteira,
+  // print, scraper de preview) que redimensione a viewport sem gerar um scroll real
+  // pode nunca disparar o IntersectionObserver para elementos abaixo da dobra
+  // original. Depois de 1.2s, forca tudo visivel de qualquer forma - nunca deixa
+  // conteudo escondido para sempre por causa da tecnica de revelacao.
+  window.setTimeout(function () {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }, 1200);
+
+  // FAQ accordion (a animacao de abrir/fechar e 100% CSS via grid-template-rows,
+  // o JS so alterna o estado data-open/aria-expanded)
+  document.querySelectorAll(".faq-item").forEach(function (item) {
+    var btn = item.querySelector(".faq-q");
+    btn.addEventListener("click", function () {
+      var isOpen = item.getAttribute("data-open") === "true";
+      document.querySelectorAll(".faq-item").forEach(function (other) {
+        other.setAttribute("data-open", "false");
+        other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.setAttribute("data-open", "true");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  // Ano no rodape
+  var anoEl = document.getElementById("ano");
+  if (anoEl) { anoEl.textContent = new Date().getFullYear(); }
+})();
+</script>
+
+</body>
+</html>
