@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trilho Certo — Conserto e Automação de Esquadrias em Porto Alegre</title>
+<meta name="description" content="Conserto de esquadrias (roldanas, trilhos, vedação) e motorização residencial em Porto Alegre e Região Metropolitana. Orçamento sem compromisso, garantia de 12 meses.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12151a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trilho Certo — Esquadrias & Automação">
+<meta property="og:description" content="Conserto e motorização de janelas em Porto Alegre e Região Metropolitana. A mesma equipe resolve o mecânico e o inteligente.">
+<meta property="og:image" content="trilho-certo/hero-instalacao.jpg">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12151a;
+    --bg-alt:#171b21;
+    --surface:#1c2129;
+    --surface-2:#232a35;
+    --border:#2c333d;
+    --border-soft:#242a33;
+    --text:#eef2f5;
+    --text-muted:#a4afba;
+    --text-faint:#8b96a1;
+    --steel:#9aa7b5;
+    --steel-soft:#c3ccd6;
+    --cyan:#3fb8cc;
+    --cyan-soft:#8adce8;
+    --signal:#ff6a3d;
+    --signal-soft:#ff9a72;
+    --shadow-lg:0 40px 90px -35px rgba(0,0,0,.7);
+    --shadow-sm:0 14px 34px -18px rgba(0,0,0,.6);
+    --radius:14px;
+    --radius-sm:8px;
+    --container:1220px;
+    --ease:cubic-bezier(.22,1,.36,1);
+
+    --fs-xs:clamp(.76rem,.72rem+.18vw,.86rem);
+    --fs-sm:clamp(.9rem,.85rem+.2vw,1rem);
+    --fs-base:clamp(1rem,.95rem+.22vw,1.1rem);
+    --fs-md:clamp(1.15rem,1.05rem+.4vw,1.35rem);
+    --fs-lg:clamp(1.5rem,1.28rem+.9vw,2.15rem);
+    --fs-xl:clamp(2rem,1.6rem+1.7vw,3rem);
+    --fs-2xl:clamp(2.5rem,1.85rem+2.8vw,4.2rem);
+    --fs-3xl:clamp(2.9rem,1.9rem+4.2vw,5.6rem);
+
+    --sp-1:clamp(.5rem,.45rem+.2vw,.65rem);
+    --sp-2:clamp(.9rem,.8rem+.4vw,1.2rem);
+    --sp-3:clamp(1.5rem,1.3rem+.8vw,2.1rem);
+    --sp-4:clamp(2.1rem,1.7rem+1.6vw,3.3rem);
+    --sp-5:clamp(3rem,2.3rem+2.8vw,5.2rem);
+    --sp-6:clamp(4.2rem,3rem+4.8vw,8rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:var(--fs-base);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3,h4{
+    font-family:'Chakra Petch',sans-serif;
+    font-weight:700;
+    margin:0;
+    line-height:1.06;
+    letter-spacing:-.01em;
+  }
+
+  .mono{font-family:'Space Mono',monospace;}
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 clamp(1.25rem,3vw,2.5rem);}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--signal);color:#1a1310;padding:.8em 1.2em;z-index:200;font-weight:700;font-family:'Space Mono',monospace;}
+  .skip-link:focus{left:1rem;top:1rem;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-soft);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:var(--fs-xs);
+    color:var(--cyan);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:.65em;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--cyan);display:inline-block;}
+  .eyebrow.signal{color:var(--signal);}
+  .eyebrow.signal::before{background:var(--signal);}
+
+  section{position:relative;}
+
+  /* reveal-on-scroll: nunca esconder conteudo permanentemente se JS nao rodar/disparar */
+  html.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  html.js [data-reveal].is-visible{opacity:1;transform:none;}
+
+  /* ---------- blueprint frame: cantos de dossie tecnico em imagens/paineis ---------- */
+  .bp-frame{position:relative;}
+  .bp-frame::before,.bp-frame::after{
+    content:'';position:absolute;width:22px;height:22px;
+    border:2px solid var(--cyan);pointer-events:none;
+  }
+  .bp-frame::before{top:-8px;left:-8px;border-right:none;border-bottom:none;}
+  .bp-frame::after{bottom:-8px;right:-8px;border-left:none;border-top:none;}
+
+  /* ---------- botao WhatsApp: fundo escuro, borda de sinal, texto claro ---------- */
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:var(--signal);
+    color:#1a1310;
+    font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1rem;
+    text-transform:uppercase;letter-spacing:.03em;
+    padding:.95rem 1.8rem;
+    text-decoration:none;
+    border-radius:3px;
+    border:1.5px solid var(--signal);
+    transition:background-color .2s ease,color .2s ease,transform .2s ease;
+    line-height:1;
+  }
+  .btn-wa:hover,.btn-wa:focus-visible{background:transparent;color:var(--signal-soft);transform:translateY(-2px);outline:none;}
+  .btn-wa svg{width:20px;height:20px;flex:none;}
+  .btn-wa-outline{background:transparent;color:var(--text);border-color:var(--border);}
+  .btn-wa-outline:hover,.btn-wa-outline:focus-visible{border-color:var(--signal);color:var(--signal-soft);}
+  .btn-wa-small{padding:.55rem 1.15rem;font-size:.8rem;border-radius:2px;}
+
+  .wa-float{
+    position:fixed;right:1.25rem;bottom:1.25rem;z-index:70;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--signal);border:1.5px solid var(--signal);color:#1a1310;
+    box-shadow:0 14px 32px rgba(255,106,61,.32);
+    transition:transform .2s ease,background-color .2s ease;
+  }
+  .wa-float:hover,.wa-float:focus-visible{transform:translateY(-3px);background:#ff8058;outline:none;}
+  .wa-float svg{width:27px;height:27px;}
+
+  /* ---------- header ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(18,21,26,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .header-inner{
+    max-width:var(--container);margin:0 auto;padding:.9rem clamp(1.25rem,3vw,2.5rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text);}
+  .brand-mark{
+    width:38px;height:38px;flex:none;border:1.5px solid var(--cyan);border-radius:3px;
+    display:flex;align-items:center;justify-content:center;color:var(--cyan);
+  }
+  .brand-mark svg{width:20px;height:20px;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;}
+  .brand-sub{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.09em;color:var(--text-faint);text-transform:uppercase;}
+
+  .main-nav{display:flex;gap:1.9rem;}
+  .main-nav a{font-size:.92rem;text-decoration:none;color:var(--text-muted);transition:color .2s ease;}
+  .main-nav a:hover,.main-nav a:focus-visible{color:var(--cyan-soft);outline:none;}
+
+  .header-cta{display:flex;align-items:center;gap:.9rem;}
+  .nav-toggle{
+    display:none;background:none;border:1.5px solid var(--border);border-radius:4px;
+    width:42px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;
+  }
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+    content:'';display:block;width:18px;height:2px;background:var(--text);position:relative;
+  }
+  .nav-toggle span::before{position:absolute;top:-6px;}
+  .nav-toggle span::after{position:absolute;top:6px;}
+
+  #mobile-nav{display:none;}
+  @media (max-width:900px){
+    .main-nav{display:none;}
+    .header-cta .btn-wa-small{display:none;}
+    .nav-toggle{display:inline-flex;}
+    #mobile-nav{
+      display:grid;grid-template-rows:0fr;background:var(--bg-alt);
+      border-bottom:1px solid var(--border-soft);transition:grid-template-rows .3s ease;
+    }
+    #mobile-nav.open{grid-template-rows:1fr;}
+    #mobile-nav .mobile-nav-inner{overflow:hidden;min-height:0;}
+    #mobile-nav ul{list-style:none;margin:0;padding:1.2rem clamp(1.25rem,3vw,2.5rem);display:flex;flex-direction:column;gap:1rem;}
+    #mobile-nav a{text-decoration:none;font-size:1.02rem;color:var(--text);}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(2.2rem,1.4rem+3.4vw,4.5rem) 0 var(--sp-5);position:relative;overflow:hidden;}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);
+    background-size:64px 64px;opacity:.25;mask-image:linear-gradient(to bottom,black,transparent 85%);pointer-events:none;
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:var(--sp-4);align-items:center;}
+  .hero-copy .eyebrow{margin-bottom:1.2rem;}
+  .hero-copy h1{font-size:var(--fs-3xl);color:var(--text);margin-bottom:1.3rem;text-transform:uppercase;}
+  .hero-copy h1 em{font-style:normal;color:var(--cyan);}
+  .hero-copy .lede{font-size:1.14rem;line-height:1.6;max-width:44ch;color:var(--text-muted);margin-bottom:2rem;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.4rem;}
+  .hero-rail{display:flex;flex-wrap:wrap;gap:0 2rem;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:var(--text-faint);text-transform:uppercase;border-top:1px solid var(--border);padding-top:1.1rem;}
+  .hero-rail span{padding:.3rem 0;}
+  .hero-rail strong{color:var(--steel-soft);}
+
+  .hero-visual{position:relative;}
+  .hero-visual .bp-frame img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.92) contrast(1.03);}
+  .hero-visual figcaption{
+    margin-top:.9rem;font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--text-faint);display:flex;justify-content:space-between;
+  }
+  .hero-visual figure{margin:0;}
+  .hero-degree{
+    position:absolute;top:-18px;right:-18px;width:96px;height:96px;
+    border:1px dashed var(--border);border-radius:50%;display:none;
+  }
+  @media (min-width:1080px){.hero-degree{display:block;}}
+
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;max-width:520px;margin:0 auto;}
+  }
+
+  /* ---------- specs strip ---------- */
+  .specs-strip{border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);background:var(--bg-alt);}
+  .specs-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .specs-grid div{padding:var(--sp-3) var(--sp-2);border-right:1px solid var(--border-soft);text-align:center;}
+  .specs-grid div:last-child{border-right:none;}
+  .specs-num{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:var(--fs-lg);color:var(--cyan);display:block;margin-bottom:.4rem;}
+  .specs-label{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.05em;color:var(--text-faint);text-transform:uppercase;line-height:1.5;}
+  @media (max-width:760px){
+    .specs-grid{grid-template-columns:repeat(2,1fr);}
+    .specs-grid div{border-bottom:1px solid var(--border-soft);}
+    .specs-grid div:nth-child(2n){border-right:none;}
+  }
+
+  /* ---------- sobre ---------- */
+  .sobre{padding:var(--sp-6) 0;}
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);align-items:center;}
+  .sobre-text h2{font-size:var(--fs-xl);margin:1rem 0 1.3rem;color:var(--text);text-transform:uppercase;max-width:16ch;}
+  .sobre-text p{color:var(--text-muted);line-height:1.75;margin-bottom:1.1rem;font-size:1.03rem;}
+  .sobre-text p:last-of-type{margin-bottom:0;}
+  .sobre-visual .bp-frame img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.92) contrast(1.02);}
+  @media (max-width:920px){.sobre-grid{grid-template-columns:1fr;}.sobre-visual{order:-1;max-width:460px;margin:0 auto;}}
+
+  /* ---------- servicos ---------- */
+  .servicos{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .section-head{max-width:640px;margin-bottom:var(--sp-4);}
+  .section-head h2{font-size:var(--fs-xl);margin:1rem 0 1rem;color:var(--text);text-transform:uppercase;}
+  .section-head p{color:var(--text-muted);font-size:1.02rem;line-height:1.65;}
+
+  .servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:var(--sp-4);}
+  .servico-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:1.8rem 1.6rem;transition:border-color .2s ease,transform .2s ease;
+  }
+  .servico-card:hover{border-color:var(--cyan);transform:translateY(-3px);}
+  .servico-icon{width:44px;height:44px;border:1.5px solid var(--cyan);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--cyan);margin-bottom:1.1rem;}
+  .servico-icon svg{width:22px;height:22px;}
+  .servico-card h3{font-size:1.08rem;color:var(--text);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.01em;}
+  .servico-card p{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0;}
+
+  .showcase-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .showcase-item{position:relative;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);min-height:340px;display:flex;align-items:flex-end;}
+  .showcase-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.05) brightness(.75);}
+  .showcase-item::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,21,26,.92) 0%,rgba(18,21,26,.15) 55%,transparent 100%);}
+  .showcase-copy{position:relative;padding:1.6rem;z-index:1;}
+  .showcase-copy .eyebrow{margin-bottom:.6rem;}
+  .showcase-copy h3{color:var(--text);font-size:1.35rem;margin-bottom:.5rem;text-transform:uppercase;}
+  .showcase-copy p{color:var(--steel-soft);font-size:.92rem;margin:0;max-width:34ch;}
+
+  @media (max-width:920px){.servicos-grid{grid-template-columns:1fr 1fr;}.showcase-row{grid-template-columns:1fr;}}
+  @media (max-width:620px){.servicos-grid{grid-template-columns:1fr;}}
+
+  /* ---------- processo ---------- */
+  .processo{padding:var(--sp-6) 0;}
+  .processo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;counter-reset:step;}
+  .step{border-top:2px solid var(--border);padding-top:1.3rem;position:relative;}
+  .step-num{font-family:'Space Mono',monospace;font-size:.85rem;color:var(--signal);display:block;margin-bottom:.9rem;}
+  .step h3{font-size:1.1rem;color:var(--text);margin-bottom:.6rem;text-transform:uppercase;}
+  .step p{color:var(--text-muted);font-size:.94rem;line-height:1.6;margin:0;}
+  @media (max-width:920px){.processo-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.processo-grid{grid-template-columns:1fr;}}
+
+  /* ---------- compatibilidade ---------- */
+  .compat{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .compat-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--sp-4);align-items:center;}
+  .compat-visual .bp-frame img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.9) contrast(1.02);}
+  .plate{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:var(--sp-3);
+  }
+  .plate h2{font-size:var(--fs-lg);color:var(--text);text-transform:uppercase;margin-bottom:1.5rem;}
+  .plate-row{display:grid;grid-template-columns:11rem 1fr;gap:.5rem 1.5rem;padding:.9rem 0;border-top:1px solid var(--border-soft);align-items:baseline;}
+  .plate-row:first-of-type{border-top:none;}
+  .plate-key{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:var(--text-faint);text-transform:uppercase;}
+  .plate-val{color:var(--steel-soft);font-size:.98rem;line-height:1.55;}
+  @media (max-width:920px){.compat-grid{grid-template-columns:1fr;}.compat-visual{order:-1;max-width:460px;margin:0 auto;}.plate-row{grid-template-columns:1fr;gap:.35rem;}}
+
+  /* ---------- regiao ---------- */
+  .regiao{padding:var(--sp-6) 0;}
+  .regiao-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);align-items:center;}
+  .regiao-visual .bp-frame img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.9) contrast(1.02);}
+  .regiao-text h2{font-size:var(--fs-xl);margin:1rem 0 1.2rem;color:var(--text);text-transform:uppercase;max-width:14ch;}
+  .regiao-text p{color:var(--text-muted);line-height:1.7;margin-bottom:1.4rem;}
+  .tag-list{display:flex;flex-wrap:wrap;gap:.6rem;}
+  .tag-list span{
+    font-family:'Space Mono',monospace;font-size:.74rem;letter-spacing:.03em;
+    border:1px solid var(--border);border-radius:20px;padding:.45rem 1rem;color:var(--steel-soft);
+  }
+  .tag-list.alt span{border-color:var(--border);}
+  .regiao-groups{display:grid;gap:1.2rem;}
+  .regiao-groups h3{font-family:'Space Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:.7rem;}
+  @media (max-width:920px){.regiao-grid{grid-template-columns:1fr;}.regiao-visual{order:-1;max-width:460px;margin:0 auto;}}
+
+  /* ---------- faq ---------- */
+  .duvidas{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .duvidas-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--sp-4);}
+  .duvidas-head h2{font-size:var(--fs-xl);margin:1rem 0 1rem;color:var(--text);text-transform:uppercase;}
+  .duvidas-head p{color:var(--text-muted);max-width:32ch;line-height:1.65;}
+  .qa{padding:1.5rem 0;border-top:1px solid var(--border-soft);}
+  .qa:first-child{border-top:none;padding-top:0;}
+  .qa dt{font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:.55rem;color:var(--text);text-transform:uppercase;letter-spacing:.005em;}
+  .qa dd{margin:0;color:var(--text-muted);line-height:1.65;}
+  @media (max-width:900px){.duvidas-inner{grid-template-columns:1fr;}}
+
+  /* ---------- cta final ---------- */
+  .cta-final{padding:var(--sp-6) 0;position:relative;overflow:hidden;}
+  .cta-final::before{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);
+    background-size:64px 64px;opacity:.2;pointer-events:none;
+  }
+  .cta-inner{position:relative;max-width:720px;margin:0 auto;text-align:center;}
+  .cta-inner h2{font-size:var(--fs-xl);color:var(--text);margin:1.1rem 0 1.2rem;text-transform:uppercase;}
+  .cta-inner p{color:var(--text-muted);margin-bottom:2.2rem;font-size:1.06rem;line-height:1.6;}
+  .cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem;}
+  .cta-inner address{
+    font-family:'Space Mono',monospace;font-style:normal;font-size:.82rem;color:var(--text-faint);
+    line-height:2;
+  }
+  .cta-inner address a{text-decoration:underline;text-decoration-color:var(--signal);color:var(--steel-soft);}
+
+  /* ---------- footer ---------- */
+  .site-footer{background:var(--bg-alt);color:var(--text-faint);padding:2.2rem 0;text-align:center;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.05em;border-top:1px solid var(--border-soft);}
+  .site-footer p{margin:0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#topo">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Trilho Certo</span>
+        <span class="brand-sub">Esquadrias &amp; Automação</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#compat">Compatibilidade</a>
+      <a href="#regiao">Atendimento</a>
+      <a href="#duvidas">Perguntas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn-wa btn-wa-small" href="https://wa.me/555189029950?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20Trilho%20Certo%20e%20quero%20saber%20mais%20sobre%20conserto%20e%20automa%C3%A7%C3%A3o%20de%20esquadrias." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" id="nav-toggle-btn">
+        <span class="visually-hidden">Abrir menu</span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" aria-label="Navegação mobile">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#compat">Compatibilidade</a></li>
+        <li><a href="#regiao">Atendimento</a></li>
+        <li><a href="#duvidas">Perguntas</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="btn-wa btn-wa-small" href="https://wa.me/555189029950?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20Trilho%20Certo%20e%20quero%20saber%20mais%20sobre%20conserto%20e%20automa%C3%A7%C3%A3o%20de%20esquadrias." target="_blank" rel="noopener">Falar no WhatsApp</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO -->
+  <section class="hero" id="topo" aria-label="Apresentação">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow">Técnico especializado · Esquadrias</span>
+        <h1>Sua janela não trava.<br>Ela <em>obedece</em>.</h1>
+        <p class="lede">Conserto de esquadrias e motorização residencial em Porto Alegre e Região Metropolitana. Da roldana emperrada ao comando por voz, resolvido pela mesma equipe, na mesma visita.</p>
+        <div class="hero-ctas">
+          <a class="btn-wa" href="https://wa.me/555189029950?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20Trilho%20Certo%20e%20quero%20saber%20mais%20sobre%20conserto%20e%20automa%C3%A7%C3%A3o%20de%20esquadrias." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+            Pedir orçamento
+          </a>
+          <a class="btn-wa btn-wa-outline" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="hero-rail">
+          <span><strong>Orçamento</strong> em até 24h</span>
+          <span><strong>Garantia</strong> de 12 meses</span>
+          <span><strong>Cobertura</strong> Porto Alegre e Região Metropolitana</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal>
+        <div class="hero-degree" aria-hidden="true"></div>
+        <figure class="bp-frame">
+          <img src="trilho-certo/hero-instalacao.jpg" alt="Técnico instalando dobradiça em esquadria durante manutenção" width="1800" height="1202" loading="eager">
+        </figure>
+        <figcaption>
+          <span>Registro de atendimento</span>
+          <span>Porto Alegre, RS</span>
+        </figcaption>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS STRIP -->
+  <section class="specs-strip" aria-label="Compromissos de atendimento">
+    <div class="container specs-grid">
+      <div data-reveal>
+        <span class="specs-num">24h</span>
+        <span class="specs-label">Tempo médio de resposta para diagnóstico</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">12m</span>
+        <span class="specs-label">Garantia em toda automação instalada</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">3</span>
+        <span class="specs-label">Assistentes de voz compatíveis: Alexa, Google Home, Apple HomeKit</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">R$0</span>
+        <span class="specs-label">Visita técnica de diagnóstico e orçamento, sem compromisso</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container sobre-grid">
+      <div class="sobre-text" data-reveal>
+        <span class="eyebrow">Quem resolve</span>
+        <h2 id="sobre-titulo">Entre a marcenaria e a casa inteligente</h2>
+        <p>A maioria dos problemas de janela é mecânico, roldana gasta, trilho empenado, vedação que deixou entrar vento e chuva, e a maioria das automações de casa é vendida por quem nunca abriu uma esquadria por dentro. A Trilho Certo nasceu para fechar essa lacuna, quem conserta é quem automatiza, sem terceirizar metade do serviço.</p>
+        <p>O trabalho começa sempre pelo diagnóstico físico da esquadria, alumínio, PVC ou madeira, porque uma motorização bem instalada depende do estado real do mecanismo. Só depois entra a parte elétrica e de programação, controle por botão, aplicativo ou comando de voz, testada na hora, na frente de quem contratou.</p>
+      </div>
+      <div class="sobre-visual" data-reveal>
+        <figure class="bp-frame">
+          <img src="trilho-certo/oficina-esquadrias.jpg" alt="Técnico avaliando esquadrias de alumínio em bancada de trabalho" width="1400" height="935" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICOS -->
+  <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">O que fazemos</span>
+        <h2 id="servicos-titulo">Do reparo mecânico à automação completa</h2>
+        <p>Seis frentes de trabalho, todas resolvidas pela mesma equipe, sem precisar contratar um serralheiro e um instalador de automação separadamente.</p>
+      </div>
+
+      <div class="servicos-grid">
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+          <h3>Troca e regulagem de roldanas</h3>
+          <p>Esquadrias de correr que emperram, saem do trilho ou fazem ruído recuperadas sem precisar trocar o conjunto inteiro.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="10" width="18" height="4" rx="1"/><path d="M6 10V7M18 10V7M6 14v3M18 14v3"/></svg></span>
+          <h3>Trilhos e vedação</h3>
+          <p>Escovas gastas, trilhos empenados e infiltração por vento e chuva corrigidos com a peça correta para cada perfil.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+          <h3>Motorização de janelas e portas de correr</h3>
+          <p>Motor silencioso instalado na esquadria existente, com abertura e fechamento por botão, controle remoto ou aplicativo.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 4.5-2 7v1H7v-1c0-2.5-2-4-2-7a7 7 0 0 1 7-7Z"/><path d="M9 21h6M10 18h4"/></svg></span>
+          <h3>Integração com assistentes de voz</h3>
+          <p>Alexa, Google Home e Apple HomeKit configurados junto com a instalação, incluindo rotinas como fechar à noite ou abrir com o sol da manhã.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M4 14h16"/></svg></span>
+          <h3>Persianas e venezianas motorizadas</h3>
+          <p>Quando a automação da esquadria abre espaço para motorizar também o sombreamento do mesmo ambiente.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Manutenção preventiva com contrato</h3>
+          <p>Revisão periódica de esquadrias e motores para evitar que um problema pequeno de hoje vire um conserto grande depois.</p>
+        </article>
+      </div>
+
+      <div class="showcase-row">
+        <div class="showcase-item" data-reveal>
+          <img src="trilho-certo/conserto-dobradica.jpg" alt="Técnico instalando dobradiça em janela de madeira" width="1400" height="2097" loading="lazy">
+          <div class="showcase-copy">
+            <span class="eyebrow">Conserto</span>
+            <h3>Mecânica da esquadria</h3>
+            <p>Diagnóstico da causa real, não só do sintoma, antes de trocar qualquer peça.</p>
+          </div>
+        </div>
+        <div class="showcase-item" data-reveal>
+          <img src="trilho-certo/automacao-app.jpg" alt="Controle de automação residencial via aplicativo de celular" width="1400" height="934" loading="lazy">
+          <div class="showcase-copy">
+            <span class="eyebrow signal">Automação</span>
+            <h3>Controle por aplicativo</h3>
+            <p>Configuração testada na hora, com o cliente acompanhando pelo próprio celular.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="processo" id="processo" aria-labelledby="processo-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="processo-titulo">Quatro etapas, sem letra miúda</h2>
+        <p>O mesmo processo tanto para um conserto simples quanto para uma automação completa.</p>
+      </div>
+      <div class="processo-grid">
+        <div class="step" data-reveal>
+          <span class="step-num mono">DGN</span>
+          <h3>Diagnóstico</h3>
+          <p>Visita técnica, medição da esquadria e identificação da causa real do problema, não só do efeito.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num mono">ORC</span>
+          <h3>Orçamento</h3>
+          <p>Valor fechado por escrito antes de qualquer serviço começar, sem surpresa na hora de pagar.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num mono">EXE</span>
+          <h3>Execução</h3>
+          <p>Conserto ou instalação da automação, com teste de funcionamento acompanhado na própria visita.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num mono">GAR</span>
+          <h3>Garantia e suporte</h3>
+          <p>12 meses de garantia e suporte direto pelo WhatsApp caso algo precise de ajuste depois.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPATIBILIDADE -->
+  <section class="compat" id="compat" aria-labelledby="compat-titulo">
+    <div class="container compat-grid">
+      <div class="compat-visual" data-reveal>
+        <figure class="bp-frame">
+          <img src="trilho-certo/amostra-aluminio.jpg" alt="Amostra de perfil de esquadria de alumínio sendo avaliada" width="1400" height="933" loading="lazy">
+        </figure>
+      </div>
+      <div class="plate" data-reveal>
+        <span class="eyebrow">Ficha técnica</span>
+        <h2 id="compat-titulo">Compatibilidade</h2>
+        <div class="plate-row">
+          <span class="plate-key mono">Materiais</span>
+          <span class="plate-val">Alumínio, PVC e madeira reforçada, com motor ajustado ao peso e ao perfil de cada esquadria</span>
+        </div>
+        <div class="plate-row">
+          <span class="plate-key mono">Assistentes de voz</span>
+          <span class="plate-val">Alexa, Google Home e Apple HomeKit</span>
+        </div>
+        <div class="plate-row">
+          <span class="plate-key mono">Controle</span>
+          <span class="plate-val">Botão de parede, controle remoto, aplicativo próprio e comando de voz</span>
+        </div>
+        <div class="plate-row">
+          <span class="plate-key mono">Sem internet</span>
+          <span class="plate-val">Abrir, fechar e parar continuam funcionando pelo controle físico, mesmo sem Wi-Fi</span>
+        </div>
+        <div class="plate-row">
+          <span class="plate-key mono">Aplicação</span>
+          <span class="plate-val">Residências, apartamentos, fachadas comerciais e esquadrias de uso coletivo em condomínios</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIAO -->
+  <section class="regiao" id="regiao" aria-labelledby="regiao-titulo">
+    <div class="container regiao-grid">
+      <div class="regiao-text" data-reveal>
+        <span class="eyebrow">Área de atendimento</span>
+        <h2 id="regiao-titulo">Porto Alegre e Região Metropolitana</h2>
+        <p>Visita técnica agendada por WhatsApp, com deslocamento cobrindo a capital e os principais municípios do entorno.</p>
+        <div class="regiao-groups">
+          <div>
+            <h3 class="mono">Porto Alegre</h3>
+            <div class="tag-list">
+              <span>Moinhos de Vento</span>
+              <span>Bela Vista</span>
+              <span>Petrópolis</span>
+              <span>Auxiliadora</span>
+              <span>Menino Deus</span>
+              <span>Cidade Baixa</span>
+              <span>Zona Sul</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="mono">Região Metropolitana</h3>
+            <div class="tag-list alt">
+              <span>Canoas</span>
+              <span>Viamão</span>
+              <span>Cachoeirinha</span>
+              <span>Gravataí</span>
+              <span>Alvorada</span>
+              <span>Esteio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="regiao-visual" data-reveal>
+        <figure class="bp-frame">
+          <img src="trilho-certo/diagnostico-esquadria.jpg" alt="Técnico examinando esquadria de alumínio durante visita de diagnóstico" width="1400" height="933" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="container duvidas-inner">
+      <div class="duvidas-head" data-reveal>
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2 id="duvidas-titulo">Antes de chamar</h2>
+        <p>As dúvidas mais comuns de quem está pensando em consertar ou automatizar uma esquadria.</p>
+      </div>
+      <dl>
+        <div class="qa" data-reveal>
+          <dt>Preciso trocar a esquadria inteira para automatizar?</dt>
+          <dd>Na maioria dos casos não. O motor é instalado na esquadria existente, alumínio, PVC ou madeira, sem precisar trocar o conjunto todo.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Funciona em qualquer tipo de janela?</dt>
+          <dd>A motorização é adaptada ao peso e ao perfil de cada esquadria. Na visita de diagnóstico já é possível dizer se o conjunto atual suporta o motor ou se precisa de reforço antes.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>A automação funciona sem internet?</dt>
+          <dd>Sim, para o essencial. Abrir, fechar e parar continuam funcionando pelo controle físico mesmo sem Wi-Fi. Comando por aplicativo e por voz depende de conexão.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Quanto tempo dura o conserto de uma esquadria?</dt>
+          <dd>Depende do problema, mas a maioria dos casos de roldana e trilho é resolvida na mesma visita, sem precisar de retorno.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Atende condomínio e empresa, ou só residência?</dt>
+          <dd>Atende os dois, apartamentos e casas, além de fachadas comerciais e esquadrias de uso coletivo em condomínios.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato" aria-labelledby="cta-titulo">
+    <div class="container cta-inner" data-reveal>
+      <span class="eyebrow signal">Fale agora</span>
+      <h2 id="cta-titulo">Peça o diagnóstico sem compromisso</h2>
+      <p>Envie uma mensagem pelo WhatsApp com o problema da sua esquadria, ou com a ideia de automação que você quer, e a visita técnica é agendada em até 24h.</p>
+      <div class="cta-actions">
+        <a class="btn-wa" href="https://wa.me/555189029950?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20Trilho%20Certo%20e%20quero%20saber%20mais%20sobre%20conserto%20e%20automa%C3%A7%C3%A3o%20de%20esquadrias." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <address>
+        Porto Alegre, RS e Região Metropolitana<br>
+        Atendimento por WhatsApp, com visita técnica agendada
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Página de apresentação. Valores e prazos confirmados na visita técnica de diagnóstico.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/555189029950?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20Trilho%20Certo%20e%20quero%20saber%20mais%20sobre%20conserto%20e%20automa%C3%A7%C3%A3o%20de%20esquadrias." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a Trilho Certo">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var toggleBtn = document.getElementById('nav-toggle-btn');
+    var panel = document.getElementById('mobile-nav');
+    if(toggleBtn && panel){
+      toggleBtn.addEventListener('click', function(){
+        var isOpen = panel.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      panel.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          panel.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // reveal-on-scroll com rede de seguranca (setTimeout) para nunca esconder conteudo pra sempre
+    var items = document.querySelectorAll('[data-reveal]');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      items.forEach(function(el){ obs.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+    setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }, 1200);
+  })();
+</script>
+</body>
+</html>
