@@ -40,21 +40,21 @@
     --container:1220px;
     --ease:cubic-bezier(.22,1,.36,1);
 
-    --fs-xs:clamp(.76rem,.72rem+.18vw,.86rem);
-    --fs-sm:clamp(.9rem,.85rem+.2vw,1rem);
-    --fs-base:clamp(1rem,.95rem+.22vw,1.1rem);
-    --fs-md:clamp(1.15rem,1.05rem+.4vw,1.35rem);
-    --fs-lg:clamp(1.5rem,1.28rem+.9vw,2.15rem);
-    --fs-xl:clamp(2rem,1.6rem+1.7vw,3rem);
-    --fs-2xl:clamp(2.5rem,1.85rem+2.8vw,4.2rem);
-    --fs-3xl:clamp(2.9rem,1.9rem+4.2vw,5.6rem);
+    --fs-xs:clamp(.76rem, .72rem + .18vw, .86rem);
+    --fs-sm:clamp(.9rem, .85rem + .2vw, 1rem);
+    --fs-base:clamp(1rem, .95rem + .22vw, 1.1rem);
+    --fs-md:clamp(1.15rem, 1.05rem + .4vw, 1.35rem);
+    --fs-lg:clamp(1.5rem, 1.28rem + .9vw, 2.15rem);
+    --fs-xl:clamp(2rem, 1.6rem + 1.7vw, 3rem);
+    --fs-2xl:clamp(2.5rem, 1.85rem + 2.8vw, 4.2rem);
+    --fs-3xl:clamp(2.9rem, 1.9rem + 4.2vw, 5.6rem);
 
-    --sp-1:clamp(.5rem,.45rem+.2vw,.65rem);
-    --sp-2:clamp(.9rem,.8rem+.4vw,1.2rem);
-    --sp-3:clamp(1.5rem,1.3rem+.8vw,2.1rem);
-    --sp-4:clamp(2.1rem,1.7rem+1.6vw,3.3rem);
-    --sp-5:clamp(3rem,2.3rem+2.8vw,5.2rem);
-    --sp-6:clamp(4.2rem,3rem+4.8vw,8rem);
+    --sp-1:clamp(.5rem, .45rem + .2vw, .65rem);
+    --sp-2:clamp(.9rem, .8rem + .4vw, 1.2rem);
+    --sp-3:clamp(1.5rem, 1.3rem + .8vw, 2.1rem);
+    --sp-4:clamp(2.1rem, 1.7rem + 1.6vw, 3.3rem);
+    --sp-5:clamp(3rem, 2.3rem + 2.8vw, 5.2rem);
+    --sp-6:clamp(4.2rem, 3rem + 4.8vw, 8rem);
   }
 
   *{box-sizing:border-box;}
@@ -209,7 +209,7 @@
   }
 
   /* ---------- hero ---------- */
-  .hero{padding:clamp(2.2rem,1.4rem+3.4vw,4.5rem) 0 var(--sp-5);position:relative;overflow:hidden;}
+  .hero{padding:clamp(2.2rem, 1.4rem + 3.4vw, 4.5rem) 0 var(--sp-5);position:relative;overflow:hidden;}
   .hero::before{
     content:'';position:absolute;inset:0;
     background-image:linear-gradient(var(--border-soft) 1px,transparent 1px),linear-gradient(90deg,var(--border-soft) 1px,transparent 1px);
