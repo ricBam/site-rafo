@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arthur Aldronei Braga Advocacia — Escritório de Advocacia em Porto Alegre</title>
+<meta name="description" content="Nota 5,0 com 109 avaliações no Google e 38,2 mil seguidores no Instagram. Advogado, jornalista e professor à frente de um escritório multiárea em Porto Alegre, com destaque em Direito Trabalhista e Penal.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arthur Aldronei Braga Advocacia — nota 5,0 em Porto Alegre">
+<meta property="og:description" content="Advogado, jornalista e professor. Nota 5,0 com 109 avaliações no Google, 38,2 mil seguidores no Instagram, destaque em Direito Trabalhista e Penal.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;0,700;0,800;1,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;
+    --ink-soft:#1B1815;
+    --ink-deep:#0A0908;
+    --paper:#FFFFFF;
+    --paper-soft:#F6F2E9;
+    --paper-dim:#EFE7D4;
+    --border-paper:#E3D9C0;
+    --border-paper-soft:#ECE4D2;
+    --border-ink:rgba(201,166,107,.22);
+    --gold:#C9A66B;
+    --gold-bright:#E4C48A;
+    --gold-deep:#7A5A22;
+    --text:#141210;
+    --text-muted:#5B5347;
+    --text-faint:#8C8375;
+    --on-ink:#F3EFE6;
+    --on-ink-muted:rgba(243,239,230,.7);
+    --shadow-lg:0 40px 90px -35px rgba(10,9,8,.45);
+    --shadow-sm:0 14px 34px -18px rgba(10,9,8,.32);
+    --radius:16px;
+    --radius-sm:9px;
+    --container:1220px;
+    --ease:cubic-bezier(.22,1,.36,1);
+
+    --fs-xs:clamp(.76rem, .72rem + .18vw, .86rem);
+    --fs-sm:clamp(.9rem, .85rem + .2vw, 1rem);
+    --fs-base:clamp(1rem, .95rem + .22vw, 1.1rem);
+    --fs-md:clamp(1.15rem, 1.05rem + .4vw, 1.35rem);
+    --fs-lg:clamp(1.5rem, 1.28rem + .9vw, 2.15rem);
+    --fs-xl:clamp(2rem, 1.6rem + 1.7vw, 3rem);
+    --fs-2xl:clamp(2.5rem, 1.85rem + 2.8vw, 4.1rem);
+    --fs-3xl:clamp(2.6rem, 1.8rem + 3.9vw, 4.7rem);
+
+    --sp-1:clamp(.5rem, .45rem + .2vw, .65rem);
+    --sp-2:clamp(.9rem, .8rem + .4vw, 1.2rem);
+    --sp-3:clamp(1.5rem, 1.3rem + .8vw, 2.1rem);
+    --sp-4:clamp(2.1rem, 1.7rem + 1.6vw, 3.3rem);
+    --sp-5:clamp(3rem, 2.3rem + 2.8vw, 5.2rem);
+    --sp-6:clamp(4.2rem, 3rem + 4.8vw, 8rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:var(--fs-base);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3,h4{
+    font-family:'Newsreader',Georgia,serif;
+    font-weight:700;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-.008em;
+  }
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 clamp(1.25rem, 1rem + 3vw, 2.5rem);}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#1c1204;padding:.8em 1.2em;z-index:200;font-weight:700;}
+  .skip-link:focus{left:1rem;top:1rem;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:'Archivo',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:var(--fs-xs);
+    color:var(--gold-deep);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:.65em;
+    margin-bottom:1.2rem;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--gold-deep);display:inline-block;}
+  .eyebrow.on-dark{color:var(--gold);}
+  .eyebrow.on-dark::before{background:var(--gold);}
+
+  section{position:relative;}
+
+  /* reveal-on-scroll: nunca esconder conteudo permanentemente se JS nao rodar/disparar */
+  html.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  html.js [data-reveal].is-visible{opacity:1;transform:none;}
+
+  /* ---------- moldura dourada: cantos de selo em paineis/imagens ---------- */
+  .bp-frame{position:relative;}
+  .bp-frame::before,.bp-frame::after{
+    content:'';position:absolute;width:24px;height:24px;
+    border:2px solid var(--gold);pointer-events:none;
+  }
+  .bp-frame::before{top:-9px;left:-9px;border-right:none;border-bottom:none;}
+  .bp-frame::after{bottom:-9px;right:-9px;border-left:none;border-top:none;}
+
+  /* ---------- botao WhatsApp ---------- */
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:var(--ink);
+    color:var(--on-ink);
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:.98rem;
+    letter-spacing:.01em;
+    padding:.95rem 1.9rem;
+    text-decoration:none;
+    border-radius:3px;
+    border:1.5px solid var(--ink);
+    transition:background-color .2s ease,color .2s ease,transform .2s ease,border-color .2s ease;
+    line-height:1;
+    cursor:pointer;
+  }
+  .btn-wa:hover,.btn-wa:focus-visible{background:var(--ink-soft);transform:translateY(-2px);outline:none;}
+  .btn-wa svg{width:20px;height:20px;flex:none;}
+  .btn-wa-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-wa-outline:hover,.btn-wa-outline:focus-visible{background:var(--ink);color:var(--on-ink);transform:translateY(-2px);}
+  .btn-wa-ondark{background:var(--gold);color:#1c1204;border-color:var(--gold);}
+  .btn-wa-ondark:hover,.btn-wa-ondark:focus-visible{background:transparent;color:var(--gold);border-color:var(--gold);}
+  .btn-wa-small{padding:.55rem 1.2rem;font-size:.82rem;border-radius:2px;}
+
+  .wa-float{
+    position:fixed;right:1.25rem;bottom:1.25rem;z-index:70;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--ink);border:1.5px solid var(--gold);color:var(--on-ink);
+    box-shadow:0 14px 32px rgba(10,9,8,.4);
+    transition:transform .2s ease,background-color .2s ease;
+    cursor:pointer;
+  }
+  .wa-float:hover,.wa-float:focus-visible{transform:translateY(-3px);background:var(--ink-soft);outline:none;}
+  .wa-float svg{width:27px;height:27px;}
+
+  /* ---------- header ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-paper);
+  }
+  .header-inner{
+    max-width:var(--container);margin:0 auto;padding:.7rem clamp(1.25rem, 1rem + 3vw, 2.5rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text);}
+  .brand-mark{
+    width:clamp(32px, 28px + 1.4vw, 40px);height:clamp(32px, 28px + 1.4vw, 40px);border-radius:50%;
+    background:var(--ink);border:1.5px solid var(--gold);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;flex:none;
+    font-family:'Newsreader',serif;font-weight:700;font-size:.72rem;letter-spacing:.02em;
+  }
+  .brand-word{font-family:'Newsreader',serif;font-weight:700;font-size:1.02rem;letter-spacing:-.01em;line-height:1.1;}
+  .brand-word small{display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-top:.15rem;}
+
+  .main-nav{display:flex;gap:1.55rem;}
+  .main-nav a{font-size:.88rem;text-decoration:none;color:var(--text-muted);transition:color .2s ease;font-weight:500;}
+  .main-nav a:hover,.main-nav a:focus-visible{color:var(--gold-deep);outline:none;}
+
+  .header-cta{display:flex;align-items:center;gap:.9rem;}
+  .nav-toggle{
+    display:none;background:none;border:1.5px solid var(--border-paper);border-radius:4px;
+    width:42px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;
+  }
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+    content:'';display:block;width:18px;height:2px;background:var(--ink);position:relative;
+  }
+  .nav-toggle span::before{position:absolute;top:-6px;}
+  .nav-toggle span::after{position:absolute;top:6px;}
+
+  #mobile-nav{display:none;}
+  @media (max-width:960px){
+    .main-nav{display:none;}
+    .header-cta .btn-wa-small{display:none;}
+    .nav-toggle{display:inline-flex;}
+    #mobile-nav{
+      display:grid;grid-template-rows:0fr;background:var(--paper);
+      border-bottom:1px solid var(--border-paper);transition:grid-template-rows .3s ease;
+    }
+    #mobile-nav.open{grid-template-rows:1fr;}
+    #mobile-nav .mobile-nav-inner{overflow:hidden;min-height:0;}
+    #mobile-nav ul{list-style:none;margin:0;padding:1.2rem clamp(1.25rem, 1rem + 3vw, 2.5rem);display:flex;flex-direction:column;gap:1rem;}
+    #mobile-nav a{text-decoration:none;font-size:1.02rem;color:var(--text);}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(2.2rem, 1.4rem + 3.4vw, 4.5rem) 0 var(--sp-5);position:relative;overflow:hidden;background:var(--ink);}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(ellipse at top right, rgba(201,166,107,.16), transparent 55%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(rgba(243,239,230,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(243,239,230,.04) 1px,transparent 1px);
+    background-size:44px 44px;pointer-events:none;mask-image:linear-gradient(to bottom, black, transparent 75%);
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:var(--sp-4);align-items:center;}
+  .hero-copy{min-width:0;}
+  .hero-copy h1{font-size:var(--fs-3xl);color:var(--on-ink);margin-bottom:1.3rem;overflow-wrap:break-word;}
+  .hero-copy h1 em{font-style:italic;color:var(--gold);}
+  .hero-copy .lede{font-size:1.14rem;line-height:1.65;max-width:50ch;color:var(--on-ink-muted);margin-bottom:2rem;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.4rem;}
+  .hero-ctas .btn-wa-ondark{background:var(--gold);color:#1c1204;border-color:var(--gold);}
+  .hero-ctas .btn-wa-ondark:hover,.hero-ctas .btn-wa-ondark:focus-visible{background:transparent;color:var(--gold);}
+  .hero-ctas .btn-wa-outline{background:transparent;color:var(--on-ink);border-color:rgba(243,239,230,.4);}
+  .hero-ctas .btn-wa-outline:hover,.hero-ctas .btn-wa-outline:focus-visible{background:rgba(243,239,230,.08);color:var(--on-ink);}
+  .hero-rail{display:flex;flex-wrap:wrap;gap:.4rem 2rem;font-size:.78rem;letter-spacing:.03em;color:var(--on-ink-muted);text-transform:uppercase;border-top:1px solid var(--border-ink);padding-top:1.1rem;}
+  .hero-rail span{padding:.3rem 0;min-width:0;}
+  .hero-rail strong{color:var(--gold);font-weight:700;}
+
+  /* ---------- selo/medalhao hero ---------- */
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;}
+  .seal-stage{position:relative;width:min(100%, 380px);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;}
+  .seal-ring{
+    position:absolute;inset:0;border-radius:50%;
+    border:1px solid var(--border-ink);
+  }
+  .seal-ring.outer{inset:0;}
+  .seal-ring.inner{inset:9%;border-style:dashed;border-color:rgba(201,166,107,.35);}
+  .seal-core{
+    position:relative;width:64%;aspect-ratio:1/1;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, rgba(201,166,107,.22), transparent 60%), var(--ink-soft);
+    border:2px solid var(--gold);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-lg);
+    text-align:center;
+  }
+  .seal-core .initials{font-family:'Newsreader',serif;font-weight:800;font-size:clamp(2.4rem, 2rem + 2vw, 3.4rem);color:var(--gold);letter-spacing:.02em;line-height:1;}
+  .seal-core .subline{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--on-ink-muted);margin-top:.55rem;}
+  .seal-badge{
+    position:absolute;background:var(--paper);color:var(--ink);border-radius:20px;
+    padding:.5rem 1rem;font-size:.76rem;font-weight:700;letter-spacing:.02em;
+    box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:.4rem;
+  }
+  .seal-badge.stars{top:2%;left:-4%;color:var(--gold-deep);}
+  .seal-badge.stars svg{width:14px;height:14px;fill:var(--gold-deep);}
+  .seal-badge.followers{bottom:6%;right:-8%;}
+  .seal-tags{position:absolute;bottom:-6%;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;width:120%;}
+  .seal-tags span{
+    background:var(--ink);border:1px solid var(--border-ink);color:var(--on-ink-muted);
+    font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.42rem .8rem;border-radius:20px;white-space:nowrap;
+  }
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;padding-bottom:2.2rem;}
+    .seal-stage{width:min(100%, 300px);}
+  }
+  @media (max-width:560px){
+    .seal-badge{font-size:.68rem;padding:.42rem .8rem;white-space:nowrap;}
+    .seal-badge.stars{top:-2%;left:0;}
+    .seal-badge.followers{bottom:2%;right:0;}
+    .seal-tags{width:100%;gap:.4rem;}
+    .seal-tags span{font-size:.6rem;padding:.36rem .6rem;}
+  }
+
+  /* ---------- specs strip ---------- */
+  .specs-strip{background:var(--gold);}
+  .specs-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .specs-grid div{padding:var(--sp-3) var(--sp-2);border-right:1px solid rgba(28,18,4,.14);text-align:center;}
+  .specs-grid div:last-child{border-right:none;}
+  .specs-num{font-family:'Newsreader',serif;font-weight:800;font-size:var(--fs-lg);color:#1c1204;display:block;margin-bottom:.4rem;}
+  .specs-label{font-size:.74rem;letter-spacing:.04em;color:#3c2c0e;text-transform:uppercase;line-height:1.5;opacity:.92;}
+  @media (max-width:760px){
+    .specs-grid{grid-template-columns:repeat(2,1fr);}
+    .specs-grid div{border-bottom:1px solid rgba(28,18,4,.14);}
+    .specs-grid div:nth-child(2n){border-right:none;}
+  }
+
+  /* ---------- autoridade multifacetada ---------- */
+  .autoridade{padding:var(--sp-6) 0;background:var(--paper);}
+  .section-head{max-width:660px;margin-bottom:var(--sp-4);}
+  .section-head h2{font-size:var(--fs-xl);margin:0 0 1rem;color:var(--ink);}
+  .section-head p{color:var(--text-muted);font-size:1.02rem;line-height:1.65;}
+
+  .hat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .hat-card{
+    background:var(--paper-soft);border:1px solid var(--border-paper);border-radius:var(--radius-sm);
+    padding:2rem 1.8rem;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  }
+  .hat-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+  .hat-icon{width:46px;height:46px;border:1.5px solid var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:1.1rem;}
+  .hat-icon svg{width:23px;height:23px;}
+  .hat-card .hat-role{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:.5rem;}
+  .hat-card h3{font-size:1.15rem;color:var(--text);margin-bottom:.6rem;font-weight:700;}
+  .hat-card p{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0;}
+  @media (max-width:920px){.hat-grid{grid-template-columns:1fr;}}
+
+  /* ---------- areas de atuacao ---------- */
+  .areas{padding:var(--sp-6) 0;background:var(--paper-soft);border-top:1px solid var(--border-paper-soft);border-bottom:1px solid var(--border-paper-soft);}
+  .areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .area-card{
+    position:relative;background:var(--paper);border:1px solid var(--border-paper);border-radius:var(--radius-sm);
+    padding:1.9rem 1.7rem;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  }
+  .area-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+  .area-card.destaque{border-color:var(--gold);}
+  .area-badge{
+    position:absolute;top:-.65rem;right:1.2rem;background:var(--ink);color:var(--gold);
+    font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    padding:.32rem .7rem;border-radius:20px;border:1px solid var(--gold);
+  }
+  .area-icon{width:46px;height:46px;border:1.5px solid var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:1.1rem;}
+  .area-icon svg{width:23px;height:23px;}
+  .area-card h3{font-size:1.12rem;color:var(--text);margin-bottom:.6rem;font-weight:700;}
+  .area-card p{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin:0;}
+  @media (max-width:920px){.areas-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:620px){.areas-grid{grid-template-columns:1fr;}}
+
+  /* ---------- diferenciais (paineis) ---------- */
+  .diferenciais{padding:var(--sp-6) 0;background:var(--paper);}
+  .dif-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .dif-panel{
+    position:relative;border-radius:var(--radius-sm);overflow:hidden;
+    background:var(--ink);color:var(--on-ink);
+    padding:2.2rem 2rem;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  .dif-panel::before{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(rgba(201,166,107,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(201,166,107,.07) 1px,transparent 1px);
+    background-size:38px 38px;pointer-events:none;
+  }
+  .dif-panel.gold{background:linear-gradient(155deg,var(--gold-deep),var(--gold));color:#1c1204;}
+  .dif-panel .dif-num{position:relative;font-family:'Newsreader',serif;font-weight:800;font-size:var(--fs-2xl);line-height:1;margin-bottom:.6rem;color:var(--gold);}
+  .dif-panel.gold .dif-num{color:#1c1204;}
+  .dif-panel h3{position:relative;font-size:1.15rem;margin-bottom:.5rem;}
+  .dif-panel p{position:relative;font-size:.92rem;line-height:1.6;margin:0;opacity:.92;max-width:34ch;}
+  @media (max-width:820px){.dif-row{grid-template-columns:1fr;}}
+
+  /* ---------- presenca digital ---------- */
+  .digital{padding:var(--sp-6) 0;background:var(--ink);color:var(--on-ink);}
+  .digital .section-head h2{color:var(--on-ink);}
+  .digital .section-head p{color:var(--on-ink-muted);}
+  .digital-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:var(--sp-4);}
+  .digital-stat{font-family:'Newsreader',serif;font-weight:800;font-size:var(--fs-2xl);color:var(--gold);line-height:1;}
+  .digital-stat span{display:block;font-family:'Archivo',sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-ink-muted);margin-top:.6rem;}
+  .clip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .clip-card{
+    background:var(--ink-soft);border:1px solid var(--border-ink);border-radius:var(--radius-sm);
+    padding:1.7rem 1.6rem;position:relative;
+  }
+  .clip-tag{display:inline-block;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#1c1204;background:var(--gold);padding:.32rem .7rem;border-radius:20px;margin-bottom:1rem;}
+  .clip-card h3{font-size:1.05rem;color:var(--on-ink);margin-bottom:.6rem;font-weight:700;}
+  .clip-card p{color:var(--on-ink-muted);font-size:.92rem;line-height:1.6;margin:0;}
+  .digital-cta{margin-top:var(--sp-4);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+  .digital-cta .handle{color:var(--on-ink-muted);font-size:.9rem;}
+  @media (max-width:920px){.clip-grid{grid-template-columns:1fr;}.digital-top{align-items:flex-start;flex-direction:column;}}
+
+  /* ---------- reputacao ---------- */
+  .reputacao{padding:var(--sp-6) 0;background:var(--paper-soft);border-top:1px solid var(--border-paper-soft);border-bottom:1px solid var(--border-paper-soft);}
+  .rep-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--sp-4);align-items:center;}
+  .rep-plate{
+    background:var(--paper);border:1px solid var(--border-paper);border-radius:var(--radius);
+    padding:var(--sp-4) var(--sp-3);text-align:center;box-shadow:var(--shadow-sm);
+  }
+  .rep-plate .rep-stars{display:flex;justify-content:center;gap:.3rem;margin-bottom:1rem;}
+  .rep-plate .rep-stars svg{width:26px;height:26px;fill:var(--gold);}
+  .rep-plate .rep-num{font-family:'Newsreader',serif;font-weight:800;font-size:var(--fs-2xl);color:var(--ink);line-height:1;}
+  .rep-plate .rep-count{color:var(--text-muted);font-size:.92rem;margin-top:.5rem;}
+  .rep-text h2{font-size:var(--fs-xl);margin:0 0 1.2rem;color:var(--ink);max-width:16ch;}
+  .rep-text p{color:var(--text-muted);line-height:1.8;margin-bottom:1.1rem;font-size:1.03rem;}
+  .rep-text a{color:var(--gold-deep);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);}
+  @media (max-width:920px){.rep-grid{grid-template-columns:1fr;}}
+
+  /* ---------- como atuamos ---------- */
+  .atuamos{padding:var(--sp-6) 0;background:var(--paper);}
+  .atuamos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;}
+  .step{border-top:2px solid var(--gold);padding-top:1.3rem;position:relative;}
+  .step-num{font-family:'Newsreader',serif;font-weight:800;font-size:1.7rem;color:var(--gold-deep);display:block;margin-bottom:.7rem;}
+  .step h3{font-size:1.08rem;color:var(--text);margin-bottom:.6rem;font-weight:700;}
+  .step p{color:var(--text-muted);font-size:.93rem;line-height:1.6;margin:0;}
+  @media (max-width:920px){.atuamos-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.atuamos-grid{grid-template-columns:1fr;}}
+
+  /* ---------- atendimento / regiao ---------- */
+  .regiao{padding:var(--sp-6) 0;background:var(--paper-soft);border-top:1px solid var(--border-paper-soft);border-bottom:1px solid var(--border-paper-soft);}
+  .regiao-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);align-items:start;}
+  .regiao-text h2{font-size:var(--fs-xl);margin:0 0 1.2rem;color:var(--ink);max-width:15ch;}
+  .regiao-text p{color:var(--text-muted);line-height:1.75;margin-bottom:1.4rem;}
+  .contact-plate{background:var(--paper);border:1px solid var(--border-paper);border-radius:var(--radius-sm);padding:var(--sp-3);}
+  .contact-row{display:flex;gap:.9rem;padding:.85rem 0;border-top:1px solid var(--border-paper-soft);align-items:flex-start;}
+  .contact-row:first-child{border-top:none;padding-top:0;}
+  .contact-row svg{width:20px;height:20px;flex:none;color:var(--gold-deep);margin-top:.15rem;}
+  .contact-row div{font-size:.95rem;color:var(--text-muted);line-height:1.55;}
+  .contact-row strong{display:block;color:var(--text);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem;}
+  .contact-row a{color:var(--gold-deep);font-weight:600;text-decoration:none;}
+  .contact-row a:hover{text-decoration:underline;}
+  .tag-list{display:flex;flex-wrap:wrap;gap:.6rem;}
+  .tag-list span{
+    font-size:.78rem;letter-spacing:.02em;
+    border:1px solid var(--border-paper);border-radius:20px;padding:.42rem 1rem;color:var(--text-muted);background:var(--paper);
+  }
+  .regiao-groups{display:grid;gap:1.2rem;margin-bottom:1.6rem;}
+  .regiao-groups h3{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.7rem;}
+  @media (max-width:920px){.regiao-grid{grid-template-columns:1fr;}}
+
+  /* ---------- faq ---------- */
+  .duvidas{padding:var(--sp-6) 0;background:var(--paper);}
+  .duvidas-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--sp-4);}
+  .duvidas-head h2{font-size:var(--fs-xl);margin:0 0 1rem;color:var(--ink);}
+  .duvidas-head p{color:var(--text-muted);max-width:32ch;line-height:1.65;}
+  .qa{padding:1.5rem 0;border-top:1px solid var(--border-paper-soft);}
+  .qa:first-child{border-top:none;padding-top:0;}
+  .qa dt{font-family:'Newsreader',serif;font-weight:700;font-size:1.08rem;margin-bottom:.55rem;color:var(--text);}
+  .qa dd{margin:0;color:var(--text-muted);line-height:1.65;}
+  @media (max-width:900px){.duvidas-inner{grid-template-columns:1fr;}}
+
+  /* ---------- cta final ---------- */
+  .cta-final{
+    padding:var(--sp-6) 0;position:relative;overflow:hidden;
+    background:var(--ink);
+  }
+  .cta-final::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(ellipse at 50% 0%, rgba(201,166,107,.18), transparent 60%);
+    pointer-events:none;
+  }
+  .cta-inner{position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center;}
+  .cta-inner h2{font-size:var(--fs-xl);color:var(--on-ink);margin:0 0 1.2rem;}
+  .cta-inner p{color:var(--on-ink-muted);margin-bottom:2.2rem;font-size:1.06rem;line-height:1.6;}
+  .cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem;}
+  .cta-inner address{
+    font-style:normal;font-size:.85rem;color:var(--on-ink-muted);
+    line-height:2;opacity:.9;
+  }
+  .cta-inner address a{text-decoration:underline;text-decoration-color:var(--gold);color:var(--on-ink-muted);}
+
+  /* ---------- footer ---------- */
+  .site-footer{background:var(--ink-deep);color:rgba(243,239,230,.62);padding:2.4rem 0;text-align:center;font-size:.78rem;letter-spacing:.03em;}
+  .footer-wordmark{font-family:'Newsreader',serif;font-weight:700;font-size:1.05rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem;}
+  .site-footer p{margin:.3rem 0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#topo">
+      <span class="brand-mark" aria-hidden="true">AAB</span>
+      <span class="brand-word">Arthur Aldronei Braga<small>Advocacia</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#areas">Áreas de atuação</a>
+      <a href="#autoridade">Autoridade</a>
+      <a href="#digital">Presença digital</a>
+      <a href="#reputacao">Reputação</a>
+      <a href="#atendimento">Atendimento</a>
+      <a href="#duvidas">Perguntas</a>
+    </nav>
+    <div class="header-cta">
+      <!-- MARKETING: WhatsApp não encontrado para Arthur Aldronei Braga, confirmar número antes de enviar proposta ao cliente. Botão abaixo é visual, sem link funcional (classe btn-wa-pending). -->
+      <a class="btn-wa btn-wa-small btn-wa-pending" href="#" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" id="nav-toggle-btn">
+        <span class="visually-hidden">Abrir menu</span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" aria-label="Navegação mobile">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="#areas">Áreas de atuação</a></li>
+        <li><a href="#autoridade">Autoridade</a></li>
+        <li><a href="#digital">Presença digital</a></li>
+        <li><a href="#reputacao">Reputação</a></li>
+        <li><a href="#atendimento">Atendimento</a></li>
+        <li><a href="#duvidas">Perguntas</a></li>
+        <li><a class="btn-wa btn-wa-small btn-wa-pending" href="#" aria-disabled="true">Falar no WhatsApp</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO -->
+  <section class="hero" id="topo" aria-label="Apresentação">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow on-dark">Escritório de advocacia · Porto Alegre</span>
+        <h1>Autoridade que se lê, se ensina <em>e se defende</em> em juízo.</h1>
+        <p class="lede">Arthur Aldronei Braga soma três frentes num só nome: advogado, jornalista e professor. À frente de um escritório multiárea em Porto Alegre, com nota 5,0 em 109 avaliações no Google e 38,2 mil seguidores acompanhando conteúdo jurídico todo mês no Instagram.</p>
+        <div class="hero-ctas">
+          <!-- MARKETING: WhatsApp não encontrado para Arthur Aldronei Braga, confirmar número antes de enviar proposta ao cliente. CTA principal abaixo é visual, sem link funcional (classe btn-wa-pending, preventDefault via script no fim do arquivo). -->
+          <a class="btn-wa btn-wa-ondark btn-wa-pending" href="#" aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a class="btn-wa btn-wa-outline" href="#areas">Ver áreas de atuação</a>
+        </div>
+        <div class="hero-rail">
+          <span><strong>5,0</strong> de nota, 109 avaliações no Google</span>
+          <span><strong>38,2 mil</strong> seguidores no Instagram</span>
+          <span><strong>Trabalhista &amp; Penal</strong> em destaque</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal>
+        <div class="seal-stage">
+          <span class="seal-ring outer" aria-hidden="true"></span>
+          <span class="seal-ring inner" aria-hidden="true"></span>
+          <div class="seal-core">
+            <span class="initials">AAB</span>
+            <span class="subline">Escritório de Advocacia</span>
+          </div>
+          <span class="seal-badge stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+            5,0 · 109 avaliações
+          </span>
+          <span class="seal-badge followers">38,2 mil no Instagram</span>
+          <div class="seal-tags" aria-hidden="true">
+            <span>Advogado</span>
+            <span>Jornalista</span>
+            <span>Professor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS STRIP -->
+  <section class="specs-strip" aria-label="Números do escritório">
+    <div class="container specs-grid">
+      <div data-reveal>
+        <span class="specs-num">5,0</span>
+        <span class="specs-label">Nota média no Google</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">109</span>
+        <span class="specs-label">Avaliações verificadas no Google</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">38,2k</span>
+        <span class="specs-label">Seguidores ativos no Instagram</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">5</span>
+        <span class="specs-label">Áreas do direito atendidas pela mesma equipe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTORIDADE MULTIFACETADA -->
+  <section class="autoridade" id="autoridade" aria-labelledby="autoridade-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Um nome, três frentes</span>
+        <h2 id="autoridade-titulo">Advogado, jornalista e professor — a mesma exigência nas três</h2>
+        <p>Poucos escritórios chegam ao cliente com essa combinação. A rotina de apurar fatos como jornalista e de explicar direito como professor se traduz em um jeito mais claro de conduzir cada caso na advocacia.</p>
+      </div>
+      <div class="hat-grid">
+        <article class="hat-card" data-reveal>
+          <span class="hat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v4M12 7l-6 3M12 7l6 3M6 10a3 3 0 0 0 6 0M12 10a3 3 0 0 0 6 0M9 21h6M12 17v4"/></svg></span>
+          <span class="hat-role">Advocacia</span>
+          <h3>Atuação consolidada</h3>
+          <p>Anos de atuação em múltiplas áreas do direito, com o mesmo escritório acompanhando o cliente do primeiro contato à conclusão do caso.</p>
+        </article>
+        <article class="hat-card" data-reveal>
+          <span class="hat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="8" width="13" height="10" rx="1.5"/><path d="M16 11h3.5a1.5 1.5 0 0 1 1.5 1.5v3.6a1.9 1.9 0 0 1-3.8.4M7 12h5M7 15h5"/></svg></span>
+          <span class="hat-role">Jornalismo</span>
+          <h3>Comunicação que traduz direito</h3>
+          <p>Formação e prática em jornalismo somam ao trabalho jurídico a habilidade de apurar, organizar e comunicar cada caso com clareza, sem juridiquês.</p>
+        </article>
+        <article class="hat-card" data-reveal>
+          <span class="hat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4 2 8.5 12 13l10-4.5L12 4Z"/><path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 8.5V15"/></svg></span>
+          <span class="hat-role">Docência</span>
+          <h3>Professor, formador de profissionais</h3>
+          <p>Lecionar exige domínio profundo da matéria antes de explicá-la a outros — a mesma exigência que sustenta a nota 5,0 do escritório com os clientes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS DE ATUACAO -->
+  <section class="areas" id="areas" aria-labelledby="areas-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">O que atendemos</span>
+        <h2 id="areas-titulo">Cinco áreas, duas em primeiro plano</h2>
+        <p>O escritório atua em frentes cível, imobiliária e previdenciária, com destaque especial para Direito Trabalhista e Direito Penal, os dois temas mais presentes no conteúdo educativo do escritório.</p>
+      </div>
+
+      <div class="areas-grid">
+        <article class="area-card destaque" data-reveal>
+          <span class="area-badge">Destaque</span>
+          <span class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span>
+          <h3>Direito Trabalhista</h3>
+          <p>Rescisões, verbas não pagas, cláusulas contratuais e demais direitos do trabalhador, avaliados com atenção antes de qualquer ação.</p>
+        </article>
+        <article class="area-card destaque" data-reveal>
+          <span class="area-badge">Destaque</span>
+          <span class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v4M12 7l-6 3M12 7l6 3M6 10a3 3 0 0 0 6 0M12 10a3 3 0 0 0 6 0M9 21h6M12 17v4"/></svg></span>
+          <h3>Direito Penal</h3>
+          <p>Defesa em inquéritos e processos criminais, com acompanhamento em todas as fases, do primeiro atendimento ao julgamento.</p>
+        </article>
+        <article class="area-card" data-reveal>
+          <span class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m5 9 4-4 3.5 3.5-4 4L5 9Z"/><path d="m11 7 6.5 6.5M9.5 12.5 3 19M15 19h6"/></svg></span>
+          <h3>Direito Cível</h3>
+          <p>Contratos, cobranças, indenizações e disputas patrimoniais, com foco em resolver antes de virar processo longo.</p>
+        </article>
+        <article class="area-card" data-reveal>
+          <span class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span>
+          <h3>Direito Imobiliário</h3>
+          <p>Contratos de compra e venda, locação, regularização e disputas envolvendo imóveis, com orientação clara sobre documentação.</p>
+        </article>
+        <article class="area-card" data-reveal>
+          <span class="area-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Direito Previdenciário</h3>
+          <p>Aposentadoria, revisão de benefício, auxílio-doença e demais pedidos junto ao INSS, do requerimento administrativo à via judicial.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais" aria-labelledby="dif-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Por que Arthur Aldronei Braga</span>
+        <h2 id="dif-titulo">Dois números que a maioria dos escritórios não tem</h2>
+      </div>
+      <div class="dif-row">
+        <div class="dif-panel" data-reveal>
+          <span class="dif-num">5,0</span>
+          <h3>Nota que não se compra</h3>
+          <p>109 avaliações reais no Google, sem uma sequer abaixo de 5 estrelas — construída um atendimento de cada vez.</p>
+        </div>
+        <div class="dif-panel gold" data-reveal>
+          <span class="dif-num">38,2K</span>
+          <h3>Autoridade que já tem audiência</h3>
+          <p>Um público que já acompanha conteúdo jurídico do escritório toda semana no Instagram, muito acima da média do setor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENCA DIGITAL -->
+  <section class="digital" id="digital" aria-labelledby="digital-titulo">
+    <div class="container">
+      <div class="digital-top">
+        <div class="section-head" data-reveal style="margin-bottom:0;">
+          <span class="eyebrow on-dark">Onde a audiência já está</span>
+          <h2 id="digital-titulo">Conteúdo jurídico que já alcança 38,2 mil pessoas</h2>
+          <p>O Instagram do escritório publica conteúdo educativo segmentado por área do direito — o mesmo raciocínio de quem já escreveu para explicar, agora aplicado ao próprio negócio.</p>
+        </div>
+        <div class="digital-stat" data-reveal>38,2K<span>Seguidores</span></div>
+      </div>
+      <div class="clip-grid">
+        <article class="clip-card" data-reveal>
+          <span class="clip-tag">Direito Trabalhista</span>
+          <h3>Cláusulas de contrato, explicadas</h3>
+          <p>Posts que respondem dúvidas reais sobre alteração de cláusulas contratuais e direitos do trabalhador, em linguagem direta.</p>
+        </article>
+        <article class="clip-card" data-reveal>
+          <span class="clip-tag">Direito Penal</span>
+          <h3>Do estelionato à prisão, sem juridiquês</h3>
+          <p>Conteúdo sobre ação penal condicionada e incondicionada, uso de algemas e outros temas que o público pesquisa antes de precisar de um advogado.</p>
+        </article>
+        <article class="clip-card" data-reveal>
+          <span class="clip-tag">Formato</span>
+          <h3>Educação jurídica como porta de entrada</h3>
+          <p>Quem chega pelo conteúdo já entende o tema antes da primeira conversa — o que torna o atendimento mais rápido e mais direto ao ponto.</p>
+        </article>
+      </div>
+      <div class="digital-cta" data-reveal>
+        <a class="btn-wa btn-wa-ondark" href="https://www.instagram.com/arthur.aldroneibraga_advogados/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.2"/><circle cx="16.4" cy="7.6" r="1"/></svg>
+          Ver conteúdo no Instagram
+        </a>
+        <span class="handle">@arthur.aldroneibraga_advogados · 38,2 mil seguidores</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPUTACAO -->
+  <section class="reputacao" id="reputacao" aria-labelledby="rep-titulo">
+    <div class="container rep-grid">
+      <div class="rep-plate" data-reveal>
+        <div class="rep-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+        </div>
+        <span class="rep-num">5,0</span>
+        <p class="rep-count">109 avaliações no Google</p>
+      </div>
+      <div class="rep-text" data-reveal>
+        <span class="eyebrow">Reputação pública, não discurso</span>
+        <h2 id="rep-titulo">5,0 estrelas, 109 avaliações, sem maquiagem</h2>
+        <p>É um número público, verificável no próprio Google — não um selo escolhido pelo escritório. Nota máxima sustentada em mais de cem avaliações costuma dizer mais sobre um advogado do que qualquer texto de apresentação.</p>
+        <p><a href="https://www.google.com/maps/place/Arthur+Aldronei+Braga+Escrit%C3%B3rio+de+Advocacia/@-30.0770335,-51.1626902,1084m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95197909ca17fc8d:0xb94a445323aea15a!8m2!3d-30.0770335!4d-51.1626902!16s%2Fg%2F11dxdjr9vw" target="_blank" rel="noopener">Ver avaliações no Google →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section class="atuamos" id="atuamos" aria-labelledby="atuamos-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="atuamos-titulo">Do primeiro contato ao acompanhamento</h2>
+        <p>O mesmo caminho para qualquer uma das cinco áreas atendidas pelo escritório.</p>
+      </div>
+      <div class="atuamos-grid">
+        <div class="step" data-reveal>
+          <span class="step-num">I</span>
+          <h3>Contato inicial</h3>
+          <p>Mensagem explicando a situação, para entender o caso e a área do direito envolvida.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">II</span>
+          <h3>Análise do caso</h3>
+          <p>Avaliação do histórico e da documentação disponível, com retorno sobre viabilidade e caminhos possíveis.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">III</span>
+          <h3>Estratégia jurídica</h3>
+          <p>Definição da estratégia mais adequada, explicada com a mesma clareza que sustenta o conteúdo do escritório.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step-num">IV</span>
+          <h3>Acompanhamento</h3>
+          <p>Atualização periódica sobre o andamento do processo, do início até a conclusão do caso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENDIMENTO / REGIAO -->
+  <section class="regiao" id="atendimento" aria-labelledby="regiao-titulo">
+    <div class="container regiao-grid">
+      <div class="regiao-text" data-reveal>
+        <span class="eyebrow">Área de atendimento</span>
+        <h2 id="regiao-titulo">Porto Alegre e Região Metropolitana</h2>
+        <p>Escritório no Centro Histórico de Porto Alegre, com atendimento agendado e primeiro contato direto com a equipe.</p>
+        <div class="regiao-groups">
+          <div>
+            <h3>Porto Alegre</h3>
+            <div class="tag-list">
+              <span>Centro Histórico</span>
+              <span>Cidade Baixa</span>
+              <span>Menino Deus</span>
+              <span>Zona Sul</span>
+            </div>
+          </div>
+          <div>
+            <h3>Região Metropolitana</h3>
+            <div class="tag-list">
+              <span>Canoas</span>
+              <span>Viamão</span>
+              <span>Guaíba</span>
+              <span>Alvorada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-plate" data-reveal>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><strong>Endereço</strong>Praça Osvaldo Cruz, 15 — sala 507, Centro Histórico, Porto Alegre - RS</div>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.2"/><circle cx="16.4" cy="7.6" r="1"/></svg>
+          <div><strong>Instagram</strong><a href="https://www.instagram.com/arthur.aldroneibraga_advogados/" target="_blank" rel="noopener">@arthur.aldroneibraga_advogados</a></div>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="var(--gold-deep)"><path d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.6 5.9 21.1l1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></svg>
+          <div><strong>Google</strong><a href="https://www.google.com/maps/place/Arthur+Aldronei+Braga+Escrit%C3%B3rio+de+Advocacia/@-30.0770335,-51.1626902,1084m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95197909ca17fc8d:0xb94a445323aea15a!8m2!3d-30.0770335!4d-51.1626902!16s%2Fg%2F11dxdjr9vw" target="_blank" rel="noopener">Nota 5,0 · 109 avaliações</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="container duvidas-inner">
+      <div class="duvidas-head" data-reveal>
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2 id="duvidas-titulo">Antes de chamar</h2>
+        <p>As dúvidas mais comuns de quem está pensando em procurar o escritório.</p>
+      </div>
+      <dl>
+        <div class="qa" data-reveal>
+          <dt>Quais áreas do direito o escritório atende?</dt>
+          <dd>Trabalhista, penal, cível, imobiliário e previdenciário, com destaque especial para trabalhista e penal.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>É verdade que o Dr. Arthur também é jornalista e professor?</dt>
+          <dd>Sim. As três frentes se somam: a apuração do jornalismo, a clareza da docência e a técnica da advocacia, na mesma pessoa.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>A nota 5,0 no Google é confiável?</dt>
+          <dd>É pública e verificável diretamente no Google, com 109 avaliações — não é um selo escolhido pelo próprio escritório.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Dá para conhecer o trabalho antes de marcar uma conversa?</dt>
+          <dd>Sim. O Instagram do escritório publica conteúdo educativo por área do direito, acompanhado por 38,2 mil pessoas.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>O escritório atende casos fora de Porto Alegre?</dt>
+          <dd>Sim, dentro da Região Metropolitana, e dependendo do caso também é possível avaliar o atendimento à distância.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Como funciona o primeiro contato?</dt>
+          <dd>Pela mensagem inicial explicando a situação, com retorno em horário comercial para entender o caso e a área envolvida.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato" aria-labelledby="cta-titulo">
+    <div class="container cta-inner" data-reveal>
+      <span class="eyebrow on-dark">Fale agora</span>
+      <h2 id="cta-titulo">Fale com quem já é referência em três frentes</h2>
+      <p>Explique a sua situação e receba orientação sobre os próximos passos, com a mesma clareza que sustenta o conteúdo, as aulas e a nota 5,0 do escritório.</p>
+      <div class="cta-actions">
+        <!-- MARKETING: WhatsApp não encontrado para Arthur Aldronei Braga, confirmar número antes de enviar proposta ao cliente. CTA abaixo é visual, sem link funcional (classe btn-wa-pending). -->
+        <a class="btn-wa btn-wa-ondark btn-wa-pending" href="#" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a class="btn-wa btn-wa-outline" href="https://www.instagram.com/arthur.aldroneibraga_advogados/" target="_blank" rel="noopener">
+          Seguir no Instagram
+        </a>
+      </div>
+      <address>
+        Praça Osvaldo Cruz, 15 — Centro Histórico, Porto Alegre, RS<br>
+        @arthur.aldroneibraga_advogados · Nota 5,0 no Google, 109 avaliações
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-wordmark">Arthur Aldronei Braga Advocacia</p>
+    <p>Página de apresentação. Condições de atendimento confirmadas na conversa inicial.</p>
+  </div>
+</footer>
+
+<!-- MARKETING: WhatsApp não encontrado para Arthur Aldronei Braga, confirmar número antes de enviar proposta ao cliente. Botão flutuante abaixo é visual, sem link funcional (classe btn-wa-pending). -->
+<a class="wa-float btn-wa-pending" href="#" aria-disabled="true" aria-label="Falar no WhatsApp com Arthur Aldronei Braga Advocacia">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var toggleBtn = document.getElementById('nav-toggle-btn');
+    var panel = document.getElementById('mobile-nav');
+    if(toggleBtn && panel){
+      toggleBtn.addEventListener('click', function(){
+        var isOpen = panel.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      panel.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          panel.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // CTAs de WhatsApp pendentes (numero nao encontrado ainda): visual normal, sem navegacao.
+    // Quando o numero real for confirmado, trocar href="#" pelo link wa.me e remover .btn-wa-pending.
+    document.querySelectorAll('.btn-wa-pending').forEach(function(el){
+      el.addEventListener('click', function(e){ e.preventDefault(); });
+    });
+
+    // reveal-on-scroll com rede de seguranca (setTimeout) para nunca esconder conteudo pra sempre
+    var items = document.querySelectorAll('[data-reveal]');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      items.forEach(function(el){ obs.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+    setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }, 1200);
+  })();
+</script>
+</body>
+</html>

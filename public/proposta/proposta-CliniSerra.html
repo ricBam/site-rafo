@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CliniSerra — Clínica Odontológica Completa | Bento Gonçalves</title>
+<meta name="description" content="Implantes, ortodontia, endodontia, próteses, facetas, estética e odontopediatria em um só endereço em Bento Gonçalves. Nota 4,9 no Google, com 530 avaliações. Agende pelo WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f2efea">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CliniSerra — Clínica Odontológica Completa">
+<meta property="og:description" content="Sete especialidades sob o mesmo teto em Bento Gonçalves, RS. Nota 4,9 no Google, 530 avaliações.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f2efea;
+    --bg-warm:#ede6da;
+    --bg-alt:#e7dfd0;
+    --surface:#ffffff;
+    --surface-tint:#f4ead8;
+    --border:#ddd3c1;
+    --border-soft:#e6ded0;
+    --brown:#6b5744;
+    --brown-deep:#4a3b2e;
+    --brown-darker:#332821;
+    --ink:#3c332a;
+    --text-muted:#6b5f52;
+    --text-faint:#6f6355;
+    --gold:#c9a66b;
+    --gold-soft:#e0c395;
+    --gold-text:#7a5a26;
+    --on-dark:#f2efea;
+    --on-dark-muted:#cdbfa9;
+    --shadow-lg:0 40px 90px -35px rgba(45, 33, 20, .38);
+    --shadow-sm:0 14px 34px -18px rgba(45, 33, 20, .3);
+    --radius:20px;
+    --radius-sm:12px;
+    --container:1240px;
+    --ease:cubic-bezier(.22, 1, .36, 1);
+
+    --fs-xs:clamp(.76rem, .72rem + .18vw, .86rem);
+    --fs-sm:clamp(.9rem, .85rem + .2vw, 1rem);
+    --fs-base:clamp(1rem, .95rem + .22vw, 1.12rem);
+    --fs-md:clamp(1.15rem, 1.05rem + .4vw, 1.35rem);
+    --fs-lg:clamp(1.55rem, 1.3rem + .95vw, 2.25rem);
+    --fs-xl:clamp(2.05rem, 1.65rem + 1.7vw, 3.1rem);
+    --fs-2xl:clamp(2.55rem, 1.9rem + 2.8vw, 4.3rem);
+    --fs-3xl:clamp(2.7rem, 1.85rem + 3.7vw, 4.95rem);
+
+    --sp-1:clamp(.5rem, .45rem + .2vw, .65rem);
+    --sp-2:clamp(.9rem, .8rem + .4vw, 1.2rem);
+    --sp-3:clamp(1.5rem, 1.3rem + .8vw, 2.1rem);
+    --sp-4:clamp(2.1rem, 1.7rem + 1.6vw, 3.3rem);
+    --sp-5:clamp(3rem, 2.3rem + 2.8vw, 5.2rem);
+    --sp-6:clamp(4rem, 2.9rem + 4.6vw, 7.6rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',system-ui,sans-serif;
+    font-size:var(--fs-base);
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3,h4{
+    font-family:'Newsreader',serif;
+    font-weight:600;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-.006em;
+    color:var(--brown-darker);
+  }
+
+  em{font-style:italic;color:var(--gold-text);}
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 clamp(1.25rem, 3vw, 2.5rem);}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--brown-darker);padding:.8em 1.2em;z-index:200;font-weight:600;font-family:'Manrope',sans-serif;}
+  .skip-link:focus{left:1rem;top:1rem;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--gold-text);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:var(--fs-xs);
+    color:var(--gold-text);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:.65em;
+    margin-bottom:1.2rem;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--gold);display:inline-block;}
+  .eyebrow.on-dark{color:var(--gold-soft);}
+  .eyebrow.on-dark::before{background:var(--gold-soft);}
+
+  section{position:relative;}
+
+  /* reveal-on-scroll: nunca esconder conteudo permanentemente se JS nao rodar/disparar */
+  html.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  html.js [data-reveal].is-visible{opacity:1;transform:none;}
+
+  /* ---------- frame ornamental com cantos dourados ---------- */
+  .cs-frame{position:relative;}
+  .cs-frame::before,.cs-frame::after{
+    content:'';position:absolute;width:30px;height:30px;
+    border:1.5px solid var(--gold);pointer-events:none;
+  }
+  .cs-frame::before{top:-10px;left:-10px;border-right:none;border-bottom:none;}
+  .cs-frame::after{bottom:-10px;right:-10px;border-left:none;border-top:none;}
+
+  /* ---------- botao WhatsApp ---------- */
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:var(--brown-darker);
+    color:var(--gold-soft);
+    font-family:'Manrope',sans-serif;font-weight:600;font-size:.96rem;
+    letter-spacing:.01em;
+    padding:.95rem 1.9rem;
+    text-decoration:none;
+    border-radius:40px;
+    border:1.5px solid var(--brown-darker);
+    transition:background-color .25s ease,color .25s ease,transform .2s ease,border-color .25s ease;
+    line-height:1;
+  }
+  .btn-wa:hover,.btn-wa:focus-visible{background:var(--gold);color:var(--brown-darker);border-color:var(--gold);transform:translateY(-2px);outline:none;}
+  .btn-wa svg{width:19px;height:19px;flex:none;}
+  .btn-wa-outline{background:transparent;color:var(--brown-darker);border-color:var(--border);}
+  .btn-wa-outline:hover,.btn-wa-outline:focus-visible{border-color:var(--gold);color:var(--gold-text);background:transparent;}
+  .btn-wa-small{padding:.6rem 1.3rem;font-size:.82rem;}
+  .btn-wa-on-dark{background:var(--gold);color:var(--brown-darker);border-color:var(--gold);}
+  .btn-wa-on-dark:hover,.btn-wa-on-dark:focus-visible{background:transparent;color:var(--gold-soft);border-color:var(--gold-soft);}
+
+  .wa-float{
+    position:fixed;right:1.25rem;bottom:1.25rem;z-index:70;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--brown-darker);border:1.5px solid var(--brown-darker);color:var(--gold-soft);
+    box-shadow:0 14px 32px rgba(45, 33, 20, .38);
+    transition:transform .2s ease,background-color .2s ease,color .2s ease;
+  }
+  .wa-float:hover,.wa-float:focus-visible{transform:translateY(-3px);background:var(--gold);color:var(--brown-darker);outline:none;}
+  .wa-float svg{width:27px;height:27px;}
+
+  /* ---------- header ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(242, 239, 234, .92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .header-inner{
+    max-width:var(--container);margin:0 auto;padding:.85rem clamp(1.25rem, 3vw, 2.5rem);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--brown-darker);}
+  .brand-mark{
+    width:42px;height:42px;flex:none;border-radius:50%;
+    background:var(--surface-tint);border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-text);
+  }
+  .brand-mark svg{width:21px;height:21px;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:1.35rem;}
+  .brand-sub{font-family:'Manrope',sans-serif;font-size:.6rem;letter-spacing:.14em;color:var(--text-faint);text-transform:uppercase;font-weight:600;}
+
+  .main-nav{display:flex;gap:1.8rem;}
+  .main-nav a{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text-muted);transition:color .2s ease;}
+  .main-nav a:hover,.main-nav a:focus-visible{color:var(--gold-text);outline:none;}
+
+  .header-cta{display:flex;align-items:center;gap:.9rem;}
+  .nav-toggle{
+    display:none;background:none;border:1.5px solid var(--border);border-radius:50%;
+    width:42px;height:42px;cursor:pointer;padding:0;align-items:center;justify-content:center;
+  }
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+    content:'';display:block;width:16px;height:1.5px;background:var(--brown-darker);position:relative;
+  }
+  .nav-toggle span::before{position:absolute;top:-6px;}
+  .nav-toggle span::after{position:absolute;top:6px;}
+
+  #mobile-nav{display:none;}
+  @media (max-width:900px){
+    .main-nav{display:none;}
+    .header-cta .btn-wa-small{display:none;}
+    .nav-toggle{display:inline-flex;}
+    #mobile-nav{
+      display:grid;grid-template-rows:0fr;background:var(--surface);
+      border-bottom:1px solid var(--border-soft);transition:grid-template-rows .3s ease;
+    }
+    #mobile-nav.open{grid-template-rows:1fr;}
+    #mobile-nav .mobile-nav-inner{overflow:hidden;min-height:0;}
+    #mobile-nav ul{list-style:none;margin:0;padding:1.2rem clamp(1.25rem, 3vw, 2.5rem);display:flex;flex-direction:column;gap:1rem;}
+    #mobile-nav a{text-decoration:none;font-size:1.02rem;color:var(--brown-darker);}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(2.2rem, 1.4rem + 3.6vw, 4.6rem) 0 var(--sp-5);position:relative;overflow:hidden;}
+  .hero::before{
+    content:'';position:absolute;top:-25%;right:-12%;width:62%;height:85%;
+    background:radial-gradient(circle, var(--surface-tint) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:var(--sp-4);align-items:center;}
+  .hero-copy h1{font-size:var(--fs-3xl);margin-bottom:1.3rem;max-width:14ch;}
+  .hero-copy .lede{font-size:1.14rem;line-height:1.65;max-width:48ch;color:var(--text-muted);margin-bottom:1.8rem;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2rem;}
+  .hero-pills span{
+    font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.02em;
+    border:1px solid var(--border);border-radius:20px;padding:.4rem .9rem;color:var(--brown);background:var(--surface);
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.2rem;}
+  .hero-rail{display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-family:'Manrope',sans-serif;font-size:.78rem;letter-spacing:.02em;color:var(--text-faint);border-top:1px solid var(--border);padding-top:1.1rem;}
+  .hero-rail span{padding:.3rem 0;}
+  .hero-rail strong{color:var(--ink);font-weight:700;}
+
+  .hero-visual{position:relative;display:flex;flex-direction:column;align-items:center;}
+  .hero-panel{
+    position:relative;width:min(400px, 92vw);aspect-ratio:1/1.02;
+    border-radius:28px;overflow:hidden;
+    background:linear-gradient(155deg, var(--brown) 0%, var(--brown-deep) 55%, var(--brown-darker) 100%);
+    box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-panel::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(242,239,234,.14) 1px, transparent 1px);
+    background-size:18px 18px;
+    opacity:.5;
+  }
+  .hero-panel-ring{position:absolute;inset:26px;border:1px dashed rgba(224,195,149,.4);border-radius:22px;pointer-events:none;}
+  .hero-emblem{position:relative;width:46%;color:var(--gold-soft);}
+  .hero-chip{
+    position:absolute;width:56px;height:56px;border-radius:50%;
+    background:rgba(242,239,234,.1);border:1px solid rgba(224,195,149,.45);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-soft);
+    backdrop-filter:blur(2px);
+  }
+  .hero-chip svg{width:24px;height:24px;}
+  .hero-chip.c1{top:8%;left:10%;}
+  .hero-chip.c2{top:14%;right:8%;}
+  .hero-chip.c3{bottom:12%;left:6%;}
+  .hero-chip.c4{bottom:6%;right:14%;}
+  .hero-badge{
+    position:absolute;bottom:-8%;left:-10%;max-width:250px;
+    background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border);
+    padding:1rem 1.2rem;box-shadow:var(--shadow-sm);
+    display:flex;align-items:center;gap:.85rem;
+  }
+  .hero-badge .badge-num{font-family:'Newsreader',serif;font-weight:700;font-size:1.7rem;color:var(--brown-darker);line-height:1;}
+  .hero-badge .badge-text{font-size:.78rem;color:var(--text-muted);line-height:1.4;}
+  .hero-badge .badge-text strong{display:block;color:var(--gold-text);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.15rem;font-weight:700;}
+  @media (max-width:1180px){.hero-badge{left:-4%;}}
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;margin-bottom:1.4rem;}
+    .hero-badge{position:static;margin-top:1.8rem;max-width:320px;}
+  }
+
+  /* ---------- specs strip (dark) ---------- */
+  .specs-strip{background:var(--brown-darker);color:var(--on-dark);}
+  .specs-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .specs-grid div{padding:var(--sp-3) var(--sp-2);border-right:1px solid rgba(242,239,234,.12);text-align:center;}
+  .specs-grid div:last-child{border-right:none;}
+  .specs-num{font-family:'Newsreader',serif;font-weight:700;font-size:var(--fs-lg);color:var(--gold-soft);display:block;margin-bottom:.4rem;}
+  .specs-label{font-family:'Manrope',sans-serif;font-size:.74rem;letter-spacing:.02em;color:var(--on-dark-muted);line-height:1.5;}
+  @media (max-width:760px){
+    .specs-grid{grid-template-columns:repeat(2,1fr);}
+    .specs-grid div{border-bottom:1px solid rgba(242,239,234,.12);}
+    .specs-grid div:nth-child(2n){border-right:none;}
+  }
+
+  /* ---------- sobre ---------- */
+  .sobre{padding:var(--sp-6) 0;}
+  .sobre-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--sp-4);align-items:center;}
+  .sobre-visual{position:relative;}
+  .sobre-visual .cs-frame{border-radius:var(--radius);overflow:hidden;}
+  .sobre-panel{
+    width:100%;aspect-ratio:3/4;border-radius:var(--radius);
+    background:linear-gradient(165deg, var(--surface-tint) 0%, var(--bg-alt) 100%);
+    border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .sobre-panel svg{width:44%;color:var(--gold-text);opacity:.85;}
+  .sobre-panel::after{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(107,87,68,.09) 1px, transparent 1px);
+    background-size:16px 16px;
+  }
+  .sobre-text h2{font-size:var(--fs-xl);margin:0 0 1.3rem;max-width:16ch;}
+  .sobre-text p{color:var(--text-muted);line-height:1.8;margin-bottom:1.1rem;font-size:1.03rem;}
+  .sobre-text p:last-of-type{margin-bottom:1.4rem;}
+  .cred-list{display:flex;flex-direction:column;gap:.7rem;list-style:none;margin:0;padding:0;}
+  .cred-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.95rem;color:var(--ink);}
+  .cred-list svg{width:18px;height:18px;flex:none;margin-top:.15rem;color:var(--gold-text);}
+  @media (max-width:920px){.sobre-grid{grid-template-columns:1fr;}.sobre-visual{order:-1;max-width:360px;margin:0 auto;}}
+
+  /* ---------- especialidades ---------- */
+  .servicos{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .section-head{max-width:640px;margin-bottom:var(--sp-4);}
+  .section-head h2{font-size:var(--fs-xl);margin:0 0 1rem;}
+  .section-head p{color:var(--text-muted);font-size:1.02rem;line-height:1.65;}
+  .section-head.center{max-width:660px;margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head.center .eyebrow{justify-content:center;}
+  .section-head.center .eyebrow::before{display:none;}
+
+  .servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:var(--sp-4);}
+  .servico-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:1.9rem 1.7rem;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+  }
+  .servico-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+  .servico-icon{width:46px;height:46px;border-radius:50%;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;color:var(--gold-text);margin-bottom:1.1rem;}
+  .servico-icon svg{width:22px;height:22px;}
+  .servico-card h3{font-size:1.2rem;color:var(--brown-darker);margin-bottom:.6rem;font-weight:600;}
+  .servico-card p{color:var(--text-muted);font-size:.94rem;line-height:1.6;margin:0;}
+  .servico-card.featured{background:var(--brown-darker);border-color:var(--brown-darker);}
+  .servico-card.featured h3,.servico-card.featured .badge{color:var(--gold-soft);}
+  .servico-card.featured p{color:var(--on-dark-muted);}
+  .servico-card.featured .servico-icon{background:rgba(242,239,234,.1);color:var(--gold-soft);}
+  .badge{display:inline-block;font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text);border:1px solid currentColor;border-radius:20px;padding:.25rem .7rem;margin-bottom:.7rem;}
+
+  .showcase-row{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  .showcase-item{
+    position:relative;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);
+    min-height:260px;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;
+    background:linear-gradient(155deg, var(--gold-soft) 0%, var(--surface-tint) 100%);
+  }
+  .showcase-item.alt{background:linear-gradient(155deg, var(--brown-darker) 0%, var(--brown-deep) 100%);}
+  .showcase-item.alt .showcase-copy h3,.showcase-item.alt .eyebrow{color:var(--gold-soft);}
+  .showcase-item.alt .eyebrow::before{background:var(--gold-soft);}
+  .showcase-item.alt .showcase-copy p{color:var(--on-dark-muted);}
+  .showcase-item::before{
+    content:'';position:absolute;top:-30%;right:-20%;width:70%;height:70%;border-radius:50%;
+    border:1px solid rgba(74,59,46,.14);pointer-events:none;
+  }
+  .showcase-item.alt::before{border-color:rgba(242,239,234,.14);}
+  .showcase-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;color:var(--gold-text);margin-bottom:1.4rem;}
+  .showcase-item.alt .showcase-icon{background:rgba(242,239,234,.1);color:var(--gold-soft);}
+  .showcase-icon svg{width:26px;height:26px;}
+  .showcase-copy h3{color:var(--brown-darker);font-size:1.5rem;margin-bottom:.5rem;}
+  .showcase-copy p{color:var(--brown-deep);font-size:.94rem;margin:0;max-width:36ch;line-height:1.55;}
+
+  @media (max-width:920px){.servicos-grid{grid-template-columns:1fr 1fr;}.showcase-row{grid-template-columns:1fr;}}
+  @media (max-width:620px){.servicos-grid{grid-template-columns:1fr;}}
+
+  /* ---------- processo ---------- */
+  .processo{padding:var(--sp-6) 0;}
+  .processo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:passo;}
+  .processo-item{position:relative;padding:1.9rem 1.7rem 1.9rem 1.7rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);}
+  .processo-item::before{
+    counter-increment:passo;content:counter(passo);
+    font-family:'Newsreader',serif;font-weight:700;font-size:2.4rem;color:var(--gold-soft);
+    -webkit-text-stroke:1.5px var(--gold-text);
+    display:block;margin-bottom:1rem;line-height:1;
+  }
+  .processo-item h3{font-size:1.15rem;margin-bottom:.55rem;font-weight:600;}
+  .processo-item p{color:var(--text-muted);font-size:.94rem;line-height:1.6;margin:0;}
+  .processo-connector{display:none;}
+  @media (min-width:761px){
+    .processo-grid{position:relative;}
+    .processo-item:not(:last-child)::after{
+      content:'';position:absolute;top:2.3rem;right:-.9rem;width:1.2rem;height:1px;
+      background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 10px);
+    }
+  }
+  @media (max-width:760px){.processo-grid{grid-template-columns:1fr;}}
+
+  /* ---------- diferenciais / plate ---------- */
+  .diferenciais{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .plate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+  .plate-item{border-top:1px solid var(--border);padding-top:1.3rem;display:flex;gap:1.1rem;}
+  .plate-item .plate-icon{width:38px;height:38px;border-radius:50%;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;color:var(--gold-text);flex:none;}
+  .plate-item .plate-icon svg{width:18px;height:18px;}
+  .plate-item h3{font-size:1.15rem;margin-bottom:.5rem;font-weight:600;}
+  .plate-item p{color:var(--text-muted);font-size:.94rem;line-height:1.6;margin:0;}
+  @media (max-width:760px){.plate-grid{grid-template-columns:1fr;}}
+
+  /* ---------- avaliacoes (dark) ---------- */
+  .avaliacoes{padding:var(--sp-6) 0;background:var(--brown-darker);color:var(--on-dark);}
+  .avaliacoes .section-head h2{color:var(--on-dark);}
+  .avaliacoes .section-head p{color:var(--on-dark-muted);}
+  .stars{color:var(--gold-soft);display:flex;gap:.15rem;margin-bottom:.9rem;}
+  .stars svg{width:15px;height:15px;}
+  .aval-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.3rem;}
+  .aval-card{
+    background:rgba(242,239,234,.05);border:1px solid rgba(242,239,234,.14);border-radius:var(--radius-sm);
+    padding:1.9rem 1.7rem;display:flex;flex-direction:column;
+  }
+  .aval-card .aval-num{font-family:'Newsreader',serif;font-weight:700;font-size:var(--fs-lg);color:var(--gold-soft);line-height:1;margin-bottom:.6rem;display:block;}
+  .aval-card p{color:var(--on-dark-muted);font-size:.94rem;line-height:1.6;margin:0;}
+  .aval-card .aval-icon{width:40px;height:40px;border-radius:50%;background:rgba(242,239,234,.08);display:flex;align-items:center;justify-content:center;color:var(--gold-soft);margin-bottom:1rem;}
+  .aval-card .aval-icon svg{width:19px;height:19px;}
+  .aval-wide{grid-column:span 3;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;padding:1.7rem 1.9rem;}
+  .aval-wide .aval-tags{display:flex;flex-wrap:wrap;gap:.6rem;flex:1;min-width:220px;}
+  .aval-wide .aval-tags span{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;border:1px solid rgba(242,239,234,.25);border-radius:20px;padding:.4rem .9rem;color:var(--on-dark);}
+  @media (max-width:920px){.aval-grid{grid-template-columns:1fr 1fr;}.aval-wide{grid-column:span 2;}}
+  @media (max-width:620px){.aval-grid{grid-template-columns:1fr;}.aval-wide{grid-column:span 1;flex-direction:column;align-items:flex-start;}}
+
+  /* ---------- regiao ---------- */
+  .regiao{padding:var(--sp-6) 0;}
+  .regiao-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);align-items:center;}
+  .regiao-text h2{font-size:var(--fs-xl);margin:0 0 1.2rem;max-width:17ch;}
+  .regiao-text p{color:var(--text-muted);line-height:1.75;margin-bottom:1.4rem;}
+  .info-rows{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.6rem;}
+  .info-row{display:flex;align-items:flex-start;gap:.8rem;font-size:.95rem;color:var(--ink);}
+  .info-row svg{width:18px;height:18px;flex:none;margin-top:.2rem;color:var(--gold-text);}
+  .tag-list{display:flex;flex-wrap:wrap;gap:.6rem;}
+  .tag-list span{
+    font-family:'Manrope',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.01em;
+    border:1px solid var(--border);border-radius:20px;padding:.45rem 1rem;color:var(--ink);background:var(--surface);
+  }
+  .regiao-groups{display:grid;gap:1.2rem;}
+  .regiao-groups h3{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.7rem;}
+  .regiao-visual{background:var(--surface-tint);border-radius:var(--radius);padding:var(--sp-4);text-align:center;}
+  .regiao-visual .rating{font-family:'Newsreader',serif;font-size:var(--fs-3xl);font-weight:700;color:var(--brown-darker);line-height:1;}
+  .regiao-visual .stars{justify-content:center;color:var(--gold-text);margin:.8rem 0;}
+  .regiao-visual .stars svg{width:20px;height:20px;}
+  .regiao-visual p{color:var(--text-muted);font-size:.95rem;margin:0;}
+  @media (max-width:920px){.regiao-grid{grid-template-columns:1fr;}.regiao-visual{order:-1;}}
+
+  /* ---------- faq ---------- */
+  .duvidas{padding:var(--sp-6) 0;background:var(--bg-alt);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .duvidas-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--sp-4);}
+  .duvidas-head h2{font-size:var(--fs-xl);margin:0 0 1rem;}
+  .duvidas-head p{color:var(--text-muted);max-width:32ch;line-height:1.65;}
+  .qa{padding:1.5rem 0;border-top:1px solid var(--border);}
+  .qa:first-child{border-top:none;padding-top:0;}
+  .qa dt{font-family:'Newsreader',serif;font-weight:600;font-size:1.2rem;margin-bottom:.55rem;color:var(--brown-darker);}
+  .qa dd{margin:0;color:var(--text-muted);line-height:1.65;}
+  @media (max-width:900px){.duvidas-inner{grid-template-columns:1fr;}}
+
+  /* ---------- cta final (dark) ---------- */
+  .cta-final{padding:var(--sp-6) 0;position:relative;overflow:hidden;background:var(--brown-darker);color:var(--on-dark);}
+  .cta-final::before{
+    content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:70%;height:80%;
+    background:radial-gradient(circle, rgba(201,166,107,.18) 0%, transparent 70%);pointer-events:none;
+  }
+  .cta-inner{position:relative;max-width:720px;margin:0 auto;text-align:center;}
+  .cta-inner h2{font-size:var(--fs-xl);color:var(--on-dark);margin:0 0 1.2rem;}
+  .cta-inner p{color:var(--on-dark-muted);margin-bottom:2.2rem;font-size:1.08rem;line-height:1.65;}
+  .cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem;}
+  .cta-inner address{
+    font-family:'Manrope',sans-serif;font-style:normal;font-size:.85rem;color:var(--on-dark-muted);
+    line-height:2;
+  }
+  .cta-inner address a{text-decoration:underline;text-decoration-color:var(--gold);color:var(--on-dark);}
+
+  /* ---------- footer ---------- */
+  .site-footer{background:var(--brown-darker);color:var(--on-dark-muted);padding:2.2rem 0;text-align:center;font-family:'Manrope',sans-serif;font-size:.76rem;letter-spacing:.02em;border-top:1px solid rgba(242,239,234,.1);}
+  .site-footer p{margin:0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#topo">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4c-2 0-3.2 1-4.4 1-1.3 0-2.6-1-2.6-1s-1 2.5-1 5.5c0 4 1.6 8.5 3 9.5 1 .7 1.4-1.7 2-4 .4-1.6.7-2.5 3-2.5s2.6.9 3 2.5c.6 2.3 1 4.7 2 4 1.4-1 3-5.5 3-9.5 0-3-1-5.5-1-5.5s-1.3 1-2.6 1c-1.2 0-2.4-1-4.4-1Z"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">CliniSerra</span>
+        <span class="brand-sub">Clínica Odontológica</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#duvidas">Perguntas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn-wa btn-wa-small" href="https://wa.me/5554999044100?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20CliniSerra%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+        Agendar
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" id="nav-toggle-btn">
+        <span class="visually-hidden">Abrir menu</span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" aria-label="Navegação mobile">
+    <div class="mobile-nav-inner">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#duvidas">Perguntas</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="btn-wa btn-wa-small" href="https://wa.me/5554999044100?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20CliniSerra%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar no WhatsApp</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- HERO -->
+  <section class="hero" id="topo" aria-label="Apresentação">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <span class="eyebrow">Odontologia completa · Bento Gonçalves, RS</span>
+        <h1>Uma clínica só, <em>todo</em> o cuidado que o seu sorriso precisa.</h1>
+        <p class="lede">Implantes, ortodontia, endodontia, próteses, facetas, estética e odontopediatria em um só endereço. Nota 4,9 no Google, com 530 avaliações reais, o maior volume entre as clínicas odontológicas da região.</p>
+        <div class="hero-pills" role="list" aria-label="Especialidades">
+          <span role="listitem">Implantes</span>
+          <span role="listitem">Ortodontia</span>
+          <span role="listitem">Endodontia</span>
+          <span role="listitem">Próteses</span>
+          <span role="listitem">Facetas</span>
+          <span role="listitem">Estética dental</span>
+          <span role="listitem">Odontopediatria</span>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn-wa" href="https://wa.me/5554999044100?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20CliniSerra%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a class="btn-wa btn-wa-outline" href="#especialidades">Ver especialidades</a>
+        </div>
+        <div class="hero-rail">
+          <span><strong>4,9 ★</strong> · 530 avaliações no Google</span>
+          <span><strong>7</strong> especialidades sob o mesmo teto</span>
+          <span><strong>Central</strong> · fácil acesso em Bento Gonçalves</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal>
+        <div class="hero-panel">
+          <div class="hero-panel-ring" aria-hidden="true"></div>
+          <span class="hero-chip c1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16c3-1.5 4-9 8-9s5 7.5 8 9"/><path d="M4 16c1 2.5 3.5 4 8 4s7-1.5 8-4"/></svg></span>
+          <span class="hero-chip c2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.5 2.5-6 6-6s6 2.5 6 6"/></svg></span>
+          <span class="hero-chip c3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+          <span class="hero-chip c4" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
+          <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M50 18c-9 0-14.5 4.6-20 4.6-6 0-11.8-4.6-11.8-4.6S14 30.4 14 44c0 18 7.3 38.7 13.6 43.2 4.5 3.2 6.3-7.7 9-18.2 1.8-7 3.2-11.4 13.4-11.4s11.6 4.4 13.4 11.4c2.7 10.5 4.5 21.4 9 18.2C78.7 82.7 86 62 86 44c0-13.6-4.2-26-4.2-26S76 22.6 70 22.6c-5.5 0-11-4.6-20-4.6Z"/>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <span class="badge-num">4,9★</span>
+          <span class="badge-text"><strong>Google avaliações</strong>530 avaliações reais, nota mais alta entre as clínicas da região.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS STRIP -->
+  <section class="specs-strip" aria-label="Números da clínica">
+    <div class="container specs-grid">
+      <div data-reveal>
+        <span class="specs-num">4,9 ★</span>
+        <span class="specs-label">Nota no Google, com 530 avaliações reais</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">530</span>
+        <span class="specs-label">Avaliações, o maior volume entre as clínicas odontológicas da região</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">7</span>
+        <span class="specs-label">Especialidades sob o mesmo teto, do preventivo ao implante</span>
+      </div>
+      <div data-reveal>
+        <span class="specs-num">Ativa</span>
+        <span class="specs-label">Resposta da clínica às avaliações, mantendo relação próxima com pacientes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="container sobre-grid">
+      <div class="sobre-visual" data-reveal>
+        <div class="cs-frame">
+          <div class="sobre-panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3c-2 0-3.2 1-4.4 1-1.3 0-2.6-1-2.6-1s-1 2.5-1 5.5c0 4 1.6 8.5 3 9.5 1 .7 1.4-1.7 2-4 .4-1.6.7-2.5 3-2.5s2.6.9 3 2.5c.6 2.3 1 4.7 2 4 1.4-1 3-5.5 3-9.5 0-3-1-5.5-1-5.5s-1.3 1-2.6 1c-1.2 0-2.4-1-4.4-1Z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-text" data-reveal>
+        <span class="eyebrow">Quem cuida do seu sorriso</span>
+        <h2 id="sobre-titulo">CliniSerra: sete especialidades, um só cuidado</h2>
+        <p>Instalada em Bento Gonçalves, a CliniSerra reúne especialistas em implantodontia, ortodontia, endodontia, prótese, facetas, estética dental e odontopediatria em um único endereço, sem precisar encaminhar o paciente para fora quando o tratamento muda de frente.</p>
+        <p>O resultado aparece nas avaliações: nota 4,9 no Google, com 530 avaliações, o maior volume entre as clínicas odontológicas da região. A clínica também responde ativamente aos comentários, mantendo uma relação próxima com quem já passou por lá.</p>
+        <ul class="cred-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+            Sete especialidades sob o mesmo teto, do preventivo ao implante
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.5 2.5-6 6-6s6 2.5 6 6"/></svg>
+            Odontopediatria própria, para toda a família num só lugar
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Localização central, de fácil acesso em Bento Gonçalves
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section class="servicos" id="especialidades" aria-labelledby="especialidades-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">O que tratamos</span>
+        <h2 id="especialidades-titulo">Do preventivo ao implante, sem sair da CliniSerra</h2>
+        <p>Seis frentes de tratamento sob o mesmo teto, cada uma conduzida por quem se especializou nela.</p>
+      </div>
+
+      <div class="servicos-grid">
+        <article class="servico-card featured" data-reveal>
+          <span class="badge">Mais procurado</span>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+          <h3>Implantodontia</h3>
+          <p>Reposição de dentes com implantes, do planejamento à instalação, para recuperar função e estética.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.5 2.5-6 6-6s6 2.5 6 6"/></svg></span>
+          <h3>Odontopediatria</h3>
+          <p>Atendimento pensado para crianças, do primeiro contato com o dentista ao acompanhamento de rotina.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11Z"/><path d="M12 9v6"/></svg></span>
+          <h3>Endodontia</h3>
+          <p>Tratamento de canal com técnica atualizada, para conter a dor e preservar o dente natural.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-7h6v7"/></svg></span>
+          <h3>Prótese dentária</h3>
+          <p>Coroas, pontes e próteses feitas sob medida, para devolver função e naturalidade à mastigação e ao sorriso.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16c3-1.5 4-9 8-9s5 7.5 8 9"/><path d="M4 16c1 2.5 3.5 4 8 4s7-1.5 8-4"/><path d="M8 16v2M12 16v3M16 16v2"/></svg></span>
+          <h3>Ortodontia</h3>
+          <p>Aparelhos e alinhadores para corrigir o posicionamento dos dentes, com plano acompanhado etapa a etapa.</p>
+        </article>
+        <article class="servico-card" data-reveal>
+          <span class="servico-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11Z"/><path d="m9 8 1.5 1.5L15 5"/></svg></span>
+          <h3>Facetas de porcelana</h3>
+          <p>Lentes de contato dental para uniformizar cor e formato, com acabamento natural.</p>
+        </article>
+      </div>
+
+      <div class="showcase-row">
+        <div class="showcase-item" data-reveal>
+          <span class="showcase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div class="showcase-copy">
+            <span class="eyebrow">Destaque</span>
+            <h3>Estética dental</h3>
+            <p>Clareamento, facetas e harmonização do sorriso, com planejamento visual antes de começar o tratamento.</p>
+          </div>
+        </div>
+        <div class="showcase-item alt" data-reveal>
+          <span class="showcase-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <div class="showcase-copy">
+            <span class="eyebrow on-dark">Clínica completa</span>
+            <h3>Sem encaminhar para outro endereço</h3>
+            <p>Se o tratamento muda de especialidade no meio do caminho, o paciente continua na CliniSerra, com outro especialista da própria equipe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="processo" aria-labelledby="processo-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="processo-titulo">Da avaliação ao resultado, com o especialista certo</h2>
+        <p>Três etapas simples, independente de qual das sete especialidades o tratamento envolve.</p>
+      </div>
+      <div class="processo-grid">
+        <div class="processo-item" data-reveal>
+          <h3>Avaliação inicial</h3>
+          <p>Você conta o que sente ou o que quer mudar no sorriso, e a equipe identifica qual especialidade cuida melhor do caso.</p>
+        </div>
+        <div class="processo-item" data-reveal>
+          <h3>Plano personalizado</h3>
+          <p>O especialista da área certa monta um plano de tratamento claro, com etapas e expectativas explicadas antes de começar.</p>
+        </div>
+        <div class="processo-item" data-reveal>
+          <h3>Tratamento acompanhado</h3>
+          <p>Execução com acompanhamento até o resultado, sem precisar procurar outra clínica se o caso pedir mais de uma especialidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-titulo">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Por que escolher</span>
+        <h2 id="diferenciais-titulo">O que diferencia a CliniSerra</h2>
+        <p>Seis pontos que sustentam a nota 4,9 e o volume de avaliações da clínica.</p>
+      </div>
+      <div class="plate-grid">
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <div>
+            <h3>Portfólio completo</h3>
+            <p>Sete especialidades sob o mesmo teto, sem precisar trocar de clínica no meio de um tratamento.</p>
+          </div>
+        </div>
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg></span>
+          <div>
+            <h3>Nota 4,9 no Google</h3>
+            <p>530 avaliações, o maior volume entre as clínicas odontológicas da região.</p>
+          </div>
+        </div>
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21c0-3.9-3.6-7-8-7s-8 3.1-8 7"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <div>
+            <h3>Relacionamento próximo</h3>
+            <p>A clínica responde pessoalmente às avaliações no Google, mantendo contato com quem já foi atendido.</p>
+          </div>
+        </div>
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M6 21c0-3.5 2.5-6 6-6s6 2.5 6 6"/></svg></span>
+          <div>
+            <h3>Atendimento infantil</h3>
+            <p>Odontopediatria própria, para levar toda a família ao mesmo endereço.</p>
+          </div>
+        </div>
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+          <div>
+            <h3>Localização central</h3>
+            <p>Fácil acesso em Bento Gonçalves, para quem vem do centro ou da região da Serra Gaúcha.</p>
+          </div>
+        </div>
+        <div class="plate-item" data-reveal>
+          <span class="plate-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <div>
+            <h3>Equipe especializada</h3>
+            <p>Cada área tratada por quem se dedica a ela, em vez de um único dentista generalista para tudo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIACOES -->
+  <section class="avaliacoes" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow on-dark">Reconhecimento real</span>
+        <h2 id="avaliacoes-titulo">530 avaliações, uma nota que poucas clínicas sustentam</h2>
+        <p>4,9 de 5 no Google, com a clínica respondendo ativamente a quem avalia.</p>
+      </div>
+      <div class="aval-grid">
+        <div class="aval-card" data-reveal>
+          <span class="aval-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg></span>
+          <span class="aval-num">4,9 ★</span>
+          <p>Nota média no Google, calculada sobre 530 avaliações reais de pacientes atendidos.</p>
+        </div>
+        <div class="aval-card" data-reveal>
+          <span class="aval-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16c3-1.5 4-9 8-9s5 7.5 8 9"/><path d="M4 16c1 2.5 3.5 4 8 4s7-1.5 8-4"/></svg></span>
+          <span class="aval-num">1º lugar</span>
+          <p>Em volume de avaliações entre as clínicas odontológicas mapeadas na região.</p>
+        </div>
+        <div class="aval-card" data-reveal>
+          <span class="aval-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21c0-3.9-3.6-7-8-7s-8 3.1-8 7"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <span class="aval-num">Resposta ativa</span>
+          <p>A clínica comenta de volta nas avaliações, reforçando o relacionamento com cada paciente.</p>
+        </div>
+        <div class="aval-wide" data-reveal>
+          <div class="stars" role="img" aria-label="4,9 de 5 estrelas">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          </div>
+          <div class="aval-tags" role="list" aria-label="Especialidades avaliadas">
+            <span role="listitem">Implantes</span>
+            <span role="listitem">Ortodontia</span>
+            <span role="listitem">Endodontia</span>
+            <span role="listitem">Próteses</span>
+            <span role="listitem">Facetas</span>
+            <span role="listitem">Estética dental</span>
+            <span role="listitem">Odontopediatria</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIAO -->
+  <section class="regiao" id="regiao" aria-labelledby="regiao-titulo">
+    <div class="container regiao-grid">
+      <div class="regiao-text" data-reveal>
+        <span class="eyebrow">Onde estamos</span>
+        <h2 id="regiao-titulo">Bento Gonçalves, Serra Gaúcha</h2>
+        <p>Atendimento com hora marcada, agendado direto pelo WhatsApp.</p>
+        <div class="info-rows">
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Bento Gonçalves, RS, com fácil acesso a partir do centro da cidade
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            Horário de funcionamento sob agendamento, consulte disponibilidade
+          </div>
+        </div>
+        <div class="regiao-groups">
+          <div>
+            <h3>Bento Gonçalves e região</h3>
+            <div class="tag-list">
+              <span>Bento Gonçalves</span>
+              <span>Garibaldi</span>
+              <span>Farroupilha</span>
+              <span>Carlos Barbosa</span>
+              <span>Monte Belo do Sul</span>
+              <span>Pinto Bandeira</span>
+              <span>Veranópolis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="regiao-visual" data-reveal>
+        <span class="rating">4,9</span>
+        <div class="stars" role="img" aria-label="4,9 de 5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1L12 2Z"/></svg>
+        </div>
+        <p>530 avaliações no Google</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="container duvidas-inner">
+      <div class="duvidas-head" data-reveal>
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2 id="duvidas-titulo">Antes de agendar</h2>
+        <p>As dúvidas mais comuns de quem está procurando uma clínica odontológica completa.</p>
+      </div>
+      <dl>
+        <div class="qa" data-reveal>
+          <dt>Preciso de encaminhamento para tratamentos mais específicos, como implante ou canal?</dt>
+          <dd>Não. A CliniSerra tem especialistas em implantodontia, endodontia, ortodontia, prótese e estética no mesmo endereço, o tratamento segue sem precisar procurar outra clínica.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Vocês atendem crianças?</dt>
+          <dd>Sim, a clínica tem atendimento próprio de odontopediatria, pensado para o primeiro contato da criança com o dentista.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Como faço para agendar uma avaliação?</dt>
+          <dd>Envie uma mensagem pelo WhatsApp contando o que você procura, implante, ortodontia, estética ou uma avaliação geral, e a equipe confirma o próximo horário disponível.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Atendem convênio ou só particular?</dt>
+          <dd>Formas de pagamento e convênios são confirmados diretamente pelo WhatsApp no momento do agendamento.</dd>
+        </div>
+        <div class="qa" data-reveal>
+          <dt>Como sei que a clínica é confiável?</dt>
+          <dd>Pela nota 4,9 no Google, com 530 avaliações reais, o maior volume entre as clínicas odontológicas da região, e pela clínica responder pessoalmente a quem avalia.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato" aria-labelledby="cta-titulo">
+    <div class="container cta-inner" data-reveal>
+      <span class="eyebrow on-dark">Agende agora</span>
+      <h2 id="cta-titulo">Vamos cuidar do seu sorriso, do jeito certo?</h2>
+      <p>Envie uma mensagem pelo WhatsApp contando o que você procura, implante, ortodontia, estética ou uma avaliação geral, e a equipe da CliniSerra responde para combinar o melhor horário.</p>
+      <div class="cta-actions">
+        <a class="btn-wa btn-wa-on-dark" href="https://wa.me/5554999044100?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20CliniSerra%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <address>
+        Bento Gonçalves, RS<br>
+        Atendimento com hora marcada, agendado pelo WhatsApp
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Página de apresentação, construída a partir de informações públicas do Google e do Instagram. Valores, horários e disponibilidade confirmados diretamente com a clínica.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5554999044100?text=Ol%C3%A1!%20Vi%20a%20proposta%20da%20CliniSerra%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a CliniSerra">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.92 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.55-3.71 8.25-8.27 8.25a8.3 8.3 0 0 1-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.27-4.4c0-4.55 3.71-8.24 8.27-8.24Zm-4.5 4.42c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.72 4.19 3.71 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.77-1.86-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var toggleBtn = document.getElementById('nav-toggle-btn');
+    var panel = document.getElementById('mobile-nav');
+    if(toggleBtn && panel){
+      toggleBtn.addEventListener('click', function(){
+        var isOpen = panel.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      panel.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          panel.classList.remove('open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // reveal-on-scroll com rede de seguranca (setTimeout) para nunca esconder conteudo pra sempre
+    var items = document.querySelectorAll('[data-reveal]');
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+      items.forEach(function(el){ obs.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+    setTimeout(function(){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+    }, 1200);
+  })();
+</script>
+</body>
+</html>
