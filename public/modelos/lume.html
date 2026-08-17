@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<title>Lume, estética facial e corporal em Caxias do Sul</title>
+<meta name="description" content="Estúdio de estética facial e corporal em Caxias do Sul. Uma cliente por vez, protocolo definido na avaliação, sem pressa.">
+<link rel="preload" href="lume/fonts/prata-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="lume/fonts/karla-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" imagesizes="100vw" imagesrcset="lume/hero-sm.webp 760w, lume/hero.webp 1500w">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23191218'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F2845C'/%3E%3C/svg%3E">
+<style>
+/* ---------------------------------------------------------------
+   Lume, estúdio de estética. Modelo demonstrativo R.A.F.O.
+   Identidade própria do nicho: ameixa escura, brasa, luz baixa.
+   --------------------------------------------------------------- */
+@font-face{font-family:'Prata';src:url('lume/fonts/prata-400-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Karla';src:url('lume/fonts/karla-400-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Karla';src:url('lume/fonts/karla-700-latin.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+
+:root{
+  --bg:#191218;
+  --bg-lift:#221822;
+  --wine:#54233A;
+  --wine-deep:#3A1728;
+  --ink:#F5EDE8;
+  --ink-soft:#D8C6CC;
+  --ember:#F2845C;
+  --line:rgba(245,237,232,.16);
+  --line-strong:rgba(245,237,232,.32);
+
+  --display:'Prata',Georgia,'Times New Roman',serif;
+  --body:'Karla','Segoe UI',system-ui,sans-serif;
+
+  --step--1:clamp(0.8rem, 0.77rem + 0.14vw, 0.88rem);
+  --step-0:clamp(1rem, 0.95rem + 0.24vw, 1.15rem);
+  --step-1:clamp(1.3rem, 1.15rem + 0.7vw, 1.7rem);
+  --step-2:clamp(1.75rem, 1.4rem + 1.7vw, 2.8rem);
+  --step-3:clamp(2.3rem, 1.6rem + 3.3vw, 4.3rem);
+  --step-4:clamp(2.9rem, 1.5rem + 6vw, 5.8rem);
+
+  --gap:clamp(1.2rem, 0.9rem + 1.4vw, 2.2rem);
+  --pad-x:clamp(1.25rem, 0.6rem + 3.2vw, 5rem);
+  --section:clamp(4.5rem, 3rem + 7vw, 9rem);
+  --ease:cubic-bezier(.16,.84,.28,1);
+  --rafo-h:8.5rem;
+}
+@media (min-width:34rem){:root{--rafo-h:6rem;}}
+@media (min-width:60rem){:root{--rafo-h:4.5rem;}}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:var(--step-0);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto;}
+a{color:inherit;}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;letter-spacing:-0.015em;text-wrap:balance;margin:0;}
+p{margin:0;text-wrap:pretty;}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:2px;}
+
+.wrap{padding-inline:var(--pad-x);}
+.limit{max-width:74rem;margin-inline:auto;}
+.prose{max-width:34em;}
+
+/* ---------- faixa R.A.F.O. (unica parte com a marca da agencia) ---------- */
+.rafo{
+  position:fixed;inset-inline:0;bottom:0;z-index:60;
+  background:#0B0A07;color:#DAE2DF;
+  border-top:1px solid rgba(218,226,223,.22);
+  font-family:'Karla',system-ui,sans-serif;
+  font-size:var(--step--1);
+  line-height:1.4;
+}
+.rafo__in{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;align-items:center;justify-content:center;
+  padding:.6rem var(--pad-x);text-align:center;
+}
+.rafo b{font-weight:700;letter-spacing:.02em;}
+.rafo span{color:#B9C3C0;}
+.rafo a{
+  color:#0B0A07;background:#E09F3E;text-decoration:none;
+  padding:.32rem .8rem;border-radius:999px;font-weight:700;white-space:nowrap;
+  transition:transform .25s var(--ease),background .25s var(--ease);
+}
+.rafo a:hover{background:#EFB65F;transform:translateY(-1px);}
+/* a faixa e fixa: o corpo reserva a altura dela para nao cobrir CTA nenhum */
+body{padding-bottom:var(--rafo-h);}
+
+/* ---------- topo do site ficticio: sem barra de navegacao, so assinatura ---------- */
+.mark{
+  position:absolute;top:clamp(1.4rem,3vw,2.6rem);left:var(--pad-x);z-index:20;
+  font-family:var(--display);font-size:var(--step-1);letter-spacing:.24em;text-transform:uppercase;
+}
+.mark small{display:block;font-family:var(--body);font-size:.5em;letter-spacing:.3em;color:var(--ink-soft);margin-top:.5em;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(calc(100svh - var(--rafo-h)),58rem);display:grid;align-items:end;}
+.hero__media{position:absolute;inset:0;z-index:0;}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:60% 40%;filter:saturate(.82) contrast(1.04) brightness(.72);}
+.hero__media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(105deg,var(--bg) 6%,rgba(25,18,24,.9) 34%,rgba(25,18,24,.28) 66%,rgba(58,23,40,.5) 100%),
+    linear-gradient(to top,var(--bg) 2%,transparent 42%);
+}
+.hero__in{position:relative;z-index:10;padding-block:calc(var(--section) * 1.15) clamp(2.5rem,5vw,4.5rem);}
+.hero h1{font-size:var(--step-4);max-width:15ch;}
+.hero h1 em{font-style:normal;color:var(--ember);}
+.hero__sub{margin-top:clamp(1.2rem,2.4vw,2rem);max-width:38ch;color:var(--ink-soft);font-size:var(--step-1);line-height:1.5;}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:clamp(1.8rem,3vw,2.6rem);}
+
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;
+  font-size:var(--step--1);letter-spacing:.12em;text-transform:uppercase;
+  padding:1rem 1.9rem;border:1px solid transparent;
+  transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.btn--solid{background:var(--ember);color:#2A1018;}
+.btn--solid:hover{background:#F79E7C;transform:translateY(-2px);}
+.btn--ghost{border-color:var(--line-strong);color:var(--ink);}
+.btn--ghost:hover{border-color:var(--ember);color:var(--ember);transform:translateY(-2px);}
+
+/* ---------- manifesto ---------- */
+.manifesto{background:var(--wine-deep);padding-block:var(--section);position:relative;}
+.manifesto__q{font-family:var(--display);font-size:var(--step-3);line-height:1.12;max-width:20ch;}
+.manifesto__grid{display:grid;gap:var(--gap) clamp(2rem,5vw,5rem);margin-top:clamp(2rem,4vw,3.4rem);}
+@media (min-width:52rem){.manifesto__grid{grid-template-columns:repeat(3,1fr);}}
+.manifesto__grid p{color:#EBD8DC;}
+.manifesto__grid b{display:block;font-family:var(--display);font-weight:400;font-size:var(--step-1);color:var(--ink);margin-bottom:.4rem;}
+
+/* ---------- rituais: trilho horizontal (assinatura da pagina) ---------- */
+.rituais{padding-block:var(--section) 0;}
+.rituais__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;}
+.rituais__head h2{font-size:var(--step-3);}
+.rituais__hint{color:var(--ink-soft);font-size:var(--step--1);letter-spacing:.16em;text-transform:uppercase;}
+.rail{
+  display:grid;grid-auto-flow:column;grid-auto-columns:min(82vw,30rem);
+  gap:clamp(1rem,2.5vw,2rem);
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:clamp(2rem,4vw,3rem) var(--pad-x) clamp(3rem,5vw,4rem);
+  margin-top:0;
+  scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent;
+}
+.rail::-webkit-scrollbar{height:6px;}
+.rail::-webkit-scrollbar-thumb{background:var(--line-strong);}
+.ritual{scroll-snap-align:center;}
+.ritual figure{margin:0;overflow:hidden;background:var(--bg-lift);}
+.ritual img{width:100%;aspect-ratio:11 / 8;object-fit:cover;filter:saturate(.86) brightness(.9);transition:transform .8s var(--ease),filter .8s var(--ease);}
+.ritual:hover img,.ritual:focus-within img{transform:scale(1.045);filter:saturate(1) brightness(1);}
+.ritual h3{font-size:var(--step-2);margin-top:1.25rem;}
+.ritual p{color:var(--ink-soft);margin-top:.6rem;}
+.ritual dl{margin:1.1rem 0 0;padding-top:1rem;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;font-size:var(--step--1);}
+.ritual dt{color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;}
+.ritual dd{margin:0;}
+
+/* ---------- sessao: foto fixa + texto ---------- */
+.sessao{padding-block:var(--section);}
+.sessao__grid{display:grid;gap:clamp(2rem,5vw,4.5rem);}
+@media (min-width:60rem){.sessao__grid{grid-template-columns:minmax(0,.85fr) minmax(0,1fr);align-items:start;}}
+.sessao__media{position:relative;}
+@media (min-width:60rem){.sessao__media{position:sticky;top:clamp(2rem,6vh,5rem);}}
+.sessao__media img{width:100%;object-fit:cover;}
+.sessao h2{font-size:var(--step-3);max-width:16ch;}
+.momentos{margin:clamp(2rem,4vw,3rem) 0 0;padding:0;list-style:none;counter-reset:m;}
+.momentos li{border-top:1px solid var(--line);padding:clamp(1.4rem,3vw,2.2rem) 0;display:grid;gap:.4rem 1.6rem;}
+@media (min-width:40rem){.momentos li{grid-template-columns:4.5rem 1fr;}}
+.momentos li::before{
+  counter-increment:m;content:counter(m,decimal-leading-zero);
+  font-family:var(--display);font-size:var(--step-1);color:var(--ember);line-height:1;padding-top:.15em;
+}
+.momentos h3{font-family:var(--body);font-weight:700;font-size:var(--step-1);letter-spacing:-.01em;}
+.momentos p{color:var(--ink-soft);margin-top:.5rem;}
+
+/* ---------- a casa ---------- */
+.casa{position:relative;isolation:isolate;}
+.casa img{width:100%;height:clamp(22rem,60vh,38rem);object-fit:cover;object-position:50% 42%;filter:saturate(.92) brightness(1.18) contrast(1.05);}
+.casa__over{
+  position:absolute;inset:auto 0 0 0;padding:clamp(2rem,5vw,4rem) var(--pad-x);
+  background:linear-gradient(to top,rgba(25,18,24,.96),rgba(25,18,24,.72) 55%,rgba(25,18,24,.1) 100%);
+}
+.casa h2{font-size:var(--step-2);}
+.casa p{max-width:46ch;margin-top:.8rem;color:var(--ink-soft);}
+
+/* ---------- vozes ---------- */
+.vozes{padding-block:var(--section);}
+.vozes__titulo{font-size:var(--step-2);max-width:18ch;margin-bottom:clamp(2rem,4vw,3rem);}
+.vozes__grid{display:grid;gap:clamp(2rem,4vw,3.5rem);}
+@media (min-width:54rem){.vozes__grid{grid-template-columns:1fr 1fr;}}
+.voz{border-top:2px solid var(--ember);padding-top:1.4rem;}
+.voz blockquote{margin:0;font-family:var(--display);font-size:var(--step-2);line-height:1.24;}
+.voz figcaption{margin-top:1rem;color:var(--ink-soft);font-size:var(--step--1);letter-spacing:.12em;text-transform:uppercase;}
+.nota-modelo{margin-top:clamp(2rem,4vw,3rem);color:var(--ink-soft);font-size:var(--step--1);max-width:60ch;}
+
+/* ---------- visita ---------- */
+.visita{background:var(--wine);padding-block:var(--section);}
+.visita__grid{display:grid;gap:clamp(2rem,5vw,4rem);}
+@media (min-width:54rem){.visita__grid{grid-template-columns:1.1fr .9fr;align-items:start;}}
+.visita h2{font-size:var(--step-3);max-width:14ch;}
+.visita p{margin-top:1.2rem;max-width:40ch;color:#F3E2E6;}
+.visita__dados{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.9rem 1.6rem;font-size:var(--step-0);}
+.visita__dados dt{color:#EBCFD6;letter-spacing:.12em;text-transform:uppercase;font-size:var(--step--1);padding-top:.15em;}
+.visita__dados dd{margin:0;}
+.visita__dados a{text-decoration-thickness:1px;text-underline-offset:3px;}
+.visita .btn--solid{margin-top:2rem;}
+
+/* ---------- rodape ---------- */
+.rodape{padding-block:clamp(2.5rem,5vw,4rem);border-top:1px solid var(--line);}
+.rodape__in{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:baseline;justify-content:space-between;color:var(--ink-soft);font-size:var(--step--1);}
+.rodape strong{font-family:var(--display);font-weight:400;font-size:var(--step-1);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);}
+
+/* ---------- movimento (nunca esconde conteudo por padrao) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes lume-rise{from{opacity:0;transform:translateY(1.4rem);}to{opacity:1;transform:none;}}
+  @keyframes lume-wipe{from{opacity:0;clip-path:inset(0 0 18% 0);}to{opacity:1;clip-path:inset(0 0 0 0);}}
+  .hero h1{animation:lume-rise .9s var(--ease) both;}
+  .hero__sub{animation:lume-rise .9s .12s var(--ease) both;}
+  .hero__actions{animation:lume-rise .9s .22s var(--ease) both;}
+  .mark{animation:lume-rise .8s .05s var(--ease) both;}
+  .hero__media img{animation:lume-wipe 1.4s var(--ease) both;}
+
+  @supports (animation-timeline: view()){
+    .reveal{animation:lume-rise linear both;animation-timeline:view();animation-range:entry 8% cover 26%;}
+  }
+}
+@media print{.rafo{position:static;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__media">
+    <picture>
+      <source type="image/webp" sizes="100vw" srcset="lume/hero-sm.webp 760w, lume/hero.webp 1500w">
+      <source type="image/jpeg" sizes="100vw" srcset="lume/hero-sm.jpg 760w, lume/hero.jpg 1500w">
+      <img src="lume/hero.jpg" alt="Cliente deitada em maca recebendo tratamento facial, à luz de velas" width="1500" height="1000" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <p class="mark">Lume<small>Caxias do Sul</small></p>
+
+  <div class="hero__in wrap limit">
+    <h1>A pele conta como você <em>tem vivido</em>.</h1>
+    <p class="hero__sub">Estúdio de estética facial e corporal em Caxias do Sul. Uma cliente por vez, protocolo definido na avaliação, sem sala de espera cheia e sem pressa.</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="https://wa.me/5554990000000?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener">Agendar avaliação</a>
+      <a class="btn btn--ghost" href="#rituais">Ver os rituais</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="manifesto">
+    <div class="wrap limit">
+      <h2 class="manifesto__q reveal">Estética não é um cardápio. É uma leitura da sua pele, feita com tempo.</h2>
+      <div class="manifesto__grid reveal">
+        <p><b>Uma por vez</b>A agenda é aberta para uma cliente por horário. Ninguém entra na sala enquanto você está nela, e a sessão não é encurtada porque a próxima chegou.</p>
+        <p><b>Protocolo, não pacote</b>Na primeira visita a gente olha, pergunta e escuta antes de indicar qualquer coisa. O que sai dali é um plano com começo, meio e fim, não uma assinatura mensal.</p>
+        <p><b>Você entende o que está sendo feito</b>Cada etapa é explicada antes de começar: o que o produto faz, o que você vai sentir, quanto tempo a pele leva para responder e o que evitar depois.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rituais" id="rituais">
+    <div class="wrap limit">
+      <div class="rituais__head reveal">
+        <h2>Os rituais da casa</h2>
+        <p class="rituais__hint">arraste para o lado</p>
+      </div>
+    </div>
+
+    <div class="rail" role="group" aria-label="Rituais oferecidos pelo estúdio">
+      <article class="ritual">
+        <figure>
+          <picture><source type="image/webp" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-facial-sm.webp 640w, lume/ritual-facial.webp 1100w"><source type="image/jpeg" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-facial-sm.jpg 640w, lume/ritual-facial.jpg 1100w"><img src="lume/ritual-facial.jpg" alt="Mãos da esteticista fazendo massagem facial em cliente deitada" width="1100" height="780" loading="lazy" decoding="async"></picture>
+        </figure>
+        <h3>Ritual do rosto</h3>
+        <p>Limpeza profunda, peelings, microagulhamento e protocolos de acne. Começa sempre pela leitura da pele com lupa e termina com o roteiro de casa escrito na mão.</p>
+        <dl><dt>Duração</dt><dd>60 a 90 minutos</dd><dt>Indicado</dt><dd>oleosidade, manchas, textura</dd></dl>
+      </article>
+
+      <article class="ritual">
+        <figure>
+          <picture><source type="image/webp" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-corpo-sm.webp 640w, lume/ritual-corpo.webp 1100w"><source type="image/jpeg" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-corpo-sm.jpg 640w, lume/ritual-corpo.jpg 1100w"><img src="lume/ritual-corpo.jpg" alt="Sessão de massagem corporal em maca, com velas acesas ao fundo" width="1100" height="780" loading="lazy" decoding="async"></picture>
+        </figure>
+        <h3>Ritual do corpo</h3>
+        <p>Massagem modeladora, drenagem e cuidados para gestante, com pressão ajustada durante a sessão. Sem pacote fechado antes da primeira avaliação.</p>
+        <dl><dt>Duração</dt><dd>50 a 80 minutos</dd><dt>Indicado</dt><dd>retenção, tensão, pós-operatório</dd></dl>
+      </article>
+
+      <article class="ritual">
+        <figure>
+          <picture><source type="image/webp" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-maos-sm.webp 640w, lume/ritual-maos.webp 1100w"><source type="image/jpeg" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-maos-sm.jpg 640w, lume/ritual-maos.jpg 1100w"><img src="lume/ritual-maos.jpg" alt="Unhas em esmalte vermelho recém-finalizadas, close nas mãos" width="1100" height="780" loading="lazy" decoding="async"></picture>
+        </figure>
+        <h3>Ritual das mãos</h3>
+        <p>Manicure russa, spa de mãos e alongamento em fibra. Material esterilizado em autoclave, com envelope aberto na frente da cliente.</p>
+        <dl><dt>Duração</dt><dd>40 a 75 minutos</dd><dt>Indicado</dt><dd>cutícula sensível, unha fraca</dd></dl>
+      </article>
+
+      <article class="ritual">
+        <figure>
+          <picture><source type="image/webp" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-avancado-sm.webp 640w, lume/ritual-avancado.webp 1100w"><source type="image/jpeg" sizes="(min-width:60rem) 30rem, 82vw" srcset="lume/ritual-avancado-sm.jpg 640w, lume/ritual-avancado.jpg 1100w"><img src="lume/ritual-avancado.jpg" alt="Aplicação de procedimento estético avançado no rosto de uma cliente" width="1100" height="780" loading="lazy" decoding="async"></picture>
+        </figure>
+        <h3>Protocolos avançados</h3>
+        <p>Bioestimulador, skinbooster e tecnologias de firmeza, feitos apenas depois da avaliação presencial e com acompanhamento de retorno marcado.</p>
+        <dl><dt>Duração</dt><dd>consulta + sessão</dd><dt>Indicado</dt><dd>flacidez, contorno, viço</dd></dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="sessao wrap limit">
+    <div class="sessao__grid">
+      <div class="sessao__media reveal">
+        <picture><source type="image/webp" sizes="(min-width:60rem) 34rem, 92vw" srcset="lume/pele-sm.webp 520w, lume/pele.webp 900w"><source type="image/jpeg" sizes="(min-width:60rem) 34rem, 92vw" srcset="lume/pele-sm.jpg 520w, lume/pele.jpg 900w"><img src="lume/pele.jpg" alt="Close da pele do rosto de uma cliente após o tratamento" width="900" height="1150" loading="lazy" decoding="async"></picture>
+      </div>
+      <div class="reveal">
+        <h2>Como é uma sessão aqui</h2>
+        <ol class="momentos">
+          <li>
+            <div>
+              <h3>A conversa antes do toque</h3>
+              <p>Você senta, conta o que te incomoda e o que já tentou. A gente pergunta sobre rotina, sono, medicação e sol, porque a pele responde a tudo isso. Nada é aplicado nesse primeiro momento.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>A leitura da pele</h3>
+              <p>Com lupa e luz apropriada, olhamos textura, oleosidade, manchas e sensibilidade. É aqui que muita expectativa se ajusta: às vezes o caminho é mais curto do que você imaginava, às vezes é mais longo.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>O protocolo e o combinado</h3>
+              <p>Você sai com o plano escrito: o que será feito, em que ordem, com que intervalo e o que precisa mudar em casa. Se um procedimento não for indicado para você agora, a gente diz isso na hora, e explica por quê.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="casa">
+    <picture><source type="image/webp" sizes="100vw" srcset="lume/ambiente-sm.webp 760w, lume/ambiente.webp 1500w"><source type="image/jpeg" sizes="100vw" srcset="lume/ambiente-sm.jpg 760w, lume/ambiente.jpg 1500w"><img src="lume/ambiente.jpg" alt="Ambiente do estúdio em luz baixa, com profissional atendendo uma cliente diante do espelho" width="1500" height="850" loading="lazy" decoding="async"></picture>
+    <div class="casa__over">
+      <div class="limit">
+        <h2>A casa</h2>
+        <p>Uma sala, luz quente e som baixo, num sobrado do Jardim América. Estacionamento na porta, entrada sem degrau e um café que fica pronto enquanto você tira o casaco.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="vozes wrap limit">
+    <h2 class="vozes__titulo reveal">Duas clientes, sem edição</h2>
+    <div class="vozes__grid">
+      <figure class="voz reveal">
+        <blockquote>“Foi a primeira vez que alguém me explicou por que a minha pele estava daquele jeito, em vez de só vender um pacote.”</blockquote>
+        <figcaption>Camila R., cliente desde 2023</figcaption>
+      </figure>
+      <figure class="voz reveal">
+        <blockquote>“Chego tensa do trabalho e saio conseguindo dormir. E a agenda é honesta: se não dá para me atender bem naquele horário, elas dizem.”</blockquote>
+        <figcaption>Juliana P., cliente desde 2024</figcaption>
+      </figure>
+    </div>
+    <p class="nota-modelo">Esta página é um modelo demonstrativo. Lume é um estúdio fictício, criado para mostrar como um site de estética pode ser apresentado; os depoimentos e os dados de contato acima são ilustrativos.</p>
+  </section>
+
+  <section class="visita">
+    <div class="wrap limit visita__grid">
+      <div class="reveal">
+        <h2>Venha conhecer antes de decidir</h2>
+        <p>A avaliação é uma conversa de trinta minutos, sem compromisso de fechar nada. Se preferir, mande uma mensagem contando o que te incomoda e a gente já responde com o melhor horário.</p>
+        <a class="btn btn--solid" href="https://wa.me/5554990000000?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+      <dl class="visita__dados reveal">
+        <dt>Endereço</dt>
+        <dd>Rua Ítalo Victor Bersani, 1220<br>Jardim América, Caxias do Sul, RS</dd>
+        <dt>Horários</dt>
+        <dd>Terça a sexta, 9h às 19h<br>Sábado, 9h às 15h</dd>
+        <dt>Contato</dt>
+        <dd><a href="https://wa.me/5554990000000" target="_blank" rel="noopener">(54) 99000-0000</a><br>oi@lumeestetica.com.br</dd>
+        <dt>Desde</dt>
+        <dd>2017, no mesmo bairro</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape wrap limit">
+  <div class="rodape__in">
+    <strong>Lume</strong>
+    <p>Estética facial e corporal · Caxias do Sul, RS</p>
+    <p>Página modelo, sem vínculo com estabelecimento real.</p>
+  </div>
+</footer>
+
+<aside class="rafo">
+  <div class="rafo__in">
+    <b>R.A.F.O.</b>
+    <span>Este é um site modelo. O seu pode ficar assim, com o seu nome e as suas fotos.</span>
+    <a href="https://wa.me/5524992695804?text=Vi%20o%20modelo%20da%20Lume%20e%20quero%20um%20site%20assim%20para%20o%20meu%20neg%C3%B3cio" target="_blank" rel="noopener">Quero um assim</a>
+  </div>
+</aside>
+
+</body>
+</html>

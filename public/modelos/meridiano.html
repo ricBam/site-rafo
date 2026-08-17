@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Meridiano Odontologia, São José dos Campos</title>
+<meta name="description" content="Clínica odontológica em São José dos Campos. Plano de tratamento explicado antes de começar, horário que respeita o seu, e nada feito sem você entender.">
+<link rel="preload" href="meridiano/fonts/schibsted-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="meridiano/fonts/literata-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" imagesizes="(min-width:62rem) 36rem, 100vw" imagesrcset="meridiano/consultorio-sm.webp 720w, meridiano/consultorio.webp 1400w">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314483B'/%3E%3Crect x='8' y='7' width='4' height='18' fill='%23F3F5F1'/%3E%3Crect x='16' y='7' width='4' height='18' fill='%23F3F5F1'/%3E%3C/svg%3E">
+<style>
+/* ---------------------------------------------------------------
+   Meridiano Odontologia, modelo demonstrativo R.A.F.O.
+   Identidade própria do nicho: papel claro, tinta escura, verde pinho.
+   Composição estruturada: grade firme, fichas técnicas, hierarquia.
+   --------------------------------------------------------------- */
+@font-face{font-family:'Schibsted Grotesk';src:url('meridiano/fonts/schibsted-grotesk-400-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Schibsted Grotesk';src:url('meridiano/fonts/schibsted-grotesk-500-latin.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'Schibsted Grotesk';src:url('meridiano/fonts/schibsted-grotesk-700-latin.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Literata';src:url('meridiano/fonts/literata-400-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+
+:root{
+  --paper:#F3F5F1;
+  --panel:#E4E9E1;
+  --panel-2:#D7DED4;
+  --ink:#111813;
+  --ink-soft:#465049;
+  --pine:#14483B;
+  --pine-deep:#0C2E25;
+  --pine-tint:#DCE6E0;
+  --line:#C4CEC5;
+  --line-soft:#DAE1D8;
+
+  --sans:'Schibsted Grotesk','Segoe UI',system-ui,sans-serif;
+  --serif:'Literata',Georgia,'Times New Roman',serif;
+
+  --step--1:clamp(0.8rem, 0.77rem + 0.14vw, 0.88rem);
+  --step-0:clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1:clamp(1.28rem, 1.16rem + 0.5vw, 1.75rem);
+  --step-2:clamp(1.62rem, 1.36rem + 1.1vw, 2.35rem);
+  --step-3:clamp(2.05rem, 1.6rem + 1.9vw, 3.2rem);
+  --step-4:clamp(2.6rem, 1.8rem + 3.3vw, 4.4rem);
+
+  --pad-x:clamp(1.15rem, 0.4rem + 3.4vw, 4.5rem);
+  --section:clamp(3.8rem, 2.6rem + 5.6vw, 7rem);
+  --ease:cubic-bezier(.2,.8,.3,1);
+  --rafo-h:8.5rem;
+}
+@media (min-width:34rem){:root{--rafo-h:6rem;}}
+@media (min-width:60rem){:root{--rafo-h:4.5rem;}}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:var(--step-0);line-height:1.68;
+  padding-bottom:var(--rafo-h);
+}
+img{display:block;max-width:100%;height:auto;}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin:0;text-wrap:balance;}
+p{margin:0;text-wrap:pretty;}
+a{color:var(--pine);}
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px;}
+
+.wrap{padding-inline:var(--pad-x);}
+.limit{max-width:76rem;margin-inline:auto;}
+.rule{border:0;border-top:1px solid var(--line);margin:0;}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:0;z-index:50;background:rgba(243,245,241,.94);border-bottom:1px solid var(--line);}
+@supports (backdrop-filter:blur(6px)){.topo{backdrop-filter:blur(8px);}}
+.topo__in{display:flex;align-items:center;gap:1.5rem;justify-content:space-between;padding-block:.85rem;}
+.logo{font-family:var(--sans);font-weight:700;font-size:var(--step-1);letter-spacing:-0.03em;text-decoration:none;color:var(--ink);}
+.logo span{color:var(--pine);}
+.nav{display:none;gap:clamp(1rem,2vw,2rem);}
+@media (min-width:64rem){.nav{display:flex;}}
+.nav a{
+  font-family:var(--sans);font-size:var(--step--1);font-weight:500;letter-spacing:.02em;
+  color:var(--ink-soft);text-decoration:none;padding-block:.3rem;position:relative;
+}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pine);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+.nav a:hover{color:var(--ink);}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1);}
+
+.btn{
+  display:inline-block;font-family:var(--sans);font-weight:700;font-size:var(--step--1);
+  letter-spacing:.02em;text-decoration:none;padding:.85rem 1.5rem;border:1.5px solid var(--pine);
+  transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
+}
+.btn--solid{background:var(--pine);color:#F3F5F1;}
+.btn--solid:hover{background:var(--pine-deep);border-color:var(--pine-deep);transform:translateY(-2px);}
+.btn--line{background:transparent;color:var(--pine);}
+.btn--line:hover{background:var(--pine-tint);transform:translateY(-2px);}
+.btn--lg{padding:1.05rem 2rem;font-size:var(--step-0);}
+
+/* ---------- hero em duas colunas, nada de sangria ---------- */
+.hero{padding-block:clamp(2.5rem,5vw,4.5rem) var(--section);}
+.hero__grid{display:grid;gap:clamp(2rem,4vw,3.5rem);}
+@media (min-width:62rem){
+  .hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:stretch;}
+  .hero__media img{height:100%;aspect-ratio:auto;min-height:30rem;}
+}
+.hero h1{font-size:var(--step-4);max-width:16ch;}
+.hero__lede{margin-top:clamp(1.2rem,2vw,1.8rem);font-size:var(--step-1);line-height:1.5;max-width:38ch;color:var(--ink-soft);}
+.hero__acoes{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:clamp(1.6rem,2.6vw,2.2rem);}
+.hero__media img{width:100%;aspect-ratio:7 / 5;object-fit:cover;}
+
+/* ---------- ficha tecnica: assinatura do site ---------- */
+.ficha{margin:clamp(2rem,3.5vw,3rem) 0 0;border-top:2px solid var(--ink);}
+.ficha div{display:grid;grid-template-columns:minmax(7.5rem,auto) 1fr;gap:.5rem 1.5rem;padding:.75rem 0;border-bottom:1px solid var(--line-soft);}
+.ficha dt{font-family:var(--sans);font-size:var(--step--1);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);}
+.ficha dd{margin:0;font-size:var(--step--1);font-family:var(--sans);}
+
+/* ---------- secoes ---------- */
+.sec{padding-block:var(--section);}
+.sec--panel{background:var(--panel);}
+.sec--pine{background:var(--pine);color:#EAF1EC;}
+.sec--pine h2,.sec--pine h3{color:#fff;}
+.sec__cab{display:grid;gap:1rem;margin-bottom:clamp(2rem,3.5vw,3rem);}
+@media (min-width:56rem){.sec__cab{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:3rem;}}
+.sec__cab h2{font-size:var(--step-3);max-width:16ch;}
+.sec__cab p{color:var(--ink-soft);max-width:44ch;}
+.sec--pine .sec__cab p{color:#C6D6CC;}
+
+/* tratamentos: lista com fios, sem cards */
+.trata{display:grid;gap:0;border-top:1px solid var(--line);}
+@media (min-width:56rem){.trata{grid-template-columns:1fr 1fr;column-gap:clamp(2rem,4vw,4rem);}}
+.trata__item{padding:clamp(1.3rem,2.4vw,1.9rem) 0;border-bottom:1px solid var(--line);}
+.trata__item h3{font-size:var(--step-1);}
+.trata__item p{margin-top:.5rem;color:var(--ink-soft);max-width:46ch;}
+.trata__item span{
+  display:inline-block;margin-top:.9rem;font-family:var(--sans);font-size:var(--step--1);
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--pine);
+}
+
+/* primeira consulta: sequencia real, numerada uma vez na pagina */
+.passos__grid{display:grid;gap:clamp(2rem,4vw,3.5rem);}
+@media (min-width:62rem){.passos__grid{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:start;}}
+.passos{list-style:none;margin:0;padding:0;counter-reset:p;}
+.passos li{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem 1.4rem;padding-block:clamp(1.1rem,2vw,1.6rem);border-bottom:1px solid var(--line);}
+.passos li:first-child{border-top:1px solid var(--line);}
+.passos li::before{
+  counter-increment:p;content:counter(p);
+  font-family:var(--sans);font-weight:700;font-size:var(--step-1);color:var(--pine);line-height:1.15;
+}
+.passos h3{font-size:var(--step-1);}
+.passos p{grid-column:2;margin-top:.4rem;color:var(--ink-soft);}
+.passos__media{display:grid;gap:1.25rem;}
+.passos__media img{width:100%;object-fit:cover;}
+
+/* como a clinica funciona: tabela de dados */
+.dados{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:var(--step--1);text-align:left;}
+.dados caption{text-align:left;font-family:var(--sans);font-weight:700;font-size:var(--step--1);letter-spacing:.06em;text-transform:uppercase;color:#B7CCC0;padding-bottom:1rem;}
+.dados th,.dados td{padding:.9rem 1rem .9rem 0;border-bottom:1px solid rgba(234,241,236,.24);vertical-align:top;}
+.dados th{font-weight:700;width:38%;color:#fff;}
+.dados td{color:#D3E2D9;}
+.estrutura{display:grid;gap:clamp(2rem,4vw,3.5rem);}
+@media (min-width:62rem){.estrutura{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;}}
+.estrutura__fotos{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.estrutura__fotos img{width:100%;aspect-ratio:1 / 1;object-fit:cover;}
+
+/* equipe: sem foto de banco de imagem posando de dentista */
+.equipe{display:grid;gap:0;border-top:2px solid var(--ink);}
+.pessoa{display:grid;gap:.35rem 2rem;padding:clamp(1.2rem,2.2vw,1.8rem) 0;border-bottom:1px solid var(--line);}
+@media (min-width:50rem){.pessoa{grid-template-columns:minmax(0,15rem) minmax(0,1fr) auto;align-items:baseline;}}
+.pessoa h3{font-size:var(--step-1);}
+.pessoa p{color:var(--ink-soft);max-width:44ch;}
+.pessoa em{font-style:normal;font-family:var(--sans);font-size:var(--step--1);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--pine);}
+
+/* duvidas */
+.duvidas{max-width:52rem;}
+.duvida{border-bottom:1px solid var(--line);}
+.duvida:first-of-type{border-top:1px solid var(--line);}
+.duvida summary{
+  cursor:pointer;list-style:none;padding:clamp(1.1rem,2vw,1.5rem) 2.5rem clamp(1.1rem,2vw,1.5rem) 0;
+  font-family:var(--sans);font-weight:700;font-size:var(--step-1);position:relative;
+}
+.duvida summary::-webkit-details-marker{display:none;}
+.duvida summary::after{
+  content:"";position:absolute;right:.4rem;top:50%;width:.72rem;height:.72rem;
+  border-right:2px solid var(--pine);border-bottom:2px solid var(--pine);
+  transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--ease);
+}
+.duvida[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+.duvida summary:hover{color:var(--pine);}
+.duvida p{padding-bottom:clamp(1.1rem,2vw,1.5rem);color:var(--ink-soft);max-width:56ch;}
+
+/* onde ficamos */
+.local{display:grid;gap:clamp(2rem,4vw,3.5rem);}
+@media (min-width:62rem){.local{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;}}
+.horarios{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:var(--step--1);text-align:left;margin-top:1.5rem;}
+.horarios th,.horarios td{padding:.7rem 0;border-bottom:1px solid var(--line);}
+.horarios th{font-weight:700;color:var(--ink-soft);}
+.horarios td{text-align:right;}
+.endereco{font-family:var(--sans);font-size:var(--step-1);line-height:1.45;font-weight:500;}
+.local__foto img{width:100%;aspect-ratio:12 / 7;object-fit:cover;}
+
+.nota-modelo{margin-top:clamp(2rem,4vw,3rem);color:var(--ink-soft);font-size:var(--step--1);font-family:var(--sans);max-width:64ch;}
+
+/* rodape */
+.rodape{background:var(--pine-deep);color:#C8D8CE;padding-block:clamp(2.5rem,4vw,3.5rem);}
+.rodape__in{display:grid;gap:1.5rem 3rem;}
+@media (min-width:50rem){.rodape__in{grid-template-columns:1.2fr 1fr 1fr;}}
+.rodape strong{display:block;font-family:var(--sans);font-size:var(--step-1);color:#fff;letter-spacing:-.02em;}
+.rodape p,.rodape li{font-size:var(--step--1);font-family:var(--sans);}
+.rodape ul{list-style:none;margin:.6rem 0 0;padding:0;display:grid;gap:.4rem;}
+.rodape a{color:#EAF1EC;text-decoration:none;}
+.rodape a:hover{text-decoration:underline;}
+
+/* faixa R.A.F.O. */
+.rafo{position:fixed;inset-inline:0;bottom:0;z-index:60;background:#0B0A07;color:#DAE2DF;border-top:1px solid rgba(218,226,223,.22);font-family:var(--sans);font-size:var(--step--1);line-height:1.4;}
+.rafo__in{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;align-items:center;justify-content:center;padding:.6rem var(--pad-x);text-align:center;}
+.rafo b{font-weight:700;letter-spacing:.02em;}
+.rafo span{color:#B9C3C0;}
+.rafo a{color:#0B0A07;background:#E09F3E;text-decoration:none;padding:.32rem .8rem;border-radius:999px;font-weight:700;white-space:nowrap;transition:transform .25s var(--ease),background .25s var(--ease);}
+.rafo a:hover{background:#EFB65F;transform:translateY(-1px);}
+
+/* movimento: sobrio, e nunca esconde conteudo por padrao */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes mer-in{from{opacity:0;transform:translateY(.9rem);}to{opacity:1;transform:none;}}
+  .hero h1,.hero__lede,.hero__acoes,.ficha,.hero__media{animation:mer-in .7s var(--ease) both;}
+  .hero__lede{animation-delay:.08s;}
+  .hero__acoes{animation-delay:.14s;}
+  .ficha{animation-delay:.2s;}
+  .hero__media{animation-delay:.1s;}
+  @supports (animation-timeline: view()){
+    .reveal{animation:mer-in linear both;animation-timeline:view();animation-range:entry 10% cover 24%;}
+  }
+}
+@media print{.rafo,.topo{position:static;}}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo__in wrap limit">
+    <a class="logo" href="#inicio">Meridiano<span>.</span></a>
+    <nav class="nav" aria-label="Seções da página">
+      <a href="#tratamentos">O que tratamos</a>
+      <a href="#consulta">Primeira consulta</a>
+      <a href="#clinica">A clínica</a>
+      <a href="#equipe">Quem atende</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#local">Onde ficamos</a>
+    </nav>
+    <a class="btn btn--solid" href="https://wa.me/5512990000000?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20marcar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener">Agendar</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero wrap limit">
+    <div class="hero__grid">
+      <div>
+        <h1>Você vai saber o que será feito antes de sentar na cadeira.</h1>
+        <p class="hero__lede">Meridiano é uma clínica odontológica no Jardim Esplanada, em São José dos Campos. Avaliação com plano escrito, orçamento explicado item por item e nenhum procedimento iniciado no mesmo dia sem a sua decisão.</p>
+        <div class="hero__acoes">
+          <a class="btn btn--solid btn--lg" href="https://wa.me/5512990000000?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20marcar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener">Marcar avaliação</a>
+          <a class="btn btn--line btn--lg" href="#consulta">Como funciona a primeira consulta</a>
+        </div>
+        <dl class="ficha">
+          <div><dt>Atendimento</dt><dd>Segunda a sexta, 8h às 19h · Sábado, 8h às 13h</dd></div>
+          <div><dt>Especialidades</dt><dd>Seis áreas na mesma clínica, sem encaminhar você para fora</dd></div>
+          <div><dt>Urgência</dt><dd>Encaixe no mesmo dia para dor aguda, mediante contato</dd></div>
+          <div><dt>Acesso</dt><dd>Térreo, sem degrau na entrada, estacionamento no local</dd></div>
+        </dl>
+      </div>
+      <div class="hero__media">
+        <picture>
+          <source type="image/webp" sizes="(min-width:62rem) 36rem, 100vw" srcset="meridiano/consultorio-sm.webp 720w, meridiano/consultorio.webp 1400w">
+          <source type="image/jpeg" sizes="(min-width:62rem) 36rem, 100vw" srcset="meridiano/consultorio-sm.jpg 720w, meridiano/consultorio.jpg 1400w">
+          <img src="meridiano/consultorio.jpg" alt="Consultório odontológico da clínica, com cadeira e equipamento organizados" width="1400" height="1000" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--panel" id="tratamentos">
+    <div class="wrap limit">
+      <div class="sec__cab reveal">
+        <h2>O que tratamos</h2>
+        <p>Seis especialidades sob o mesmo teto e no mesmo prontuário. Se o seu caso precisar de mais de uma, a ordem dos tratamentos é combinada com você antes de começar.</p>
+      </div>
+      <div class="trata reveal">
+        <article class="trata__item">
+          <h3>Clínica geral e prevenção</h3>
+          <p>Limpeza, restauração, tratamento de cárie e o retorno de acompanhamento que evita que o problema volte maior.</p>
+          <span>Consulta inicial de 40 minutos</span>
+        </article>
+        <article class="trata__item">
+          <h3>Implantes</h3>
+          <p>Planejamento com tomografia, cirurgia e prótese acompanhadas pela mesma equipe do começo ao fim.</p>
+          <span>Avaliação com exame de imagem</span>
+        </article>
+        <article class="trata__item">
+          <h3>Ortodontia</h3>
+          <p>Aparelho fixo e alinhador transparente, com previsão de tempo apresentada antes da instalação.</p>
+          <span>Manutenção mensal agendada</span>
+        </article>
+        <article class="trata__item">
+          <h3>Endodontia</h3>
+          <p>Tratamento de canal com anestesia bem conduzida e sessões planejadas para caber na sua rotina.</p>
+          <span>Atendimento de urgência</span>
+        </article>
+        <article class="trata__item">
+          <h3>Odontopediatria</h3>
+          <p>Primeira consulta da criança sem susto: ela conhece o consultório, senta na cadeira e só depois é examinada.</p>
+          <span>Acompanhante sempre na sala</span>
+        </article>
+        <article class="trata__item">
+          <h3>Estética dental</h3>
+          <p>Clareamento, facetas e ajustes de forma, com prévia do resultado antes de qualquer desgaste no dente.</p>
+          <span>Simulação antes de decidir</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="consulta">
+    <div class="wrap limit">
+      <div class="sec__cab reveal">
+        <h2>Sua primeira consulta, passo a passo</h2>
+        <p>A avaliação inicial dura cerca de quarenta minutos. Ela existe para você entender o seu caso e sair com um plano na mão, mesmo que decida tratar em outro lugar.</p>
+      </div>
+      <div class="passos__grid">
+        <ol class="passos reveal">
+          <li>
+            <h3>Conversa e histórico</h3>
+            <p>Antes do exame, a gente pergunta o que dói, o que te incomoda esteticamente, o que você já tratou e que remédios usa. Muita coisa do plano se decide aqui.</p>
+          </li>
+          <li>
+            <h3>Exame clínico e imagem</h3>
+            <p>Exame de boca completo e, quando necessário, radiografia feita na própria clínica. Você vê as imagens na tela junto com o dentista, não depois por e-mail.</p>
+          </li>
+          <li>
+            <h3>Plano de tratamento escrito</h3>
+            <p>Cada procedimento indicado aparece com a razão, a ordem sugerida e o tempo estimado. Se houver mais de um caminho possível, os dois são apresentados.</p>
+          </li>
+          <li>
+            <h3>Orçamento e decisão sua</h3>
+            <p>O orçamento é entregue item por item, com as formas de pagamento e a validade. Você leva para casa e decide com calma: nada é iniciado no mesmo dia por pressão.</p>
+          </li>
+        </ol>
+        <div class="passos__media reveal">
+          <picture>
+            <source type="image/webp" sizes="(min-width:62rem) 26rem, 92vw" srcset="meridiano/consulta-sm.webp 640w, meridiano/consulta.webp 1200w">
+            <source type="image/jpeg" sizes="(min-width:62rem) 26rem, 92vw" srcset="meridiano/consulta-sm.jpg 640w, meridiano/consulta.jpg 1200w">
+            <img src="meridiano/consulta.jpg" alt="Profissional conversando com paciente sentado do outro lado da mesa, durante a avaliação" width="1200" height="800" loading="lazy" decoding="async">
+          </picture>
+          <picture>
+            <source type="image/webp" sizes="(min-width:62rem) 26rem, 92vw" srcset="meridiano/ortodontia-sm.webp 600w, meridiano/ortodontia.webp 950w">
+            <source type="image/jpeg" sizes="(min-width:62rem) 26rem, 92vw" srcset="meridiano/ortodontia-sm.jpg 600w, meridiano/ortodontia.jpg 950w">
+            <img src="meridiano/ortodontia.jpg" alt="Criança sendo atendida na cadeira odontológica com acompanhamento da profissional" width="950" height="700" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--pine" id="clinica">
+    <div class="wrap limit estrutura">
+      <div class="reveal">
+        <div class="sec__cab" style="grid-template-columns:1fr;">
+          <h2>Como a clínica funciona</h2>
+          <p>As perguntas que as pessoas têm vergonha de fazer na recepção, respondidas aqui.</p>
+        </div>
+        <table class="dados">
+          <caption>Ficha da clínica</caption>
+          <tbody>
+            <tr><th scope="row">Esterilização</th><td>Instrumental em autoclave, com ciclo registrado e embalagem aberta na frente do paciente.</td></tr>
+            <tr><th scope="row">Tempo de consulta</th><td>Agenda com intervalo entre pacientes, para o horário marcado ser o horário real.</td></tr>
+            <tr><th scope="row">Imagem</th><td>Radiografia digital na própria clínica, sem precisar ir a outro endereço.</td></tr>
+            <tr><th scope="row">Prontuário</th><td>Histórico único: qualquer profissional da equipe vê o que já foi feito antes de propor algo novo.</td></tr>
+            <tr><th scope="row">Acessibilidade</th><td>Entrada térrea sem degrau, corredor largo e banheiro adaptado.</td></tr>
+            <tr><th scope="row">Convênios</th><td>Atendimento particular e reembolso; confirme o seu plano por WhatsApp antes de agendar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="estrutura__fotos reveal">
+        <picture>
+          <source type="image/webp" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/instrumentos-sm.webp 600w, meridiano/instrumentos.webp 1200w">
+          <source type="image/jpeg" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/instrumentos-sm.jpg 600w, meridiano/instrumentos.jpg 1200w">
+          <img src="meridiano/instrumentos.jpg" alt="Bandeja com instrumentos odontológicos organizados e esterilizados" width="1200" height="800" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/equipamento-sm.webp 600w, meridiano/equipamento.webp 900w">
+          <source type="image/jpeg" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/equipamento-sm.jpg 600w, meridiano/equipamento.jpg 900w">
+          <img src="meridiano/equipamento.jpg" alt="Cadeira odontológica e equipamento da sala de atendimento" width="900" height="650" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/atendimento-sm.webp 600w, meridiano/atendimento.webp 1200w">
+          <source type="image/jpeg" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/atendimento-sm.jpg 600w, meridiano/atendimento.jpg 1200w">
+          <img src="meridiano/atendimento.jpg" alt="Dentista em atendimento, com máscara e luvas, durante procedimento" width="1200" height="800" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/recepcao-sm.webp 640w, meridiano/recepcao.webp 1200w">
+          <source type="image/jpeg" sizes="(min-width:62rem) 18rem, 46vw" srcset="meridiano/recepcao-sm.jpg 640w, meridiano/recepcao.jpg 1200w">
+          <img src="meridiano/recepcao.jpg" alt="Área de recepção da clínica, com cadeiras e luz natural" width="1200" height="700" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="equipe">
+    <div class="wrap limit">
+      <div class="sec__cab reveal">
+        <h2>Quem atende você</h2>
+        <p>A mesma pessoa que avalia é a que trata. Você não conhece um profissional na consulta e outro na hora do procedimento.</p>
+      </div>
+      <div class="equipe reveal">
+        <article class="pessoa">
+          <h3>Helena Vidal</h3>
+          <p>Conduz as avaliações iniciais e os casos de implante, do planejamento à prótese final.</p>
+          <em>Implantodontia · 14 anos</em>
+        </article>
+        <article class="pessoa">
+          <h3>Rafael Amorim</h3>
+          <p>Ortodontia de adultos e adolescentes, com controle de tempo de tratamento apresentado no início.</p>
+          <em>Ortodontia · 11 anos</em>
+        </article>
+        <article class="pessoa">
+          <h3>Marina Sayuri</h3>
+          <p>Atende crianças e adolescentes, e conduz a primeira consulta infantil sem procedimento no dia.</p>
+          <em>Odontopediatria · 9 anos</em>
+        </article>
+      </div>
+      <p class="nota-modelo">Registros profissionais no CRO-SP ficam expostos na recepção e podem ser conferidos a qualquer momento.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--panel" id="duvidas">
+    <div class="wrap limit">
+      <div class="sec__cab reveal">
+        <h2>Dúvidas que todo paciente tem</h2>
+        <p>Se a sua não estiver aqui, mande por WhatsApp. Responder pergunta antes da consulta faz parte do atendimento.</p>
+      </div>
+      <div class="duvidas reveal">
+        <details class="duvida">
+          <summary>Vai doer?</summary>
+          <p>A maior parte dos procedimentos é feita com anestesia local, e a aplicação é precedida de anestésico tópico para reduzir o incômodo da picada. Você combina um sinal com o dentista para pedir pausa a qualquer momento.</p>
+        </details>
+        <details class="duvida">
+          <summary>Preciso levar exames?</summary>
+          <p>Não é obrigatório. Se você já tem radiografia ou tomografia recente, leve, porque evita repetir. Caso contrário, a imagem necessária é feita aqui mesmo.</p>
+        </details>
+        <details class="duvida">
+          <summary>Quanto tempo demora o tratamento?</summary>
+          <p>Depende do caso, e é justamente isso que a avaliação responde. O plano entregue a você traz o número de sessões previstas e o intervalo entre elas, por escrito.</p>
+        </details>
+        <details class="duvida">
+          <summary>Posso levar meu filho junto na minha consulta?</summary>
+          <p>Pode. A recepção tem espaço para acompanhante e a equipe fica de olho enquanto você é atendido. Para consultas longas, vale avisar antes para reservarmos um horário mais tranquilo.</p>
+        </details>
+        <details class="duvida">
+          <summary>E se eu tiver dor fora do horário marcado?</summary>
+          <p>Casos de dor aguda têm encaixe no mesmo dia sempre que houver agenda. Mande mensagem descrevendo o que está sentindo e a recepção retorna com o horário possível.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="local">
+    <div class="wrap limit local">
+      <div class="reveal">
+        <h2 style="font-size:var(--step-3);">Onde ficamos</h2>
+        <p class="endereco" style="margin-top:1.5rem;">Avenida São João, 2200, sala 4<br>Jardim Esplanada, São José dos Campos, SP</p>
+        <table class="horarios">
+          <caption class="nota-modelo" style="margin:0 0 .8rem;text-align:left;">Horário de atendimento</caption>
+          <tbody>
+            <tr><th scope="row">Segunda a sexta</th><td>8h às 19h</td></tr>
+            <tr><th scope="row">Sábado</th><td>8h às 13h</td></tr>
+            <tr><th scope="row">Domingo e feriados</th><td>fechado</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1.5rem;color:var(--ink-soft);">Estacionamento próprio na lateral do prédio e ponto de ônibus a duas quadras. Para quem vem de fora da cidade, a saída da rodovia fica a dez minutos.</p>
+        <p style="margin-top:2rem;"><a class="btn btn--solid btn--lg" href="https://wa.me/5512990000000?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20marcar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener">Falar com a recepção</a></p>
+      </div>
+      <div class="local__foto reveal">
+        <picture>
+          <source srcset="meridiano/recepcao.webp" type="image/webp">
+          <img src="meridiano/recepcao.jpg" alt="Sala de espera da clínica com cadeiras alinhadas e janela ampla" width="1200" height="700" loading="lazy" decoding="async">
+        </picture>
+        <p class="nota-modelo">Esta página é um modelo demonstrativo. Meridiano Odontologia é uma clínica fictícia, criada para mostrar como um site do setor pode ser apresentado; endereço, nomes e contatos acima são ilustrativos.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap limit rodape__in">
+    <div>
+      <strong>Meridiano Odontologia</strong>
+      <p>Avenida São João, 2200, sala 4<br>Jardim Esplanada, São José dos Campos, SP</p>
+    </div>
+    <div>
+      <strong>Contato</strong>
+      <ul>
+        <li><a href="https://wa.me/5512990000000" target="_blank" rel="noopener">(12) 99000-0000</a></li>
+        <li><a href="mailto:contato@meridianoodonto.com.br">contato@meridianoodonto.com.br</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Seções</strong>
+      <ul>
+        <li><a href="#tratamentos">O que tratamos</a></li>
+        <li><a href="#consulta">Primeira consulta</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<aside class="rafo">
+  <div class="rafo__in">
+    <b>R.A.F.O.</b>
+    <span>Este é um site modelo. O seu pode ficar assim, com o nome e as fotos da sua clínica.</span>
+    <a href="https://wa.me/5524992695804?text=Vi%20o%20modelo%20da%20Meridiano%20e%20quero%20um%20site%20assim%20para%20a%20minha%20cl%C3%ADnica" target="_blank" rel="noopener">Quero um assim</a>
+  </div>
+</aside>
+
+</body>
+</html>
