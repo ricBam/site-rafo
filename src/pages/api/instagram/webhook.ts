@@ -23,19 +23,30 @@ function isValidSignature(rawBody: Uint8Array, signatureHeader: string | null, a
 }
 
 export const GET: APIRoute = ({ url }) => {
+  const mode = url.searchParams.get('hub.mode');
+  const challenge = url.searchParams.get('hub.challenge');
+  const receivedToken = url.searchParams.get('hub.verify_token');
   // `process.env` is intentionally used here: these secrets are supplied when
   // the Docker container starts, not when Astro creates the production build.
   const verifyToken = process.env.INSTAGRAM_WEBHOOK_VERIFY_TOKEN;
+
+  console.info(
+    'Verificacao do webhook Instagram recebida',
+    JSON.stringify({
+      horario: new Date().toISOString(),
+      modo: mode,
+      possuiChallenge: Boolean(challenge),
+      tokenValido: Boolean(verifyToken && receivedToken === verifyToken),
+    }),
+  );
+
   if (!verifyToken) {
     console.error('Instagram webhook is not configured: INSTAGRAM_WEBHOOK_VERIFY_TOKEN is missing.');
     return textResponse('Webhook configuration error', 500);
   }
 
-  const mode = url.searchParams.get('hub.mode');
-  const challenge = url.searchParams.get('hub.challenge');
-  const receivedToken = url.searchParams.get('hub.verify_token');
-
   if (mode !== 'subscribe' || !challenge || !receivedToken || receivedToken !== verifyToken) {
+    console.warn('Verificacao do webhook Instagram rejeitada.');
     return textResponse('Forbidden', 403);
   }
 
@@ -43,6 +54,15 @@ export const GET: APIRoute = ({ url }) => {
 };
 
 export const POST: APIRoute = async ({ request }) => {
+  console.info(
+    'Requisicao POST do webhook Instagram recebida',
+    JSON.stringify({
+      horario: new Date().toISOString(),
+      contentLength: request.headers.get('content-length'),
+      possuiAssinatura: Boolean(request.headers.get('x-hub-signature-256')),
+    }),
+  );
+
   const appSecret = process.env.INSTAGRAM_APP_SECRET;
   if (!appSecret) {
     console.error('Instagram webhook is not configured: INSTAGRAM_APP_SECRET is missing.');
@@ -58,6 +78,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (rawBody.byteLength > MAX_PAYLOAD_BYTES) return textResponse('Payload too large', 413);
 
   if (!isValidSignature(rawBody, request.headers.get('x-hub-signature-256'), appSecret)) {
+    console.warn('Webhook Instagram rejeitado: assinatura SHA-256 invalida ou ausente.');
     return textResponse('Invalid signature', 401);
   }
 
@@ -65,6 +86,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     body = JSON.parse(new TextDecoder().decode(rawBody));
   } catch {
+    console.warn('Webhook Instagram rejeitado: corpo nao contem JSON valido.');
     return textResponse('Invalid JSON', 400);
   }
 
