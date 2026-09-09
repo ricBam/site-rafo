@@ -61,11 +61,24 @@ export const POST: APIRoute = async ({ request }) => {
     return textResponse('Invalid signature', 401);
   }
 
+  let body: { object?: string; entry?: unknown[] };
   try {
-    JSON.parse(new TextDecoder().decode(rawBody));
+    body = JSON.parse(new TextDecoder().decode(rawBody));
   } catch {
     return textResponse('Invalid JSON', 400);
   }
+
+  // The JSON string is deliberate: it keeps the full event readable in
+  // container log aggregators such as EasyPanel instead of showing [Object].
+  console.log(
+    'Webhook Instagram recebido',
+    JSON.stringify({
+      horario: new Date().toISOString(),
+      tipo: body.object,
+      entradas: body.entry?.length ?? 0,
+      payload: body,
+    }),
+  );
 
   const forwardUrl = process.env.INSTAGRAM_WEBHOOK_FORWARD_URL;
   if (!forwardUrl) return textResponse('EVENT_RECEIVED', 200);
