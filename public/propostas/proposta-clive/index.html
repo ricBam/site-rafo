@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clive Veterinária | Clínica veterinária 24 horas em Volta Redonda</title>
+<meta name="description" content="Clínica veterinária aberta 24 horas, todos os dias, em Volta Redonda. Há 41 anos com o Dr. Duilio Cecchi Neto: plantão, consultas, vacinas, cirurgia, internação, fisioterapia e banho e tosa.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#E1242B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clive Veterinária, aberta 24 horas em Volta Redonda">
+<meta property="og:description" content="Cuidar do seu pet é a nossa missão. Há 41 anos em Volta Redonda, com plantão 24 horas.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23fff'/%3E%3Cpath d='M12 5h8v7h7v8h-7v7h-8v-7H5v-8h7z' fill='%23E1242B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:ital,wght@0,400..800;1,400..600&display=swap" rel="stylesheet">
+<style>
+/* ---------------------------------------------------------------
+   Clive Veterinária, proposta de site (R.A.F.O.)
+   Tom amigável: a família do vermelho Clive (blush, creme rosado),
+   contornos grafite do logo, adesivos com sombra dura, rabiscos
+   desenhados à mão e fotos reais dos pacientes em molduras.
+   --------------------------------------------------------------- */
+:root{
+  --red:#E1242B;
+  --red-deep:#B3161D;
+  --blush:#FFE4DF;
+  --blush-2:#FFD2C9;
+  --cream:#FFF7F4;
+  --ink:#2A2A2A;
+  --ink-soft:#4B4545;
+  --ink-faint:#6A6262;
+  --gold:#F5B400;
+  --white:#FFFFFF;
+
+  --display:'Bricolage Grotesque', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --text:'Figtree', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --r-xl:36px;
+  --r-lg:28px;
+  --r-md:20px;
+
+  --fs-sm:clamp(.9rem, .87rem + .12vw, .98rem);
+  --fs-base:clamp(1.02rem, .98rem + .2vw, 1.12rem);
+  --fs-md:clamp(1.15rem, 1.07rem + .4vw, 1.38rem);
+  --fs-lg:clamp(1.5rem, 1.28rem + 1vw, 2.15rem);
+  --fs-xl:clamp(2rem, 1.55rem + 2.1vw, 3.3rem);
+
+  --gutter:clamp(1.1rem, .7rem + 2vw, 2.5rem);
+  --wrap:1200px;
+  --sec:clamp(4rem, 3rem + 5vw, 7.5rem);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--text);font-size:var(--fs-base);line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.02;margin:0;color:var(--ink);font-weight:800;letter-spacing:-.015em;}
+p{margin:0;}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:8px;}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter);}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.7rem 1rem;z-index:100;}
+.skip:focus{left:1rem;top:1rem;}
+.doodle{position:absolute;pointer-events:none;}
+
+/* botões adesivo: todos levam ao WhatsApp */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3.2rem;padding:.8rem 1.5rem;border-radius:999px;border:2.5px solid var(--ink);font-family:var(--display);font-weight:700;font-size:var(--fs-base);text-decoration:none;line-height:1.1;box-shadow:0 5px 0 var(--ink);transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .2s;}
+.btn:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--ink);}
+.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--ink);}
+.btn svg{width:1.3em;height:1.3em;flex:none;}
+.btn-red{background:var(--red);color:#fff;}
+.btn-white{background:#fff;color:var(--ink);}
+.link-wa{font-family:var(--display);font-weight:700;color:var(--red-deep);text-decoration:underline;text-decoration-thickness:2.5px;text-underline-offset:.28em;}
+.link-wa:hover{color:var(--ink);}
+
+/* letreiro do topo */
+.ticker{background:var(--red);color:#fff;border-bottom:2.5px solid var(--ink);overflow:hidden;white-space:nowrap;font-family:var(--display);font-weight:700;font-size:clamp(.88rem,.84rem + .2vw,1rem);}
+.ticker-track{display:inline-flex;align-items:center;animation:marquee 46s linear infinite;padding-block:.55rem;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.ticker span{display:inline-flex;align-items:center;gap:1.4rem;padding-right:1.4rem;}
+.ticker svg{width:.8rem;height:.8rem;flex:none;}
+.ticker a{color:#fff;}
+@keyframes marquee{to{transform:translateX(-50%);}}
+
+/* topo */
+.top{position:sticky;top:0;z-index:40;background:var(--blush);transition:background-color .25s,box-shadow .25s;}
+.top.scrolled{background:rgba(255,247,244,.96);box-shadow:0 2px 0 var(--ink);}
+.top .wrap{display:flex;align-items:center;gap:1rem;min-height:4.8rem;}
+.brand img{height:3.1rem;width:auto;}
+.nav{display:flex;gap:.2rem;margin-left:auto;background:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:.3rem;}
+.nav a{text-decoration:none;font-weight:700;font-size:var(--fs-sm);padding:.45rem .95rem;border-radius:999px;transition:background-color .2s;}
+.nav a:hover{background:var(--blush);}
+.top .btn{min-height:2.9rem;padding:.55rem 1.15rem;font-size:var(--fs-sm);box-shadow:0 4px 0 var(--ink);}
+.top .btn:hover{box-shadow:0 1px 0 var(--ink);}
+.menu-btn{display:none;}
+@media (max-width:920px){
+  .nav{display:none;position:absolute;left:var(--gutter);right:var(--gutter);top:calc(100% + .4rem);flex-direction:column;border-radius:var(--r-md);padding:.5rem;box-shadow:0 5px 0 var(--ink);}
+  .nav.open{display:flex;}
+  .nav a{padding:.85rem 1rem;font-size:var(--fs-base);border-radius:14px;}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:3rem;height:3rem;border:2.5px solid var(--ink);background:#fff;border-radius:50%;cursor:pointer;color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+  .menu-btn svg{width:1.3rem;height:1.3rem;}
+}
+@media (max-width:420px){.top .btn .lbl-long{display:none;}.brand img{height:2.7rem;}}
+@media (min-width:421px){.top .btn .lbl-short{display:none;}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--blush);position:relative;padding-block:clamp(1.8rem,1rem + 3vw,4rem) clamp(4rem,3rem + 4vw,6.5rem);}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,1rem + 4vw,4.5rem);align-items:center;}
+.live{display:inline-flex;align-items:center;gap:.55rem;background:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:.4rem 1rem .4rem .8rem;font-family:var(--display);font-weight:700;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--ink);}
+.pulse{width:.65rem;height:.65rem;border-radius:50%;background:#1FA855;flex:none;animation:pulse 2.2s ease-out infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,168,85,.55);}70%{box-shadow:0 0 0 10px rgba(31,168,85,0);}100%{box-shadow:0 0 0 0 rgba(31,168,85,0);}}
+.hero h1{margin-top:1.4rem;font-size:clamp(2.4rem,1.4rem + 3.4vw,4.3rem);line-height:1.05;letter-spacing:-.012em;font-weight:700;font-variation-settings:"opsz" 72;}
+.hero h1 span{display:block;text-wrap:balance;}
+.hero-lead{margin-top:1.4rem;font-size:var(--fs-md);color:var(--ink-soft);max-width:31rem;line-height:1.5;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem;}
+.hero-sign{margin-top:1.6rem;display:flex;align-items:center;gap:.7rem;font-size:var(--fs-sm);color:var(--ink-soft);}
+.hero-sign svg{width:1.3rem;height:1.3rem;color:var(--red);flex:none;}
+
+.collage{position:relative;min-height:clamp(26rem,20rem + 16vw,36rem);}
+.frame{position:absolute;margin:0;border:3px solid var(--ink);border-radius:var(--r-xl);overflow:hidden;background:#fff;}
+.frame img{width:100%;height:100%;object-fit:cover;}
+.frame-dog{right:3%;top:2%;width:62%;aspect-ratio:3/4;transform:rotate(3deg);box-shadow:12px 12px 0 var(--red);}
+.frame-cat{left:3%;bottom:0;width:42%;aspect-ratio:3/4;transform:rotate(-6deg);box-shadow:9px 9px 0 var(--ink);}
+.bubble{position:absolute;left:0;top:6%;max-width:15.5rem;background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:.9rem 1.05rem;font-weight:600;font-size:var(--fs-sm);line-height:1.4;box-shadow:0 4px 0 var(--ink);z-index:3;}
+.bubble::after{content:"";position:absolute;right:-12px;bottom:18px;width:20px;height:20px;background:#fff;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(-45deg);border-radius:0 0 4px 0;}
+.bubble small{display:flex;align-items:center;gap:.35rem;margin-top:.45rem;color:var(--ink-faint);font-weight:600;font-size:.82rem;}
+.bubble .stars svg{width:.85rem;height:.85rem;}
+.stk{position:absolute;z-index:4;display:inline-flex;align-items:center;gap:.45rem;border:2.5px solid var(--ink);border-radius:999px;padding:.45rem .95rem;font-family:var(--display);font-weight:800;font-size:var(--fs-sm);box-shadow:0 4px 0 var(--ink);white-space:nowrap;}
+.stk svg{width:1rem;height:1rem;flex:none;}
+.stk-24{right:-1%;bottom:14%;background:var(--red);color:#fff;transform:rotate(-4deg);}
+.stk-pets{left:30%;top:50%;background:#fff;transform:rotate(5deg);}
+.stk-41{right:8%;top:-2%;background:var(--gold);transform:rotate(-6deg);}
+.d-spark{left:44%;top:-4%;width:3rem;color:var(--gold);}
+.d-spark2{right:-3%;top:40%;width:1.8rem;color:var(--gold);}
+.d-heart{left:36%;bottom:4%;width:3rem;}
+.d-paws{left:-2%;bottom:52%;width:4.5rem;color:var(--ink);opacity:.8;transform:rotate(-20deg);}
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(28px,4vw,60px);display:block;}
+
+@media (prefers-reduced-motion:no-preference){
+  .stk-24{animation:bob-a 5.5s ease-in-out infinite;}
+  .stk-pets{animation:bob-b 6.5s ease-in-out infinite;}
+  .stk-41{animation:bob-c 5s ease-in-out infinite;}
+  .d-spark,.d-spark2{animation:twinkle 3.2s ease-in-out infinite;}
+  .d-spark2{animation-delay:1.1s;}
+  .d-heart{animation:beat 2.8s ease-in-out infinite;}
+  .frame{transition:transform .5s var(--bounce);}
+  .frame-dog:hover{transform:rotate(0deg) scale(1.02);}
+  .frame-cat:hover{transform:rotate(-1deg) scale(1.03);}
+  .js .hero .rise{opacity:0;transform:translateY(20px);animation:rise .8s var(--ease) forwards;}
+  .js .hero .rise:nth-child(2){animation-delay:.08s;}
+  .js .hero .rise:nth-child(3){animation-delay:.16s;}
+  .js .hero .rise:nth-child(4){animation-delay:.24s;}
+  .js .hero .rise:nth-child(5){animation-delay:.32s;}
+  .js .collage.pop > *{opacity:0;animation:pop .7s var(--bounce) forwards;}
+  .js .collage.pop > *:nth-child(2){animation-delay:.15s;}
+  .js .collage.pop > *:nth-child(3){animation-delay:.3s;}
+  .js .collage.pop > *:nth-child(n+4){animation-delay:.45s;}
+}
+@keyframes rise{to{opacity:1;transform:none;}}
+@keyframes pop{from{opacity:0;scale:.85;}to{opacity:1;scale:1;}}
+@keyframes bob-a{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+@keyframes bob-b{0%,100%{translate:0 0;}50%{translate:0 7px;}}
+@keyframes bob-c{0%,100%{translate:0 0;}50%{translate:0 -6px;}}
+@keyframes twinkle{0%,100%{scale:1;rotate:0deg;}50%{scale:.7;rotate:20deg;}}
+@keyframes beat{0%,100%{scale:1;}15%{scale:1.15;}30%{scale:1;}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .ticker-track,.ribbon-track{animation:none;}
+  .pulse{animation:none;}
+}
+
+.hero,#avaliacoes,.final{overflow-x:clip;}
+.bubble small{white-space:nowrap;}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;}
+  .collage{min-height:0;height:clamp(25rem,100vw,31rem);max-width:32rem;width:100%;margin-inline:auto;}
+  .bubble{max-width:10.5rem;top:12%;left:-1%;padding:.7rem .8rem;font-size:.84rem;}
+  .bubble small{font-size:.74rem;}
+  .bubble .stars svg{width:.7rem;height:.7rem;}
+  .stk{font-size:.86rem;padding:.38rem .8rem;}
+  .stk-41{right:2%;top:-3%;}
+  .stk-pets{left:20%;top:auto;bottom:42%;}
+  .frame-dog{width:60%;right:2%;top:4%;}
+}
+
+/* ---------- serviços ---------- */
+.sec{padding-block:var(--sec);position:relative;}
+.sec-blush{background:var(--blush);}
+.sec-head{max-width:46rem;margin-bottom:clamp(2rem,1.5rem + 2vw,3rem);}
+.sec-head h2{font-size:var(--fs-xl);}
+.sec-head p{margin-top:.9rem;color:var(--ink-soft);font-size:var(--fs-md);line-height:1.5;}
+
+.svc-index{display:flex;flex-wrap:wrap;gap:.7rem;margin:0 0 clamp(2.8rem,2rem + 2.5vw,4.5rem);padding:0;list-style:none;}
+.svc-index a{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border:2.5px solid var(--ink);border-radius:999px;background:#fff;text-decoration:none;font-family:var(--display);font-weight:700;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--ink);transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .2s;}
+.svc-index a:hover{transform:translateY(2px);box-shadow:0 1px 0 var(--ink);background:var(--blush);}
+.cross{width:.85rem;height:.85rem;flex:none;color:var(--red);}
+
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,1rem + 4vw,5rem);align-items:center;padding-block:clamp(2rem,1.5rem + 2.2vw,3.5rem);scroll-margin-top:6rem;}
+.feature:nth-of-type(even) .feature-media{order:2;}
+.pic{margin:0;border:3px solid var(--ink);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:10px 10px 0 var(--red);}
+.pic img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.feature:nth-of-type(even) .pic{box-shadow:-10px 10px 0 var(--ink);}
+.feature h3{font-size:var(--fs-lg);}
+.feature-body > p{margin-top:.9rem;color:var(--ink-soft);max-width:34rem;}
+.say{position:relative;margin:1.6rem 0 0;max-width:33rem;background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:1.05rem 1.2rem;}
+.say::before{content:"";position:absolute;left:28px;top:-12px;width:20px;height:20px;background:#fff;border-left:2.5px solid var(--ink);border-top:2.5px solid var(--ink);transform:rotate(45deg);border-radius:4px 0 0 0;}
+.say p{font-style:italic;font-weight:500;font-size:var(--fs-base);line-height:1.5;}
+.say footer{margin-top:.45rem;font-size:var(--fs-sm);color:var(--ink-faint);font-weight:600;}
+.feature .link-wa{display:inline-block;margin-top:1.3rem;}
+
+.board{position:relative;background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:var(--r-lg);box-shadow:10px 10px 0 var(--ink);padding:clamp(1.5rem,1rem + 2vw,2.4rem);display:flex;flex-direction:column;gap:2rem;min-height:clamp(16rem,12rem + 10vw,22rem);justify-content:space-between;overflow:hidden;}
+.board .big{font-family:var(--display);font-weight:800;font-size:clamp(5rem,2.5rem + 9vw,9rem);line-height:.8;letter-spacing:-.05em;}
+.board .days{display:flex;flex-wrap:wrap;gap:.4rem;}
+.board .days span{background:#fff;color:var(--red-deep);border:2px solid var(--ink);border-radius:999px;padding:.15rem .7rem;font-family:var(--display);font-weight:800;font-size:.9rem;}
+.board small{display:block;margin-top:.8rem;font-weight:600;}
+.board .moon{position:absolute;right:1.6rem;top:1.4rem;width:clamp(3.4rem,2.5rem + 3vw,5rem);color:#fff;}
+.board .tw{position:absolute;right:7.5rem;top:4.2rem;width:1.3rem;color:var(--gold);}
+
+.tagboard{background:var(--blush);border:3px solid var(--ink);border-radius:var(--r-lg);box-shadow:10px 10px 0 var(--ink);padding:clamp(1.6rem,1.2rem + 2vw,2.6rem);display:flex;flex-direction:column;align-items:flex-start;gap:.8rem;position:relative;min-height:clamp(16rem,12rem + 10vw,22rem);justify-content:center;}
+.tag{display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:.5rem 1rem .5rem .6rem;font-family:var(--display);font-weight:700;font-size:var(--fs-md);box-shadow:0 3px 0 var(--ink);}
+.tag:nth-child(2){margin-left:2.2rem;transform:rotate(1.5deg);}
+.tag:nth-child(3){margin-left:.8rem;transform:rotate(-1.5deg);}
+.tag:nth-child(4){margin-left:3.2rem;transform:rotate(1deg);}
+.tag i{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--red);color:#fff;border:2px solid var(--ink);flex:none;}
+.tag i svg{width:.9rem;height:.9rem;}
+.tagboard .d-paw-b{right:1.6rem;bottom:1.4rem;width:4rem;color:var(--red);opacity:.9;transform:rotate(18deg);}
+@media (max-width:760px){
+  .feature{grid-template-columns:1fr;}
+  .feature:nth-of-type(even) .feature-media{order:0;}
+  .pic{box-shadow:7px 7px 0 var(--red);}
+  .feature:nth-of-type(even) .pic{box-shadow:-7px 7px 0 var(--ink);}
+  .board,.tagboard{box-shadow:7px 7px 0 var(--ink);}
+}
+
+.more{margin-top:clamp(2.5rem,2rem + 2vw,4rem);}
+.more > h3{font-size:var(--fs-lg);}
+.more ul{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.more li{background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:1.3rem 1.3rem 1.2rem;scroll-margin-top:6rem;display:flex;flex-direction:column;}
+.more h4{display:flex;align-items:center;gap:.55rem;font-size:var(--fs-md);font-weight:700;}
+.more p{margin-top:.5rem;color:var(--ink-soft);font-size:var(--fs-sm);line-height:1.55;flex:1;}
+.more .link-wa{display:inline-block;margin-top:.8rem;font-size:var(--fs-sm);}
+@media (max-width:900px){.more ul{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:560px){.more ul{grid-template-columns:1fr;}}
+
+/* ---------- equipe ---------- */
+.team{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2.2rem,1rem + 4vw,5rem);align-items:center;}
+.team figure{margin:0;}
+.team .pic{transform:rotate(-2deg);box-shadow:10px 10px 0 var(--red);}
+.team .pic img{aspect-ratio:auto;}
+.team figcaption{margin-top:1.1rem;font-size:var(--fs-sm);color:var(--ink-faint);font-weight:600;}
+.team h2{font-size:var(--fs-xl);}
+.team .lead{margin-top:1rem;font-size:var(--fs-md);color:var(--ink-soft);line-height:1.5;}
+.crmv{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;padding:.45rem .95rem;border:2.5px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--display);font-weight:700;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--ink);}
+.team .say{margin-top:1.5rem;}
+.team .say + .say{margin-top:1.2rem;}
+@media (max-width:820px){.team{grid-template-columns:1fr;}}
+
+/* ---------- avaliações ---------- */
+.rating-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.6rem;}
+.rating-head h2{font-size:var(--fs-xl);max-width:17ch;}
+.score{display:flex;align-items:center;gap:1rem;background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:.8rem 1.2rem;box-shadow:0 4px 0 var(--ink);}
+.score b{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,2rem + 2vw,3.6rem);line-height:.9;}
+.score .note{display:block;font-size:var(--fs-sm);color:var(--ink-soft);margin-top:.3rem;}
+.stars{display:inline-flex;gap:2px;color:var(--gold);}
+.stars svg{width:1.05rem;height:1.05rem;}
+.score .stars svg{width:1.25rem;height:1.25rem;}
+.summary{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2rem;padding:0;list-style:none;}
+.summary li{padding:.55rem 1rem;background:var(--blush);border:2px solid var(--ink);border-radius:999px;font-style:italic;font-weight:500;font-size:var(--fs-sm);}
+
+.ribbon{background:var(--ink);color:#fff;transform:rotate(-2deg);margin:clamp(1.5rem,1rem + 2vw,3rem) -2rem;overflow:hidden;white-space:nowrap;border-block:2.5px solid var(--ink);font-family:var(--display);font-weight:700;font-size:clamp(1rem,.9rem + .5vw,1.35rem);}
+.ribbon-track{display:inline-flex;animation:marquee 38s linear infinite;padding-block:.7rem;}
+.ribbon span{display:inline-flex;align-items:center;gap:1.3rem;padding-right:1.3rem;}
+.ribbon svg{width:1.1rem;height:1.1rem;color:var(--red);flex:none;}
+
+.story{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.2rem,.6rem + 2.5vw,3rem);align-items:start;padding:clamp(1.6rem,1.2rem + 2vw,3rem);background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:var(--r-xl);box-shadow:10px 10px 0 var(--ink);margin:clamp(2rem,1.5rem + 2vw,3rem) 0;}
+.story .hour{font-family:var(--display);font-weight:800;font-size:clamp(3rem,2rem + 3.5vw,5rem);line-height:.85;letter-spacing:-.04em;}
+.story .hour small{display:block;font-size:var(--fs-sm);font-weight:700;letter-spacing:0;margin-top:.5rem;opacity:.95;}
+.story p{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,1.05rem + 1vw,1.85rem);line-height:1.3;letter-spacing:-.01em;}
+.story footer{margin-top:1rem;font-size:var(--fs-sm);font-weight:700;opacity:.95;}
+@media (max-width:640px){.story{grid-template-columns:1fr;box-shadow:7px 7px 0 var(--ink);}}
+.reviews{columns:3 17rem;column-gap:1.2rem;}
+.review{break-inside:avoid;margin:0 0 1.2rem;background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:1.3rem 1.35rem 1.2rem;box-shadow:0 4px 0 var(--ink);}
+.review p{font-size:1.02rem;line-height:1.55;margin-top:.7rem;}
+.review footer{margin-top:.9rem;font-size:var(--fs-sm);color:var(--ink-faint);}
+.review footer strong{color:var(--ink);font-weight:700;}
+.reviews-foot{margin-top:1.8rem;display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center;}
+.plain{font-size:var(--fs-sm);color:var(--ink-soft);font-weight:600;}
+
+/* ---------- localização ---------- */
+.visit{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,1rem + 4vw,4.5rem);align-items:start;}
+.visit h2{font-size:var(--fs-xl);}
+.addr{margin-top:1rem;font-size:var(--fs-md);line-height:1.45;font-weight:500;}
+.facts{margin:1.6rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.75rem 1.4rem;}
+.facts dt{font-family:var(--display);font-weight:700;}
+.facts dd{margin:0;color:var(--ink-soft);}
+.visit .btn{margin-top:1.9rem;}
+.visit .plain{display:inline-block;margin-top:1.1rem;margin-left:.3rem;}
+.map-stack{display:grid;gap:1.3rem;}
+.map{position:relative;width:100%;aspect-ratio:16/10;border-radius:var(--r-lg);overflow:hidden;background:#fff;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--red);}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.facade .pic{box-shadow:10px 10px 0 var(--ink);}
+.facade .pic img{aspect-ratio:16/7;}
+.facade figcaption{margin-top:.9rem;font-size:var(--fs-sm);color:var(--ink-faint);font-weight:600;}
+@media (max-width:860px){.visit{grid-template-columns:1fr;}.map{box-shadow:7px 7px 0 var(--red);}}
+
+/* ---------- dúvidas ---------- */
+.faq{max-width:52rem;display:grid;gap:.85rem;}
+.faq details{background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-md);box-shadow:0 4px 0 var(--ink);}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.3rem;font-family:var(--display);font-weight:700;font-size:var(--fs-md);}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--red);color:#fff;border:2px solid var(--ink);font-size:1.3rem;line-height:1;transition:transform .3s var(--bounce);}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .ans{padding:0 1.3rem 1.3rem;color:var(--ink-soft);max-width:44rem;}
+.faq .ans a{color:var(--red-deep);font-weight:700;}
+
+/* ---------- chamada final: a bolha ---------- */
+.final{padding-block:var(--sec);position:relative;overflow:hidden;}
+.blob{position:relative;max-width:44rem;margin-inline:auto;background:var(--red);color:#fff;border:3px solid var(--ink);border-radius:48% 52% 46% 54% / 56% 44% 56% 44%;padding:clamp(3.5rem,2.5rem + 4vw,5.5rem) clamp(2rem,1rem + 5vw,5rem);text-align:center;box-shadow:12px 12px 0 var(--ink);}
+.blob h2{color:#fff;font-size:clamp(2.1rem,1.6rem + 2.4vw,3.6rem);}
+.blob p{margin:1rem auto 0;max-width:28rem;font-size:var(--fs-md);font-weight:500;}
+.blob .btn{margin-top:1.8rem;}
+.final .d-a{left:8%;top:22%;width:3.4rem;color:var(--gold);}
+.final .d-b{right:9%;bottom:20%;width:5rem;color:var(--red);opacity:.85;transform:rotate(22deg);}
+@media (max-width:640px){.blob{border-radius:var(--r-xl);box-shadow:8px 8px 0 var(--ink);}.final .d-a,.final .d-b{display:none;}}
+
+/* ---------- rodapé ---------- */
+.foot{background:var(--blush);border-top:2.5px solid var(--ink);padding-block:3rem 6.5rem;font-size:var(--fs-sm);color:var(--ink-soft);}
+.foot .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:2.2rem;align-items:start;}
+.foot img{height:4.4rem;width:auto;}
+.foot strong{color:var(--ink);}
+.foot a{color:var(--ink);font-weight:700;}
+.foot .credit{grid-column:1/-1;border-top:2px dashed rgba(42,42,42,.25);padding-top:1.2rem;color:var(--ink-faint);}
+@media (max-width:760px){.foot .wrap{grid-template-columns:1fr;}}
+
+/* botão flutuante */
+.wa-float{position:fixed;right:max(1rem, env(safe-area-inset-right));bottom:max(1rem, env(safe-area-inset-bottom));z-index:50;display:inline-flex;align-items:center;gap:.55rem;background:#1FA855;color:#fff;text-decoration:none;font-family:var(--display);font-weight:700;padding:.8rem 1.15rem;border-radius:999px;border:2.5px solid var(--ink);box-shadow:0 5px 0 var(--ink);transition:transform .18s var(--ease),box-shadow .18s var(--ease);}
+.wa-float:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--ink);}
+.wa-float svg{width:1.45rem;height:1.45rem;}
+@media (max-width:560px){.wa-float .lbl{display:none;}.wa-float{padding:.9rem;}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01Zm-7.01 15.24h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.5l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L10 14.8 4.6 17.7l1.2-5.9L1.4 7.7l6-.7z"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 16 16"><path fill="currentColor" d="M5.5 0h5v5.5H16v5h-5.5V16h-5v-5.5H0v-5h5.5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M3 8.5l3.2 3L13 4.5"/></symbol>
+  <symbol id="d-paw" viewBox="0 0 40 40"><g fill="currentColor"><ellipse cx="20" cy="27.5" rx="8.5" ry="7.5"/><ellipse cx="8.5" cy="17" rx="3.8" ry="4.8" transform="rotate(-18 8.5 17)"/><ellipse cx="15.5" cy="9.5" rx="3.8" ry="4.9" transform="rotate(-6 15.5 9.5)"/><ellipse cx="24.5" cy="9.5" rx="3.8" ry="4.9" transform="rotate(6 24.5 9.5)"/><ellipse cx="31.5" cy="17" rx="3.8" ry="4.8" transform="rotate(18 31.5 17)"/></g></symbol>
+  <symbol id="d-heart" viewBox="0 0 40 40"><path d="M20 35S5.5 26.3 5.5 15.6A7.6 7.6 0 0 1 20 11.9a7.6 7.6 0 0 1 14.5 3.7C34.5 26.3 20 35 20 35Z" fill="#E1242B" stroke="#2A2A2A" stroke-width="2.6" stroke-linejoin="round"/><path d="M11.5 15.5c.4-2 1.8-3.2 3.6-3.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="d-spark" viewBox="0 0 40 40"><path d="M20 2c1.3 9.6 5.2 14.2 18 18-12.8 3.8-16.7 8.4-18 18-1.3-9.6-5.2-14.2-18-18C14.8 16.2 18.7 11.6 20 2Z" fill="currentColor" stroke="#2A2A2A" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+  <symbol id="d-moon" viewBox="0 0 40 40"><path d="M27.5 5.5A15.5 15.5 0 1 0 34.5 27 12.5 12.5 0 0 1 27.5 5.5Z" fill="currentColor" stroke="#2A2A2A" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="d-trail" viewBox="0 0 90 40"><use href="#d-paw" x="0" y="18" width="20" height="20"/><use href="#d-paw" x="26" y="4" width="18" height="18"/><use href="#d-paw" x="50" y="16" width="16" height="16"/><use href="#d-paw" x="72" y="2" width="14" height="14"/></symbol>
+</svg>
+
+<div class="ticker" role="region" aria-label="Destaques da Clive">
+  <div class="ticker-track">
+    <span>Aberta 24 horas, todos os dias<svg aria-hidden="true"><use href="#i-cross"/></svg>Plantão de madrugada, domingo e feriado<svg aria-hidden="true"><use href="#i-cross"/></svg>Consultas e vacinas para cães e gatos<svg aria-hidden="true"><use href="#i-cross"/></svg>Cirurgia geral e ortopédica<svg aria-hidden="true"><use href="#i-cross"/></svg>Banho e tosa<svg aria-hidden="true"><use href="#i-cross"/></svg>Há 41 anos em Volta Redonda<svg aria-hidden="true"><use href="#i-cross"/></svg><a href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Agende pelo WhatsApp</a><svg aria-hidden="true"><use href="#i-cross"/></svg></span>
+    <span aria-hidden="true">Aberta 24 horas, todos os dias<svg><use href="#i-cross"/></svg>Plantão de madrugada, domingo e feriado<svg><use href="#i-cross"/></svg>Consultas e vacinas para cães e gatos<svg><use href="#i-cross"/></svg>Cirurgia geral e ortopédica<svg><use href="#i-cross"/></svg>Banho e tosa<svg><use href="#i-cross"/></svg>Há 41 anos em Volta Redonda<svg><use href="#i-cross"/></svg>Agende pelo WhatsApp<svg><use href="#i-cross"/></svg></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Clive Veterinária, início">
+      <img src="img/logo-clive.webp" width="360" height="324" alt="Clive Veterinária">
+    </a>
+    <nav class="nav" id="nav" aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#como-chegar">Como chegar</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="btn btn-red" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-wa"/></svg><span class="lbl-long">Agendar consulta</span><span class="lbl-short">Agendar</span>
+    </a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="live rise"><span class="pulse" aria-hidden="true"></span><span id="live-label">Aberto agora</span></p>
+        <h1 class="rise" id="hero-title"><span>Cuidar do seu pet</span> <span>é a nossa missão.</span></h1>
+        <p class="hero-lead rise">Há 41 anos proporcionando o melhor ao pet e aos seus tutores em Volta Redonda, com plantão 24 horas, todos os dias.</p>
+        <div class="hero-ctas rise">
+          <a class="btn btn-red" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agendar consulta</a>
+          <a class="btn btn-white" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">É uma emergência</a>
+        </div>
+        <p class="hero-sign rise"><svg aria-hidden="true"><use href="#i-cross"/></svg>Com o Dr. Duilio Cecchi Neto e equipe, no bairro Niterói.</p>
+      </div>
+
+      <div class="collage pop" aria-label="Pacientes da Clive">
+        <figure class="frame frame-dog"><img src="img/consulta-cao.webp" width="720" height="960" alt="Cachorro de pelo escuro com coleira vermelha, deitado e sorrindo com a língua de fora" fetchpriority="high"></figure>
+        <figure class="frame frame-cat"><img src="img/consulta-gato.webp" width="720" height="960" alt="Gato branco e marrom sentado, olhando para cima"></figure>
+        <p class="bubble">“Ótimo lugar para levar os pets, muito carinho com clientes e pacientes”<small><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>no Google</small></p>
+        <span class="stk stk-41">41 anos de Clive</span>
+        <span class="stk stk-pets"><svg aria-hidden="true"><use href="#d-paw"/></svg>Cães e gatos</span>
+        <span class="stk stk-24"><svg aria-hidden="true"><use href="#i-cross"/></svg>Plantão 24h</span>
+        <svg class="doodle d-spark" aria-hidden="true"><use href="#d-spark"/></svg>
+        <svg class="doodle d-spark2" aria-hidden="true"><use href="#d-spark"/></svg>
+        <svg class="doodle d-heart" aria-hidden="true"><use href="#d-heart"/></svg>
+        <svg class="doodle d-paws" viewBox="0 0 90 40" aria-hidden="true"><use href="#d-trail"/></svg>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34c160-26 330-34 520-10s360 30 520 8 290-30 400-12V60H0Z" fill="#FFF7F4"/></svg>
+  </section>
+
+  <section class="sec" id="servicos" aria-labelledby="servicos-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="servicos-title">Do plantão ao banho e tosa, tudo no mesmo endereço</h2>
+        <p>Cada serviço tem um link próprio. Toque em um para ir direto a ele e, quando quiser, agende pelo WhatsApp da clínica.</p>
+      </div>
+
+      <ul class="svc-index" aria-label="Serviços">
+        <li><a href="#plantao-24-horas"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Plantão 24 horas</a></li>
+        <li><a href="#cirurgia"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Cirurgia geral e ortopédica</a></li>
+        <li><a href="#fisioterapia"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Fisioterapia</a></li>
+        <li><a href="#consultas-e-vacinas"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Consultas e vacinas</a></li>
+        <li><a href="#banho-e-tosa"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Banho e tosa</a></li>
+        <li><a href="#internacao"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Internação</a></li>
+        <li><a href="#exames-e-ultrassom"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Exames e ultrassom</a></li>
+        <li><a href="#castracao"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Castração</a></li>
+        <li><a href="#cromoterapia"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Cromoterapia</a></li>
+        <li><a href="#hospedagem"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Hospedagem</a></li>
+      </ul>
+
+      <article class="feature" id="plantao-24-horas">
+        <div class="feature-media">
+          <div class="board" aria-hidden="true">
+            <svg class="moon"><use href="#d-moon"/></svg>
+            <svg class="tw"><use href="#d-spark"/></svg>
+            <span class="big">24h</span>
+            <div>
+              <div class="days"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span></div>
+              <small>Das 00h às 24h, feriados inclusive</small>
+            </div>
+          </div>
+        </div>
+        <div class="feature-body">
+          <h3>Plantão 24 horas</h3>
+          <p>A clínica não fecha. De madrugada, no fim de semana ou na noite de Natal, tem médico veterinário para atender o seu cão ou gato.</p>
+          <blockquote class="say">
+            <p>“Bom atendimento, o melhor é que funciona 24h. Tive um problema dia 25/12 de madrugada, tinha veterinário para atender lá e deu tudo certo.”</p>
+            <footer>Ramon R., no Google</footer>
+          </blockquote>
+          <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Falar com o plantão no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="feature" id="cirurgia">
+        <div class="feature-media">
+          <figure class="pic"><img src="img/cirurgia.webp" width="512" height="370" loading="lazy" alt="Bomba de infusão e aparelho de anestesia ligados ao lado de um paciente no centro cirúrgico da Clive"></figure>
+        </div>
+        <div class="feature-body">
+          <h3>Cirurgia geral e ortopédica</h3>
+          <p>Cirurgias gerais e ortopédicas, com acompanhamento do pré ao pós-operatório e internação quando o pet precisa ficar em observação.</p>
+          <blockquote class="say">
+            <p>“Só tenho a agradecer as duas vezes que minha cachorrinha precisou de cirurgia ela foi muito bem assistida, super atenciosos, doutor Duílio é nota 1000.”</p>
+            <footer>Viviane de Mendonça Correa, no Google</footer>
+          </blockquote>
+          <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Tirar dúvidas sobre cirurgia no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="feature" id="fisioterapia">
+        <div class="feature-media">
+          <figure class="pic"><img src="img/fisioterapia.webp" width="512" height="384" loading="lazy" alt="A cadelinha Luna deitada ao lado do aparelho de fisioterapia, durante a recuperação de uma cirurgia no joelho"></figure>
+        </div>
+        <div class="feature-body">
+          <h3>Fisioterapia pós-operatória</h3>
+          <p>Técnicas que ajudam a reduzir dores, diminuir inflamações, recuperar movimentos e acelerar a reabilitação depois da cirurgia. Cada tratamento é planejado de forma individual, como o da Luna, na foto, depois da cirurgia no joelho.</p>
+          <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Perguntar sobre fisioterapia no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="feature" id="consultas-e-vacinas">
+        <div class="feature-media">
+          <div class="tagboard" aria-hidden="true">
+            <span class="tag"><i><svg><use href="#i-check"/></svg></i>Consultas de rotina</span>
+            <span class="tag"><i><svg><use href="#i-check"/></svg></i>Vacinas</span>
+            <span class="tag"><i><svg><use href="#i-check"/></svg></i>Cães</span>
+            <span class="tag"><i><svg><use href="#i-check"/></svg></i>Gatos</span>
+            <svg class="doodle d-paw-b"><use href="#d-paw"/></svg>
+          </div>
+        </div>
+        <div class="feature-body">
+          <h3>Consultas e vacinas</h3>
+          <p>Seu pet não fala, mas dá sinais quando algo não vai bem. As consultas regulares são essenciais para prevenir doenças, manter a saúde em dia e garantir mais qualidade de vida, com as vacinas no mesmo lugar.</p>
+          <blockquote class="say">
+            <p>“Fui atendida muito bem pela veterinária Scarlet que me deu dicas de cuidado, foi atenciosa e carinhosa, demonstrou gostar do que faz.”</p>
+            <footer>Naraiana Taborda, no Google</footer>
+          </blockquote>
+          <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Agendar consulta no WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="feature" id="banho-e-tosa">
+        <div class="feature-media">
+          <figure class="pic"><img src="img/banho-tosa.webp" width="600" height="400" loading="lazy" alt="Corte de unha de um cachorro com alicate próprio para pets"></figure>
+        </div>
+        <div class="feature-body">
+          <h3>Banho e tosa</h3>
+          <p>Banho, tosa e cuidados como o corte de unhas, feitos dentro de uma clínica veterinária. A unha no tamanho ideal mantém o seu cão confortável, seguro e saudável, e se aparecer algo diferente durante o banho, o veterinário está logo ali.</p>
+          <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Agendar banho e tosa no WhatsApp</a>
+        </div>
+      </article>
+
+      <div class="more">
+        <h3>E tem mais</h3>
+        <ul>
+          <li id="internacao">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Internação</h4>
+            <p>Quando o pet precisa ficar, a equipe acompanha de perto e envia boletins aos tutores durante a internação.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          </li>
+          <li id="exames-e-ultrassom">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Exames e ultrassom</h4>
+            <p>Exames e ultrassonografia, inclusive o ultrassom gestacional para acompanhar a gravidez da sua cadela ou gata.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Agendar exame no WhatsApp</a>
+          </li>
+          <li id="castracao">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Castração</h4>
+            <p>Vai além do controle populacional: ajuda a prevenir doenças, aumenta a qualidade de vida e pode contribuir para um comportamento mais equilibrado.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
+          </li>
+          <li id="cromoterapia">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Cromoterapia</h4>
+            <p>Terapia complementar com cores, que pode auxiliar no relaxamento e na redução do estresse e da ansiedade durante tratamentos e recuperações.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Saber mais no WhatsApp</a>
+          </li>
+          <li id="hospedagem">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Hospedagem</h4>
+            <p>Hospedagem para o seu pet ficar dentro da clínica, perto da equipe veterinária, enquanto você está fora.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Consultar vagas no WhatsApp</a>
+          </li>
+          <li id="planos">
+            <h4><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Planos de saúde pet</h4>
+            <p>A fachada divulga o plano de saúde animal Univet, e a clínica aparece como credenciada Dog Life. Confirme a cobertura do seu plano antes da consulta.</p>
+            <a class="link-wa" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">Confirmar meu plano no WhatsApp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-blush" id="equipe" aria-labelledby="equipe-title">
+    <div class="wrap team">
+      <figure>
+        <div class="pic"><img src="img/equipe.webp" width="478" height="390" loading="lazy" alt="Equipe de médicos veterinários da Clive reunida com cães e gatos no colo, com o Dr. Duilio Cecchi ao centro"></div>
+        <figcaption>A equipe da Clive no Dia do Médico Veterinário, setembro de 2026.</figcaption>
+      </figure>
+      <div>
+        <h2 id="equipe-title">Gente que cuida de bicho há quatro décadas</h2>
+        <p class="lead">À frente da Clive está o Dr. Duilio Cecchi Neto, veterinário de famílias que trazem seus bichos há gerações. Ao lado dele, uma equipe que os tutores citam pelo nome nas avaliações.</p>
+        <span class="crmv"><svg class="cross" aria-hidden="true"><use href="#i-cross"/></svg>Responsável técnico: CRMV-RJ 2250</span>
+        <blockquote class="say">
+          <p>“Ele cuida dos meus animais desde que eu era criança, isso já conta mais de 30 anos. E você consegue ver que ele faz por amor, tem uma experiência enorme, muita atenção, carinho e cuidado com nossos bichinhos.”</p>
+          <footer>Tereza Mansur, no Google</footer>
+        </blockquote>
+        <blockquote class="say">
+          <p>“Excelente clínica veterinária! Dr. Duilho é um dos veterinários mais experientes de Volta Redonda. E sua equipe é muito boa!”</p>
+          <footer>Ramiro Azevedo, no Google</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="avaliacoes" aria-labelledby="avaliacoes-title">
+    <div class="wrap">
+      <div class="rating-head">
+        <h2 id="avaliacoes-title">O que 648 tutores contaram no Google</h2>
+        <div class="score">
+          <b>4,5</b>
+          <div>
+            <span class="stars" aria-label="Nota 4,5 de 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+            <span class="note">média de 648 avaliações</span>
+          </div>
+        </div>
+      </div>
+      <ul class="summary" aria-label="Trechos em destaque no resumo do Google">
+        <li>“Profissionais super competentes, atenciosos, clínica bem localizada.”</li>
+        <li>“Duílio é sempre muito gentil com os bichinhos e tem experiência no ramo.”</li>
+      </ul>
+    </div>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>“Recomendo de olhos fechados!”<svg><use href="#d-paw"/></svg>“Atendimento humanizado para todos os animais”<svg><use href="#d-paw"/></svg>“Doutor Duílio é nota 1000”<svg><use href="#d-paw"/></svg>“A melhor da região”<svg><use href="#d-paw"/></svg>“Preço justo e atenção excelente”<svg><use href="#d-paw"/></svg></span>
+        <span>“Recomendo de olhos fechados!”<svg><use href="#d-paw"/></svg>“Atendimento humanizado para todos os animais”<svg><use href="#d-paw"/></svg>“Doutor Duílio é nota 1000”<svg><use href="#d-paw"/></svg>“A melhor da região”<svg><use href="#d-paw"/></svg>“Preço justo e atenção excelente”<svg><use href="#d-paw"/></svg></span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <article class="story">
+        <div class="hour">02h<small>chegada à emergência</small></div>
+        <div>
+          <p>“Precisamos procurar a emergência às 2hrs da manhã para assistência ao parto da minha shitzu, fomos muito bem atendidos, não mediram esforços e realizaram uma cesária de emergência às 4hrs da manhã. Somente elogios e gratidão!”</p>
+          <footer>Ana Luiza Costa, no Google</footer>
+        </div>
+      </article>
+
+      <div class="reviews">
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Equipe sensível e muito competente. São carinhosos com os animais e solícitos com os tutores. Os boletins enviados durante a internação fazem toda a diferença.”</p>
+          <footer><strong>Thalita da Matta</strong>, há 2 meses</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Atendimento humanizado para todos os animais e eu já tive 3 experiências de emergência aqui em casa com meus cachorrinhos e todas as vezes fomos extremamente bem acolhidos e atendidos!!!”</p>
+          <footer><strong>Isabela Dalbonne</strong>, há 3 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Foram muito carinhosos em um momento de susto que passei com meu gatinho, recomendo a todos. Tem um valor justo e acompanharam até a alta do meu bichinho. Recomendo de olhos fechados!”</p>
+          <footer><strong>Lucas</strong>, há 3 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Gratidão à toda equipe de Veterinária que acolheu prontamente e conseguiram reverter o quadro de envenenamento que a gatinha de meu filho sofreu. Equipe maravilhosa atenciosa e profissional. Preço justo e atenção EXCELENTE.”</p>
+          <footer><strong>Delza Barboza</strong>, há 5 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Excelentes profissionais! Limpo, organizado e bem equipado! Equipe gentil! Estive com meu cão em uma emergência 24/12 fomos muito bem recepcionados!”</p>
+          <footer><strong>Maria Fernandes</strong>, há 3 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Fiz ultrassom da minha cadelinha que está grávida. A dra Juliana é muito simpática e competente. Me passou total confiança.”</p>
+          <footer><strong>Layla Mesquita</strong>, há 3 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Muito atenciosos, tratamento vip, recomendo, meu pet entrou mal, sem andar, prostrado, agora está até correndo, obrigada, equipe TDS da clínica, vcs são top ❤️”</p>
+          <footer><strong>Andrea Da Luz</strong>, há 5 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“Passam uma segurança no atendimento, mostrando que sabem o que fazem e que fazem bem feito. Muito bem atendido na recepção e pela veterinária. Me sinto muito seguro em levar meus pets lá!”</p>
+          <footer><strong>Vinícius Salema</strong>, há 6 anos</footer>
+        </figure>
+        <figure class="review">
+          <span class="stars" aria-label="5 estrelas"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p>“A melhor da região. Dr Duilio e sua equipe são dez”</p>
+          <footer><strong>Evandro Leite</strong>, há 1 ano</footer>
+        </figure>
+      </div>
+
+      <div class="reviews-foot">
+        <a class="btn btn-red" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agendar consulta</a>
+        <a class="plain" href="https://www.google.com/maps/place/Clive+Veterin%C3%A1ria/@-22.496406,-44.093638,17z/data=!4m8!3m7!1s0x9ebd55d1f89347:0xbec70953304ce606!8m2!3d-22.496406!4d-44.093638!9m1!1b1!16s%2Fg%2F1tdn5b3z" target="_blank" rel="noopener">Ler todas as avaliações no Google</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-blush" id="como-chegar" aria-labelledby="chegar-title">
+    <div class="wrap visit">
+      <div>
+        <h2 id="chegar-title">Como chegar</h2>
+        <p class="addr">Av. Sávio Cota de Almeida Gama, 137<br>Niterói, Volta Redonda, RJ<br>CEP 27283-526</p>
+        <dl class="facts">
+          <dt>Horário</dt><dd>Aberta 24 horas, todos os dias</dd>
+          <dt>WhatsApp</dt><dd>Agendamentos e emergências</dd>
+          <dt>Telefone</dt><dd>(24) 3345-8403</dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/clive.veterinaria/" target="_blank" rel="noopener">@clive.veterinaria</a></dd>
+          <dt>Referência</dt><dd>Procure a placa branca com a cruz vermelha</dd>
+        </dl>
+        <a class="btn btn-red" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Avisar que estou a caminho</a>
+        <br>
+        <a class="plain" href="https://www.google.com/maps/dir/?api=1&amp;destination=Clive+Veterin%C3%A1ria%2C+Av.+S%C3%A1vio+Cota+de+Almeida+Gama%2C+137%2C+Volta+Redonda+-+RJ" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+      </div>
+      <div class="map-stack">
+        <div class="map">
+          <iframe title="Mapa da Clive Veterinária" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Clive%20Veterin%C3%A1ria%2C%20Av.%20S%C3%A1vio%20Cota%20de%20Almeida%20Gama%2C%20137%20-%20Niter%C3%B3i%2C%20Volta%20Redonda%20-%20RJ&amp;z=16&amp;output=embed"></iframe>
+        </div>
+        <figure class="facade">
+          <div class="pic"><img src="img/fachada.webp" width="1400" height="613" loading="lazy" alt="Fachada da Clive Veterinária com as placas da cruz vermelha e o telefone da clínica"></div>
+          <figcaption>A fachada na avenida, com as placas da Clive.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="duvidas" aria-labelledby="duvidas-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="duvidas-title">Antes de vir</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>A Clive atende de madrugada?</summary>
+          <div class="ans"><p>Sim. A clínica funciona 24 horas, todos os dias, inclusive fins de semana e feriados. Numa emergência, <a href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">chame no WhatsApp</a> e venha para a Av. Sávio Cota de Almeida Gama, 137.</p></div>
+        </details>
+        <details>
+          <summary>Como agendo uma consulta?</summary>
+          <div class="ans"><p>Pelo <a href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">WhatsApp da clínica</a>. Conte o nome do seu pet, se é cão ou gato e o que está acontecendo, e a equipe combina o melhor horário.</p></div>
+        </details>
+        <details>
+          <summary>Vocês atendem cães e gatos?</summary>
+          <div class="ans"><p>Sim. Cães e gatos são atendidos em consultas, vacinas, exames, cirurgias e internação.</p></div>
+        </details>
+        <details>
+          <summary>O pet pode ficar internado depois da cirurgia?</summary>
+          <div class="ans"><p>Pode. A Clive faz cirurgias gerais e ortopédicas, mantém internação com boletins para os tutores e oferece fisioterapia pós-operatória para a recuperação.</p></div>
+        </details>
+        <details>
+          <summary>A clínica aceita plano de saúde pet?</summary>
+          <div class="ans"><p>A fachada divulga o plano de saúde animal Univet, e a clínica aparece como credenciada Dog Life. Como a cobertura muda de plano para plano, <a href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">confirme pelo WhatsApp</a> antes da consulta.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <svg class="doodle d-a" aria-hidden="true"><use href="#d-spark"/></svg>
+    <svg class="doodle d-b" viewBox="0 0 40 40" aria-hidden="true"><use href="#d-paw"/></svg>
+    <div class="wrap">
+      <div class="blob">
+        <h2 id="final-title">Seu pet precisa de um veterinário?</h2>
+        <p>A Clive está aberta agora. Mande uma mensagem e fale com a equipe pelo WhatsApp.</p>
+        <a class="btn btn-white" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Chamar a Clive no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo-clive.webp" width="360" height="324" alt="Clive Veterinária" loading="lazy">
+    <div>
+      <p><strong>Clive Veterinária</strong><br>Av. Sávio Cota de Almeida Gama, 137, Niterói, Volta Redonda, RJ, 27283-526<br>Aberta 24 horas, todos os dias</p>
+    </div>
+    <div>
+      <p><a href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/clive.veterinaria/" target="_blank" rel="noopener">Instagram</a><br>(24) 3345-8403</p>
+    </div>
+    <p class="credit">Clive Veterinária Ltda, CNPJ 06.230.024/0001-13. Responsável técnico: Dr. Duilio Cecchi Neto, CRMV-RJ 2250. Proposta de site desenvolvida pela R.A.F.O.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/message/R34L57JMLDRRO1" target="_blank" rel="noopener" aria-label="Agendar consulta pelo WhatsApp da Clive">
+  <svg aria-hidden="true"><use href="#i-wa"/></svg><span class="lbl">Agendar consulta</span>
+</a>
+
+<script>
+(function(){
+  // Etiqueta ao vivo: hora de Volta Redonda (America/Sao_Paulo).
+  var label=document.getElementById('live-label');
+  function tick(){
+    try{
+      var t=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date());
+      label.textContent='Aberto agora, '+t+' em Volta Redonda';
+    }catch(e){}
+  }
+  tick();setInterval(tick,20000);
+
+  // Topo muda de fundo ao rolar.
+  var top=document.querySelector('.top');
+  function onScroll(){top.classList.toggle('scrolled',window.scrollY>40);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Menu no celular.
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function setMenu(open){
+    nav.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  }
+  btn.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false);});
+})();
+</script>
+</body>
+</html>
