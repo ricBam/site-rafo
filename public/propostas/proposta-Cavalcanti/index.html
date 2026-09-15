@@ -6,7 +6,7 @@
 <title>Cavalcanti Odontologia Integrada | Dentista em São José dos Campos</title>
 <meta name="description" content="Clínica odontológica no Jardim São Dimas, em São José dos Campos. Implantes e reabilitação oral com a Dra. Gabriela Cavalcanti, planejamento digital, cirurgia guiada e todas as especialidades em um só lugar.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#243056">
+<meta name="theme-color" content="#1F2B55">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cavalcanti Odontologia Integrada, em São José dos Campos">
 <meta property="og:description" content="Quando o tratamento é bem feito, o resultado vai além do sorriso. Implantes, estética e todas as especialidades em um só lugar.">
@@ -14,31 +14,28 @@
 <link rel="icon" href="img/logo-avatar.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,300..500&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
 <style>
 /* ---------------------------------------------------------------
    Cavalcanti Odontologia Integrada, proposta de site (R.A.F.O.)
-   Versão acolhedora na identidade da clínica: azul royal e bege
-   champanhe do logo, marinho da escrita, a madeira e o letreiro de
-   aço da recepção nas fotos.
-   Plus Jakarta Sans + Fraunces itálico nas linhas de emoção.
+   Paleta do logo da Dra. Gabriela: marinho da escrita, azul royal
+   do traço do dente, bege do segundo traço (só em detalhes) e
+   azul-gelo nos fundos. Fotos reais da clínica, sem molduras.
    --------------------------------------------------------------- */
 :root{
-  /* cores do logo: traço azul royal + traço bege champanhe; marinho da escrita */
-  --page:#FFFFFF;
-  --soft:#EEF1FA;        /* azul-névoa */
-  --soft-2:#EFE1D0;      /* champanhe mais fundo */
-  --champ:#F8F0E7;       /* champanhe (traço bege do logo) */
-  --brand:#4A58A8;       /* azul royal do logo */
-  --brand-deep:#323E84;
-  --brand-light:#D9BD9C; /* bege do logo, para molduras e detalhes */
-  --ink:#243056;         /* marinho */
-  --ink-soft:#4F5670;
-  --ink-faint:#62687D;
-  --line:#E1E4EE;
+  --navy:#1F2B55;
+  --navy-2:#2A3A6E;
+  --royal:#3D57B0;
+  --royal-deep:#2E4390;
+  --ice:#EEF2FB;
+  --ice-2:#DEE6F6;
+  --beige:#D8BF9F;
+  --steel:#C7CCD6;
+  --ink:#1F2B55;
+  --ink-soft:#4A5270;
+  --ink-faint:#5F6782;
+  --line:#DFE4EF;
   --white:#FFFFFF;
-  --night:#243056;
-  --night-soft:#DCE1F0;
   --wa:#25D366;
 
   --sans:'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -46,51 +43,52 @@
 
   --wrap:1180px;
   --gutter:clamp(16px, 4.5vw, 44px);
-  --r-lg:28px;
-  --r:20px;
-  --r-sm:14px;
-  --shadow:0 22px 44px -22px rgba(36,48,86,.42);
-  --shadow-soft:0 10px 30px -16px rgba(36,48,86,.3);
+  --r-lg:26px;
+  --r:18px;
+  --r-sm:12px;
+  --shadow:0 22px 44px -24px rgba(31,43,85,.45);
+  --shadow-soft:0 10px 28px -18px rgba(31,43,85,.35);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--page);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3,h4,h5{margin:0;font-family:var(--sans);font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+h1,h2,h3,h4{margin:0;font-family:var(--sans);font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 p{margin:0}
 ul{margin:0;padding:0;list-style:none}
-:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:2.5px solid var(--royal);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:absolute;left:-9999px;top:12px;z-index:100;background:var(--white);padding:10px 16px;border-radius:10px}
 .skip:focus{left:16px}
 .ico{width:20px;height:20px;flex:none}
 .line-ico{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.soft{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--brand)}
 
 /* ---------- botões ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:.8em 1.5em;border-radius:999px;font:700 1rem/1.2 var(--sans);text-decoration:none;border:1.5px solid transparent;transition:background-color .2s, color .2s, box-shadow .2s, transform .2s;cursor:pointer}
-.btn-primary{background:var(--brand);color:var(--white);box-shadow:var(--shadow-soft)}
-.btn-primary:hover{background:var(--brand-deep);transform:translateY(-1px)}
-.btn-ghost{border-color:var(--brand);color:var(--brand-deep);background:transparent}
-.btn-ghost:hover{background:var(--brand);color:var(--white)}
-.btn-white{background:var(--white);color:var(--brand-deep)}
-.btn-white:hover{background:var(--soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:.8em 1.5em;border-radius:999px;font:700 1rem/1.2 var(--sans);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s, color .2s, border-color .2s}
+.btn-primary{background:var(--royal);color:var(--white)}
+.btn-primary:hover{background:var(--royal-deep)}
+.btn-beige{background:var(--beige);color:var(--navy)}
+.btn-beige:hover{background:var(--white)}
+.btn-ghost{border-color:var(--royal);color:var(--royal-deep);background:transparent}
+.btn-ghost:hover{background:var(--royal);color:var(--white)}
 .btn-sm{min-height:44px;padding:.6em 1.2em;font-size:.95rem}
+.text-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--royal-deep);text-decoration:none}
+.text-link:hover{text-decoration:underline;text-underline-offset:.25em}
 
 /* ---------- topo ---------- */
-.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
-.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--white), 0 0 0 3px var(--brand-light)}
-.brand-name{display:block;font:600 1.4rem/1 var(--serif);letter-spacing:-.01em;color:var(--ink)}
-.brand-sub{display:block;margin-top:3px;font:italic 400 .92rem/1.1 var(--serif);color:var(--brand)}
-.nav{display:flex;gap:6px}
-.nav a{padding:8px 14px;border-radius:999px;font-weight:600;font-size:.94rem;color:var(--ink-soft);text-decoration:none;transition:background-color .2s,color .2s}
-.nav a:hover{background:var(--soft);color:var(--brand-deep)}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--white), 0 0 0 3px var(--beige)}
+.brand-name{display:block;font:600 1.4rem/1 var(--serif);letter-spacing:-.01em;color:var(--navy)}
+.brand-sub{display:block;margin-top:3px;font:italic 400 .92rem/1.1 var(--serif);color:var(--royal)}
+.nav{display:flex;gap:4px}
+.nav a{padding:8px 14px;border-radius:999px;font-weight:600;font-size:.94rem;color:var(--ink-soft);text-decoration:none}
+.nav a:hover{background:var(--ice);color:var(--royal-deep)}
 .top-actions{display:flex;align-items:center;gap:10px}
-.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;place-items:center}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--navy);cursor:pointer;place-items:center}
 .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;border-radius:2px;background:currentColor;position:relative;transition:transform .2s}
 .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
 .menu-btn span::before{top:-6px}
@@ -99,154 +97,170 @@ ul{margin:0;padding:0;list-style:none}
 .menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
 .menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:var(--champ)}
-.hero::before{content:"";position:absolute;inset:0;background:url(img/recepcao.webp) 30% 40%/cover no-repeat;opacity:.16;filter:saturate(.8)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(95deg,var(--champ) 34%,rgba(248,240,231,.72) 62%,rgba(248,240,231,.9))}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(40px,6vw,80px);align-items:center;padding-top:clamp(48px,6vw,84px);padding-bottom:clamp(64px,7vw,100px)}
-.hero-kicker{font:italic 400 1.3rem/1.3 var(--serif);color:var(--brand);margin-bottom:14px}
-.hero h1{font-size:clamp(2.2rem,3.9vw,3.4rem);line-height:1.08;letter-spacing:-.025em}
-.hero h1 .soft{display:block;font-size:1.04em;line-height:1.12;margin-top:.06em}
-.hero .lead{margin-top:24px;max-width:33em;font-size:clamp(1.05rem,1.3vw,1.15rem);color:var(--ink-soft)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.hero-info{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:36px;font-size:.95rem;color:var(--ink-soft)}
-.hero-info li{display:flex;align-items:center;gap:10px}
-.dot-ico{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--white);color:var(--brand);box-shadow:var(--shadow-soft);flex:none}
-.dot-ico svg{width:18px;height:18px}
-.hero-photo{position:relative;margin:0 0 0 auto;max-width:470px;width:100%}
-.hero-photo::before{content:"";position:absolute;inset:0;border:2px solid var(--brand-light);border-radius:var(--r-lg);transform:translate(18px,18px)}
-.hero-photo img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:var(--r-lg);box-shadow:var(--shadow)}
-.hero-badge{position:absolute;left:-28px;bottom:34px;display:flex;align-items:center;gap:12px;padding:14px 18px 14px 14px;border-radius:18px;background:var(--white);box-shadow:var(--shadow)}
-.hero-badge .dot-ico{background:var(--brand);color:var(--white);box-shadow:none;width:42px;height:42px}
-.hero-badge strong{display:block;font:700 1.05rem/1.2 var(--sans)}
-.hero-badge .b-sub{display:block;font-size:.85rem;color:var(--ink-faint);line-height:1.3}
+/* ---------- hero: foto real de ponta a ponta + a frase da Dra. ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(calc(100svh - 76px), 820px);background:var(--navy);color:var(--white)}
+.hero-photo{margin:0;position:relative;overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 32%}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,6vw,88px) clamp(24px,6vw,96px)}
+.hero-place{font-weight:600;font-size:.95rem;color:var(--beige)}
+.hero h1{position:relative;margin-top:26px;max-width:14em;font:400 clamp(2.3rem,4.2vw,3.9rem)/1.1 var(--serif);letter-spacing:-.02em}
+.hero h1::before{content:"“";position:absolute;left:-.5em;top:-.05em;color:var(--beige)}
+.hero-sign{display:flex;align-items:center;gap:14px;margin-top:26px}
+.hero-sign::before{content:"";width:36px;height:2px;background:var(--beige);flex:none}
+.hero-sign strong{display:block;font-weight:700}
+.hero-sign span{display:block;font-size:.9rem;color:var(--steel)}
+.hero .lead{margin-top:30px;max-width:34em;color:#D5DAE8;font-size:1.08rem}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:34px}
+.hero-actions .text-link{color:var(--white)}
+
+/* faixa de informações */
+.info-bar{border-bottom:1px solid var(--line)}
+.info-bar ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.info-bar li{padding:22px 24px;border-left:1px solid var(--line);line-height:1.45}
+.info-bar li:first-child{border-left:0;padding-left:0}
+.info-bar b{display:block;font-size:.82rem;font-weight:600;color:var(--ink-faint)}
+.info-bar a{text-decoration:none;font-weight:700;color:var(--royal-deep)}
 
 /* ---------- seções ---------- */
 .sec{padding:clamp(76px,9vw,116px) 0}
-.sec-blush{background:var(--soft)}
-.sec-champ{background:var(--champ)}
+.sec-ice{background:var(--ice)}
 .sec-head{max-width:680px;margin:0 auto clamp(40px,5vw,60px);text-align:center}
 .sec-head h2{font-size:clamp(1.95rem,3.3vw,2.7rem);line-height:1.15}
-.sec-head .sub{margin-top:10px;font:italic 400 1.25rem/1.4 var(--serif);color:var(--brand)}
-.sec-head p:not(.sub){margin-top:16px;color:var(--ink-soft);font-size:1.08rem}
+.sec-head p{margin-top:14px;color:var(--ink-soft);font-size:1.08rem}
 
-/* destaque: implantes */
-.feature{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);background:var(--champ);border-radius:var(--r-lg);overflow:hidden;margin-bottom:24px}
-.feature-media img{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:78% 35%}
-.feature-body{padding:clamp(28px,4.5vw,56px)}
-.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--white);color:var(--brand-deep);font-size:.85rem;font-weight:700}
-.feature h3{margin-top:18px;font-size:clamp(1.8rem,2.8vw,2.4rem);line-height:1.12}
-.feature-intro{margin-top:14px;color:var(--ink-soft);max-width:36em}
-.modalities{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;margin:30px 0}
-.modalities li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
-.modalities .dot-ico{grid-row:span 2;width:40px;height:40px}
-.modalities h4{font-size:1.02rem;line-height:1.35;letter-spacing:-.01em}
-.modalities p{font-size:.94rem;color:var(--ink-soft);line-height:1.55}
-.case{margin:0 0 28px;padding:20px 22px;border-radius:var(--r-sm);background:var(--white)}
-.case p{font:italic 400 1.08rem/1.5 var(--serif);color:var(--ink)}
-.case cite{display:block;margin-top:8px;font-style:normal;font-size:.85rem;color:var(--ink-faint)}
+/* tratamentos em destaque */
+.featured{display:grid;gap:clamp(56px,7vw,96px)}
+.feat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.feat-rev .feat-media{order:2}
+.feat-media{margin:0}
+.feat-media img{width:100%;border-radius:var(--r-lg);object-fit:cover}
+.feat-media.land img{aspect-ratio:5/4;object-position:78% 35%}
+.feat-media.port{max-width:420px;justify-self:center}
+.feat-media.port img{aspect-ratio:4/5}
+.feat-media figcaption{margin-top:10px;font-size:.85rem;color:var(--ink-faint)}
+.tag{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--ice);color:var(--royal-deep);font-size:.85rem;font-weight:700}
+.feat h3{margin-top:16px;font-size:clamp(1.75rem,2.8vw,2.35rem);line-height:1.15}
+.feat-text > p{margin-top:14px;color:var(--ink-soft);max-width:36em}
+.points{display:grid;gap:14px;margin:26px 0}
+.points li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.points .tick{width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--ice);color:var(--royal);display:grid;place-items:center}
+.points .tick svg{width:13px;height:13px;stroke-width:2.6}
+.points b{font-weight:700}
+.points span{color:var(--ink-soft)}
+.quote{margin:0 0 28px;padding-left:18px;border-left:3px solid var(--beige)}
+.quote p{font:italic 400 1.1rem/1.5 var(--serif);color:var(--navy)}
+.quote cite{display:block;margin-top:6px;font-style:normal;font-size:.86rem;color:var(--ink-faint)}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.quote-panel{display:grid;gap:22px;padding:clamp(28px,4vw,48px);border-radius:var(--r-lg);background:var(--navy);color:var(--white)}
+.quote-panel blockquote{margin:0}
+.quote-panel p{font:italic 300 clamp(1.25rem,1.9vw,1.5rem)/1.45 var(--serif)}
+.quote-panel cite{display:flex;align-items:center;gap:10px;margin-top:12px;font-style:normal;font-size:.9rem;color:var(--beige)}
+.quote-panel blockquote + blockquote{padding-top:22px;border-top:1px solid rgba(255,255,255,.14)}
 
-/* cards de tratamentos */
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row dense;gap:22px}
-.card{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--r);background:var(--soft);transition:transform .25s, box-shadow .25s}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.card:target{box-shadow:0 0 0 3px var(--brand-light)}
-.card .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--brand);color:var(--white);margin-bottom:4px}
-.card .ic svg{width:26px;height:26px}
-.card h3{font-size:1.22rem;line-height:1.3;letter-spacing:-.015em}
-.card > p,.card-text > p{color:var(--ink-soft);font-size:.98rem}
-.card-grow{flex:1}
-.acts{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px}
-.wa-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;font-size:.96rem;color:var(--brand-deep);text-decoration:none}
-.wa-link:hover{text-decoration:underline;text-underline-offset:.25em}
-.more{min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--brand-light);background:var(--white);font:700 .9rem/1 var(--sans);color:var(--ink);cursor:pointer;transition:border-color .2s}
-.more:hover{border-color:var(--brand)}
-.card-wide{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:26px;align-items:center}
-.card-text{display:flex;flex-direction:column;gap:12px}
-.card-wide figure{margin:0}
-.card-wide figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-sm)}
-.card-wide figcaption{margin-top:8px;font-size:.82rem;line-height:1.4;color:var(--ink-faint)}
-.card-quote{margin:4px 0 0;padding:16px 18px;border-radius:var(--r-sm);background:var(--white)}
-.card-quote p{font:italic 400 1.05rem/1.5 var(--serif);color:var(--ink)}
-.card-quote cite{display:block;margin-top:6px;font-style:normal;font-size:.85rem;color:var(--ink-faint)}
+/* outros tratamentos: carrossel animado */
+.more-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 24px;margin:clamp(72px,8vw,104px) 0 22px}
+.more-head h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+.more-head p{color:var(--ink-soft);margin-top:4px}
+.mq-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);font:700 .9rem/1 var(--sans);color:var(--navy);cursor:pointer}
+.mq-toggle:hover{border-color:var(--royal)}
+.mq-toggle svg{width:14px;height:14px}
+.marquee{overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter);scrollbar-width:none}
+.marquee::-webkit-scrollbar{display:none}
+.marquee-track{display:flex;width:max-content;padding:6px 0 16px}
+.marquee.is-moving{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marquee.is-moving .marquee-track{animation:marquee 60s linear infinite}
+.marquee.is-moving:hover .marquee-track,.marquee.is-moving:focus-within .marquee-track,.marquee.is-moving.paused .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.mini{flex:none;width:280px;margin-right:18px;display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:var(--r);background:var(--ice);scroll-snap-align:start}
+.mini .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--royal);color:var(--white);margin-bottom:6px}
+.mini .ic svg{width:22px;height:22px}
+.mini h4{font-size:1.08rem;line-height:1.3;letter-spacing:-.01em}
+.mini p{flex:1;font-size:.94rem;line-height:1.5;color:var(--ink-soft)}
+.mini .acts{gap:4px 16px;margin-top:4px}
+.mini .text-link{font-size:.92rem}
+.more{min-height:44px;padding:0;border:0;background:none;font:700 .92rem/1 var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px;cursor:pointer}
+.more:hover{color:var(--royal-deep)}
 
 /* janelas "saiba mais" */
-.sheet{width:min(640px, calc(100% - 32px));max-height:min(86vh, 820px);padding:0;border:0;border-radius:var(--r-lg);background:var(--page);color:var(--ink);box-shadow:0 30px 80px -20px rgba(58,51,48,.45)}
-.sheet::backdrop{background:rgba(58,51,48,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sheet{width:min(640px, calc(100% - 32px));max-height:min(86vh, 820px);padding:0;border:0;border-radius:var(--r-lg);background:var(--white);color:var(--ink);box-shadow:0 30px 80px -20px rgba(31,43,85,.5)}
+.sheet::backdrop{background:rgba(31,43,85,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .sheet[open]{display:flex;flex-direction:column}
-.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 26px 18px;background:var(--soft)}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 26px 18px;background:var(--ice)}
 .sheet-head h3{font-size:1.4rem;line-height:1.25}
-.x{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--white);color:var(--ink);cursor:pointer}
+.x{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--white);color:var(--navy);cursor:pointer}
 .x svg{width:18px;height:18px}
 .sheet-body{padding:22px 26px;overflow-y:auto;display:grid;gap:12px;color:var(--ink-soft)}
 .sheet-body h4{margin-top:8px;font-size:1.02rem;letter-spacing:-.01em;color:var(--ink)}
 .sheet-body ul{display:grid;gap:8px;list-style:disc;padding-left:1.2em}
 .sheet-foot{padding:18px 26px 24px;border-top:1px solid var(--line)}
-@media (prefers-reduced-motion:no-preference){
-  .sheet[open]{animation:pop .28s cubic-bezier(.2,.8,.2,1)}
-  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
-}
 
 /* ---------- a dentista ---------- */
 .dra .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,7vw,100px);align-items:center}
-.dra-photo{position:relative;margin:0;max-width:440px}
-.dra-photo::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border-radius:var(--r-lg);background:var(--soft-2);transform:rotate(-3deg)}
-.dra-photo img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:var(--r-lg);box-shadow:var(--shadow)}
-.dra-kicker{font:italic 400 1.3rem/1.3 var(--serif);color:var(--brand)}
+.dra-photo{margin:0;max-width:430px}
+.dra-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:var(--r-lg)}
+.dra-kicker{font-weight:700;color:var(--royal)}
 .dra h2{margin-top:8px;font-size:clamp(1.95rem,3.3vw,2.7rem);line-height:1.12}
 .dra-role{margin-top:8px;color:var(--ink-faint);font-weight:600}
-.dra blockquote{margin:28px 0 0;padding-left:0}
-.dra blockquote p{font:italic 400 clamp(1.3rem,2vw,1.6rem)/1.45 var(--serif);color:var(--brand-deep)}
-.checks{display:grid;gap:12px;margin-top:28px}
-.checks li{display:flex;align-items:center;gap:12px;font-weight:600}
-.checks .dot-ico{width:32px;height:32px;background:var(--soft);box-shadow:none}
-.checks .dot-ico svg{width:16px;height:16px}
-.dra-also{margin-top:24px;color:var(--ink-soft);font-size:.98rem}
-.dra .btn{margin-top:30px}
+.dra blockquote{margin:26px 0 0;padding-left:18px;border-left:3px solid var(--beige)}
+.dra blockquote p{font:italic 400 clamp(1.25rem,1.9vw,1.5rem)/1.45 var(--serif);color:var(--navy)}
+.dra .points{margin:26px 0 0}
+.dra-also{margin-top:22px;color:var(--ink-soft);font-size:.98rem}
+.dra .btn{margin-top:28px}
 
-/* ---------- avaliações ---------- */
-.rating-line{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 12px;margin-top:14px;padding:10px 18px;border-radius:999px;background:var(--white);box-shadow:var(--shadow-soft);font-weight:600;color:var(--ink-soft)}
+/* ---------- depoimentos: carrossel ---------- */
+.rating-line{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 12px;margin-top:14px;font-weight:600;color:var(--ink-soft)}
 .rating-line strong{font-size:1.15rem;color:var(--ink)}
 .stars{display:inline-flex;gap:2px;color:#E0A33A}
 .stars .ico{width:17px;height:17px}
-.rv-grid{columns:3 300px;column-gap:22px}
-.rv{break-inside:avoid;margin:0 0 22px;padding:28px;border-radius:var(--r);background:var(--white);box-shadow:var(--shadow-soft)}
-.rv-mark{display:block;height:34px;font:italic 500 3.6rem/1 var(--serif);color:var(--brand-light)}
-.rv p{color:var(--ink-soft)}
-.rv footer{display:flex;align-items:center;gap:12px;margin-top:18px}
-.avatar{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--brand);color:var(--white);font-weight:700;flex:none}
+.rv-slider{max-width:860px;margin:0 auto}
+.rv-viewport{overflow:hidden;border-radius:var(--r-lg);background:var(--ice)}
+.rv-track{display:flex;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.rv-slide{flex:0 0 100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(34px,5vw,60px) clamp(22px,6vw,72px);text-align:center}
+.rv-mark{display:block;height:40px;font:italic 400 4.4rem/1 var(--serif);color:var(--beige)}
+.rv-slide p{font:italic 300 clamp(1.25rem,2.1vw,1.6rem)/1.5 var(--serif);color:var(--navy);max-width:34em}
+.rv-who{display:flex;align-items:center;gap:12px;margin-top:24px;text-align:left}
+.avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--royal);color:var(--white);font-weight:700;flex:none}
 .rv-name{display:block;font-weight:700;line-height:1.2}
-.rv .stars .ico{width:13px;height:13px}
-.rv-cta{text-align:center;margin-top:18px}
+.rv-who .stars .ico{width:13px;height:13px}
+.rv-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
+.rv-arrow,.rv-pause{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--navy);cursor:pointer}
+.rv-arrow:hover,.rv-pause:hover{border-color:var(--royal)}
+.rv-arrow svg{width:18px;height:18px}
+.rv-pause svg{width:14px;height:14px}
+.rv-dots{display:flex;gap:4px}
+.rv-dot{width:28px;height:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.rv-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--steel);transition:width .3s, background-color .3s}
+.rv-dot[aria-current="true"]::before{width:22px;border-radius:6px;background:var(--royal)}
+.rv-cta{text-align:center;margin-top:26px}
 
 /* ---------- a clínica ---------- */
-.perks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.perks li{display:flex;flex-direction:column;align-items:center;gap:12px;padding:26px 18px;border-radius:var(--r);background:var(--white);border:1px solid var(--line);text-align:center;font-weight:600;font-size:.97rem;line-height:1.4}
-.perks .dot-ico{width:52px;height:52px;background:var(--soft);box-shadow:none}
-.perks .dot-ico svg{width:24px;height:24px}
-.clinic-text{max-width:720px;margin:0 auto 40px;text-align:center;color:var(--ink-soft);font-size:1.06rem}
-.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,clamp(150px,16vw,220px));grid-template-areas:"a a b c" "a a d e" "f f g g";gap:14px;margin-top:clamp(40px,5vw,64px)}
+.clinic-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.clinic-top h2{font-size:clamp(1.95rem,3.3vw,2.7rem);line-height:1.15}
+.clinic-top .body{margin-top:18px;color:var(--ink-soft);font-size:1.06rem;max-width:34em}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;padding-top:6px}
+.perks li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;font-weight:600;line-height:1.45}
+.perks .tick{width:22px;height:22px;margin-top:1px;border-radius:50%;background:var(--white);color:var(--royal);display:grid;place-items:center}
+.perks .tick svg{width:13px;height:13px;stroke-width:2.6}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,clamp(150px,16vw,220px));grid-template-areas:"a a b c" "a a d e" "f f g g";gap:14px;margin-top:clamp(44px,5vw,64px)}
 .gallery figure{position:relative;margin:0;overflow:hidden;border-radius:var(--r)}
 .gallery img{width:100%;height:100%;object-fit:cover}
-.gallery figcaption{position:absolute;left:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);font-size:.82rem;font-weight:600}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--navy);font-size:.82rem;font-weight:600}
 .g-a{grid-area:a}.g-b{grid-area:b}.g-c{grid-area:c}.g-d{grid-area:d}.g-e{grid-area:e}.g-f{grid-area:f}.g-g{grid-area:g}
 
 /* ---------- frase ---------- */
-.motto{position:relative;overflow:hidden;background:var(--brand);color:var(--white);text-align:center;padding:clamp(72px,9vw,112px) 0}
-.motto::before{content:"";position:absolute;inset:0;background:url(img/recepcao.webp) center/cover;opacity:.12;mix-blend-mode:multiply}
-.motto .wrap{position:relative}
+.motto{background:var(--navy);color:var(--white);text-align:center;padding:clamp(72px,9vw,112px) 0}
 .motto blockquote{margin:0 auto;max-width:900px}
-.motto p{font:italic 400 clamp(1.75rem,3.8vw,3.1rem)/1.25 var(--serif);letter-spacing:-.01em}
-.motto cite{display:block;margin-top:20px;font-style:normal;font-weight:600;color:var(--soft-2)}
+.motto p{font:italic 300 clamp(1.75rem,3.8vw,3rem)/1.25 var(--serif);letter-spacing:-.01em}
+.motto p::before{content:"“";display:block;height:.55em;font-size:1.6em;line-height:1;color:var(--beige)}
+.motto cite{display:block;margin-top:20px;font-style:normal;font-weight:600;color:var(--beige)}
 
 /* ---------- dúvidas ---------- */
 .faq-list{max-width:820px;margin:0 auto;display:grid;gap:12px}
-.faq details{border-radius:var(--r-sm);background:var(--soft);transition:background-color .2s}
-.faq details[open]{background:var(--soft-2)}
+.faq details{border-radius:var(--r-sm);background:var(--ice)}
 .faq summary{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px;cursor:pointer;list-style:none;font-weight:700;font-size:1.04rem;line-height:1.4}
 .faq summary::-webkit-details-marker{display:none}
 .pm{position:relative;flex:none;width:32px;height:32px;border-radius:50%;background:var(--white);transition:transform .25s}
-.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;border-radius:2px;background:var(--brand);transform:translate(-50%,-50%)}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;border-radius:2px;background:var(--royal);transform:translate(-50%,-50%)}
 .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
 .faq details[open] .pm{transform:rotate(45deg)}
 .faq details p{padding:0 24px 22px;max-width:62ch;color:var(--ink-soft)}
@@ -254,29 +268,28 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- agendar ---------- */
 .book-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,4vw,56px);padding:clamp(24px,4vw,52px);border-radius:var(--r-lg);background:var(--white);box-shadow:var(--shadow)}
 .book-card h2{font-size:clamp(1.95rem,3.3vw,2.6rem);line-height:1.12}
-.book-card .sub{margin-top:8px;font:italic 400 1.25rem/1.4 var(--serif);color:var(--brand)}
-.book-card .btn{margin-top:26px}
-.contact{display:grid;gap:18px;margin-top:34px}
+.book-card .lead{margin-top:10px;color:var(--ink-soft)}
+.book-card .btn{margin-top:24px}
+.contact{display:grid;gap:18px;margin-top:32px}
 .contact li{display:flex;gap:14px;align-items:flex-start}
-.contact .dot-ico{background:var(--soft);box-shadow:none;width:42px;height:42px}
+.contact .dot-ico{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--ice);color:var(--royal);flex:none}
 .contact .dot-ico svg{width:20px;height:20px}
 .contact b{display:block;font-size:.84rem;color:var(--ink-faint);font-weight:600}
 .contact a{text-decoration:none}
 .contact a:hover{text-decoration:underline;text-underline-offset:.25em}
 .hours{display:grid;grid-template-columns:auto auto;justify-content:start;gap:0 16px}
 .map{display:flex;flex-direction:column;gap:12px}
-.map iframe{flex:1;width:100%;min-height:400px;border:0;border-radius:var(--r);background:var(--soft)}
-.map a{align-self:flex-start;font-weight:700;color:var(--brand-deep)}
+.map iframe{flex:1;width:100%;min-height:400px;border:0;border-radius:var(--r);background:var(--ice)}
 
 /* ---------- rodapé ---------- */
-.foot{background:var(--night);color:var(--night-soft);padding:40px 0 48px;font-size:.9rem}
+.foot{background:var(--navy);color:#D5DAE8;padding:40px 0 48px;font-size:.9rem}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px}
 .foot .brand-name{color:var(--white)}
-.foot .brand-sub{color:var(--brand-light)}
-.foot .brand img{box-shadow:0 0 0 2px var(--night), 0 0 0 3px var(--brand-light)}
+.foot .brand-sub{color:var(--beige)}
+.foot .brand img{box-shadow:0 0 0 2px var(--navy), 0 0 0 3px var(--beige)}
 .socials{display:flex;gap:10px}
 .socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--white)}
-.socials a:hover{background:var(--brand)}
+.socials a:hover{background:var(--royal)}
 .foot-note{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem}
 
 /* ---------- WhatsApp fixo ---------- */
@@ -285,36 +298,45 @@ ul{margin:0;padding:0;list-style:none}
 .wa-float.show{visibility:visible;opacity:1;transform:none;transition:opacity .3s, transform .3s}
 .dock{display:none}
 
-/* ---------- entrada do hero ---------- */
+/* ---------- movimento ---------- */
 @media (prefers-reduced-motion:no-preference){
-  .hero-copy > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-  .hero-copy > :nth-child(2){animation-delay:.08s}
-  .hero-copy > :nth-child(3){animation-delay:.16s}
-  .hero-copy > :nth-child(4){animation-delay:.24s}
-  .hero-copy > :nth-child(5){animation-delay:.32s}
-  .hero-photo{animation:rise 1s cubic-bezier(.2,.7,.2,1) .2s both}
-  .hero-badge{animation:rise .8s cubic-bezier(.2,.7,.2,1) .7s both}
-  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .hero-photo img{animation:reveal 1.1s cubic-bezier(.2,.7,.2,1) both}
+  .hero-content > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-content > :nth-child(2){animation-delay:.1s}
+  .hero-content > :nth-child(3){animation-delay:.2s}
+  .hero-content > :nth-child(4){animation-delay:.3s}
+  .hero-content > :nth-child(5){animation-delay:.4s}
+  .sheet[open]{animation:rise .28s cubic-bezier(.2,.8,.2,1)}
+  @keyframes reveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv-track{transition-duration:.3s}
+  .marquee.is-moving .marquee-track{animation-duration:110s}
+}
 
 /* ---------- responsivo ---------- */
-@media (max-width:1060px){
-  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .perks{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:940px){
-  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;padding:10px var(--gutter) 20px;background:var(--page);border-bottom:1px solid var(--line);box-shadow:var(--shadow-soft)}
+@media (max-width:980px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;padding:10px var(--gutter) 20px;background:var(--white);border-bottom:1px solid var(--line);box-shadow:var(--shadow-soft)}
   .nav.open{display:flex}
   .nav a{padding:14px 12px;font-size:1.05rem}
   .menu-btn{display:grid}
-  .hero .wrap{grid-template-columns:1fr}
-  .hero-photo{margin:10px auto 0 0;max-width:420px}
-  .feature{grid-template-columns:1fr}
-  .feature-media img{min-height:0;aspect-ratio:16/10}
-  .dra .wrap{grid-template-columns:1fr}
-  .dra-photo{max-width:400px;margin-left:18px}
-  .book-card{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-photo{height:min(56svh,520px)}
+  .hero-content{padding:44px var(--gutter) 52px}
+  .hero h1::before{left:-.42em}
+  .info-bar ul{grid-template-columns:1fr 1fr}
+  .info-bar li{padding:18px 0 18px 18px}
+  .info-bar li:nth-child(odd){border-left:0;padding-left:0}
+  .info-bar li:nth-child(n+3){border-top:1px solid var(--line)}
+  .feat{grid-template-columns:1fr}
+  .feat-rev .feat-media{order:0}
+  .feat-media.land{max-width:620px}
+  .dra .wrap,.clinic-top,.book-card{grid-template-columns:minmax(0,1fr)}
+  .contact li > span:last-child{min-width:0}
+  .contact a{overflow-wrap:anywhere}
+  .dra-photo{max-width:400px}
 }
 @media (max-width:640px){
   body{font-size:1rem;padding-bottom:84px}
@@ -325,26 +347,17 @@ ul{margin:0;padding:0;list-style:none}
   .brand-sub{font-size:.84rem;white-space:nowrap}
   .top .btn-sm .cta-text{display:none}
   .top .btn-sm{width:46px;min-height:46px;padding:0}
-  .hero-kicker{font-size:1.15rem}
+  .hero-photo{height:46svh}
+  .hero h1{font-size:2.15rem;padding-left:.4em}
+  .hero h1::before{left:0}
   .hero-actions .btn{width:100%}
-  .hero-info{flex-direction:column;gap:12px}
-  .hero-photo::before{transform:translate(10px,10px)}
-  .hero-badge{left:12px;bottom:12px;padding:10px 14px 10px 10px}
-  .hero-badge .dot-ico{width:36px;height:36px}
-  .modalities{grid-template-columns:1fr}
-  .hide-sm{display:none}
-  .feature-body .btn{width:100%}
-  .cards{grid-template-columns:1fr}
-  .card{padding:24px}
-  .card-wide{grid-column:auto;grid-template-columns:1fr}
-  .card-wide figure{max-width:260px}
-  .perks{gap:12px}
-  .perks li{padding:20px 12px;font-size:.9rem}
+  .feat .btn{width:100%}
+  .perks{grid-template-columns:1fr}
+  .mini{width:250px}
   .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(var(--gutter) * -1);margin-right:calc(var(--gutter) * -1);padding:0 var(--gutter) 6px;scrollbar-width:none}
   .gallery::-webkit-scrollbar{display:none}
   .gallery figure{flex:0 0 82%;height:240px;scroll-snap-align:center}
-  .rv{padding:24px}
-  .faq summary{padding:18px 18px;font-size:1rem}
+  .faq summary{padding:18px;font-size:1rem}
   .faq details p{padding:0 18px 20px}
   .book-card .btn{width:100%}
   .sheet{width:calc(100% - 20px);max-height:88vh}
@@ -353,7 +366,7 @@ ul{margin:0;padding:0;list-style:none}
   .wa-float{display:none}
   .dock{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;visibility:hidden;transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.7,.2,1), visibility 0s linear .3s}
   .dock.show{visibility:visible;transform:none;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
-  .dock .btn{width:100%;box-shadow:0 12px 30px -8px rgba(36,48,86,.55)}
+  .dock .btn{width:100%;box-shadow:0 12px 30px -8px rgba(31,43,85,.55)}
 }
 @media (max-width:380px){
   .brand-sub{display:none}
@@ -366,34 +379,25 @@ ul{margin:0;padding:0;list-style:none}
   <symbol id="i-star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.4l2.63 5.47 6.02.74-4.43 4.14 1.16 5.95L10 14.78l-5.38 2.92 1.16-5.95L1.35 7.61l6.02-.74z"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></symbol>
-  <!-- ícones de linha (herdam stroke de .line-ico) -->
-  <symbol id="t-tooth" viewBox="0 0 24 24"><path d="M7 3c-2.2 0-4 1.8-4 4.4 0 2.3 1 3.6 1.6 5.6.6 2 .8 5.5 2.2 7.3.9 1.1 2.1.5 2.4-.9l.9-3.7c.2-.8.7-1.2 1.4-1.2h1c.7 0 1.2.4 1.4 1.2l.9 3.7c.3 1.4 1.5 2 2.4.9 1.4-1.8 1.6-5.3 2.2-7.3.6-2 1.6-3.3 1.6-5.6C21 4.8 19.2 3 17 3c-1.9 0-3 1-5 1S8.9 3 7 3z"/></symbol>
-  <symbol id="t-implant" viewBox="0 0 24 24"><path d="M7.5 2.5h9c1.9 0 3.2 1.4 3.2 3.2 0 2.1-1.5 3.6-2.9 3.8H7.2C5.8 9.3 4.3 7.8 4.3 5.7c0-1.8 1.3-3.2 3.2-3.2z"/><path d="M8.5 12.5h7M9 15.5h6M9.5 18.5h5M12 18.5V22"/></symbol>
-  <symbol id="t-crown" viewBox="0 0 24 24"><path d="M3.5 8.5l4.2 3.2L12 5.5l4.3 6.2 4.2-3.2-2 10H5.5z"/><path d="M6 21h12"/></symbol>
-  <symbol id="t-sparkle" viewBox="0 0 24 24"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
-  <symbol id="t-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.5 2.4 2.3 4 2.3s3-.8 4-2.3M9 9.5h.01M15 9.5h.01"/></symbol>
-  <symbol id="t-syringe" viewBox="0 0 24 24"><path d="M18 2l4 4M16 4l4 4M18 6l-9.5 9.5-3.2.7.7-3.2L15.5 3.5M11 8l2 2M8.5 10.5l2 2M5.3 18.7L2 22"/></symbol>
-  <symbol id="t-face" viewBox="0 0 24 24"><path d="M12 2.8c-4.1 0-6.8 3-6.8 7.6 0 5.2 3.2 10.8 6.8 10.8s6.8-5.6 6.8-10.8c0-4.6-2.7-7.6-6.8-7.6z"/><path d="M8.3 12.6c.9 1.3 1.3 2.6 1.3 4M15.7 12.6c-.9 1.3-1.3 2.6-1.3 4"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4l13 8-13 8z"/></symbol>
   <symbol id="t-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.2c0 4.7-3.2 8.6-7.5 9.8-4.3-1.2-7.5-5.1-7.5-9.8V6z"/><path d="M8.8 12l2.2 2.2 4.3-4.4"/></symbol>
   <symbol id="t-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.8-4.6-7.8-10.6A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.8 2.7c0 6-7.8 10.6-7.8 10.6z"/></symbol>
   <symbol id="t-root" viewBox="0 0 24 24"><path d="M7 3c-2.2 0-4 1.8-4 4.4 0 2.3 1 3.6 1.6 5.6.6 2 .8 5.5 2.2 7.3.9 1.1 2.1.5 2.4-.9l.9-3.7c.2-.8.7-1.2 1.4-1.2h1c.7 0 1.2.4 1.4 1.2l.9 3.7c.3 1.4 1.5 2 2.4.9 1.4-1.8 1.6-5.3 2.2-7.3.6-2 1.6-3.3 1.6-5.6C21 4.8 19.2 3 17 3c-1.9 0-3 1-5 1S8.9 3 7 3z"/><path d="M10 8.5v3.5M14 8.5v3.5"/></symbol>
   <symbol id="t-braces" viewBox="0 0 24 24"><path d="M2.5 12h19"/><rect x="4.5" y="9" width="4" height="6" rx="1.2"/><rect x="10" y="9" width="4" height="6" rx="1.2"/><rect x="15.5" y="9" width="4" height="6" rx="1.2"/></symbol>
-  <symbol id="t-scalpel" viewBox="0 0 24 24"><path d="M14.5 3.5l6 6L9.5 20.5H3.5v-6z"/><path d="M12 6l6 6"/></symbol>
+  <symbol id="t-syringe" viewBox="0 0 24 24"><path d="M18 2l4 4M16 4l4 4M18 6l-9.5 9.5-3.2.7.7-3.2L15.5 3.5M11 8l2 2M8.5 10.5l2 2M5.3 18.7L2 22"/></symbol>
+  <symbol id="t-face" viewBox="0 0 24 24"><path d="M12 2.8c-4.1 0-6.8 3-6.8 7.6 0 5.2 3.2 10.8 6.8 10.8s6.8-5.6 6.8-10.8c0-4.6-2.7-7.6-6.8-7.6z"/><path d="M8.3 12.6c.9 1.3 1.3 2.6 1.3 4M15.7 12.6c-.9 1.3-1.3 2.6-1.3 4"/></symbol>
   <symbol id="t-head" viewBox="0 0 24 24"><path d="M5.5 9.5a6.5 6.5 0 0 1 13 0v2.2a6.5 6.5 0 0 1-2.8 5.3V21H8.3v-4A6.5 6.5 0 0 1 5.5 11.7z"/><path d="M9.5 13.5c.8.6 1.6.9 2.5.9s1.7-.3 2.5-.9"/></symbol>
   <symbol id="t-guard" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.2c0 4.7-3.2 8.6-7.5 9.8-4.3-1.2-7.5-5.1-7.5-9.8V6z"/><path d="M8.5 11.5c1 1 2.2 1.5 3.5 1.5s2.5-.5 3.5-1.5"/></symbol>
   <symbol id="t-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/><path d="M15 3.5h3.5L15 7h3.5"/></symbol>
-  <symbol id="t-camera" viewBox="0 0 24 24"><path d="M3.5 7.5h3.2l1.8-2.5h7l1.8 2.5h3.2v12h-17z"/><circle cx="12" cy="13" r="3.5"/></symbol>
-  <symbol id="t-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
-  <symbol id="t-sofa" viewBox="0 0 24 24"><path d="M5 11V8.5a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 19 8.5V11"/><path d="M3 12a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3zM5.5 17v2.5M18.5 17v2.5"/></symbol>
-  <symbol id="t-parking" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M10 16.5v-9h3a2.6 2.6 0 0 1 0 5.2h-3"/></symbol>
-  <symbol id="t-access" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.6"/><path d="M5 8.5l7 1.5 7-1.5M12 10v4.5l-3 6M12 14.5l3 6"/></symbol>
-  <symbol id="t-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
-  <symbol id="t-hand" viewBox="0 0 24 24"><path d="M12 13.5s-4.5-2.6-4.5-6A2.5 2.5 0 0 1 12 6a2.5 2.5 0 0 1 4.5 1.5c0 3.4-4.5 6-4.5 6z"/><path d="M3 17.5l3.5-2.5c.8-.6 1.9-.6 2.7 0l1.3 1h3.5a1.5 1.5 0 0 1 0 3H10M14 19l4.8-2.8a1.5 1.5 0 0 1 1.7 2.4L15 22H3"/></symbol>
   <symbol id="t-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.2-7-11.7a7 7 0 0 1 14 0c0 5.5-7 11.7-7 11.7z"/><circle cx="12" cy="9.8" r="2.6"/></symbol>
   <symbol id="t-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 6.8 6.8l1.4-2.2 4.3 1.7V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="t-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
   <symbol id="t-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7.5l8 5.5 8-5.5"/></symbol>
   <symbol id="t-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="t-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="t-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="t-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
 </svg>
 
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -421,173 +425,131 @@ ul{margin:0;padding:0;list-style:none}
 <main id="conteudo">
 
 <section class="hero" id="inicio" aria-labelledby="hero-title">
-  <div class="wrap">
-    <div class="hero-copy">
-      <p class="hero-kicker">Dra. Gabriela Cavalcanti</p>
-      <h1 id="hero-title">Quando o tratamento é bem feito, <span class="soft">o resultado vai além do sorriso.</span></h1>
-      <p class="lead">Implantes e reabilitação oral com 20 anos de experiência, planejamento digital e cirurgia guiada. E todas as especialidades odontológicas reunidas em um só lugar, em São José dos Campos.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta na Cavalcanti Odontologia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar consulta</a>
-        <a class="btn btn-ghost" href="#tratamentos">Conheça os tratamentos</a>
-      </div>
-      <ul class="hero-info">
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-pin"/></svg></span>Jardim São Dimas, SJC</li>
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-clock"/></svg></span>Seg. a sex., das 8h às 18h</li>
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-parking"/></svg></span>Estacionamento gratuito</li>
-      </ul>
+  <figure class="hero-photo">
+    <img src="img/hero.webp" width="750" height="1022" alt="Dra. Gabriela Cavalcanti sorrindo ao lado do letreiro de aço da clínica, na recepção com parede de madeira" fetchpriority="high">
+  </figure>
+  <div class="hero-content">
+    <p class="hero-place">Odontologia integrada em São José dos Campos</p>
+    <h1 id="hero-title">Quando o tratamento é bem feito, o resultado vai além do sorriso.”</h1>
+    <p class="hero-sign"><span><strong>Dra. Gabriela Cavalcanti Serrano</strong><span>Implantodontista, CRO 91.531</span></span></p>
+    <p class="lead">Implantes e reabilitação oral com 20 anos de experiência, planejamento digital e cirurgia guiada. E todas as especialidades odontológicas reunidas em um só lugar.</p>
+    <div class="hero-actions">
+      <a class="btn btn-beige" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta na Cavalcanti Odontologia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar consulta</a>
+      <a class="text-link" href="#tratamentos">Ver tratamentos</a>
     </div>
-    <figure class="hero-photo">
-      <img src="img/hero.webp" width="750" height="1022" alt="Dra. Gabriela Cavalcanti sorrindo ao lado do letreiro de aço da clínica, na recepção com parede de madeira" fetchpriority="high">
-      <figcaption class="hero-badge">
-        <span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-implant"/></svg></span>
-        <span class="b-text"><strong>20 anos de experiência</strong><span class="b-sub">em implantes e reabilitação oral</span></span>
-      </figcaption>
-    </figure>
   </div>
 </section>
+
+<div class="info-bar" aria-label="Informações da clínica">
+  <ul class="wrap">
+    <li><b>Endereço</b>Rua Paraibuna, 811, sala 506<br>Jardim São Dimas</li>
+    <li><b>Horário</b>Segunda a sexta<br>das 8h às 18h</li>
+    <li><b>Estacionamento</b>Gratuito no prédio<br>com total acessibilidade</li>
+    <li><b>WhatsApp</b><a href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta na Cavalcanti Odontologia.">(12) 97603-0617</a></li>
+  </ul>
+</div>
 
 <section class="sec" id="tratamentos" aria-labelledby="t-title">
   <div class="wrap">
     <header class="sec-head">
       <h2 id="t-title">Tratamentos</h2>
-      <p class="sub">Todas as especialidades em um só lugar</p>
-      <p>Da prevenção à reabilitação completa, com avaliação individual e cada etapa explicada com calma.</p>
+      <p>Da prevenção à reabilitação completa, com avaliação individual e todas as especialidades em um só lugar.</p>
     </header>
 
-    <article class="feature" id="implante-dentario" aria-labelledby="implante-title">
-      <div class="feature-media">
-        <img src="img/implantes.webp" width="1124" height="645" alt="Dra. Gabriela Cavalcanti no consultório, ao lado do motor de implante" loading="lazy">
-      </div>
-      <div class="feature-body">
-        <span class="tag"><svg class="ico line-ico" aria-hidden="true" style="width:16px;height:16px"><use href="#t-heart"/></svg>A especialidade da Dra. Gabriela</span>
-        <h3 id="implante-title">Implante dentário</h3>
-        <p class="feature-intro">É a melhor opção para repor um, alguns ou até todos os dentes. Feitos de titânio, os implantes substituem as raízes perdidas e recebem próteses fixas ou móveis, devolvendo a mastigação e a beleza do sorriso.</p>
-        <ul class="modalities">
-          <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-crown"/></svg></span><h4>Protocolo (prótese fixa)</h4><p>Prótese total sobre 4 a 8 implantes, que não sai. Recupera cerca de 85% da força de mastigação.</p></li>
-          <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-smile"/></svg></span><h4>Overdenture (prótese móvel)</h4><p>Dentadura presa por encaixes sobre 2 a 4 implantes: mais firme e fácil de higienizar.</p></li>
-          <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-target"/></svg></span><h4>Cirurgia guiada</h4><p>Implantes colocados sem cortes, com guia feito a partir da tomografia digital.</p></li>
-          <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-clock"/></svg></span><h4>Carga imediata</h4><p>Quando o osso permite, o dente provisório já é instalado sobre o implante.</p></li>
-        </ul>
-        <blockquote class="case">
-          <p>“Essa querida achou que jamais poderia fazer tratamento de implantes, por ser diabética. Porém com avaliação, planejamento e os cuidados necessários, o tratamento foi possível e este sonho realizado.”</p>
-          <cite>Instagram da clínica, agosto de 2026</cite>
-        </blockquote>
-        <a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de implante dentário."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação<span class="hide-sm"> de implante</span></a>
-      </div>
-    </article>
-
-    <div class="cards">
-      <article class="card" id="protese-dentaria">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-crown"/></svg></span>
-        <h3>Prótese dentária</h3>
-        <p class="card-grow">A perda de dentes tem solução. Coroas, próteses fixas e móveis, com a qualidade que a sua imagem, o seu bem-estar e a sua autoestima merecem.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de prótese dentária."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
-      </article>
-
-      <article class="card" id="clareamento-dental">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-sparkle"/></svg></span>
-        <h3>Clareamento dental</h3>
-        <p class="card-grow">Um sorriso mais branco e brilhante, com a técnica indicada para o seu caso: a laser, caseiro, conjugado ou interno.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de clareamento dental."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-clareamento">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="toxina-botulinica">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-syringe"/></svg></span>
-        <h3>Toxina botulínica</h3>
-        <p class="card-grow">Suaviza rugas de expressão e também ameniza dores do bruxismo e o sorriso gengival, de forma preventiva ou terapêutica.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de toxina botulínica."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
-      </article>
-
-      <article class="card card-wide" id="odontologia-estetica">
-        <div class="card-text">
-          <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-smile"/></svg></span>
-          <h3>Lentes e facetas</h3>
-          <p>A odontologia estética cuida da cosmética do sorriso, e várias especialidades contribuem para essa transformação. As facetas em resina corrigem a parte da frente do dente com pouco ou nenhum desgaste e, muitas vezes, podem ser removidas sem danificar o dente.</p>
-          <blockquote class="card-quote">
-            <p>“Melhor do que um resultado incrível do tratamento é como ela se sentiu após ter finalizado! Isso sim é incrível, autoestima lá em cima!”</p>
-            <cite>Instagram da clínica</cite>
+    <div class="featured">
+      <article class="feat" id="implante-dentario" aria-labelledby="f1-title">
+        <figure class="feat-media land">
+          <img src="img/implantes.webp" width="1124" height="645" alt="Dra. Gabriela Cavalcanti no consultório, ao lado do motor de implante" loading="lazy">
+        </figure>
+        <div class="feat-text">
+          <span class="tag">A especialidade da Dra. Gabriela</span>
+          <h3 id="f1-title">Implantes e reabilitação oral</h3>
+          <p>A melhor opção para repor um, alguns ou até todos os dentes. Os implantes de titânio substituem as raízes perdidas e recebem próteses fixas ou móveis, devolvendo a mastigação e a beleza do sorriso.</p>
+          <ul class="points" id="protese-dentaria">
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Protocolo:</b> prótese fixa sobre 4 a 8 implantes, que recupera cerca de 85% da mastigação.</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Overdenture:</b> prótese móvel presa sobre 2 a 4 implantes, mais firme e fácil de higienizar.</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Cirurgia guiada:</b> implantes sem cortes, planejados na tomografia digital.</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Carga imediata:</b> quando o osso permite, o dente provisório já sai instalado.</span></li>
+          </ul>
+          <blockquote class="quote">
+            <p>“Essa querida achou que jamais poderia fazer tratamento de implantes, por ser diabética. Com avaliação, planejamento e os cuidados necessários, o tratamento foi possível e este sonho realizado.”</p>
+            <cite>Instagram da clínica, agosto de 2026</cite>
           </blockquote>
-          <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de lentes e facetas."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
+          <div class="acts"><a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de implante dentário."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
         </div>
-        <figure>
+      </article>
+
+      <article class="feat feat-rev" id="odontologia-estetica" aria-labelledby="f2-title">
+        <figure class="feat-media port">
           <img src="img/caso-facetas.webp" width="480" height="640" alt="Paciente sorrindo ao lado da dentista no consultório, depois do clareamento e das facetas" loading="lazy">
           <figcaption>Clareamento + facetas de porcelana, caso publicado no Instagram da clínica.</figcaption>
         </figure>
-      </article>
-
-      <article class="card" id="bichectomia">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-face"/></svg></span>
-        <h3>Bichectomia</h3>
-        <p class="card-grow">Cirurgia que reduz as bochechas para afinar o rosto e deixar o perfil mais harmônico. Também indicada para quem morde a bochecha.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de bichectomia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-bichectomia">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="clinica-geral">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-shield"/></svg></span>
-        <h3>Clínica geral e prevenção</h3>
-        <p class="card-grow">Check-up com diagnóstico digital e câmera intraoral, limpeza e restaurações. Prevenir é melhor que remediar.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta de clínica geral."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar consulta</a><button class="more" type="button" data-open="d-clinica">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="periodontia">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-heart"/></svg></span>
-        <h3>Periodontia</h3>
-        <p class="card-grow">Cuida da gengiva e do osso que sustentam os dentes. Sinais de alerta: sangramento, gengiva inchada, mau hálito e dentes com mobilidade.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de periodontia (gengiva)."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-perio">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="tratamento-de-canal-endodontia">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-root"/></svg></span>
-        <h3>Tratamento de canal</h3>
-        <p class="card-grow">Salva o dente atingido por cárie profunda, trauma ou necrose. Com a tecnologia atual, é feito em sessão única, de forma rápida, segura e indolor.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de tratamento de canal."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-canal">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="aparelho-ortodontico">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-braces"/></svg></span>
-        <h3>Ortodontia</h3>
-        <p class="card-grow">A especialidade que estuda e corrige a posição dos dentes, com a Drª Adriana Rodrigues Martins, ortodontista (CRO 76.358).</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de ortodontia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
-      </article>
-
-      <article class="card card-wide" id="cirurgia-oral">
-        <div class="card-text">
-          <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-scalpel"/></svg></span>
-          <h3>Cirurgia oral e sisos</h3>
-          <p>Por serem os últimos a se desenvolver, é comum que os dentes do siso não encontrem espaço na boca e precisem ser extraídos. É um dos procedimentos mais elogiados pelos pacientes da clínica.</p>
-          <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação para extração de siso."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
+        <div class="feat-text">
+          <span class="tag">Estética do sorriso</span>
+          <h3 id="f2-title">Clareamento, lentes e facetas</h3>
+          <p>Um sorriso mais branco, harmônico e natural, com a técnica indicada para o seu caso depois da avaliação.</p>
+          <ul class="points" id="clareamento-dental">
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Clareamento</b> a laser no consultório, caseiro com moldeira, conjugado ou interno.</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Facetas em resina,</b> com pouco ou nenhum desgaste do dente.</span></li>
+            <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Facetas de porcelana,</b> como nos casos recentes da clínica.</span></li>
+          </ul>
+          <blockquote class="quote">
+            <p>“Melhor do que um resultado incrível do tratamento é como ela se sentiu após ter finalizado! Isso sim é incrível, autoestima lá em cima!”</p>
+            <cite>Instagram da clínica</cite>
+          </blockquote>
+          <div class="acts">
+            <a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de clareamento, lentes ou facetas."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a>
+            <button class="more" type="button" data-open="d-clareamento">Saiba mais sobre clareamento</button>
+          </div>
         </div>
-        <blockquote class="card-quote">
-          <p>“Realizei as extrações dos meus 4 sisos e foi super tranquilo, tanto na hora quanto o pós. Super recomendo.”</p>
-          <cite>Ray, no Google</cite>
-        </blockquote>
       </article>
 
-      <article class="card" id="cirurgia-buco-maxilo-facial">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-head"/></svg></span>
-        <h3>Buco-maxilo-facial</h3>
-        <p class="card-grow">Tratamento cirúrgico de traumatismos e deformidades da face, dos maxilares e da mandíbula, lesões da ATM e cirurgia ortognática.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de cirurgia buco-maxilo-facial."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
+      <article class="feat" id="cirurgia-oral" aria-labelledby="f3-title">
+        <div class="quote-panel">
+          <blockquote>
+            <p>“Realizei as extrações dos meus 4 sisos e foi super tranquilo, tanto na hora quanto o pós.”</p>
+            <cite><span class="stars" aria-hidden="true"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span>Ray, no Google</cite>
+          </blockquote>
+          <blockquote>
+            <p>“Estava morrendo de medo e foi super tranquilo: em menos de 15 minutos ela extraiu os dois dentes.”</p>
+            <cite><span class="stars" aria-hidden="true"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span>Michelle S., no Google</cite>
+          </blockquote>
+        </div>
+        <div class="feat-text">
+          <span class="tag">O mais elogiado pelos pacientes</span>
+          <h3 id="f3-title">Sisos e cirurgia oral</h3>
+          <p>Por serem os últimos a se desenvolver, é comum que os dentes do siso não encontrem espaço na boca e precisem ser extraídos. A extração é feita com calma, explicando cada etapa, e é um dos procedimentos que mais aparecem nas avaliações da clínica.</p>
+          <div class="acts" style="margin-top:28px"><a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação para extração de siso."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a></div>
+        </div>
       </article>
+    </div>
 
-      <article class="card" id="protetor-bucal">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-guard"/></svg></span>
-        <h3>Protetor bucal</h3>
-        <p class="card-grow">Feito sob medida, evita até 90% das lesões na prática de esportes. Ainda mais útil para quem usa aparelho fixo.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de fazer um protetor bucal sob medida."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-protetor">Saiba mais</button></div>
-      </article>
-
-      <article class="card" id="tratamento-do-ronco">
-        <span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-moon"/></svg></span>
-        <h3>Tratamento do ronco</h3>
-        <p class="card-grow">Quando é alto a ponto de perturbar quem está por perto, o ronco pode indicar apneia e prejudicar o sono e a qualidade de vida.</p>
-        <div class="acts"><a class="wa-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação para tratamento do ronco."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação</a><button class="more" type="button" data-open="d-ronco">Saiba mais</button></div>
-      </article>
+    <div class="more-head">
+      <div>
+        <h3>Outros tratamentos</h3>
+        <p>Toque em um tratamento para saber mais ou agendar.</p>
+      </div>
+      <button class="mq-toggle" type="button" aria-pressed="false" hidden><svg aria-hidden="true"><use href="#i-pause"/></svg><span>Pausar</span></button>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="marquee" aria-label="Outros tratamentos">
+      <div class="marquee-track">
+        <article class="mini" id="clinica-geral"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-shield"/></svg></span><h4>Clínica geral e prevenção</h4><p>Check-up digital com câmera intraoral, limpeza e restaurações.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta de clínica geral.">Agendar</a><button class="more" type="button" data-open="d-clinica">Saiba mais</button></div></article>
+        <article class="mini" id="periodontia"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-heart"/></svg></span><h4>Periodontia</h4><p>Cuidado da gengiva e do osso que sustentam os dentes.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de periodontia (gengiva).">Agendar</a><button class="more" type="button" data-open="d-perio">Saiba mais</button></div></article>
+        <article class="mini" id="tratamento-de-canal-endodontia"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-root"/></svg></span><h4>Tratamento de canal</h4><p>Em sessão única, de forma rápida, segura e indolor.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de tratamento de canal.">Agendar</a><button class="more" type="button" data-open="d-canal">Saiba mais</button></div></article>
+        <article class="mini" id="aparelho-ortodontico"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-braces"/></svg></span><h4>Ortodontia</h4><p>Correção da posição dos dentes, com a Drª Adriana Rodrigues Martins.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de ortodontia.">Agendar</a></div></article>
+        <article class="mini" id="toxina-botulinica"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-syringe"/></svg></span><h4>Toxina botulínica</h4><p>Rugas de expressão, dores do bruxismo e sorriso gengival.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de toxina botulínica.">Agendar</a></div></article>
+        <article class="mini" id="bichectomia"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-face"/></svg></span><h4>Bichectomia</h4><p>Afinamento discreto do rosto, com recuperação rápida.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de bichectomia.">Agendar</a><button class="more" type="button" data-open="d-bichectomia">Saiba mais</button></div></article>
+        <article class="mini" id="cirurgia-buco-maxilo-facial"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-head"/></svg></span><h4>Buco-maxilo-facial</h4><p>Traumas e deformidades da face, ATM e cirurgia ortognática.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de cirurgia buco-maxilo-facial.">Agendar</a></div></article>
+        <article class="mini" id="protetor-bucal"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-guard"/></svg></span><h4>Protetor bucal</h4><p>Sob medida, evita até 90% das lesões no esporte.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de fazer um protetor bucal sob medida.">Agendar</a><button class="more" type="button" data-open="d-protetor">Saiba mais</button></div></article>
+        <article class="mini" id="tratamento-do-ronco"><span class="ic" aria-hidden="true"><svg class="line-ico"><use href="#t-moon"/></svg></span><h4>Tratamento do ronco</h4><p>Mais qualidade de sono e de vida.</p><div class="acts"><a class="text-link" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação para tratamento do ronco.">Agendar</a><button class="more" type="button" data-open="d-ronco">Saiba mais</button></div></article>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec sec-blush dra" id="equipe" aria-labelledby="eq-title">
+<section class="sec sec-ice dra" id="equipe" aria-labelledby="eq-title">
   <div class="wrap">
     <figure class="dra-photo">
       <img src="img/dra-gabriela.webp" width="750" height="1022" alt="Retrato da Dra. Gabriela Cavalcanti Serrano sorrindo, de jaleco branco" loading="lazy">
@@ -599,10 +561,10 @@ ul{margin:0;padding:0;list-style:none}
       <blockquote>
         <p>“Sou uma eterna apaixonada pela minha profissão! A odontologia corre pelas minhas veias. Busco sempre conhecimento para transformar vidas e realizar sonhos.”</p>
       </blockquote>
-      <ul class="checks">
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Implantes e reabilitação oral</li>
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>20 anos de experiência</li>
-        <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Planejamento digital e cirurgia guiada</li>
+      <ul class="points">
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Implantes e reabilitação oral</b></span></li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>20 anos de experiência</b></span></li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span><span><b>Planejamento digital e cirurgia guiada</b></span></li>
       </ul>
       <p class="dra-also">Na ortodontia, a equipe conta com a Drª Adriana Rodrigues Martins (CRO 76.358).</p>
       <a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta com a Dra. Gabriela."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar com a Dra. Gabriela</a>
@@ -619,38 +581,46 @@ ul{margin:0;padding:0;list-style:none}
         <strong>4,7</strong><span>no Google, em 136 avaliações</span>
       </p>
     </header>
-    <div class="rv-grid">
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>A Dra. é simplesmente maravilhosa. Cheguei com sérios problemas e, além de me acalmar, ela resolveu erros que outros profissionais tinham feito. Hoje, tenho total tranquilidade com meus dentes.</p><footer><span class="avatar" aria-hidden="true">E</span><span><span class="rv-name">Erica A.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Fui meio nervoso pra consulta, mas a dentista foi super tranquila e explicou tudo sobre a extração de um jeito fácil de entender. O melhor foi que não doeu absolutamente nada.</p><footer><span class="avatar" aria-hidden="true">H</span><span><span class="rv-name">Herminio S.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Fiz o implante e estava um pouco insegura com o resultado final; porém, a Dra. me ouviu e acolheu a minha insegurança. O resultado final foi mágico, não paro de sorrir.</p><footer><span class="avatar" aria-hidden="true">A</span><span><span class="rv-name">Aurora M.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Eu e minha família somos pacientes da Dra. Gabriela há 16 anos! Temos muito a agradecer a ela e a toda a equipe pela competência e profissionalismo.</p><footer><span class="avatar" aria-hidden="true">E</span><span><span class="rv-name">Elaine C.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Sempre tive medo de dentista. A Dra. Gabriela é super atenciosa, explica tudo direitinho e está finalizando meu implante. Apesar do meu medo, não senti dor nenhuma!</p><footer><span class="avatar" aria-hidden="true">A</span><span><span class="rv-name">Andreia B.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Fiz dois canais e não senti nada. A Dra. Gabriela é super cuidadosa, nos deixa tranquila durante todo o procedimento e fez um acabamento impecável.</p><footer><span class="avatar" aria-hidden="true">J</span><span><span class="rv-name">Jennifer O.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Há 5 anos tive uma experiência traumática em outra clínica. Aqui, desde o primeiro atendimento, tiveram um tratamento humanizado comigo, me acolheram e tiveram paciência. Aos poucos estou perdendo o medo.</p><footer><span class="avatar" aria-hidden="true">T</span><span><span class="rv-name">Thayná C.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>Clínica impecável, atendimento maravilhoso, muito educados e simpáticos. A Dra. atende no horário marcado, o que hoje em dia é difícil acontecer.</p><footer><span class="avatar" aria-hidden="true">S</span><span><span class="rv-name">Stephanie N.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
-      <blockquote class="rv"><span class="rv-mark" aria-hidden="true">“</span><p>A Drª Gabriela realizou uma avaliação minuciosa, explicando detalhadamente cada aspecto da minha saúde bucal. Utilizou tecnologias avançadas para um diagnóstico preciso.</p><footer><span class="avatar" aria-hidden="true">L</span><span><span class="rv-name">Luís D.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></footer></blockquote>
+    <div class="rv-slider" role="region" aria-roledescription="carrossel" aria-label="Depoimentos de pacientes">
+      <div class="rv-viewport">
+        <ul class="rv-track">
+          <li class="rv-slide" aria-roledescription="slide" aria-label="1 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>A Dra. é simplesmente maravilhosa. Cheguei com sérios problemas e, além de me acalmar, ela resolveu erros que outros profissionais tinham feito. Hoje, tenho total tranquilidade com meus dentes.</p><div class="rv-who"><span class="avatar" aria-hidden="true">E</span><span><span class="rv-name">Erica A.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+          <li class="rv-slide" aria-roledescription="slide" aria-label="2 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>Fiz o implante e estava um pouco insegura com o resultado final; porém, a Dra. me ouviu e acolheu a minha insegurança. O resultado final foi mágico, não paro de sorrir.</p><div class="rv-who"><span class="avatar" aria-hidden="true">A</span><span><span class="rv-name">Aurora M.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+          <li class="rv-slide" aria-roledescription="slide" aria-label="3 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>Eu e minha família somos pacientes da Dra. Gabriela há 16 anos! Temos muito a agradecer a ela e a toda a equipe pela competência e profissionalismo.</p><div class="rv-who"><span class="avatar" aria-hidden="true">E</span><span><span class="rv-name">Elaine C.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+          <li class="rv-slide" aria-roledescription="slide" aria-label="4 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>Sempre tive medo de dentista. A Dra. Gabriela é super atenciosa, explica tudo direitinho e está finalizando meu implante. Apesar do meu medo, não senti dor nenhuma!</p><div class="rv-who"><span class="avatar" aria-hidden="true">A</span><span><span class="rv-name">Andreia B.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+          <li class="rv-slide" aria-roledescription="slide" aria-label="5 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>Fiz dois canais e não senti nada. A Dra. Gabriela é super cuidadosa, nos deixa tranquila durante todo o procedimento e fez um acabamento impecável.</p><div class="rv-who"><span class="avatar" aria-hidden="true">J</span><span><span class="rv-name">Jennifer O.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+          <li class="rv-slide" aria-roledescription="slide" aria-label="6 de 6"><span class="rv-mark" aria-hidden="true">“</span><p>Clínica impecável, atendimento maravilhoso, muito educados e simpáticos. A Dra. atende no horário marcado, o que hoje em dia é difícil acontecer.</p><div class="rv-who"><span class="avatar" aria-hidden="true">S</span><span><span class="rv-name">Stephanie N.</span><span class="stars" role="img" aria-label="5 estrelas"><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg><svg class="ico"><use href="#i-star"/></svg></span></span></div></li>
+        </ul>
+      </div>
+      <div class="rv-controls" hidden>
+        <button class="rv-arrow" type="button" data-dir="-1" aria-label="Depoimento anterior"><svg class="line-ico"><use href="#t-left"/></svg></button>
+        <div class="rv-dots"></div>
+        <button class="rv-arrow" type="button" data-dir="1" aria-label="Próximo depoimento"><svg class="line-ico"><use href="#t-right"/></svg></button>
+        <button class="rv-pause" type="button" aria-pressed="false" aria-label="Pausar depoimentos"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+      </div>
     </div>
     <div class="rv-cta"><a class="btn btn-ghost" href="https://www.google.com/maps/place/Cavalcanti+Odontologia+Integrada/@-23.1991434,-45.8889529,1151m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94cc4a7124848b59:0x6faf14aa8ab71440!8m2!3d-23.1991434!4d-45.8863726!16s%2Fg%2F1q67qv7t6" target="_blank" rel="noopener">Ler todas as avaliações no Google</a></div>
   </div>
 </section>
 
-<section class="sec sec-champ" id="clinica" aria-labelledby="cl-title">
+<section class="sec sec-ice" id="clinica" aria-labelledby="cl-title">
   <div class="wrap">
-    <header class="sec-head">
-      <h2 id="cl-title">Conheça a clínica</h2>
-      <p class="sub">Qualidade, conforto e carinho em cada detalhe</p>
-    </header>
-    <p class="clinic-text">Uma clínica de categoria premium no Jardim São Dimas: estrutura diferenciada, tecnologia de última geração e profissionais atualizados em todas as áreas da odontologia. Para nós, cada novo paciente representa a consolidação dos nossos valores.</p>
-    <ul class="perks" aria-label="Diferenciais da clínica">
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-camera"/></svg></span>Diagnóstico digital e câmera intraoral</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-target"/></svg></span>Cirurgia guiada por computador</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-sofa"/></svg></span>Sala de espera aconchegante e com internet</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-parking"/></svg></span>Estacionamento gratuito no prédio</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-access"/></svg></span>Total acessibilidade</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-clock"/></svg></span>Horários flexíveis</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-hand"/></svg></span>Atendimento personalizado</li>
-      <li><span class="dot-ico" aria-hidden="true"><svg class="line-ico"><use href="#t-shield"/></svg></span>Rigoroso controle de qualidade</li>
-    </ul>
+    <div class="clinic-top">
+      <div>
+        <h2 id="cl-title">Todas as especialidades, em um só lugar</h2>
+        <p class="body">Uma clínica de categoria premium no Jardim São Dimas: estrutura diferenciada, tecnologia de última geração e profissionais atualizados em todas as áreas da odontologia. Para nós, cada novo paciente representa a consolidação dos nossos valores.</p>
+      </div>
+      <ul class="perks" aria-label="Diferenciais da clínica">
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Diagnóstico digital e câmera intraoral</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Cirurgia guiada por computador</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Sala de espera aconchegante e com internet</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Estacionamento gratuito no prédio</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Total acessibilidade</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Horários flexíveis</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Atendimento personalizado</li>
+        <li><span class="tick" aria-hidden="true"><svg class="line-ico"><use href="#t-check"/></svg></span>Rigoroso controle de qualidade</li>
+      </ul>
+    </div>
     <div class="gallery" aria-label="Fotos da clínica">
       <figure class="g-a"><img src="img/recepcao.webp" width="1124" height="645" alt="Recepção com parede de madeira e o letreiro de aço da Cavalcanti Odontologia Integrada" loading="lazy"><figcaption>Recepção</figcaption></figure>
       <figure class="g-b"><img src="img/espera.webp" width="1124" height="645" alt="Sala de espera com poltronas, TV e cantinho do café" loading="lazy"><figcaption>Sala de espera</figcaption></figure>
@@ -666,7 +636,7 @@ ul{margin:0;padding:0;list-style:none}
 <section class="motto" aria-label="Frase da clínica">
   <div class="wrap">
     <blockquote>
-      <p>“O importante não é por quanto tempo viverás, mas que qualidade de vida terás.”</p>
+      <p>O importante não é por quanto tempo viverás, mas que qualidade de vida terás.</p>
       <cite>Sêneca</cite>
     </blockquote>
   </div>
@@ -676,7 +646,6 @@ ul{margin:0;padding:0;list-style:none}
   <div class="wrap">
     <header class="sec-head">
       <h2 id="fq-title">Dúvidas frequentes</h2>
-      <p class="sub">Se ficar alguma, é só chamar no WhatsApp</p>
     </header>
     <div class="faq-list">
       <details><summary>Quem tem diabetes pode fazer implante?<span class="pm" aria-hidden="true"></span></summary><p>Pode ser possível. Não existe contraindicação absoluta para implantes: diabetes, tabagismo e doença na gengiva são fatores de risco que entram na avaliação. A clínica já realizou implantes em pacientes diabéticos com avaliação, planejamento e os cuidados necessários.</p></details>
@@ -689,12 +658,12 @@ ul{margin:0;padding:0;list-style:none}
   </div>
 </section>
 
-<section class="sec sec-blush" id="agendar" aria-labelledby="ag-title">
+<section class="sec sec-ice" id="agendar" aria-labelledby="ag-title">
   <div class="wrap">
     <div class="book-card">
       <div>
         <h2 id="ag-title">Agende sua consulta</h2>
-        <p class="sub">A recepção te ajuda a encontrar o melhor horário</p>
+        <p class="lead">Fale com a recepção pelo WhatsApp e encontre o melhor horário para você.</p>
         <a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta na Cavalcanti Odontologia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar pelo WhatsApp</a>
         <ul class="contact">
           <li><span class="dot-ico" aria-hidden="true"><svg class="ico"><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><a href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma consulta na Cavalcanti Odontologia.">(12) 97603-0617</a></span></li>
@@ -706,7 +675,7 @@ ul{margin:0;padding:0;list-style:none}
       </div>
       <div class="map">
         <iframe title="Mapa da Cavalcanti Odontologia Integrada" src="https://maps.google.com/maps?q=Cavalcanti%20Odontologia%20Integrada%2C%20R.%20Paraibuna%2C%20811%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <a href="https://www.google.com/maps/place/Cavalcanti+Odontologia+Integrada/@-23.1991434,-45.8889529,1151m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94cc4a7124848b59:0x6faf14aa8ab71440!8m2!3d-23.1991434!4d-45.8863726!16s%2Fg%2F1q67qv7t6" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="text-link" href="https://www.google.com/maps/place/Cavalcanti+Odontologia+Integrada/@-23.1991434,-45.8889529,1151m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94cc4a7124848b59:0x6faf14aa8ab71440!8m2!3d-23.1991434!4d-45.8863726!16s%2Fg%2F1q67qv7t6" target="_blank" rel="noopener">Abrir no Google Maps</a>
       </div>
     </div>
   </div>
@@ -737,6 +706,7 @@ ul{margin:0;padding:0;list-style:none}
 <dialog class="sheet" id="d-bichectomia" aria-labelledby="d-bichectomia-t">
   <div class="sheet-head"><h3 id="d-bichectomia-t">Bichectomia</h3><button class="x" type="button" data-close aria-label="Fechar"><svg class="line-ico"><use href="#t-x"/></svg></button></div>
   <div class="sheet-body">
+    <p>Cirurgia que reduz as bochechas para afinar o rosto e deixar o perfil mais harmônico. Também é indicada para quem morde a bochecha.</p>
     <h4>Como é feita</h4>
     <p>Com anestesia local, com ou sem sedação, é feita uma incisão de 1 a 2 cm por dentro da boca para retirar, com delicadeza, a bola de Bichat. O procedimento dura de 30 minutos a uma hora.</p>
     <h4>Antes da cirurgia</h4>
@@ -745,8 +715,6 @@ ul{margin:0;padding:0;list-style:none}
     <p>A recuperação é rápida, parecida com a extração de um siso. Na primeira semana, evite esforço físico e sol. O inchaço é maior nos 3 primeiros dias e dura, em média, uma semana.</p>
     <h4>Riscos</h4>
     <p>Como toda cirurgia, há riscos, como sangramento, infecção, assimetria e retirada em excesso. Por isso a avaliação é sempre individual.</p>
-    <h4>Quando é indicada</h4>
-    <p>Para quem espera um afinamento discreto do rosto. Nem sempre é a solução: em alguns casos, preenchedores ou outros procedimentos atendem melhor.</p>
   </div>
   <div class="sheet-foot"><a class="btn btn-primary" href="https://wa.me/5512976030617" data-msg="Olá! Gostaria de agendar uma avaliação de bichectomia."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Agendar avaliação de bichectomia</a></div>
 </dialog>
@@ -768,6 +736,7 @@ ul{margin:0;padding:0;list-style:none}
 <dialog class="sheet" id="d-perio" aria-labelledby="d-perio-t">
   <div class="sheet-head"><h3 id="d-perio-t">Periodontia</h3><button class="x" type="button" data-close aria-label="Fechar"><svg class="line-ico"><use href="#t-x"/></svg></button></div>
   <div class="sheet-body">
+    <p>Sinais de alerta: sangramento, gengiva inchada ou avermelhada, mau hálito, tártaro e dentes com mobilidade.</p>
     <h4>Gengivite</h4>
     <p>Fácil de tratar quando detectada cedo: começa com uma profilaxia cuidadosa para remover a placa e o tártaro.</p>
     <h4>Retração gengival e perda óssea</h4>
@@ -781,6 +750,7 @@ ul{margin:0;padding:0;list-style:none}
 <dialog class="sheet" id="d-canal" aria-labelledby="d-canal-t">
   <div class="sheet-head"><h3 id="d-canal-t">Tratamento de canal (endodontia)</h3><button class="x" type="button" data-close aria-label="Fechar"><svg class="line-ico"><use href="#t-x"/></svg></button></div>
   <div class="sheet-body">
+    <p>Trata a polpa do dente atingida por cárie profunda, trauma ou necrose, e salva o dente que precisaria ser extraído.</p>
     <h4>Sinais e sintomas</h4>
     <p>Dor espontânea, intensa e pulsante, que remédio não resolve. Na necrose, a dor é bem localizada, às vezes com inchaço, febre e a sensação de “dente alto” ao mastigar.</p>
     <h4>Por que não adiar</h4>
@@ -792,6 +762,7 @@ ul{margin:0;padding:0;list-style:none}
 <dialog class="sheet" id="d-protetor" aria-labelledby="d-protetor-t">
   <div class="sheet-head"><h3 id="d-protetor-t">Protetor bucal</h3><button class="x" type="button" data-close aria-label="Fechar"><svg class="line-ico"><use href="#t-x"/></svg></button></div>
   <div class="sheet-body">
+    <p>Feito sob medida, protege dentes, gengiva e boca de impactos. É ainda mais útil para quem usa aparelho fixo.</p>
     <h4>Por que sob medida</h4>
     <p>É o mais confortável e o que mais protege: não atrapalha a fala nem a respiração e fica estável durante a atividade. Os modelos prontos, de loja, costumam se adaptar mal à boca.</p>
     <h4>Quando trocar</h4>
@@ -803,7 +774,7 @@ ul{margin:0;padding:0;list-style:none}
 <dialog class="sheet" id="d-ronco" aria-labelledby="d-ronco-t">
   <div class="sheet-head"><h3 id="d-ronco-t">Tratamento do ronco</h3><button class="x" type="button" data-close aria-label="Fechar"><svg class="line-ico"><use href="#t-x"/></svg></button></div>
   <div class="sheet-body">
-    <p>Cerca de 30% dos adultos roncam. O ronco pode trazer indícios de problemas respiratórios ou apneia, com sonolência durante o dia, cansaço e irritabilidade.</p>
+    <p>Cerca de 30% dos adultos roncam. Quando o ronco é alto a ponto de perturbar quem está por perto, pode indicar problemas respiratórios ou apneia, com sonolência durante o dia, cansaço e irritabilidade.</p>
     <h4>O que contribui para o ronco</h4>
     <ul>
       <li>Bebidas alcoólicas e tabagismo, que relaxam a musculatura e irritam a faringe.</li>
@@ -845,6 +816,30 @@ ul{margin:0;padding:0;list-style:none}
 <script>
 (function(){
   var WA = 'https://wa.me/5512976030617';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // carrossel dos outros tratamentos: duplica os cards para o giro contínuo
+  // (com movimento reduzido ele gira mais devagar; há sempre o botão de pausar)
+  var mq = document.querySelector('.marquee'), mqTrack = mq.querySelector('.marquee-track'), mqBtn = document.querySelector('.mq-toggle');
+  if (mqTrack) {
+    Array.prototype.slice.call(mqTrack.children).forEach(function(card){
+      var c = card.cloneNode(true);
+      c.removeAttribute('id');
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('a, button').forEach(function(el){ el.tabIndex = -1; });
+      mqTrack.appendChild(c);
+    });
+    mq.classList.add('is-moving');
+    mqBtn.hidden = false;
+    mqBtn.addEventListener('click', function(){
+      var paused = mq.classList.toggle('paused');
+      mqBtn.setAttribute('aria-pressed', String(paused));
+      mqBtn.querySelector('span').textContent = paused ? 'Continuar' : 'Pausar';
+      mqBtn.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
+    });
+  }
+
+  // links de WhatsApp com mensagem pronta
   document.querySelectorAll('a[data-msg]').forEach(function(a){
     a.href = WA + '?text=' + encodeURIComponent(a.getAttribute('data-msg'));
     a.target = '_blank';
@@ -872,16 +867,60 @@ ul{margin:0;padding:0;list-style:none}
     d.querySelector('[data-close]').addEventListener('click', function(){ d.close(); });
     d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
   });
-
-  // link direto para um tratamento (#bichectomia) abre a janela dele
   function openFromHash(){
     var id = decodeURIComponent(location.hash.slice(1));
     var el = id && document.getElementById(id);
     var b = el && el.querySelector('[data-open]');
-    if (b) b.click();
+    if (b && el.classList.contains('mini')) b.click();
   }
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
+
+  // depoimentos: um por vez, troca sozinho a cada 7 s
+  var sl = document.querySelector('.rv-slider'), track = sl.querySelector('.rv-track'), slides = Array.prototype.slice.call(track.children);
+  var controls = sl.querySelector('.rv-controls'), dots = sl.querySelector('.rv-dots'), pauseBtn = sl.querySelector('.rv-pause');
+  var idx = 0, timer = null, hover = false, paused = false;
+  controls.hidden = false;
+  slides.forEach(function(s, k){
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'rv-dot';
+    d.setAttribute('aria-label', 'Depoimento ' + (k + 1) + ' de ' + slides.length);
+    d.addEventListener('click', function(){ go(k); restart(); });
+    dots.appendChild(d);
+  });
+  function go(k){
+    idx = (k + slides.length) % slides.length;
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    slides.forEach(function(s, k2){ s.setAttribute('aria-hidden', String(k2 !== idx)); });
+    Array.prototype.forEach.call(dots.children, function(d, k2){ d.setAttribute('aria-current', String(k2 === idx)); });
+  }
+  function restart(){
+    clearInterval(timer);
+    if (!paused) timer = setInterval(function(){ if (!hover) go(idx + 1); }, 7000);
+  }
+  sl.querySelectorAll('.rv-arrow').forEach(function(a){
+    a.addEventListener('click', function(){ go(idx + Number(a.getAttribute('data-dir'))); restart(); });
+  });
+  function setPause(p){
+    paused = p;
+    pauseBtn.setAttribute('aria-pressed', String(p));
+    pauseBtn.setAttribute('aria-label', p ? 'Continuar depoimentos' : 'Pausar depoimentos');
+    pauseBtn.querySelector('use').setAttribute('href', p ? '#i-play' : '#i-pause');
+    restart();
+  }
+  pauseBtn.addEventListener('click', function(){ setPause(!paused); });
+  sl.addEventListener('mouseenter', function(){ hover = true; });
+  sl.addEventListener('mouseleave', function(){ hover = false; });
+  sl.addEventListener('focusin', function(){ hover = true; });
+  sl.addEventListener('focusout', function(){ hover = false; });
+  var x0 = null;
+  sl.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  sl.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) { go(idx + (dx < 0 ? 1 : -1)); restart(); }
+  });
+  go(0); setPause(paused);
 
   // WhatsApp fixo (desktop) e barra de agendamento (celular) fora do hero e do contato
   var floats = [document.querySelector('.wa-float'), document.querySelector('.dock')];
