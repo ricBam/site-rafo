@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clínica Veterinária Seropédica | Consulta, exames e cirurgia na BR-465</title>
+<meta name="description" content="Clínica veterinária em Seropédica desde 2012, na BR-465, Km 39/40. Consultas, vacinas, cirurgias, internação, exames laboratoriais, ultrassonografia e radiografia digital no mesmo endereço. Agende pelo WhatsApp (21) 96432-0255.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#48B460">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clínica Veterinária Seropédica">
+<meta property="og:description" content="Carinho e cuidado com a saúde do seu pet. Consulta, vacina, cirurgia, internação, laboratório, ultrassom e radiografia digital no mesmo endereço, na BR-465.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23fff'/%3E%3Cpath d='M6 15.5c-2.6-2.5-2.2-6 .9-7 2.4-.8 4.4.7 5.4 2.3 1-1.6 3-3.1 5.4-2.3 3.1 1 3.5 4.5.9 7' fill='none' stroke='%233C868C' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M22 8h3.6v3.4H29V15h-3.4v3.4H22V15h-3.4v-3.6H22z' fill='%23F09030'/%3E%3Cpath d='M13 24c-1.6 0-2.4-1-2.4-2.4 0-2.2 2-3.2 2-5 0-1.2-.7-1.7-.2-2.4.6-.8 2-.6 2.7.3.9 1.2.7 2.6.3 4-.4 1.5.2 2.4 1.2 3.1.8.6.4 2.4-1 2.4z' fill='%2348B460'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ------------------------------------------------------------------
+   Clínica Veterinária Seropédica, proposta de site (R.A.F.O.)
+   Mesma linguagem alegre da Clive: contornos grossos, sombra dura,
+   adesivos, fotos rotacionadas e rabiscos à mão. A identidade vem
+   toda daqui: verde-folha dos bichos do logo, teal do coração de
+   traço, laranja da cruz. Fundo verde-menta em vez de blush.
+   ------------------------------------------------------------------ */
+:root{
+  --verde:#48B460;
+  --verde-esc:#2F8449;
+  --teal:#3C868C;
+  --laranja:#F09030;
+  --laranja-esc:#C9700F;
+  --tinta:#1B4A4F;
+  --tinta-soft:#3C6368;
+  --tinta-faint:#5E8085;
+  --menta:#DDF1E4;
+  --menta-2:#C7E7D3;
+  --creme:#F4FBF6;
+  --branco:#FFFFFF;
+
+  --display:'Nunito','Trebuchet MS','Segoe UI',sans-serif;
+  --corpo:'Asap','Segoe UI',system-ui,-apple-system,sans-serif;
+
+  --b:2.5px;
+  --r-xl:36px;
+  --r-lg:28px;
+  --r-md:20px;
+
+  --fs-sm:clamp(.9rem,.87rem + .12vw,.98rem);
+  --fs-base:clamp(1.02rem,.98rem + .2vw,1.12rem);
+  --fs-md:clamp(1.15rem,1.07rem + .4vw,1.38rem);
+  --fs-lg:clamp(1.5rem,1.28rem + 1vw,2.15rem);
+  --fs-xl:clamp(2rem,1.55rem + 2.1vw,3.3rem);
+
+  --gutter:clamp(1.1rem,.7rem + 2vw,2.5rem);
+  --wrap:1200px;
+  --sec:clamp(4rem,3rem + 5vw,7.5rem);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:6rem;}
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:var(--corpo);font-size:var(--fs-base);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:900;line-height:1.05;margin:0;letter-spacing:-.025em;}
+p{margin:0;}
+ul,ol{margin:0;padding:0;list-style:none;}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:3px;border-radius:8px;}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter);}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.nq{white-space:nowrap;}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3.2rem;padding:.8rem 1.5rem;border-radius:999px;border:var(--b) solid var(--tinta);font-family:var(--display);font-weight:800;font-size:var(--fs-base);text-decoration:none;line-height:1.1;box-shadow:0 5px 0 var(--tinta);transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .2s;cursor:pointer;}
+.btn:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--tinta);}
+.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--tinta);}
+.btn svg{width:1.2rem;height:1.2rem;flex:none;}
+.btn-verde{background:var(--verde);color:#fff;}
+.btn-verde:hover{background:var(--verde-esc);}
+.btn-branco{background:#fff;color:var(--tinta);}
+.btn-branco:hover{background:var(--menta);}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--verde);color:#fff;border-bottom:var(--b) solid var(--tinta);overflow:hidden;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:clamp(.88rem,.84rem + .2vw,1rem);}
+.ticker-track{display:inline-flex;align-items:center;animation:marquee 44s linear infinite;padding-block:.55rem;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.ticker span{display:inline-flex;align-items:center;gap:1.4rem;padding-right:1.4rem;}
+.ticker svg{width:.85rem;height:.85rem;flex:none;color:var(--laranja);}
+@keyframes marquee{to{transform:translateX(-50%);}}
+
+/* ---------- topo ---------- */
+.top{position:sticky;top:0;z-index:40;background:var(--creme);transition:background-color .25s,box-shadow .25s;}
+.top.scrolled{background:rgba(244,251,246,.97);box-shadow:0 var(--b) 0 var(--tinta);}
+.top > .wrap{display:flex;align-items:center;gap:1rem;padding-block:.8rem;}
+.brand{display:flex;align-items:center;flex:none;}
+.brand img{width:auto;height:clamp(38px,4.2vw,52px);}
+.nav{display:flex;align-items:center;gap:.15rem;margin-left:auto;background:#fff;border:var(--b) solid var(--tinta);border-radius:999px;padding:.35rem .5rem;box-shadow:0 4px 0 var(--tinta);font-family:var(--display);font-weight:800;font-size:var(--fs-sm);}
+.nav a{text-decoration:none;padding:.5rem .8rem;border-radius:999px;transition:background-color .18s,color .18s;}
+.nav a:hover{background:var(--menta);}
+.top .btn{min-height:2.9rem;padding:.55rem 1.15rem;font-size:var(--fs-sm);box-shadow:0 4px 0 var(--tinta);}
+.top .btn:hover{box-shadow:0 1px 0 var(--tinta);}
+.menu-btn{display:none;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-top:clamp(1.6rem,1rem + 2.4vw,3rem);padding-bottom:clamp(4rem,3rem + 5vw,7rem);}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(2rem,1rem + 4vw,4rem);align-items:center;}
+.live{display:inline-flex;align-items:center;gap:.55rem;background:#fff;border:var(--b) solid var(--tinta);border-radius:999px;padding:.4rem 1rem .4rem .8rem;font-family:var(--display);font-weight:800;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--tinta);}
+.dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--verde);flex:none;}
+.dot.off{background:var(--laranja);}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 2.4s infinite;}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(72,180,96,.55);}70%{box-shadow:0 0 0 10px rgba(72,180,96,0);}100%{box-shadow:0 0 0 0 rgba(72,180,96,0);}}
+.hero h1{margin-top:1.1rem;font-size:var(--fs-xl);max-width:18ch;}
+.hero .lead{margin-top:1.2rem;font-size:var(--fs-md);color:var(--tinta-soft);max-width:44ch;}
+.hero .lead b{color:var(--tinta);font-weight:700;}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;}
+.hero-sig{display:flex;gap:.6rem;align-items:flex-start;margin-top:1.5rem;font-size:var(--fs-sm);color:var(--tinta-soft);max-width:42ch;}
+.hero-sig svg{width:1.1rem;height:1.1rem;flex:none;margin-top:.28rem;color:var(--laranja);}
+.hero-sig b{font-family:var(--display);font-weight:800;color:var(--tinta);}
+
+/* colagem de fotos reais */
+.collage{position:relative;aspect-ratio:1/1.02;}
+.frame{position:absolute;margin:0;border:3px solid var(--tinta);border-radius:var(--r-lg);overflow:hidden;background:#fff;}
+.frame img{width:100%;height:100%;object-fit:cover;}
+.frame-a{right:2%;top:1%;width:63%;aspect-ratio:3/4;transform:rotate(3deg);box-shadow:12px 12px 0 var(--verde);}
+.frame-b{left:2%;bottom:1%;width:44%;aspect-ratio:1/1;transform:rotate(-6deg);box-shadow:9px 9px 0 var(--tinta);}
+.bubble{position:absolute;left:0;top:7%;max-width:15.5rem;background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);padding:.9rem 1.05rem;font-weight:600;font-size:var(--fs-sm);line-height:1.4;box-shadow:0 4px 0 var(--tinta);z-index:3;}
+.bubble cite{display:block;margin-top:.45rem;font-style:normal;font-size:.86em;color:var(--tinta-faint);font-weight:600;}
+.bubble::after{content:"";position:absolute;right:-12px;bottom:18px;width:20px;height:20px;background:#fff;border-right:var(--b) solid var(--tinta);border-bottom:var(--b) solid var(--tinta);transform:rotate(-45deg);border-radius:0 0 4px 0;}
+.stk{position:absolute;z-index:4;display:inline-flex;align-items:center;gap:.45rem;border:var(--b) solid var(--tinta);border-radius:999px;padding:.45rem .95rem;font-family:var(--display);font-weight:800;font-size:var(--fs-sm);box-shadow:0 4px 0 var(--tinta);white-space:nowrap;}
+.stk svg{width:1rem;height:1rem;flex:none;}
+.stk-rx{right:-1%;bottom:16%;background:var(--verde);color:#fff;transform:rotate(-4deg);}
+.stk-pets{left:31%;top:52%;background:#fff;transform:rotate(5deg);}
+.stk-2012{right:7%;top:-3%;background:var(--laranja);transform:rotate(-6deg);}
+.doodle{position:absolute;pointer-events:none;}
+.d-paws{left:-3%;bottom:54%;width:4.4rem;color:var(--teal);opacity:.75;transform:rotate(-20deg);}
+.d-heart{right:36%;bottom:4%;width:2.6rem;color:var(--verde);}
+.d-cross{left:14%;top:2%;width:1.7rem;color:var(--laranja);}
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(28px,4vw,60px);display:block;}
+
+@media (prefers-reduced-motion:no-preference){
+  .stk-rx{animation:bob-a 5.5s ease-in-out infinite;}
+  .stk-pets{animation:bob-b 6.5s ease-in-out infinite;}
+  .stk-2012{animation:bob-c 5s ease-in-out infinite;}
+  .d-cross{animation:twinkle 3.2s ease-in-out infinite;}
+  .d-heart{animation:beat 2.8s ease-in-out infinite;}
+  .frame{transition:transform .5s var(--bounce);}
+  .frame-a:hover{transform:rotate(0deg) scale(1.02);}
+  .frame-b:hover{transform:rotate(-1deg) scale(1.03);}
+  .js .hero .rise{opacity:0;transform:translateY(20px);animation:rise .8s var(--ease) forwards;}
+  .js .hero .rise:nth-child(2){animation-delay:.08s;}
+  .js .hero .rise:nth-child(3){animation-delay:.16s;}
+  .js .hero .rise:nth-child(4){animation-delay:.24s;}
+  .js .hero .rise:nth-child(5){animation-delay:.32s;}
+  .js .collage.pop > *{opacity:0;animation:pop .7s var(--bounce) forwards;}
+  .js .collage.pop > *:nth-child(2){animation-delay:.15s;}
+  .js .collage.pop > *:nth-child(3){animation-delay:.3s;}
+  .js .collage.pop > *:nth-child(n+4){animation-delay:.45s;}
+}
+@keyframes rise{to{opacity:1;transform:none;}}
+@keyframes pop{from{opacity:0;scale:.85;}to{opacity:1;scale:1;}}
+@keyframes bob-a{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+@keyframes bob-b{0%,100%{translate:0 0;}50%{translate:0 7px;}}
+@keyframes bob-c{0%,100%{translate:0 0;}50%{translate:0 -6px;}}
+@keyframes twinkle{0%,100%{scale:1;rotate:0deg;}50%{scale:.7;rotate:20deg;}}
+@keyframes beat{0%,100%{scale:1;}15%{scale:1.15;}30%{scale:1;}}
+
+/* ---------- seções ---------- */
+.sec{padding-block:var(--sec);position:relative;}
+.sec-menta{background:var(--menta);}
+.head{max-width:36rem;}
+.head h2{font-size:var(--fs-xl);}
+.head p{margin-top:1rem;font-size:var(--fs-md);color:var(--tinta-soft);}
+
+/* índice de serviços em pílulas */
+.svc-index{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:clamp(1.6rem,1.2rem + 1.4vw,2.4rem);}
+.svc-index a{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border:var(--b) solid var(--tinta);border-radius:999px;background:#fff;text-decoration:none;font-family:var(--display);font-weight:800;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--tinta);transition:transform .18s var(--ease),box-shadow .18s var(--ease),background-color .2s;}
+.svc-index a:hover{transform:translateY(2px);box-shadow:0 1px 0 var(--tinta);background:var(--menta);}
+.svc-index svg{width:.95rem;height:.95rem;flex:none;color:var(--laranja);}
+
+/* par de destaque: painel gigante + quadro de etiquetas */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,1rem + 2.6vw,3rem);margin-top:clamp(2.4rem,1.8rem + 2.4vw,4rem);align-items:stretch;}
+.board{position:relative;background:var(--verde);color:#fff;border:3px solid var(--tinta);border-radius:var(--r-lg);box-shadow:10px 10px 0 var(--tinta);padding:clamp(1.5rem,1rem + 2vw,2.4rem);display:flex;flex-direction:column;gap:1.6rem;justify-content:space-between;overflow:hidden;}
+.board .big{font-family:var(--display);font-weight:900;font-size:clamp(5rem,2.5rem + 9vw,9rem);line-height:.78;letter-spacing:-.05em;}
+.board h3{font-size:var(--fs-lg);}
+.board p{margin-top:.6rem;color:#E6F7EC;}
+.board .bcross{position:absolute;right:-1.2rem;top:-1.2rem;width:7rem;height:7rem;color:rgba(255,255,255,.16);}
+.tagboard{background:#fff;border:3px solid var(--tinta);border-radius:var(--r-lg);box-shadow:10px 10px 0 var(--verde);padding:clamp(1.5rem,1.1rem + 2vw,2.4rem);display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;justify-content:center;}
+.tag{display:inline-flex;align-items:center;gap:.6rem;background:var(--menta);border:var(--b) solid var(--tinta);border-radius:14px;padding:.5rem 1rem .5rem .6rem;font-family:var(--display);font-weight:800;font-size:var(--fs-base);box-shadow:0 3px 0 var(--tinta);}
+.tag .tick{display:grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--verde);color:#fff;border:2px solid var(--tinta);flex:none;}
+.tag .tick svg{width:.75rem;height:.75rem;}
+
+/* blocos de serviço alternados */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,1rem + 2.6vw,3rem);align-items:center;margin-top:clamp(2.6rem,2rem + 2.6vw,4.4rem);}
+.feature:nth-of-type(even) .pic{order:2;}
+.pic{margin:0;border:3px solid var(--tinta);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:10px 10px 0 var(--verde);}
+.pic img{width:100%;aspect-ratio:16/11;object-fit:cover;}
+.feature:nth-of-type(even) .pic{box-shadow:-10px 10px 0 var(--teal);}
+.feature h3{font-size:var(--fs-lg);}
+.feature > div > p{margin-top:.9rem;color:var(--tinta-soft);max-width:46ch;}
+.say{position:relative;margin-top:1.4rem;background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);padding:1rem 1.15rem;box-shadow:0 4px 0 var(--tinta);max-width:44ch;}
+.say::before{content:"";position:absolute;left:28px;top:-12px;width:20px;height:20px;background:#fff;border-left:var(--b) solid var(--tinta);border-top:var(--b) solid var(--tinta);transform:rotate(45deg);border-radius:4px 0 0 0;}
+.say p{font-size:var(--fs-sm);line-height:1.5;}
+.say footer{margin-top:.45rem;font-size:var(--fs-sm);color:var(--tinta-faint);font-weight:600;}
+.zap-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-family:var(--display);font-weight:800;font-size:var(--fs-base);color:var(--verde-esc);text-decoration:none;border-bottom:3px solid var(--verde);padding-bottom:2px;}
+.zap-link:hover{color:var(--tinta);border-bottom-color:var(--tinta);}
+.zap-link svg{width:1.1rem;height:1.1rem;flex:none;}
+
+/* e tem mais */
+.more-h{margin-top:clamp(3rem,2.4rem + 2.4vw,4.6rem);font-size:var(--fs-lg);}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:1.4rem;}
+.more article{background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);box-shadow:0 5px 0 var(--tinta);padding:1.3rem 1.35rem;display:flex;flex-direction:column;gap:.5rem;}
+.more h4{font-size:var(--fs-md);}
+.more p{font-size:var(--fs-sm);color:var(--tinta-soft);flex:1;}
+.more .zap-link{margin-top:.6rem;font-size:var(--fs-sm);}
+.more-ic{width:2rem;height:2rem;color:var(--teal);}
+
+/* ---------- equipe ---------- */
+.team{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(1.6rem,1rem + 3vw,3.4rem);align-items:start;margin-top:clamp(2rem,1.6rem + 2vw,3.2rem);}
+.team-pic{margin:0;border:3px solid var(--tinta);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:-10px 10px 0 var(--laranja);transform:rotate(-2deg);}
+.team-pic img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 22%;}
+.team-pic figcaption{padding:.8rem 1.1rem;font-size:var(--fs-sm);color:var(--tinta-soft);border-top:var(--b) solid var(--tinta);background:#fff;}
+.people{display:grid;gap:.85rem;}
+.person{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);box-shadow:0 5px 0 var(--tinta);padding:1.1rem 1.25rem;}
+.person .ini{flex:none;display:grid;place-items:center;width:2.7rem;height:2.7rem;border-radius:50%;background:var(--menta);border:var(--b) solid var(--tinta);font-family:var(--display);font-weight:900;font-size:1.1rem;}
+.person h3{font-size:var(--fs-base);}
+.person p{margin-top:.28rem;font-size:var(--fs-sm);color:var(--tinta-soft);}
+.crmv{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.2rem;background:var(--menta);border:var(--b) solid var(--tinta);border-radius:999px;padding:.45rem 1rem;font-size:var(--fs-sm);font-weight:600;}
+.crmv svg{width:1rem;height:1rem;color:var(--laranja);flex:none;}
+
+/* pacientes */
+.pats-h{margin-top:clamp(3rem,2.4rem + 2.4vw,4.6rem);font-size:var(--fs-lg);}
+.pats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin-top:1.4rem;}
+.pat{background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);box-shadow:0 5px 0 var(--tinta);overflow:hidden;}
+.pat img{width:100%;aspect-ratio:1/1;object-fit:cover;border-bottom:var(--b) solid var(--tinta);}
+.pat div{padding:1.05rem 1.2rem 1.2rem;}
+.pat h4{font-size:var(--fs-md);}
+.pat p{margin-top:.35rem;font-size:var(--fs-sm);color:var(--tinta-soft);}
+
+/* ---------- avaliações ---------- */
+.score{display:inline-flex;align-items:center;gap:1rem;background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);padding:.8rem 1.2rem;box-shadow:0 4px 0 var(--tinta);margin-top:1.6rem;}
+.score b{font-family:var(--display);font-weight:900;font-size:clamp(2.6rem,2rem + 2vw,3.6rem);line-height:.9;}
+.score .note{display:block;font-size:var(--fs-sm);color:var(--tinta-soft);margin-top:.3rem;}
+.stars{display:flex;gap:2px;color:var(--laranja);}
+.stars svg{width:1.25rem;height:1.25rem;}
+.ribbon{background:var(--tinta);color:#fff;transform:rotate(-2deg);margin:clamp(1.8rem,1.2rem + 2vw,3rem) -2rem;overflow:hidden;white-space:nowrap;border-block:var(--b) solid var(--tinta);font-family:var(--display);font-weight:800;font-size:clamp(1rem,.9rem + .5vw,1.35rem);}
+.ribbon-track{display:inline-flex;animation:marquee 38s linear infinite;padding-block:.7rem;}
+.ribbon span{display:inline-flex;align-items:center;gap:1.3rem;padding-right:1.3rem;}
+.ribbon svg{width:1.1rem;height:1.1rem;color:var(--laranja);flex:none;}
+.hi{background:var(--verde);color:#fff;border:3px solid var(--tinta);border-radius:var(--r-lg);box-shadow:10px 10px 0 var(--tinta);padding:clamp(1.5rem,1.1rem + 2vw,2.4rem);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.2rem,.8rem + 2vw,2.4rem);align-items:start;}
+.hi .num{font-family:var(--display);font-weight:900;font-size:clamp(3.2rem,2.2rem + 5vw,5.6rem);line-height:.8;letter-spacing:-.05em;}
+.hi .num small{display:block;font-size:var(--fs-sm);font-weight:800;letter-spacing:0;margin-top:.5rem;line-height:1.2;}
+.hi blockquote{margin:0;font-family:var(--display);font-weight:800;font-size:var(--fs-md);line-height:1.38;}
+.hi cite{display:block;margin-top:.9rem;font-style:normal;font-size:var(--fs-sm);color:#DBF3E2;font-weight:600;}
+.revs{columns:3 280px;column-gap:1rem;margin-top:clamp(1.6rem,1.2rem + 1.4vw,2.2rem);}
+.rev{break-inside:avoid;background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);box-shadow:0 5px 0 var(--tinta);padding:1.2rem 1.3rem;margin-bottom:1rem;}
+.rev .stars{margin-bottom:.6rem;}
+.rev .stars svg{width:1rem;height:1rem;}
+.rev p{font-size:var(--fs-sm);line-height:1.55;}
+.rev footer{margin-top:.8rem;font-size:var(--fs-sm);color:var(--tinta-faint);}
+.rev footer strong{color:var(--tinta);font-family:var(--display);font-weight:800;}
+.revs-cta{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;margin-top:1.4rem;}
+
+/* ---------- como chegar ---------- */
+.go{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(1.6rem,1rem + 3vw,3.2rem);align-items:start;margin-top:clamp(2rem,1.6rem + 2vw,3rem);}
+.facts{display:grid;gap:.1rem;}
+.fact{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:1rem;padding:.85rem 0;border-bottom:2px solid var(--menta-2);align-items:baseline;}
+.fact dt{font-family:var(--display);font-weight:800;font-size:var(--fs-sm);color:var(--teal);}
+.fact dd{margin:0;font-size:var(--fs-sm);color:var(--tinta-soft);}
+.fact a{color:var(--verde-esc);font-weight:700;}
+.fact b{font-family:var(--display);font-weight:800;color:var(--tinta);}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem;}
+.chips span{font-size:.86rem;background:var(--menta);border:2px solid var(--tinta);border-radius:999px;padding:.2rem .65rem;font-weight:600;}
+.go-visual{display:grid;gap:1.2rem;}
+.mapa{border:3px solid var(--tinta);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:10px 10px 0 var(--verde);}
+.mapa iframe{display:block;width:100%;height:clamp(280px,32vw,340px);border:0;}
+.front{margin:0;border:3px solid var(--tinta);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:10px 10px 0 var(--teal);}
+.front img{width:100%;aspect-ratio:16/11;object-fit:cover;}
+.front figcaption{padding:.8rem 1.1rem;font-size:var(--fs-sm);color:var(--tinta-soft);border-top:var(--b) solid var(--tinta);}
+
+/* ---------- dúvidas ---------- */
+.faq{max-width:52rem;display:grid;gap:.85rem;margin-top:clamp(1.8rem,1.4rem + 1.6vw,2.6rem);}
+.faq details{background:#fff;border:var(--b) solid var(--tinta);border-radius:var(--r-md);box-shadow:0 5px 0 var(--tinta);}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.3rem;font-family:var(--display);font-weight:800;font-size:var(--fs-md);}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--verde);color:#fff;border:2px solid var(--tinta);font-size:1.3rem;line-height:1;transition:transform .3s var(--bounce);}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .ans{padding:0 1.3rem 1.3rem;color:var(--tinta-soft);max-width:44rem;}
+.faq .ans a{color:var(--verde-esc);font-weight:700;}
+
+/* ---------- final ---------- */
+.final{padding-block:var(--sec);position:relative;overflow:hidden;}
+.final-box{position:relative;background:var(--verde);color:#fff;border:3px solid var(--tinta);border-radius:var(--r-xl);box-shadow:12px 12px 0 var(--tinta);padding:clamp(2.4rem,1.8rem + 3vw,4.2rem) clamp(1.4rem,1rem + 3vw,3.4rem);text-align:center;}
+.final-box h2{font-size:var(--fs-xl);max-width:22ch;margin-inline:auto;}
+.final-box p{margin-top:1.1rem;font-size:var(--fs-md);color:#E6F7EC;max-width:44ch;margin-inline:auto;}
+.final-box .btn{margin-top:2rem;background:#fff;color:var(--tinta);}
+.final-box .btn:hover{background:var(--menta);}
+.final-box .tel{margin-top:1.2rem;font-size:var(--fs-sm);color:#E6F7EC;}
+.final-box .tel a{color:#fff;font-weight:700;}
+.final .d-paws2{position:absolute;right:3.5%;bottom:9%;width:clamp(3rem,5vw,5rem);color:var(--teal);opacity:.45;transform:rotate(16deg);pointer-events:none;}
+.final .d-cross2{position:absolute;left:5.5%;top:12%;width:clamp(1.6rem,2.4vw,2.4rem);color:var(--laranja);pointer-events:none;}
+
+/* ---------- rodapé ---------- */
+.foot{background:var(--menta);border-top:var(--b) solid var(--tinta);padding-block:clamp(2.6rem,2rem + 2vw,3.8rem) 2rem;font-size:var(--fs-sm);color:var(--tinta-soft);}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:2rem;}
+.foot img{height:44px;width:auto;margin-bottom:.9rem;}
+.foot h3{font-size:var(--fs-base);margin-bottom:.7rem;color:var(--tinta);}
+.foot li{margin-bottom:.35rem;}
+.foot a{color:var(--verde-esc);font-weight:600;text-decoration:none;}
+.foot a:hover{color:var(--tinta);text-decoration:underline;}
+.foot-end{margin-top:2.2rem;padding-top:1.3rem;border-top:2px solid var(--menta-2);color:var(--tinta-faint);}
+
+/* ---------- botão flutuante ---------- */
+.float{position:fixed;right:clamp(.9rem,2vw,1.6rem);bottom:clamp(.9rem,2vw,1.6rem);z-index:50;}
+.float .btn{background:var(--verde);color:#fff;box-shadow:0 5px 0 var(--tinta);}
+.float .btn:hover{background:var(--verde-esc);}
+
+/* ---------- responsivo ---------- */
+.hero,#avaliacoes,.final{overflow-x:clip;}
+@media (max-width:1080px){
+  .nav{display:none;position:absolute;left:var(--gutter);right:var(--gutter);top:calc(100% + .3rem);flex-direction:column;align-items:stretch;border-radius:var(--r-md);padding:.5rem;box-shadow:0 5px 0 var(--tinta);}
+  .nav.open{display:flex;}
+  .nav a{padding:.8rem 1rem;}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:3rem;height:3rem;border:var(--b) solid var(--tinta);background:#fff;border-radius:50%;cursor:pointer;color:var(--tinta);box-shadow:0 3px 0 var(--tinta);}
+  .menu-btn svg{width:1.4rem;height:1.4rem;}
+  .top{position:sticky;}
+}
+@media (max-width:980px){
+  .hero-grid,.duo,.feature,.feature:nth-of-type(even) .pic,.team,.go{grid-template-columns:1fr;}
+  .feature:nth-of-type(even) .pic{order:0;box-shadow:10px 10px 0 var(--teal);}
+  .hero h1{max-width:22ch;}
+  .collage{width:100%;max-width:520px;margin-inline:auto;}
+  .team-pic{max-width:400px;}
+  .revs{columns:2 250px;}
+  .hi{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .top .btn.zap-top{display:none;}
+  .revs{columns:1;}
+  .board,.tagboard,.pic,.mapa,.front,.hi{box-shadow:6px 6px 0 var(--tinta);}
+  .tagboard{box-shadow:6px 6px 0 var(--verde);}
+  .pic,.mapa{box-shadow:6px 6px 0 var(--verde);}
+  .front{box-shadow:6px 6px 0 var(--teal);}
+  .final-box{box-shadow:7px 7px 0 var(--tinta);}
+  .team-pic{box-shadow:-6px 6px 0 var(--laranja);}
+  .fact{grid-template-columns:1fr;gap:.2rem;}
+  .ribbon{margin-inline:-1rem;}
+  .collage{aspect-ratio:1/1.2;}
+  .bubble{max-width:11.5rem;padding:.7rem .8rem;font-size:.86rem;top:1%;}
+  .stk{font-size:.8rem;padding:.35rem .7rem;}
+  .stk-pets{left:18%;top:60%;}
+  .stk-rx{bottom:12%;}
+  .d-heart,.d-cross{display:none;}
+  .d-paws{bottom:46%;width:3.4rem;}
+}
+@media (max-width:420px){
+  .hero-btns .btn{width:100%;}
+  .frame-a{width:68%;}
+  .frame-b{width:47%;}
+  .bubble{top:2%;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .ticker-track,.ribbon-track{animation:none;}
+  .pulse{animation:none;}
+  *{transition-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>
+      Consultas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Vacinas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Cirurgias <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Internação <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Exames laboratoriais <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Ultrassonografia <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Radiografia digital <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Farmácia veterinária <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+    </span>
+    <span>
+      Consultas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Vacinas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Cirurgias <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Internação <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Exames laboratoriais <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Ultrassonografia <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Radiografia digital <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      Farmácia veterinária <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+    </span>
+  </div>
+</div>
+
+<!-- ============ TOPO ============ -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Clínica Veterinária Seropédica, ir para o início">
+      <img src="img/logo.webp" width="760" height="307" alt="Clínica Veterinária Seropédica">
+    </a>
+    <nav class="nav" id="nav" aria-label="Seções do site">
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#como-chegar">Como chegar</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu de seções">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="btn btn-verde zap-top" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+      Agendar consulta
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="live rise" id="live">
+          <span class="dot pulse" id="live-dot"></span>
+          <span id="live-txt">Seropédica, RJ</span>
+        </p>
+        <h1 class="rise">Carinho e cuidado com a saúde do seu pet.</h1>
+        <p class="lead rise">Desde <b>2012</b> cuidando dos bichos de Seropédica, na BR-465. Consulta, vacina, cirurgia, internação, laboratório, ultrassom e radiografia digital <b>no mesmo endereço</b>.</p>
+        <div class="hero-btns rise">
+          <a class="btn btn-verde" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+            Agendar consulta
+          </a>
+          <a class="btn btn-branco" href="#servicos">Ver os serviços</a>
+        </div>
+        <p class="hero-sig rise">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          <span>Com o <b>Dr. Maicon Lopes</b> e equipe, na <span class="nq">Rodovia BR-465, nº 30</span>, <span class="nq">Km 39/40</span>.</span>
+        </p>
+      </div>
+
+      <div class="collage pop">
+        <svg class="doodle d-paws" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+          <ellipse cx="14" cy="26" rx="5" ry="7"/><ellipse cx="27" cy="19" rx="5" ry="7"/><ellipse cx="40" cy="21" rx="5" ry="7"/>
+          <path d="M31 30c9 0 16 6 16 12s-7 8-16 8-16-2-16-8 7-12 16-12z"/>
+        </svg>
+        <figure class="frame frame-a">
+          <img src="img/pug.webp" width="900" height="1600" alt="Filhote de pug acolhido nas mãos da equipe da clínica" loading="eager" fetchpriority="high">
+        </figure>
+        <figure class="frame frame-b">
+          <img src="img/laco.webp" width="860" height="860" alt="Cão de pequeno porte com laço na cabeça, pronto para voltar para casa" loading="eager">
+        </figure>
+        <blockquote class="bubble">
+          “Ambiente super limpo e climatizado. Valeu Dr. Maicon e sua equipe, pela atenção e ótimo trabalho!”
+          <cite>Hugo Carmo, no Google</cite>
+        </blockquote>
+        <span class="stk stk-2012">Desde 2012</span>
+        <span class="stk stk-pets">
+          <svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><ellipse cx="14" cy="26" rx="5" ry="7"/><ellipse cx="27" cy="19" rx="5" ry="7"/><ellipse cx="40" cy="21" rx="5" ry="7"/><path d="M31 30c9 0 16 6 16 12s-7 8-16 8-16-2-16-8 7-12 16-12z"/></svg>
+          Cães e gatos
+        </span>
+        <span class="stk stk-rx">Radiografia digital</span>
+        <svg class="doodle d-heart" viewBox="0 0 48 44" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true">
+          <path d="M24 39C11 30 4 22 4 15 4 8 9 4 14 4c4 0 8 3 10 7 2-4 6-7 10-7 5 0 9 4 9 11 0 7-7 15-19 24z"/>
+        </svg>
+        <svg class="doodle d-cross" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 34c160-26 320-26 480 0s320 26 480 0 320-26 480 0v26H0z" fill="#DDF1E4"/>
+    </svg>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="sec sec-menta" id="servicos">
+    <div class="wrap">
+      <div class="head">
+        <h2>Oito serviços, um endereço só</h2>
+        <p>Da consulta de rotina ao centro cirúrgico, do laboratório à farmácia. Toque no serviço que você precisa e fale direto com a nossa equipe.</p>
+      </div>
+
+      <div class="svc-index">
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Consultas</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20as%20vacinas%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Vacinas</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cirurgia%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Cirurgias</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20interna%C3%A7%C3%A3o%20na%20cl%C3%ADnica." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Internação</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20exames%20laboratoriais%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Exames laboratoriais</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20ultrassonografia%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Ultrassonografia</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20radiografia%20digital%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Radiografia digital</a>
+        <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20saber%20se%20voc%C3%AAs%20t%C3%AAm%20um%20medicamento%20na%20farm%C3%A1cia%20veterin%C3%A1ria." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>Farmácia veterinária</a>
+      </div>
+
+      <div class="duo">
+        <div class="board">
+          <svg class="bcross" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          <p class="big">8</p>
+          <div>
+            <h3>Tudo no mesmo endereço</h3>
+            <p>Quem chega com um pet doente não quer rodar a cidade atrás de exame. Aqui o seu bicho consulta, faz a imagem, colhe o sangue e, se precisar, opera e fica internado no mesmo prédio.</p>
+          </div>
+        </div>
+        <div class="tagboard">
+          <span class="tag"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>Imagem sai na hora</span>
+          <span class="tag"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>Ambiente climatizado</span>
+          <span class="tag"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>Agendamento pelo WhatsApp</span>
+          <span class="tag"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>Estacionamento na porta</span>
+          <span class="tag"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>Entrada acessível</span>
+        </div>
+      </div>
+
+      <!-- destaque 1 -->
+      <article class="feature">
+        <figure class="pic">
+          <img src="img/radiografia.webp" width="1000" height="490" alt="Equipe da clínica posicionando um paciente na mesa de radiografia digital" loading="lazy">
+        </figure>
+        <div>
+          <h3>Radiografia digital, com imagem na hora</h3>
+          <p>A sala de radiografia digital foi inaugurada com equipamento de alta tecnologia. A imagem sai na hora e o médico veterinário avalia com você ainda na consulta, sem encaminhamento e sem segunda viagem.</p>
+          <div class="say">
+            <p>“Atendimento profissional, empático, direto, com todos os possíveis diagnósticos para salvar!”</p>
+            <footer>Marizeth Sampaio, no Google</footer>
+          </div>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20radiografia%20digital%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+            Agendar radiografia no WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- destaque 2 -->
+      <article class="feature">
+        <figure class="pic">
+          <img src="img/ultrassom.webp" width="640" height="400" alt="Ultrassonografia sendo realizada em um cão de pequeno porte na clínica" loading="lazy">
+        </figure>
+        <div>
+          <h3>Ultrassonografia, inclusive gestacional</h3>
+          <p>Um procedimento seguro, não invasivo e imediato. No diagnóstico gestacional, além de confirmar a gestação, o exame avalia a viabilidade e o desenvolvimento dos filhotes. Em muitos casos conseguimos atender no mesmo dia.</p>
+          <div class="say">
+            <p>“Precisei agendar uma ultrassonografia às pressas e consegui atendimento no mesmo dia. A veterinária Letícia foi um amor, super atenciosa e comprometida com o paciente.”</p>
+            <footer>Camila Oliveira, no Google</footer>
+          </div>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20ultrassonografia%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+            Agendar ultrassom no WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- destaque 3 -->
+      <article class="feature">
+        <figure class="pic">
+          <img src="img/internacao.webp" width="1000" height="625" alt="Filhote em recuperação na internação, acomodado em toalha e com acesso venoso" loading="lazy">
+        </figure>
+        <div>
+          <h3>Internação, e só quando precisa</h3>
+          <p>Estrutura climatizada para medicar, hidratar e observar o paciente pelo tempo que o caso exigir. A decisão de internar é criteriosa: quando não é preciso, o pet vai para casa com o tratamento e o retorno marcado.</p>
+          <div class="say">
+            <p>“Incrivelmente honesto. Não te engana e trata com honestidade. Não interna sem necessidade e fica fazendo exames pra pegar dinheiro.”</p>
+            <footer>ajulia.ribeiro_, no Google</footer>
+          </div>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20interna%C3%A7%C3%A3o%20na%20cl%C3%ADnica." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+            Falar sobre internação no WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <!-- destaque 4 -->
+      <article class="feature">
+        <figure class="pic">
+          <img src="img/sansao.webp" width="420" height="420" alt="Veterinária da clínica examinando Sansão, cão que concluiu o tratamento contra dirofilariose" loading="lazy">
+        </figure>
+        <div>
+          <h3>Consultas e vacinas, do filhote ao idoso</h3>
+          <p>Avaliação clínica completa e protocolo vacinal individual: não existe protocolo único, cada pet é avaliado antes de cada dose. De forma geral a vacinação do filhote começa entre os 42 e 45 dias de vida.</p>
+          <div class="say">
+            <p>“Eu amo o atendimento nessa clínica. O Dr. Maicon é muito atencioso, tem muita paciência com os seus pacientes.”</p>
+            <footer>Thais Cristine, no Google</footer>
+          </div>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+            Agendar consulta no WhatsApp
+          </a>
+        </div>
+      </article>
+
+      <h3 class="more-h">E tem mais</h3>
+      <div class="more">
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-9 9H8l-3 3-2-2 3-3v-4z"/><path d="M11 6l7 7"/></svg>
+          <h4>Cirurgias</h4>
+          <p>Procedimentos eletivos e de urgência, com avaliação criteriosa antes de indicar. Dr. Rafael à frente do centro cirúrgico.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20cirurgia%20para%20o%20meu%20pet." target="_blank" rel="noopener">Falar sobre cirurgia</a>
+        </article>
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3v7.5L4.8 18A2 2 0 006.5 21h11a2 2 0 001.7-3L15 10.5V3"/><path d="M7.5 3h9M7 15h10"/></svg>
+          <h4>Exames laboratoriais</h4>
+          <p>Coleta na própria clínica e resultados que orientam o diagnóstico com segurança, sem mandar você para outro lugar.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20exames%20laboratoriais%20para%20o%20meu%20pet." target="_blank" rel="noopener">Agendar exames</a>
+        </article>
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 3.5l10 10a4.95 4.95 0 01-7 7l-10-10a4.95 4.95 0 017-7z"/><path d="M7 7l10 10"/></svg>
+          <h4>Farmácia veterinária</h4>
+          <p>O medicamento indicado na consulta sai com você na mesma hora, sem precisar procurar em outro lugar.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20saber%20se%20voc%C3%AAs%20t%C3%AAm%20um%20medicamento%20na%20farm%C3%A1cia%20veterin%C3%A1ria." target="_blank" rel="noopener">Consultar medicamento</a>
+        </article>
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4.2 4.2 0 017-3.1A4.2 4.2 0 0119 11c0 5.5-7 10-7 10z"/><path d="M8.6 11.2h2l1-1.9 1.4 3.4 1-1.5h2"/></svg>
+          <h4>Prevenção da dirofilariose</h4>
+          <p>Teste e prevenção contra a “doença do verme do coração”, transmitida pelo mosquito da dengue e com casos em alta na região.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20o%20teste%20e%20a%20preven%C3%A7%C3%A3o%20da%20dirofilariose." target="_blank" rel="noopener">Falar sobre prevenção</a>
+        </article>
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5c1.6-2 4-2.4 5.8-1.2 2 1.3 2.4 4 .9 6-1.2 1.6-3.6 3.4-6.7 5.6-3.1-2.2-5.5-4-6.7-5.6-1.5-2-1.1-4.7.9-6C8 3.1 10.4 3.5 12 5.5z"/><circle cx="8" cy="20" r="1.4"/><circle cx="16" cy="20" r="1.4"/></svg>
+          <h4>Saúde felina</h4>
+          <p>Exames periódicos para gatos de todas as idades. O Pablo chegou aos 20 anos fazendo o acompanhamento dele aqui.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20gato." target="_blank" rel="noopener">Agendar para o gato</a>
+        </article>
+        <article>
+          <svg class="more-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+          <h4>Atendimento pelo WhatsApp</h4>
+          <p>Conta o que está acontecendo por mensagem e a Juliana já organiza o seu horário. Recomendamos marcar hora.</p>
+          <a class="zap-link" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener">Mandar mensagem</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPE ============ -->
+  <section class="sec" id="equipe">
+    <div class="wrap">
+      <div class="head">
+        <h2>Gente que cuida de bicho desde 2012</h2>
+        <p>A clínica nasceu com uma missão que não mudou: levar atendimento de excelência e cheio de afeto à população pet de Seropédica.</p>
+      </div>
+
+      <div class="team">
+        <figure class="team-pic">
+          <img src="img/equipe.webp" width="640" height="1310" alt="Veterinária da clínica com um filhote de golden retriever no colo" loading="lazy">
+          <figcaption>Tem tutor que sai de Bangu para trazer o bicho aqui.</figcaption>
+        </figure>
+        <div>
+          <div class="people">
+            <article class="person">
+              <span class="ini" aria-hidden="true">M</span>
+              <div>
+                <h3>Dr. Maicon Lopes</h3>
+                <p>Médico veterinário responsável técnico. É o nome que mais aparece nas avaliações dos tutores, por atenção, paciência e clareza no que indica.</p>
+              </div>
+            </article>
+            <article class="person">
+              <span class="ini" aria-hidden="true">R</span>
+              <div>
+                <h3>Dr. Rafael</h3>
+                <p>À frente das cirurgias da clínica, dos procedimentos eletivos aos casos que chegam pelo diagnóstico por imagem.</p>
+              </div>
+            </article>
+            <article class="person">
+              <span class="ini" aria-hidden="true">L</span>
+              <div>
+                <h3>Dra. Letícia</h3>
+                <p>Médica veterinária, atende na ultrassonografia e no acompanhamento dos exames de imagem.</p>
+              </div>
+            </article>
+            <article class="person">
+              <span class="ini" aria-hidden="true">J</span>
+              <div>
+                <h3>Juliana</h3>
+                <p>Na recepção, é quem organiza os agendamentos e responde as mensagens que chegam pelo WhatsApp.</p>
+              </div>
+            </article>
+          </div>
+          <p class="crmv">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+            Responsável técnico: Maicon Lopes, CRMV 11050
+          </p>
+        </div>
+      </div>
+
+      <h3 class="pats-h">Três pacientes, três histórias</h3>
+      <div class="pats">
+        <article class="pat">
+          <img src="img/sansao.webp" width="420" height="420" alt="Sansão no colo da veterinária, no dia da alta do tratamento" loading="lazy">
+          <div>
+            <h4>Sansão</h4>
+            <p>Venceu a dirofilariose. Veio para o acompanhamento, recebeu alta do tratamento médico e agora só volta para a prevenção.</p>
+          </div>
+        </article>
+        <article class="pat">
+          <img src="img/snow.webp" width="346" height="346" alt="Snow, filhote de pelagem clara, no dia em que concluiu o protocolo vacinal" loading="lazy">
+          <div>
+            <h4>Snow</h4>
+            <p>Finalizou o protocolo vacinal e está pronto para desbravar o mundo com segurança. Vacina é a principal prevenção contra doenças graves.</p>
+          </div>
+        </article>
+        <article class="pat">
+          <img src="img/gato.webp" width="700" height="700" alt="Pablo, gato preto e branco de 20 anos, no dia dos exames" loading="lazy">
+          <div>
+            <h4>Pablo</h4>
+            <p>Chegou aos 20 anos. Veio fazer os exames periódicos e ganhou muito carinho da equipe. Com gato, a rotina de exames é o que mais protege.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVALIAÇÕES ============ -->
+  <section class="sec sec-menta" id="avaliacoes">
+    <div class="wrap">
+      <div class="head">
+        <h2>O que 443 tutores contaram no Google</h2>
+        <p>Avaliações públicas de quem passou pela clínica, do atendimento de rotina às cirurgias.</p>
+      </div>
+      <div class="score">
+        <b>4,8</b>
+        <div>
+          <div class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
+          </div>
+          <span class="note">Nota média entre 443 avaliações</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span>
+          Preço justo <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Sem enrolação <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Ambiente limpo e climatizado <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Melhor custo-benefício da região <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Amam animais para além de profissionais <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+        </span>
+        <span>
+          Preço justo <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Sem enrolação <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Ambiente limpo e climatizado <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Melhor custo-benefício da região <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          Amam animais para além de profissionais <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="hi">
+        <p class="num">8<small>anos<br>de casa</small></p>
+        <div>
+          <blockquote>“Sou cliente há 8 anos e sempre bem atendida e muito satisfeita. Tenho 7 gatos e saio de Bangu para levá-los sempre que necessário. Todos muito atenciosos e excelentes veterinários.”</blockquote>
+          <cite>Ruth Helena, no Google</cite>
+        </div>
+      </div>
+
+      <div class="revs">
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“Nota 10! Desde o atendimento via WhatsApp até a consulta e os procedimentos que precisaram ser feitos. Ambiente super limpo e climatizado. Valeu Dr. Maicon e sua equipe, pela atenção e ótimo trabalho! Fidelizaram mais um cliente, até a próxima!”</p>
+          <footer><strong>Hugo Carmo</strong>, há 4 meses</footer>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“Os médicos são excelentes! Práticos, sem enrolação. Meu Bulldog foi submetido a uma cirurgia muito necessária para o diagnóstico e remoção de um linfoma. Dr. Maycon atendeu, Dr. Rafael fez a cirurgia, a recepcionista Juliana, todos foram excelentes. Minha gratidão eterna.”</p>
+          <footer><strong>Carla Sanz</strong>, há 4 anos</footer>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“Atendimento profissional, empático, direto, calculado corretamente, com todos os possíveis diagnósticos para salvar! Sou grata pela equipe que lá trabalha. São pessoas que amam animais para além de profissionais.”</p>
+          <footer><strong>Marizeth Sampaio</strong>, há 3 anos</footer>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“É uma clínica que visa o melhor tratamento para o pet, não se aproveitam do momento difícil que a família possa estar passando. Super recomendo!”</p>
+          <footer><strong>Nívea Martins</strong>, há 5 anos</footer>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“Tenho 9 pets e para qualquer coisa só levo lá. Dr. Maycon é um excelente profissional, sem contar o custo-benefício, que é o melhor da região.”</p>
+          <footer><strong>Pedro Silva</strong>, há 2 anos</footer>
+        </article>
+        <article class="rev">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg></div>
+          <p>“Esse lugar é extremamente maravilhoso: atendimento, carinho com os pets e os tutores, atenciosos, preço ótimo. Dr. Maicon e equipe estão de parabéns.”</p>
+          <footer><strong>Daniele Maia</strong>, há 11 meses</footer>
+        </article>
+      </div>
+
+      <div class="revs-cta">
+        <a class="btn btn-branco" href="https://www.google.com/maps/place/Veterin%C3%A1ria+Serop%C3%A9dica+-+Cl%C3%ADnica+Veterin%C3%A1ria/@-22.8094607,-43.6328249,17z/data=!4m6!3m5!1s0x995800a2c0c4f7:0xb10d85a29a153d08!8m2!3d-22.8094607!4d-43.6328249!16s%2Fg%2F11btwwbbfj" target="_blank" rel="noopener">Ler as 443 no Google</a>
+        <a class="btn btn-verde" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+          Agendar consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMO CHEGAR ============ -->
+  <section class="sec" id="como-chegar">
+    <div class="wrap">
+      <div class="head">
+        <h2>Na BR-465, no <span class="nq">Km 39/40</span></h2>
+        <p>Fácil de achar para quem vem da Posse, do centro de Seropédica ou da Baixada, com estacionamento na porta.</p>
+      </div>
+      <div class="go">
+        <div>
+          <dl class="facts">
+            <div class="fact"><dt>Endereço</dt><dd><span class="nq">Rodovia BR-465, nº 30</span>, <span class="nq">Km 39/40</span><br>Campo Lindo, Seropédica, RJ, 23898-000</dd></div>
+            <div class="fact"><dt>WhatsApp</dt><dd><a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">(21) 96432-0255</a>, o mesmo número para agendar e tirar dúvidas</dd></div>
+            <div class="fact"><dt>Horário</dt><dd>Segunda a sexta, <b>9h às 18h</b><br>Sábado, <b>9h às 13h</b><br>Domingo, fechado</dd></div>
+            <div class="fact"><dt>Instagram</dt><dd><a href="https://www.instagram.com/veterinaria.seropedica/" target="_blank" rel="noopener">@veterinaria.seropedica</a></dd></div>
+            <div class="fact"><dt>Antes de vir</dt><dd>Recomendamos marcar hora, para o seu pet ser atendido sem espera.</dd></div>
+            <div class="fact"><dt>Acolhimento</dt><dd>
+              <div class="chips">
+                <span>Entrada acessível</span>
+                <span>Estacionamento acessível</span>
+                <span>Banheiro de gênero neutro</span>
+                <span>Espaço seguro para pessoas trans</span>
+                <span>Empresa de empreendedoras</span>
+              </div>
+            </dd></div>
+          </dl>
+          <a class="btn btn-verde" style="margin-top:1.6rem" href="https://www.google.com/maps/dir/?api=1&destination=-22.8094607,-43.6328249" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+        </div>
+        <div class="go-visual">
+          <div class="mapa">
+            <iframe
+              title="Mapa com a localização da Clínica Veterinária Seropédica na Rodovia BR-465, nº 30"
+              src="https://www.google.com/maps?q=Veterin%C3%A1ria%20Serop%C3%A9dica%20-%20Cl%C3%ADnica%20Veterin%C3%A1ria%2C%20BR-465%2C%2030%2C%20Serop%C3%A9dica%20-%20RJ&z=16&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+          <figure class="front">
+            <img src="img/fachada.webp" width="1280" height="960" alt="Fachada da Clínica Veterinária Seropédica, com letreiro verde e estacionamento na frente" loading="lazy">
+            <figcaption>É esta a fachada que você procura. “Quem ama cuida”, como está escrito na vitrine desde o começo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DÚVIDAS ============ -->
+  <section class="sec sec-menta" id="duvidas">
+    <div class="wrap">
+      <div class="head">
+        <h2>Antes de vir</h2>
+        <p>As respostas abaixo são as mesmas que a nossa equipe dá no WhatsApp e no balcão.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Com quantos dias meu filhote pode tomar a primeira vacina?</summary>
+          <div class="ans"><p>Não existe um protocolo único e ideal para a vacinação de filhotes. Cada pet deve ser avaliado por um médico veterinário e receber cuidado individualizado, pensando nos riscos e benefícios de qual vacina usar, quando iniciar e qual será o intervalo entre as doses. De forma geral, a vacinação do filhote começa entre os 42 e 45 dias de vida. Depois de adquirir um pet, o primeiro passo é a consulta: é nela que definimos o melhor protocolo para o seu caso.</p></div>
+        </details>
+        <details>
+          <summary>Animal doente ou cadela gestante pode ser vacinado?</summary>
+          <div class="ans"><p>Não. Animais doentes não podem ser vacinados, e cadelas gestantes também não devem receber vacinas. Por isso a avaliação clínica vem antes de qualquer dose.</p></div>
+        </details>
+        <details>
+          <summary>O que é dirofilariose e por que devo me preocupar?</summary>
+          <div class="ans"><p>A dirofilariose, conhecida como “doença do verme do coração”, é uma doença parasitária transmitida pelos mosquitos Aedes, Culex e Anopheles. Sim, o mosquito da dengue também transmite. Temos visto um aumento significativo no número de casos positivos. Existe teste para diagnóstico e existe prevenção, e a prevenção salva vidas. <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20o%20teste%20e%20a%20preven%C3%A7%C3%A3o%20da%20dirofilariose." target="_blank" rel="noopener">Fale com a nossa equipe</a> para saber como fazer o acompanhamento do seu pet.</p></div>
+        </details>
+        <details>
+          <summary>A ultrassonografia serve para confirmar gestação?</summary>
+          <div class="ans"><p>Sim. O diagnóstico gestacional pode ser feito por ultrassonografia: um procedimento seguro, não invasivo e imediato que, além de confirmar a gestação, avalia a viabilidade e o desenvolvimento dos filhotes.</p></div>
+        </details>
+        <details>
+          <summary>Meu gato é idoso. Precisa de exame mesmo estando bem?</summary>
+          <div class="ans"><p>Sim, e é justamente aí que os exames periódicos fazem diferença. Atendemos felinos de todas as idades. O Pablo, por exemplo, chegou aos 20 anos fazendo o acompanhamento dele aqui. Os exames de rotina detectam alterações antes de o sintoma aparecer.</p></div>
+        </details>
+        <details>
+          <summary>Preciso marcar hora ou posso chegar direto?</summary>
+          <div class="ans"><p>Recomendamos marcar hora, para que o seu pet seja atendido sem espera. O agendamento é pelo WhatsApp <a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20o%20meu%20pet." target="_blank" rel="noopener">(21) 96432-0255</a>, de segunda a sexta das 9h às 18h e sábado até 13h.</p></div>
+        </details>
+        <details>
+          <summary>Vocês fazem exame e cirurgia no mesmo lugar?</summary>
+          <div class="ans"><p>Sim. Consulta, vacina, cirurgia, internação, exames laboratoriais, ultrassonografia, radiografia digital e farmácia veterinária funcionam todos no mesmo endereço, na BR-465. Na prática, o seu pet faz o exame e já é avaliado pelo veterinário sem sair da clínica.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL ============ -->
+  <section class="final">
+    <svg class="d-cross2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+    <svg class="d-paws2" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><ellipse cx="14" cy="26" rx="5" ry="7"/><ellipse cx="27" cy="19" rx="5" ry="7"/><ellipse cx="40" cy="21" rx="5" ry="7"/><path d="M31 30c9 0 16 6 16 12s-7 8-16 8-16-2-16-8 7-12 16-12z"/></svg>
+    <div class="wrap">
+      <div class="final-box">
+        <h2>Seu pet precisa de atendimento hoje?</h2>
+        <p>Manda uma mensagem contando o que está acontecendo. A nossa equipe responde e agenda o horário com você.</p>
+        <a class="btn" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <p class="tel">Ou ligue para <a href="tel:+5521964320255">(21) 96432-0255</a>, de segunda a sexta das 9h às 18h.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="img/logo.webp" width="760" height="307" alt="Clínica Veterinária Seropédica">
+        <p>Carinho e cuidado com a saúde do seu pet. Atendendo Seropédica e região desde 2012.</p>
+        <p style="margin-top:.7rem">Responsável técnico:<br>Maicon Lopes, CRMV 11050</p>
+      </div>
+      <div>
+        <h3>Serviços</h3>
+        <ul>
+          <li><a href="#servicos">Consultas</a></li>
+          <li><a href="#servicos">Vacinas</a></li>
+          <li><a href="#servicos">Cirurgias</a></li>
+          <li><a href="#servicos">Internação</a></li>
+          <li><a href="#servicos">Exames laboratoriais</a></li>
+          <li><a href="#servicos">Ultrassonografia</a></li>
+          <li><a href="#servicos">Radiografia digital</a></li>
+          <li><a href="#servicos">Farmácia veterinária</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Onde e quando</h3>
+        <p>Rodovia BR-465, nº 30, <span class="nq">Km 39/40</span><br>Campo Lindo, Seropédica, RJ<br>CEP 23898-000</p>
+        <p style="margin-top:.7rem">Segunda a sexta, 9h às 18h<br>Sábado, 9h às 13h</p>
+      </div>
+      <div>
+        <h3>Falar com a gente</h3>
+        <ul>
+          <li><a href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener">WhatsApp (21) 96432-0255</a></li>
+          <li><a href="https://www.instagram.com/veterinaria.seropedica/" target="_blank" rel="noopener">Instagram @veterinaria.seropedica</a></li>
+          <li><a href="https://www.google.com/maps/place/Veterin%C3%A1ria+Serop%C3%A9dica+-+Cl%C3%ADnica+Veterin%C3%A1ria/@-22.8094607,-43.6328249,17z/data=!4m6!3m5!1s0x995800a2c0c4f7:0xb10d85a29a153d08!8m2!3d-22.8094607!4d-43.6328249!16s%2Fg%2F11btwwbbfj" target="_blank" rel="noopener">Ver no Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-end">© <span id="ano">2026</span> Clínica Veterinária Seropédica. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="btn btn-verde" href="https://wa.me/5521964320255?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-1.98 1.38-.55.05-1.06.25-3.56-.74-3.01-1.19-4.9-4.3-5.05-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.6-.37.8-.37h.55c.18 0 .42-.04.65.5.25.6.84 2.05.91 2.2.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.18.3.78 1.29 1.67 2.09 1.15 1.02 2.12 1.34 2.42 1.49.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.17 1.45z"/></svg>
+    Agendar consulta
+  </a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  // menu
+  var b=document.getElementById('menu-btn'), n=document.getElementById('nav');
+  b.addEventListener('click',function(){
+    var open=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+  n.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}
+  });
+
+  // sombra do topo ao rolar
+  var top=document.getElementById('top');
+  var onScroll=function(){top.classList.toggle('scrolled',window.scrollY>8);};
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  // aberto agora, pelo horário real de Seropédica
+  // segunda a sexta 9h-18h, sábado 9h-13h, domingo fechado
+  var txt=document.getElementById('live-txt'), dot=document.getElementById('live-dot');
+  function agora(){
+    var f=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit',weekday:'short',hour12:false});
+    var p={}; f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
+    var h=parseInt(p.hour,10), m=parseInt(p.minute,10);
+    var dias={'dom':0,'seg':1,'ter':2,'qua':3,'qui':4,'sex':5,'sáb':6,'sab':6};
+    var d=dias[(p.weekday||'').toLowerCase().replace('.','').slice(0,3)];
+    var min=h*60+m, aberto=false, fecha='';
+    if(d>=1&&d<=5){aberto=min>=540&&min<1080;fecha='18h';}
+    else if(d===6){aberto=min>=540&&min<780;fecha='13h';}
+    var hora=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+    if(aberto){
+      txt.textContent='Aberto agora, '+hora+' em Seropédica';
+      dot.className='dot pulse';
+    }else{
+      txt.textContent=(d===0?'Fechado hoje':'Fechado agora')+', '+hora+' em Seropédica';
+      dot.className='dot off';
+    }
+  }
+  try{agora();setInterval(agora,30000);}catch(e){txt.textContent='Seropédica, RJ, na BR-465';}
+
+  document.getElementById('ano').textContent=new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
