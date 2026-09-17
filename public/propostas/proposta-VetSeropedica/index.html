@@ -359,19 +359,40 @@ ul,ol{margin:0;padding:0;list-style:none;}
   .frame-b{width:47%;}
   .bubble{top:2%;}
 }
+/* os letreiros continuam correndo mesmo com movimento reduzido, porque
+   carregam conteúdo e são pedidos do cliente, mas ficam mais lentos e
+   têm botão de pausa. As animações só decorativas somem. */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  .ticker-track,.ribbon-track{animation:none;}
+  .ticker-track{animation-duration:88s;}
+  .ribbon-track{animation-duration:76s;}
   .pulse{animation:none;}
   *{transition-duration:.01ms !important;}
 }
+html.sem-movimento .ticker-track,
+html.sem-movimento .ribbon-track{animation-play-state:paused;}
+.pausa{
+  position:absolute;right:0;top:0;height:100%;z-index:2;
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--verde-esc);color:#fff;border:0;border-left:var(--b) solid var(--tinta);
+  font-family:var(--display);font-weight:800;font-size:.82rem;
+  padding:0 .8rem;cursor:pointer;
+}
+.pausa svg{width:.85rem;height:.85rem;}
+.pausa:hover{background:var(--tinta);}
+.ticker{position:relative;}
+@media (max-width:520px){.pausa span{display:none;}.pausa{padding:0 .6rem;}}
 </style>
 </head>
 <body>
 
 <!-- ============ TICKER ============ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
+<div class="ticker">
+  <button class="pausa" type="button" id="pausa" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="pausa-ic"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+    <span id="pausa-txt">Pausar</span>
+  </button>
+  <div class="ticker-track" aria-hidden="true">
     <span>
       Consultas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
       Vacinas <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
@@ -989,6 +1010,25 @@ document.documentElement.classList.add('js');
     }
   }
   try{agora();setInterval(agora,30000);}catch(e){txt.textContent='Seropédica, RJ, na BR-465';}
+
+  // pausar/retomar os letreiros, lembrando a escolha no navegador
+  var pb=document.getElementById('pausa'), pt=document.getElementById('pausa-txt'), pi=document.getElementById('pausa-ic');
+  var ICONE={pausar:'M7 5h4v14H7zM13 5h4v14h-4z', tocar:'M8 5l12 7-12 7z'};
+  function aplica(parado){
+    document.documentElement.classList.toggle('sem-movimento',parado);
+    pb.setAttribute('aria-pressed',parado?'true':'false');
+    pb.setAttribute('aria-label',parado?'Retomar o letreiro de serviços':'Pausar o letreiro de serviços');
+    pt.textContent=parado?'Retomar':'Pausar';
+    pi.firstChild.setAttribute('d',parado?ICONE.tocar:ICONE.pausar);
+  }
+  var salvo=null;
+  try{salvo=localStorage.getItem('vs-letreiro');}catch(e){}
+  aplica(salvo==='parado');
+  pb.addEventListener('click',function(){
+    var parado=!document.documentElement.classList.contains('sem-movimento');
+    aplica(parado);
+    try{localStorage.setItem('vs-letreiro',parado?'parado':'rodando');}catch(e){}
+  });
 
   document.getElementById('ano').textContent=new Date().getFullYear();
 })();
