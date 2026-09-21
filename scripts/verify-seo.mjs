@@ -538,6 +538,14 @@ check('robots.txt continua bloqueando /propostas/', () => {
   );
 });
 
+check('robots.txt bloqueia /modelos/', () => {
+  const robots = lerDist('robots.txt');
+  assert(
+    /^Disallow: \/modelos\/\s*$/m.test(robots),
+    '/modelos/ liberado: os modelos de prospeccao entrariam na busca'
+  );
+});
+
 // As referencias aos arquivos de IA em robots.txt sao comentarios "#", de
 // proposito, porque nao existe diretiva padrao de robots.txt para eles.
 // Um match de substring passa tanto para uma linha comentada quanto para

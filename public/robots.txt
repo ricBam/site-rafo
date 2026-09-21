@@ -1,9 +1,11 @@
 User-agent: *
 Disallow: /propostas/
+Disallow: /modelos/
 
-# /propostas/ guarda propostas comerciais de clientes. O bloqueio aqui é
-# só SEO, não é controle de acesso: a URL exata continua sendo a única
-# proteção real.
+# /propostas/ guarda propostas comerciais de clientes, e /modelos/ guarda
+# modelos de prospecção com negócios fictícios. Nenhum dos dois é o site
+# da R.A.F.O., então fica fora da busca. O bloqueio aqui é só SEO, não é
+# controle de acesso: a URL exata continua sendo a única proteção real.
 
 Sitemap: https://rafolabs.tech/sitemap-index.xml
 
