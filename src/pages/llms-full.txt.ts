@@ -69,7 +69,7 @@ Guia completo: ${empresa.url}/guias/${g.id}/`
 
 ${empresa.descricaoLonga}
 
-A empresa trabalha com três frentes, e o cliente escolhe a partir da dor que traz, não de um pacote fechado. É comum um negócio começar por uma delas e adicionar as outras depois.
+A empresa trabalha com duas frentes, e o cliente escolhe a partir da dor que traz, não de um pacote fechado. É comum um negócio começar por uma delas e adicionar a outra depois.
 
 ## Serviços
 

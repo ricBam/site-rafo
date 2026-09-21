@@ -14,7 +14,10 @@
 //   - src/lib/schema.ts               (JSON-LD, via empresa.servicos)
 //
 // Regra de copy: nenhum texto aqui posiciona a empresa por nicho, e
-// nenhum número de resultado é inventado. Preço só na Presença no Google.
+// nenhum número de resultado é inventado. Nenhum serviço tem preço público:
+// tudo é sob orçamento. A Presença no Google saiu do catálogo em
+// 2026-09-21, por decisão do fundador: o site mostra só sites e
+// agentes de IA.
 
 import type { PerguntaFrequente } from './empresa';
 
@@ -26,7 +29,7 @@ export interface Servico {
   /** Copy do card na home, em segunda pessoa. */
   chamadaHome: string;
   /** Nome do ícone em src/components/Icon.astro. */
-  icone: 'google' | 'whatsapp' | 'site';
+  icone: 'whatsapp' | 'site';
   /** Preço público em reais, ou null quando é sob orçamento. */
   precoBRL: number | null;
   precoNota: string;
@@ -47,61 +50,6 @@ export interface Servico {
 }
 
 export const servicos: Servico[] = [
-  {
-    slug: 'presenca-no-google',
-    nome: 'Presença no Google',
-    descricao:
-      'Configuração e otimização do perfil no Google Meu Negócio, para o negócio aparecer para quem já está procurando o que ele oferece.',
-    chamadaHome:
-      'Configuramos e otimizamos seu perfil no Google Negócio pra você aparecer pra quem já está procurando o que você oferece.',
-    icone: 'google',
-    precoBRL: 97,
-    // O valor combinado com site saiu do site público em 2026-08-11, por
-    // decisão do fundador. Desconto de pacote é assunto de negociação, e
-    // publicado ele vira âncora: quem lê passa a esperar o menor número
-    // como preço, e o de R$ 97 passa a parecer o caro.
-    precoNota: 'Valor único, sem mensalidade.',
-    tituloPagina:
-      'Presença no Google por R$ 97: perfil configurado e otimizado',
-    descricaoPagina:
-      'Configuramos e otimizamos seu perfil no Google Meu Negócio por R$ 97, valor único. Você passa a aparecer no Maps e na busca de quem já procura o que faz.',
-    resposta:
-      'A Presença no Google custa R$ 97, valor único e sem mensalidade. Configuramos e otimizamos o perfil do seu negócio no Google Meu Negócio, que é o que faz você aparecer no Google Maps e na busca local quando alguém procura o serviço que você oferece na sua região.',
-    incluso: [
-      'Criação do perfil, ou reivindicação dele se já existir um perfil não gerenciado',
-      'Preenchimento completo de categoria, serviços, horário, área de atendimento e formas de contato',
-      'Padronização de nome, endereço e telefone, que é o que o Google usa para confiar no seu negócio',
-      'Orientação sobre fotos e sobre como pedir avaliação de cliente sem infringir as regras do Google',
-      'Link do perfil apontando para o seu site ou direto para o seu WhatsApp',
-    ],
-    comoFunciona: [
-      'Você manda os dados do negócio e a gente confere o que já existe publicado sobre ele no Google.',
-      'Configuramos ou reivindicamos o perfil e preenchemos tudo que o Google usa para ranquear e para exibir.',
-      'Você recebe o perfil pronto e uma orientação curta de como manter, porque perfil parado perde posição.',
-    ],
-    faq: [
-      {
-        pergunta: 'Eu preciso ter endereço comercial para aparecer no Google?',
-        resposta:
-          'Não necessariamente. Quem atende no endereço do cliente pode configurar o perfil como área de atendimento, sem exibir endereço. Quem recebe cliente em endereço fixo aparece também no Maps.',
-      },
-      {
-        pergunta: 'Em quanto tempo o perfil começa a aparecer?',
-        resposta:
-          'Depois da verificação do Google, que costuma ser a parte mais demorada e depende dele, o perfil começa a aparecer em poucos dias. A posição melhora conforme o perfil recebe avaliação e movimento.',
-      },
-      {
-        pergunta: 'Tem mensalidade?',
-        resposta:
-          'Não. São R$ 97 uma vez só. Não vendemos manutenção mensal para esse serviço.',
-      },
-      {
-        pergunta: 'Já tenho um perfil, mas está bagunçado. Serve?',
-        resposta:
-          'Serve, e costuma ser o caso mais comum. A gente reivindica o perfil existente e corrige o que estiver errado, em vez de criar um duplicado, que atrapalharia.',
-      },
-    ],
-  },
   {
     slug: 'agentes-whatsapp',
     nome: 'Agentes autônomos para WhatsApp',

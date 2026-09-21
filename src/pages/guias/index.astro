@@ -11,9 +11,9 @@ const guias = (await getCollection('guias')).sort(
 
 const nomeDoServico = (slug: string) => servicos.find((s) => s.slug === slug)?.nome ?? '';
 
-const title = 'Guias da R.A.F.O. sobre WhatsApp, sites e Google';
+const title = 'Guias da R.A.F.O. sobre agentes de IA e sites';
 const description =
-  'Guias diretos sobre automação de atendimento no WhatsApp, sites institucionais e perfil no Google, escritos para responder a pergunta no primeiro parágrafo.';
+  'Guias diretos sobre agentes de IA para atendimento no WhatsApp e sites institucionais, escritos para responder a pergunta no primeiro parágrafo.';
 ---
 <BaseLayout title={title} description={description}>
   <section class="section">
@@ -23,8 +23,8 @@ const description =
         <h1>Guias</h1>
         <p class="guias-lead">
           Textos diretos sobre as perguntas que mais aparecem antes de alguém
-          decidir automatizar o atendimento, fazer um site ou arrumar o perfil no
-          Google. Cada um responde a pergunta no primeiro parágrafo.
+          decidir automatizar o atendimento com um agente de IA ou fazer um site.
+          Cada um responde a pergunta no primeiro parágrafo.
         </p>
       </div>
 

@@ -32,7 +32,7 @@ function ogSvg() {
   <text x="96" y="300" font-size="120" font-family="${RASTER_FONT_FAMILY}">
     <tspan font-weight="700" fill="${LETRA}">R</tspan><tspan font-weight="700" fill="${PONTO}">.</tspan><tspan font-weight="400" fill="${LETRA}">A</tspan><tspan font-weight="700" fill="${PONTO}">.</tspan><tspan font-weight="700" fill="${LETRA}">F</tspan><tspan font-weight="700" fill="${PONTO}">.</tspan><tspan font-weight="400" fill="${LETRA}">O</tspan><tspan font-weight="700" fill="${PONTO}">.</tspan>
   </text>
-  <text x="96" y="382" font-size="34" font-weight="400" font-family="${RASTER_FONT_FAMILY}" fill="${APOIO}">Atendimento no WhatsApp, sites e Google</text>
+  <text x="96" y="382" font-size="34" font-weight="400" font-family="${RASTER_FONT_FAMILY}" fill="${APOIO}">Agentes de IA no WhatsApp e sites</text>
   <text x="96" y="440" font-size="26" font-weight="400" font-family="${RASTER_FONT_FAMILY}" fill="${LETRA}" opacity="0.7">Resende, RJ. Atendemos todo o Brasil.</text>
 </svg>`;
 }

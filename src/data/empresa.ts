@@ -50,7 +50,7 @@ export const empresa: Empresa = {
   url: 'https://rafolabs.tech',
 
   descricaoCurta:
-    'Automação de atendimento no WhatsApp, sites institucionais e perfil no Google para pequenos negócios.',
+    'Agentes de IA para atendimento no WhatsApp e sites institucionais para pequenos negócios.',
 
   descricaoLonga:
     'A R.A.F.O. ajuda pequenos negócios a ter presença online profissional e a automatizar o atendimento no WhatsApp, sem a complexidade nem o custo de uma agência grande. O atendimento é direto com o fundador, e cada solução é construída em cima do fluxo real do negócio, não em cima de um pacote pronto.',

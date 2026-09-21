@@ -173,5 +173,5 @@ A terceira diz em quanto tempo se paga.
 
 Se a resposta da primeira for "poucas mensagens e quase todas diferentes",
 a resposta honesta é que automação provavelmente não é a sua prioridade
-agora. Vale mais arrumar a presença no Google e o site, para que as
+agora. Vale mais arrumar o site, para que as
 mensagens que chegam sejam de gente mais preparada para comprar.

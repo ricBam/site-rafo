@@ -30,7 +30,6 @@ const guias = defineCollection({
      * de link interno falharia de qualquer jeito.
      */
     servicoRelacionado: z.enum([
-      'presenca-no-google',
       'agentes-whatsapp',
       'sites-institucionais',
     ]),

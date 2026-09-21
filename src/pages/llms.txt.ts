@@ -32,7 +32,7 @@ export const GET: APIRoute = async () => {
     .join('\n');
 
   // Nome, preço, descrição e link do serviço numa linha só. Antes a lista
-  // de páginas e a de serviços repetiam os três serviços inteiros, o que
+  // de páginas e a de serviços repetiam os serviços inteiros, o que
   // gasta o contexto de quem lê sem acrescentar nada.
   const servicos = empresa.servicos
     .map(
@@ -53,7 +53,7 @@ ${empresa.descricaoLonga}
 
 ## Páginas
 
-- [Home](${empresa.url}/): o que a empresa faz, os três serviços e as perguntas frequentes.
+- [Home](${empresa.url}/): o que a empresa faz, os serviços e as perguntas frequentes.
 - [Sobre](${empresa.url}/sobre/): onde a empresa fica, como trabalha e o que oferece.
 - [Contato](${empresa.url}/contato/): canais reais de contato e a cidade base.
 

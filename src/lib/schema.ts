@@ -56,7 +56,7 @@ export function negocioNode(): Record<string, unknown> {
     knowsAbout: [
       'Automação de atendimento no WhatsApp',
       'Agentes autônomos de atendimento',
-      'Google Meu Negócio',
+      'Agentes de IA',
       'Sites institucionais',
     ],
     hasOfferCatalog: {
@@ -75,8 +75,8 @@ export function negocioNode(): Record<string, unknown> {
             provider: { '@id': ID_NEGOCIO },
           },
         };
-        // Só a Presença no Google tem preço público. O preço de fundação
-        // dos outros dois é temporário e não pode virar âncora pública.
+        // Hoje nenhum serviço tem preço público. O ramo fica para o dia
+        // em que algum voltar a ter; preço de fundação nunca entra aqui.
         if (servico.precoBRL !== null) {
           oferta.price = servico.precoBRL;
           oferta.priceCurrency = 'BRL';
@@ -194,8 +194,8 @@ export function servicoNode(servico: Servico, canonical: string): Record<string,
     ],
   };
 
-  // Só a Presença no Google tem preço público. As outras duas estão em
-  // preço de fundação, que é temporário e não pode virar âncora pública.
+  // Hoje nenhum serviço tem preço público. Preço de fundação é
+  // temporário e não pode virar âncora pública.
   if (servico.precoBRL !== null) {
     node.offers = {
       '@type': 'Offer',

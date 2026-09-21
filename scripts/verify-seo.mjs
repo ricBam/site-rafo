@@ -237,19 +237,18 @@ check('ProfessionalService declara área atendida local e nacional', () => {
   assert(areas.includes('Brasil'), 'areaServed sem Brasil');
 });
 
-check('o catálogo de ofertas traz os 3 serviços e o preço de R$ 97', () => {
+// A Presenca no Google saiu do catalogo em 2026-09-21, e com ela o
+// unico preco publico. Agora nenhuma oferta pode declarar preco.
+check('o catálogo de ofertas traz os 2 serviços e nenhum preço', () => {
   const negocio = no(grafoHome(), 'ProfessionalService');
   const itens = negocio.hasOfferCatalog?.itemListElement ?? [];
-  assert(itens.length === 3, `esperava 3 ofertas, encontrou ${itens.length}`);
-  const google = itens.find((o) => o.itemOffered?.name === 'Presença no Google');
-  assert(google, 'oferta da Presença no Google ausente');
-  assert(google.price === 97, `preco errado: ${google.price}`);
-  assert(google.priceCurrency === 'BRL', 'priceCurrency nao e BRL');
-  const comPreco = itens.filter((o) => o.price !== undefined);
+  assert(itens.length === 2, `esperava 2 ofertas, encontrou ${itens.length}`);
   assert(
-    comPreco.length === 1,
-    `so a Presenca no Google pode ter preco publico, encontrou ${comPreco.length}`
+    !itens.some((o) => o.itemOffered?.name === 'Presença no Google'),
+    'a Presença no Google voltou ao catálogo'
   );
+  const comPreco = itens.filter((o) => o.price !== undefined);
+  assert(comPreco.length === 0, `nenhum servico tem preco publico, encontrou ${comPreco.length}`);
 });
 
 check('WebSite aponta para a entidade do negócio', () => {
@@ -369,15 +368,15 @@ check('llms.txt segue o formato da proposta', () => {
   assert(/\n> .+/.test(txt), 'falta o blockquote de resumo em uma linha');
 });
 
-check('llms.txt traz contato, localização e os 3 serviços', () => {
+check('llms.txt traz contato, localização e os 2 serviços', () => {
   const txt = lerDist('llms.txt');
   assert(txt.includes('wa.me/5524992695804'), 'sem WhatsApp');
   assert(txt.includes('instagram.com/rafo.tech'), 'sem Instagram');
   assert(txt.includes('Resende'), 'sem a cidade base');
-  for (const nome of ['Presença no Google', 'Agentes autônomos para WhatsApp', 'Sites institucionais']) {
+  for (const nome of ['Agentes autônomos para WhatsApp', 'Sites institucionais']) {
     assert(txt.includes(nome), `servico ausente: ${nome}`);
   }
-  assert(txt.includes('R$ 97'), 'sem o preco publico da Presenca no Google');
+  assert(!txt.includes('Presença no Google'), 'a Presenca no Google voltou ao llms.txt');
 });
 
 check('llms.txt não expõe preço de fundação', () => {
@@ -566,12 +565,11 @@ check('robots.txt não bloqueia as novas rotas', () => {
 console.log('\nCatalogo de servicos na home');
 
 const SERVICOS_ESPERADOS = [
-  { nome: 'Presença no Google', slug: 'presenca-no-google' },
   { nome: 'Agentes autônomos para WhatsApp', slug: 'agentes-whatsapp' },
   { nome: 'Sites institucionais', slug: 'sites-institucionais' },
 ];
 
-check('a home mostra os 3 servicos com os nomes corretos', () => {
+check('a home mostra os 2 servicos com os nomes corretos', () => {
   for (const s of SERVICOS_ESPERADOS) {
     assert(home.includes(s.nome), `servico ausente da home: "${s.nome}"`);
   }
@@ -642,7 +640,6 @@ const ROTAS_FIXAS = [
   '/agentes-whatsapp/',
   '/contato/',
   '/guias/',
-  '/presenca-no-google/',
   '/sites-institucionais/',
   '/sobre/',
 ];
@@ -698,7 +695,9 @@ check('nenhuma pagina institucional contem radical de nicho', () => {
 // que alguem lembrou de listar.
 // R$ 48,50 saiu desta lista em 2026-08-11 junto com a decisao de tirar
 // o valor combinado do ar. Agora existe so um preco publico.
-const PRECOS_PUBLICOS_PERMITIDOS = ['97'];
+// O R$ 97 saiu em 2026-09-21 com a Presenca no Google: agora a lista
+// e vazia e nenhuma pagina institucional pode mostrar valor em reais.
+const PRECOS_PUBLICOS_PERMITIDOS = [];
 
 // Mesmo split que o de nicho, e pela mesma razao. Em pagina
 // institucional, todo valor em reais e preco da empresa, entao lista de
@@ -803,7 +802,7 @@ check('todo campo url de JSON-LD de pagina bate com o canonical dela', () => {
 // ---------------------------------------------------------------
 console.log('\nPaginas de servico');
 
-const ROTAS_DE_SERVICO = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+const ROTAS_DE_SERVICO = ['/agentes-whatsapp/', '/sites-institucionais/'];
 const empresaWhatsapp = 'https://wa.me/5524992695804';
 
 function paginaDaRota(rota) {
@@ -818,11 +817,6 @@ function paginaDaRota(rota) {
 // de negociacao, e publicado ele funciona como ancora, fazendo o preco
 // cheio parecer o caro. Deixar a guarda invertida impede que o numero
 // volte por um copiar e colar de versao antiga.
-check('/presenca-no-google/ traz R$ 97 e nenhum valor combinado', () => {
-  const pagina = paginaDaRota('/presenca-no-google/');
-  assert(pagina.html.includes('R$ 97'), 'a pagina nao mostra o preco de R$ 97');
-});
-
 check('nenhuma pagina publica o valor combinado de R$ 48,50', () => {
   for (const pagina of PAGINAS) {
     assert(
@@ -842,26 +836,14 @@ check('nenhuma pagina publica o valor combinado de R$ 48,50', () => {
   }
 });
 
-check('a Presenca no Google declara Offer com preco estruturado', () => {
-  const pagina = paginaDaRota('/presenca-no-google/');
-  const grafo = grafoDe(pagina.html);
-  const servico = no(grafo, 'Service');
-  assert(servico.name === 'Presença no Google', `name errado: ${servico.name}`);
-  const oferta = servico.offers;
-  assert(oferta, 'Service sem offers');
-  assert(oferta.price === 97, `price errado: ${oferta.price}`);
-  assert(oferta.priceCurrency === 'BRL', 'priceCurrency nao e BRL');
-  assert(servico.provider?.['@id'], 'Service sem provider apontando para a entidade');
-});
-
-check('as outras duas paginas de servico nao mostram nenhum preco', () => {
-  for (const rota of ['/agentes-whatsapp/', '/sites-institucionais/']) {
+check('nenhuma pagina de servico declara preco estruturado', () => {
+  for (const rota of ROTAS_DE_SERVICO) {
     const pagina = paginaDaRota(rota);
     const grafo = grafoDe(pagina.html);
     const servico = no(grafo, 'Service');
     assert(
       servico.offers?.price === undefined,
-      `${rota} declara preco estruturado, e so a Presenca no Google pode`
+      `${rota} declara preco estruturado, e nenhum servico tem preco publico`
     );
   }
 });
@@ -1216,7 +1198,7 @@ checkPorGuia('todo guia linka para o servico relacionado e para o indice', (guia
     // impedir.
     const corpo = semCabecalho(guia.html);
     assert(corpo.includes('href="/guias/"'), `${guia.rota} nao linka de volta para o indice`);
-    const servicosRotas = ['/presenca-no-google/', '/agentes-whatsapp/', '/sites-institucionais/'];
+    const servicosRotas = ['/agentes-whatsapp/', '/sites-institucionais/'];
     const linkados = servicosRotas.filter((s) => corpo.includes(`href="${s}"`));
     assert(
       linkados.length > 0,
@@ -1232,7 +1214,6 @@ console.log('\nNavegacao e acessibilidade');
 // Rotas que o menu precisa oferecer em qualquer pagina. A home fica de
 // fora porque quem a alcanca e o logo, nao um item de lista.
 const ROTAS_DO_MENU = [
-  '/presenca-no-google/',
   '/agentes-whatsapp/',
   '/sites-institucionais/',
   '/guias/',
