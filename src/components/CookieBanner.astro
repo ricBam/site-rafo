@@ -57,13 +57,25 @@ import { paginasLegais } from '../data/legal';
     }
   }
 
+  // No GTM, as tags do Analytics e do Clarity disparam em dois momentos:
+  // ao abrir a página (se a permissão já existia) e no evento
+  // `consentimento_atualizado` com "aceito". Elas estão como "uma vez por
+  // evento", porque "uma vez por página" conta a tentativa bloqueada na
+  // abertura e nunca mais dispara. A guarda contra contar a visita duas
+  // vezes fica aqui: o evento de aceite só sai uma vez por página, e só
+  // se a página não abriu já com permissão.
+  let medindoNestaPagina = ler() === 'aceito';
+
   function escolher(valor: 'aceito' | 'recusado') {
     try { localStorage.setItem(CHAVE, valor); } catch { /* segue sem lembrar */ }
     w.gtag('consent', 'update', {
       analytics_storage: valor === 'aceito' ? 'granted' : 'denied',
     });
     if (valor === 'recusado') apagarCookiesDeMedicao();
-    w.dataLayer.push({ event: 'consentimento_atualizado', consentimento: valor });
+    if (valor === 'recusado' || !medindoNestaPagina) {
+      w.dataLayer.push({ event: 'consentimento_atualizado', consentimento: valor });
+    }
+    if (valor === 'aceito') medindoNestaPagina = true;
     if (aviso) aviso.hidden = true;
   }
 
