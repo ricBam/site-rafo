@@ -104,6 +104,7 @@ ${faq}
 - WhatsApp: ${empresa.whatsapp}
 ${perfis}
 - Telefone: ${empresa.telefone}
+- E-mail: ${empresa.email}
 `;
 
   return new Response(corpo, {

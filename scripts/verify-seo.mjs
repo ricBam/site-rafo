@@ -924,8 +924,8 @@ check('/contato/ existe com ContactPage e os canais reais', () => {
 
 // Pagina de contato e onde mais se inventa dado plausivel: um email que
 // ninguem le, um horario de atendimento que ninguem combinou. A empresa
-// publicou WhatsApp, telefone, Instagram e cidade. Nada alem disso pode
-// aparecer.
+// publicou WhatsApp, telefone, e-mail (desde 2026-09-21), Instagram e
+// cidade. Nada alem disso pode aparecer.
 check('/contato/ nao inventa canal que a empresa nao tem', () => {
   const pagina = paginaDaRota('/contato/');
 
@@ -946,7 +946,11 @@ check('/contato/ nao inventa canal que a empresa nao tem', () => {
     );
   }
 
-  assert(!pagina.html.includes('mailto:'), 'a pagina de contato oferece email, que a empresa nao publicou');
+  const emails = [...pagina.html.matchAll(/href="mailto:([^"?]+)/g)].map((m) => m[1]);
+  assert(emails.includes('rafo.tech.ltda@gmail.com'), 'a pagina de contato nao mostra o e-mail publicado');
+  for (const email of emails) {
+    assert(email === 'rafo.tech.ltda@gmail.com', `a pagina de contato oferece "${email}", que a empresa nao publicou`);
+  }
 });
 
 // ---------------------------------------------------------------

@@ -1,8 +1,8 @@
 ---
 // src/pages/contato.astro
 //
-// Só canais que a empresa realmente publicou. Nada de email de fachada
-// nem de horário de atendimento que ninguém combinou: a verificação
+// Só canais que a empresa realmente publicou (o e-mail entrou em
+// 2026-09-21). Nada de email de fachada nem de horário de atendimento que ninguém combinou: a verificação
 // falha o build se aparecer.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -53,6 +53,12 @@ const contactPage = {
             <a href={empresa.whatsapp} rel="noopener" target="_blank">
               <span class="canal-nome">WhatsApp</span>
               <span class="canal-valor">{empresa.telefone} <span class="seta" aria-hidden="true">&rarr;</span></span>
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${empresa.email}`}>
+              <span class="canal-nome">E-mail</span>
+              <span class="canal-valor">{empresa.email} <span class="seta" aria-hidden="true">&rarr;</span></span>
             </a>
           </li>
           {empresa.perfis.map((perfil) => (

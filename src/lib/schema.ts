@@ -50,6 +50,7 @@ export function negocioNode(): Record<string, unknown> {
       '@type': 'ContactPoint',
       contactType: 'sales',
       telephone: empresa.telefone,
+      email: empresa.email,
       url: empresa.whatsapp,
       availableLanguage: ['pt-BR'],
     },

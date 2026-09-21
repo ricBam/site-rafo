@@ -36,6 +36,7 @@ export interface Empresa {
   descricaoLonga: string;
   telefone: string;
   whatsapp: string;
+  email: string;
   endereco: { cidade: string; uf: string; pais: string };
   atendimento: string;
   perfis: string[];
@@ -57,6 +58,9 @@ export const empresa: Empresa = {
 
   telefone: '+5524992695804',
   whatsapp: 'https://wa.me/5524992695804',
+  // Publicado em 2026-09-21. Canal de contato geral e dos pedidos sobre
+  // dados pessoais (LGPD) nas páginas legais.
+  email: 'rafo.tech.ltda@gmail.com',
 
   endereco: { cidade: 'Resende', uf: 'RJ', pais: 'BR' },
 

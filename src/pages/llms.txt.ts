@@ -87,6 +87,7 @@ ${empresa.atendimento}
 ## Contato
 
 - WhatsApp: ${empresa.whatsapp}
+- E-mail: ${empresa.email}
 ${perfis}
 `;
 
