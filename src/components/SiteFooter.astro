@@ -23,6 +23,7 @@ import { rotuloDoPerfil } from '../lib/perfis';
       {empresa.perfis.map((perfil) => (
         <a href={perfil} rel="me noopener" target="_blank">{rotuloDoPerfil(perfil)}</a>
       ))}
+      <button type="button" class="footer-cookies" data-abrir-cookies>Cookies</button>
     </nav>
     <div class="footer-meta">
       <p>Resende, RJ. Atendemos todo o Brasil remotamente.</p>
@@ -59,6 +60,21 @@ import { rotuloDoPerfil } from '../lib/perfis';
     color: inherit;
     opacity: 0.7;
     text-decoration: none;
+  }
+  /* Botão, não link: ele não leva a lugar nenhum, só reabre o aviso de
+     cookies. Visual igual ao dos links vizinhos. */
+  .footer-cookies {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  .footer-cookies:hover {
+    opacity: 1;
+    color: var(--color-accent-secondary);
   }
   .footer-links a:hover {
     opacity: 1;

@@ -6,6 +6,7 @@ import '@fontsource/manrope/400.css';
 import '@fontsource/manrope/600.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '../styles/global.css';
+import CookieBanner from '../components/CookieBanner.astro';
 import ExitIntentModal from '../components/ExitIntentModal.astro';
 import JsonLd from '../components/JsonLd.astro';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -45,7 +46,39 @@ const ogImageURL = new URL(og.imagem, Astro.site);
       GTM. Mora neste layout, e não em public/, de propósito: as páginas
       de /propostas/ e /modelos/ não passam por aqui, então visita de
       cliente não entra na medição do site.
+
+      O bloco de consentimento vem ANTES do GTM, de propósito: o padrão
+      precisa estar declarado quando o GTM ler a dataLayer. Sem escolha
+      salva, tudo começa negado (LGPD); quem já aceitou em outra visita
+      começa liberado, sem esperar o aviso. Anúncio fica sempre negado,
+      porque o site não roda anúncio. A escolha é feita no CookieBanner.
     -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function () {
+        var escolha = null;
+        try { escolha = localStorage.getItem('rafo-cookies'); } catch (e) {}
+        gtag('consent', 'default', {
+          analytics_storage: escolha === 'aceito' ? 'granted' : 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+      })();
+
+      // Clique em qualquer link de WhatsApp vira o evento `clique_whatsapp`
+      // na dataLayer, com a página de origem. No GTM ele alimenta um evento
+      // do GA4, que só é enviado se houver consentimento.
+      document.addEventListener('click', function (e) {
+        var link = e.target && e.target.closest && e.target.closest('a[href*="wa.me/"]');
+        if (!link) return;
+        dataLayer.push({ event: 'clique_whatsapp', pagina_origem: location.pathname });
+      });
+    </script>
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -113,6 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     </main>
     <slot name="footer" />
     <ExitIntentModal />
+    <CookieBanner />
     <script>
       // Brilho que segue o ponteiro nos cartoes. Enfeite puro, entao mora
       // longe do caminho que decide se o conteudo aparece.

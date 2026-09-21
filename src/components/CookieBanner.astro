@@ -1,0 +1,154 @@
+---
+// src/components/CookieBanner.astro
+//
+// Aviso de cookies (LGPD). A decisão vale para tudo que o GTM carrega:
+// o padrão "negado" é declarado no <head> do BaseLayout, antes do GTM, e
+// este componente só atualiza o consentimento quando o visitante escolhe.
+// No GTM, cada tag de medição exige `analytics_storage`, então nada mede
+// antes do "Aceitar".
+//
+// Não é modal de propósito: não trava a página nem rouba o foco. Quem
+// ignora o aviso continua navegando, só que sem medição.
+---
+<div class="cookie-aviso" id="cookie-aviso" role="region" aria-label="Aviso de cookies" hidden>
+  <p class="cookie-texto">
+    Usamos cookies para entender como o site é usado (Google Analytics e
+    Microsoft Clarity). Nada é gravado sem a sua permissão.
+  </p>
+  <div class="cookie-acoes">
+    <button type="button" class="cookie-btn cookie-btn-recusar" data-cookie="recusado">Recusar</button>
+    <button type="button" class="cookie-btn cookie-btn-aceitar" data-cookie="aceito">Aceitar</button>
+  </div>
+</div>
+
+<script>
+  // Mesma chave lida pelo script inline do <head> do BaseLayout.
+  const CHAVE = 'rafo-cookies';
+  // Prefixos dos cookies de medição: Google Analytics e Microsoft Clarity.
+  const PREFIXOS = ['_ga', '_gid', '_clck', '_clsk', 'CLID'];
+
+  const aviso = document.getElementById('cookie-aviso');
+
+  // `gtag` e `dataLayer` são criados pelo script inline do <head>, antes
+  // do GTM. Aqui só são usados.
+  const w = window as unknown as {
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
+  };
+
+  function ler(): string | null {
+    try { return localStorage.getItem(CHAVE); } catch { return null; }
+  }
+
+  function apagarCookiesDeMedicao() {
+    const dominio = location.hostname.replace(/^www\./, '');
+    for (const par of document.cookie.split(';')) {
+      const nome = par.split('=')[0].trim();
+      if (!PREFIXOS.some((p) => nome.startsWith(p))) continue;
+      const expira = `${nome}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+      document.cookie = expira;
+      document.cookie = `${expira}; domain=.${dominio}`;
+    }
+  }
+
+  function escolher(valor: 'aceito' | 'recusado') {
+    try { localStorage.setItem(CHAVE, valor); } catch { /* segue sem lembrar */ }
+    w.gtag('consent', 'update', {
+      analytics_storage: valor === 'aceito' ? 'granted' : 'denied',
+    });
+    if (valor === 'recusado') apagarCookiesDeMedicao();
+    w.dataLayer.push({ event: 'consentimento_atualizado', consentimento: valor });
+    if (aviso) aviso.hidden = true;
+  }
+
+  aviso?.querySelectorAll<HTMLButtonElement>('[data-cookie]').forEach((btn) => {
+    btn.addEventListener('click', () => escolher(btn.dataset.cookie as 'aceito' | 'recusado'));
+  });
+
+  // Link "Cookies" do rodapé: reabre o aviso para mudar a escolha.
+  document.querySelectorAll('[data-abrir-cookies]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!aviso) return;
+      aviso.hidden = false;
+      aviso.querySelector<HTMLButtonElement>('.cookie-btn-aceitar')?.focus();
+    });
+  });
+
+  if (aviso && ler() === null) aviso.hidden = false;
+</script>
+
+<style>
+  .cookie-aviso {
+    position: fixed;
+    left: var(--space-s);
+    right: var(--space-s);
+    bottom: var(--space-s);
+    z-index: var(--z-sticky);
+    max-width: 44rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-s) var(--space-m);
+    flex-wrap: wrap;
+    padding: var(--space-s) var(--space-m);
+    background: var(--color-surface-alta);
+    border: 1px solid var(--color-border-forte);
+    border-radius: var(--raio);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    animation: cookie-sobe var(--dur-lenta) var(--ease-saida) both;
+  }
+  .cookie-aviso[hidden] { display: none; }
+  .cookie-texto {
+    flex: 1 1 18rem;
+    margin: 0;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .cookie-acoes {
+    display: flex;
+    gap: var(--space-2xs);
+    flex: 0 0 auto;
+  }
+  /* Os dois botões têm o mesmo tamanho e peso: recusar não pode ser mais
+     difícil de achar que aceitar. */
+  .cookie-btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--step--1);
+    min-width: 6.5rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease-saida),
+                background-color var(--dur) var(--ease-saida);
+  }
+  .cookie-btn-recusar {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-border-forte);
+  }
+  .cookie-btn-recusar:hover { border-color: var(--color-accent-secondary); }
+  .cookie-btn-aceitar {
+    background: var(--color-accent-secondary);
+    color: #1a1204;
+    border: 1px solid var(--color-accent-secondary);
+  }
+  .cookie-btn-aceitar:hover { background: #eab25c; }
+  .cookie-btn:focus-visible {
+    outline: 2px solid var(--color-accent-secondary);
+    outline-offset: 2px;
+  }
+  @media (max-width: 480px) {
+    .cookie-acoes { width: 100%; }
+    .cookie-btn { flex: 1; }
+  }
+  @keyframes cookie-sobe {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-aviso { animation: none; }
+  }
+</style>
