@@ -1,0 +1,88 @@
+---
+// src/layouts/LegalLayout.astro
+//
+// Casca comum das páginas legais: trilha, título, data de atualização e
+// o texto em prosa. Cada página só escreve o conteúdo dela.
+import BaseLayout from './BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { PaginaLegal } from '../data/legal';
+
+interface Props {
+  pagina: PaginaLegal;
+  title: string;
+  description: string;
+}
+
+const { pagina, title, description } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="page-head">
+        <p class="trilha"><a href="/">Início</a> <span aria-hidden="true">/</span> {pagina.nome}</p>
+        <h1>{pagina.nome}</h1>
+        <p class="legal-data">Última atualização: {pagina.atualizadoEm}</p>
+      </div>
+
+      <div class="prose legal-corpo">
+        <slot />
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<style>
+  .legal-data {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--color-muted);
+    margin-top: var(--space-2xs);
+  }
+  .legal-corpo { margin-top: var(--space-l); }
+  .legal-corpo :global(h2:first-child) { margin-top: 0; }
+
+  /* Tabela da Política de Cookies. Rola na horizontal no celular em vez
+     de espremer as colunas até ficarem ilegíveis. */
+  .legal-corpo :global(.legal-tabela) {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--raio-s);
+  }
+  .legal-corpo :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+  }
+  .legal-corpo :global(th),
+  .legal-corpo :global(td) {
+    text-align: left;
+    vertical-align: top;
+    padding: var(--space-2xs) var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .legal-corpo :global(tr:last-child td) { border-bottom: none; }
+  .legal-corpo :global(th) {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    background: var(--color-surface);
+  }
+  .legal-corpo :global(td code) { white-space: nowrap; }
+
+  .legal-corpo :global(.legal-botao) {
+    font: inherit;
+    font-weight: 600;
+    color: var(--color-accent-secondary);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+</style>

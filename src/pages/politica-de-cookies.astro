@@ -1,0 +1,137 @@
+---
+// src/pages/politica-de-cookies.astro
+//
+// Política de Cookies. É aqui, e não no aviso, que as ferramentas são
+// nomeadas: o aviso fica curto e genérico, e a transparência que a LGPD
+// pede mora nesta página. A tabela tem de bater com o que o GTM carrega
+// e com os prefixos que o CookieBanner apaga ao recusar.
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { paginasLegais } from '../data/legal';
+
+const pagina = paginasLegais.cookies;
+const title = 'Política de Cookies da R.A.F.O.';
+const description =
+  'Quais cookies o site da R.A.F.O. usa, para que servem, por quanto tempo ficam no seu navegador e como aceitar, recusar ou mudar sua escolha.';
+
+const necessarios = [
+  {
+    nome: 'rafo-cookies',
+    fornecedor: 'R.A.F.O.',
+    finalidade: 'Guarda a sua escolha no aviso de cookies, para não perguntar de novo a cada página.',
+    duracao: 'Até você limpar os dados do navegador',
+  },
+];
+
+const medicao = [
+  {
+    nome: '_ga',
+    fornecedor: 'Google Analytics',
+    finalidade: 'Distingue visitantes para contar visitas e páginas vistas.',
+    duracao: '2 anos',
+  },
+  {
+    nome: '_ga_*',
+    fornecedor: 'Google Analytics',
+    finalidade: 'Mantém o estado da sessão de navegação.',
+    duracao: '2 anos',
+  },
+  {
+    nome: '_clck',
+    fornecedor: 'Microsoft Clarity',
+    finalidade: 'Identifica o mesmo visitante entre visitas diferentes.',
+    duracao: '1 ano',
+  },
+  {
+    nome: '_clsk',
+    fornecedor: 'Microsoft Clarity',
+    finalidade: 'Junta as páginas vistas numa mesma sessão.',
+    duracao: '1 dia',
+  },
+  {
+    nome: 'CLID',
+    fornecedor: 'Microsoft Clarity',
+    finalidade: 'Identifica a primeira visita do navegador ao site.',
+    duracao: '1 ano',
+  },
+];
+---
+<LegalLayout pagina={pagina} title={title} description={description}>
+  <h2>1. O que são cookies</h2>
+  <p>
+    Cookies são pequenos arquivos que um site grava no seu navegador para lembrar
+    informações entre uma página e outra ou entre visitas. Tecnologias parecidas,
+    como o armazenamento local do navegador, funcionam do mesmo jeito e são
+    tratadas aqui com as mesmas regras.
+  </p>
+
+  <h2>2. Sua escolha vem primeiro</h2>
+  <p>
+    Na primeira visita, o site mostra um aviso com as opções <strong>Aceitar</strong>{' '}
+    e <strong>Recusar</strong>. Antes da sua resposta, nenhum cookie de medição é
+    gravado. Se você recusar, o site funciona do mesmo jeito, só que sem medição.
+  </p>
+  <p>
+    Você pode mudar de ideia quando quiser:{' '}
+    <button type="button" class="legal-botao" data-abrir-cookies>abrir preferências de cookies</button>.
+    Ao recusar, os cookies de medição que já estavam gravados são apagados.
+  </p>
+
+  <h2>3. Cookies necessários</h2>
+  <p>
+    São os que o site precisa para funcionar e para respeitar a sua escolha. Não
+    dependem de consentimento e não servem para medir nem para identificar você.
+  </p>
+  <div class="legal-tabela">
+    <table>
+      <thead><tr><th scope="col">Nome</th><th scope="col">Fornecedor</th><th scope="col">Para que serve</th><th scope="col">Duração</th></tr></thead>
+      <tbody>
+        {necessarios.map((c) => (
+          <tr><td><code>{c.nome}</code></td><td>{c.fornecedor}</td><td>{c.finalidade}</td><td>{c.duracao}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. Cookies de medição</h2>
+  <p>
+    Só são gravados <strong>se você aceitar</strong>. Servem para entender como o
+    site é usado, quais páginas são mais vistas e onde a navegação trava, para
+    melhorar o conteúdo. O Microsoft Clarity também gera gravações anônimas de
+    como a página foi navegada (rolagem, cliques e movimento do mouse), com o
+    texto digitado mascarado.
+  </p>
+  <div class="legal-tabela">
+    <table>
+      <thead><tr><th scope="col">Nome</th><th scope="col">Fornecedor</th><th scope="col">Para que serve</th><th scope="col">Duração</th></tr></thead>
+      <tbody>
+        {medicao.map((c) => (
+          <tr><td><code>{c.nome}</code></td><td>{c.fornecedor}</td><td>{c.finalidade}</td><td>{c.duracao}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Esses fornecedores têm as próprias políticas de privacidade:{' '}
+    <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener noreferrer">Google</a> e{' '}
+    <a href="https://privacy.microsoft.com/pt-br/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft</a>.
+  </p>
+
+  <h2>5. Cookies de publicidade</h2>
+  <p>
+    O site não usa cookies de publicidade nem de rastreamento para anúncios.
+  </p>
+
+  <h2>6. Como controlar pelo navegador</h2>
+  <p>
+    Além do aviso do site, você pode bloquear ou apagar cookies nas configurações
+    do seu navegador. Bloquear todos os cookies pode fazer o aviso aparecer de novo
+    a cada visita, porque o site não consegue lembrar a sua escolha.
+  </p>
+
+  <h2>7. Mais informações</h2>
+  <p>
+    Para saber como tratamos dados pessoais de forma geral e como exercer seus
+    direitos, veja a{' '}
+    <a href={`/${paginasLegais.privacidade.slug}/`}>Política de Privacidade</a>.
+  </p>
+</LegalLayout>

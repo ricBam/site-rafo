@@ -640,8 +640,11 @@ const ROTAS_FIXAS = [
   '/agentes-whatsapp/',
   '/contato/',
   '/guias/',
+  '/politica-de-cookies/',
+  '/politica-de-privacidade/',
   '/sites-institucionais/',
   '/sobre/',
+  '/termos-de-uso/',
 ];
 
 check('o build gerou todas as paginas institucionais', () => {

@@ -11,6 +11,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { empresa } from '../data/empresa';
+import { listaPaginasLegais } from '../data/legal';
 import { rotuloDoPerfil } from '../lib/perfis';
 
 // Explícito, ainda que a saída estática já prerenderize tudo por padrão:
@@ -41,6 +42,10 @@ export const GET: APIRoute = async () => {
     )
     .join('\n');
 
+  const legais = listaPaginasLegais
+    .map((p) => `- [${p.nome}](${empresa.url}/${p.slug}/)`)
+    .join('\n');
+
   const perfis = empresa.perfis
     .map((perfil) => `- ${rotuloDoPerfil(perfil)}: ${perfil}`)
     .join('\n');
@@ -56,6 +61,7 @@ ${empresa.descricaoLonga}
 - [Home](${empresa.url}/): o que a empresa faz, os serviços e as perguntas frequentes.
 - [Sobre](${empresa.url}/sobre/): onde a empresa fica, como trabalha e o que oferece.
 - [Contato](${empresa.url}/contato/): canais reais de contato e a cidade base.
+${legais}
 
 Cada serviço tem página própria, listada na seção abaixo.
 

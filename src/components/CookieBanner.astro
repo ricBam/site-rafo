@@ -9,11 +9,17 @@
 //
 // Não é modal de propósito: não trava a página nem rouba o foco. Quem
 // ignora o aviso continua navegando, só que sem medição.
+//
+// O texto não nomeia ferramenta: isso fica na Política de Cookies, que é
+// onde a lista completa é mantida.
+import { paginasLegais } from '../data/legal';
 ---
 <div class="cookie-aviso" id="cookie-aviso" role="region" aria-label="Aviso de cookies" hidden>
   <p class="cookie-texto">
-    Usamos cookies para entender como o site é usado (Google Analytics e
-    Microsoft Clarity). Nada é gravado sem a sua permissão.
+    Usamos cookies para melhorar sua experiência e entender como o site é usado.
+    Nada de medição é gravado sem a sua permissão. Saiba mais na{' '}
+    <a href={`/${paginasLegais.cookies.slug}/`}>Política de Cookies</a> e na{' '}
+    <a href={`/${paginasLegais.privacidade.slug}/`}>Política de Privacidade</a>.
   </p>
   <div class="cookie-acoes">
     <button type="button" class="cookie-btn cookie-btn-recusar" data-cookie="recusado">Recusar</button>
@@ -105,6 +111,11 @@
     font-size: var(--step--1);
     line-height: 1.5;
     color: var(--color-text);
+  }
+  .cookie-texto a {
+    color: var(--color-accent-secondary);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
   }
   .cookie-acoes {
     display: flex;

@@ -1,0 +1,99 @@
+---
+// src/pages/termos-de-uso.astro
+//
+// Termos de Uso do site. Cobrem o uso do site em si; a contratação de
+// serviço é regida pela proposta ou contrato de cada cliente, e o texto
+// diz isso para não parecer que este documento é o contrato.
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { empresa } from '../data/empresa';
+import { paginasLegais } from '../data/legal';
+
+const pagina = paginasLegais.termos;
+const title = 'Termos de Uso do site da R.A.F.O.';
+const description =
+  'As regras de uso do site rafolabs.tech: o que o conteúdo é e não é, direitos sobre o material, responsabilidades e a lei aplicável.';
+---
+<LegalLayout pagina={pagina} title={title} description={description}>
+  <h2>1. Aceitação</h2>
+  <p>
+    Estes termos valem para quem acessa o site <strong>rafolabs.tech</strong>,
+    mantido pela {empresa.nome}. Ao usar o site, você concorda com eles. Se não
+    concordar, pedimos que não use o site.
+  </p>
+
+  <h2>2. O que é o site</h2>
+  <p>
+    O site apresenta a {empresa.nome} e os serviços que oferecemos, e publica guias
+    com informação geral sobre atendimento, automação e presença online. O conteúdo
+    é informativo: não substitui uma análise do seu caso específico nem
+    aconselhamento jurídico, contábil ou técnico individualizado.
+  </p>
+  <p>
+    Nenhum texto do site é uma oferta vinculante. Condições, prazos e valores de
+    qualquer serviço são definidos na proposta ou no contrato combinado com cada
+    cliente, que prevalecem sobre o que estiver no site.
+  </p>
+
+  <h2>3. Uso permitido</h2>
+  <p>Ao usar o site, você se compromete a não:</p>
+  <ul>
+    <li>tentar acessar áreas, sistemas ou dados sem autorização;</li>
+    <li>interferir no funcionamento do site ou sobrecarregá-lo de propósito;</li>
+    <li>usar o site ou os nossos canais de contato para enviar conteúdo ilegal, ofensivo ou enganoso;</li>
+    <li>copiar o site ou o seu conteúdo em massa por meios automatizados para uso comercial.</li>
+  </ul>
+
+  <h2>4. Propriedade intelectual</h2>
+  <p>
+    Os textos, a marca, o logotipo, o design e o código do site pertencem à{' '}
+    {empresa.nome}. Você pode citar trechos com link para a página de origem. Outros
+    usos, como reproduzir o conteúdo inteiro ou usar a marca, dependem de
+    autorização por escrito.
+  </p>
+
+  <h2>5. Links para outros sites</h2>
+  <p>
+    O site tem links para serviços de terceiros, como WhatsApp, Instagram e fontes
+    citadas nos guias. Não controlamos esses serviços, e o uso deles segue os
+    termos e as políticas de cada um.
+  </p>
+
+  <h2>6. Disponibilidade e responsabilidade</h2>
+  <p>
+    Trabalhamos para manter o site no ar e com informação correta e atualizada, mas
+    ele pode passar por interrupções, manutenções ou conter imprecisões. Quando
+    percebemos um erro, corrigimos. Na medida permitida pela lei, a {empresa.nome}{' '}
+    não responde por decisões tomadas apenas com base no conteúdo informativo do
+    site. Nada nestes termos limita direitos garantidos pelo Código de Defesa do
+    Consumidor.
+  </p>
+
+  <h2>7. Privacidade</h2>
+  <p>
+    O tratamento de dados pessoais segue a{' '}
+    <a href={`/${paginasLegais.privacidade.slug}/`}>Política de Privacidade</a>{' '}
+    e o uso de cookies segue a{' '}
+    <a href={`/${paginasLegais.cookies.slug}/`}>Política de Cookies</a>.
+  </p>
+
+  <h2>8. Mudanças nestes termos</h2>
+  <p>
+    Estes termos podem ser atualizados. A data no topo da página mostra a versão em
+    vigor, e o uso do site depois de uma mudança vale como concordância com a nova
+    versão.
+  </p>
+
+  <h2>9. Lei aplicável e foro</h2>
+  <p>
+    Estes termos seguem as leis brasileiras. Se você for consumidor, qualquer
+    questão pode ser levada ao foro do seu domicílio, como garante o Código de
+    Defesa do Consumidor. Nos demais casos, fica eleito o foro da comarca de{' '}
+    {empresa.endereco.cidade}, {empresa.endereco.uf}.
+  </p>
+
+  <h2>10. Contato</h2>
+  <p>
+    Dúvidas sobre estes termos podem ser enviadas pelo{' '}
+    <a href={empresa.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+  </p>
+</LegalLayout>

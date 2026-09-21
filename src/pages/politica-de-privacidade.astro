@@ -1,0 +1,158 @@
+---
+// src/pages/politica-de-privacidade.astro
+//
+// Política de Privacidade (LGPD, Lei 13.709/2018). Descreve só o que o
+// site e o atendimento fazem de fato: contato por WhatsApp e Instagram,
+// medição de visitas com consentimento e registro técnico do servidor.
+// Se entrar formulário, nova ferramenta ou novo canal, este texto muda
+// junto, e a data em src/data/legal.ts também.
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { empresa } from '../data/empresa';
+import { paginasLegais } from '../data/legal';
+
+const pagina = paginasLegais.privacidade;
+const title = 'Política de Privacidade da R.A.F.O.';
+const description =
+  'Como a R.A.F.O. coleta, usa, guarda e protege dados pessoais de quem visita o site ou fala com a gente, e como exercer seus direitos pela LGPD.';
+const telefoneVisivel = '(24) 99269-5804';
+---
+<LegalLayout pagina={pagina} title={title} description={description}>
+  <p>
+    Esta política explica quais dados pessoais a {empresa.nome} trata quando você
+    visita o site <strong>rafolabs.tech</strong> ou fala com a gente, para que
+    eles são usados e quais são os seus direitos. Ela segue a Lei Geral de
+    Proteção de Dados (Lei nº 13.709/2018, a LGPD).
+  </p>
+
+  <h2>1. Quem é o responsável pelos seus dados</h2>
+  <p>
+    O controlador dos dados é a {empresa.nome}, com base em {empresa.endereco.cidade},{' '}
+    {empresa.endereco.uf}. Para qualquer assunto sobre dados pessoais, inclusive
+    para exercer os direitos descritos no item 7, fale com a gente pelo WhatsApp{' '}
+    <a href={empresa.whatsapp} target="_blank" rel="noopener noreferrer">{telefoneVisivel}</a>.
+    Esse também é o canal do encarregado pelo tratamento de dados.
+  </p>
+
+  <h2>2. Quais dados tratamos</h2>
+  <h3>Dados que você nos envia</h3>
+  <p>
+    O site não tem formulário. Quando você entra em contato pelo WhatsApp ou pelo
+    Instagram, recebemos o que você decide compartilhar na conversa: nome, número
+    de telefone ou perfil, e o conteúdo das mensagens, como informações sobre o seu
+    negócio e o que você precisa.
+  </p>
+  <h3>Dados de navegação</h3>
+  <p>
+    <strong>Só com o seu consentimento</strong>, usamos cookies e tecnologias
+    parecidas para entender como o site é usado: páginas visitadas, tempo na página,
+    cliques, tipo de dispositivo e navegador, cidade aproximada e de onde a visita
+    veio. Esses dados são analisados de forma agregada e não servem para identificar
+    você pessoalmente. Os detalhes estão na{' '}
+    <a href={`/${paginasLegais.cookies.slug}/`}>Política de Cookies</a>.
+  </p>
+  <h3>Registros técnicos</h3>
+  <p>
+    Como todo site, o servidor registra automaticamente o endereço IP, a data e a
+    hora de cada acesso e a página solicitada. Esses registros existem para manter o
+    site funcionando e seguro.
+  </p>
+
+  <h2>3. Para que usamos os dados e com qual base legal</h2>
+  <ul>
+    <li>
+      <strong>Responder o seu contato, preparar proposta e prestar o serviço
+      contratado.</strong> Base legal: execução de contrato ou de procedimentos
+      preliminares a pedido do titular (art. 7º, V, da LGPD).
+    </li>
+    <li>
+      <strong>Medir e melhorar o site.</strong> Base legal: consentimento (art. 7º,
+      I), que você pode dar ou recusar no aviso de cookies e retirar a qualquer
+      momento.
+    </li>
+    <li>
+      <strong>Manter o site seguro e cumprir obrigações legais</strong>, como a
+      guarda de registros de acesso exigida pelo Marco Civil da Internet (Lei nº
+      12.965/2014). Base legal: cumprimento de obrigação legal (art. 7º, II) e
+      legítimo interesse (art. 7º, IX).
+    </li>
+  </ul>
+  <p>
+    Não vendemos dados pessoais, não usamos seus dados para publicidade e não
+    tomamos decisões sobre você de forma exclusivamente automatizada que afetem
+    os seus interesses.
+  </p>
+
+  <h2>4. Com quem compartilhamos</h2>
+  <p>
+    Compartilhamos dados apenas com fornecedores que nos ajudam a operar, e só na
+    medida necessária para isso:
+  </p>
+  <ul>
+    <li>empresa de hospedagem do site;</li>
+    <li>plataformas de mensagem pelas quais você fala com a gente (WhatsApp e Instagram);</li>
+    <li>ferramentas de medição de uso do site, apenas se você aceitar os cookies;</li>
+    <li>ferramentas de automação e de inteligência artificial usadas para organizar e responder o atendimento.</li>
+  </ul>
+  <p>
+    Também podemos compartilhar dados quando uma lei ou uma ordem de autoridade
+    competente exigir.
+  </p>
+
+  <h2>5. Transferência para fora do Brasil</h2>
+  <p>
+    Alguns desses fornecedores guardam dados em servidores fora do Brasil. Nesses
+    casos, a transferência segue o que a LGPD permite (art. 33), com fornecedores
+    que adotam padrões de proteção compatíveis com os exigidos pela lei.
+  </p>
+
+  <h2>6. Por quanto tempo guardamos</h2>
+  <ul>
+    <li><strong>Conversas de atendimento:</strong> enquanto houver relação comercial ou interesse no contato, e depois pelo prazo exigido por lei ou necessário para defender direitos.</li>
+    <li><strong>Registros de acesso ao site:</strong> 6 meses, como determina o Marco Civil da Internet.</li>
+    <li><strong>Dados de navegação:</strong> pelo prazo de cada cookie, descrito na Política de Cookies, ou até você retirar o consentimento.</li>
+  </ul>
+  <p>
+    Encerrado o prazo, os dados são apagados ou tornados anônimos.
+  </p>
+
+  <h2>7. Seus direitos</h2>
+  <p>Pela LGPD (art. 18), você pode pedir a qualquer momento:</p>
+  <ul>
+    <li>confirmação de que tratamos dados seus e acesso a eles;</li>
+    <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+    <li>anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desacordo com a lei;</li>
+    <li>portabilidade dos dados a outro fornecedor;</li>
+    <li>eliminação dos dados tratados com base no seu consentimento;</li>
+    <li>informação sobre com quem compartilhamos os seus dados;</li>
+    <li>informação sobre a possibilidade de não consentir e as consequências disso;</li>
+    <li>revogação do consentimento.</li>
+  </ul>
+  <p>
+    Para exercer qualquer um desses direitos, fale com a gente pelo canal do item 1.
+    Respondemos em até 15 dias. Se achar que o seu pedido não foi atendido, você
+    também pode procurar a Autoridade Nacional de Proteção de Dados (ANPD), em{' '}
+    <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer">gov.br/anpd</a>.
+  </p>
+
+  <h2>8. Segurança</h2>
+  <p>
+    Adotamos medidas técnicas e administrativas para proteger os dados contra
+    acesso não autorizado, perda ou alteração, como conexão criptografada (HTTPS)
+    em todo o site e acesso restrito a quem precisa dos dados para trabalhar.
+    Nenhum sistema é totalmente imune a falhas; se acontecer um incidente que
+    possa trazer risco a você, avisaremos você e a ANPD, como a lei determina.
+  </p>
+
+  <h2>9. Crianças e adolescentes</h2>
+  <p>
+    O site e os serviços são voltados a empresas e profissionais. Não coletamos
+    de propósito dados de menores de 18 anos.
+  </p>
+
+  <h2>10. Mudanças nesta política</h2>
+  <p>
+    Esta política pode ser atualizada quando o site ou a forma de atendimento
+    mudarem. A data no topo da página mostra a versão em vigor. Veja também os{' '}
+    <a href={`/${paginasLegais.termos.slug}/`}>Termos de Uso</a>.
+  </p>
+</LegalLayout>
