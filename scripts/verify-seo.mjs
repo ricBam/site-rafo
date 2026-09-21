@@ -1323,6 +1323,30 @@ check('nenhum conteudo depende de JS para ficar visivel', () => {
   assert(viuReveal, 'nenhum CSS construido menciona [data-reveal], o seletor mudou de nome?');
 });
 
+// ---------------------------------------------------------------
+// Medicao: Google Tag Manager
+// ---------------------------------------------------------------
+console.log('\nMedicao');
+
+const GTM_ID = 'GTM-5Z53BTSR';
+
+check('toda pagina do site carrega o GTM, com o noscript no body', () => {
+  for (const pagina of PAGINAS) {
+    if (pagina.rota.startsWith('/propostas/')) continue;
+    assert(pagina.html.includes(`'${GTM_ID}'`), `${pagina.rota} sem o script do GTM`);
+    assert(pagina.html.includes(`ns.html?id=${GTM_ID}`), `${pagina.rota} sem o noscript do GTM`);
+  }
+});
+
+// As propostas sao visitadas por clientes especificos. Se o GTM
+// entrasse nelas, essas visitas inflariam a medicao do site.
+check('nenhuma pagina de proposta carrega o GTM', () => {
+  for (const pagina of PAGINAS) {
+    if (!pagina.rota.startsWith('/propostas/')) continue;
+    assert(!pagina.html.includes(GTM_ID), `${pagina.rota} carrega o GTM`);
+  }
+});
+
 if (falhas > 0) {
   console.error(`\n${falhas} verificacao(oes) falharam\n`);
   process.exit(1);
