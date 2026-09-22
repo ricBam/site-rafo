@@ -1,6 +1,6 @@
 // scripts/verify-seo.mjs
 //
-// Suíte de verificação de SEO/AEO. Roda contra o build em dist/, nunca
+// Suíte de verificação de SEO/AEO. Roda contra o build em dist/client/, nunca
 // contra o código fonte: o que importa é o HTML que o Google e os
 // assistentes de IA recebem de fato.
 //
@@ -11,7 +11,9 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dist = resolve(__dirname, '../dist');
+// Com o adapter Node, o Astro separa o build em dist/client (o que vai
+// para o navegador) e dist/server. As paginas ficam no client.
+const dist = resolve(__dirname, '../dist/client');
 
 let falhas = 0;
 
@@ -32,13 +34,13 @@ function assert(condicao, mensagem) {
 
 function lerDist(caminho) {
   const arquivo = resolve(dist, caminho);
-  assert(existsSync(arquivo), `nao existe no build: dist/${caminho}`);
+  assert(existsSync(arquivo), `nao existe no build: dist/client/${caminho}`);
   return readFileSync(arquivo, 'utf-8');
 }
 
 function lerDistBinario(caminho) {
   const arquivo = resolve(dist, caminho);
-  assert(existsSync(arquivo), `nao existe no build: dist/${caminho}`);
+  assert(existsSync(arquivo), `nao existe no build: dist/client/${caminho}`);
   return readFileSync(arquivo);
 }
 
@@ -637,7 +639,14 @@ function canonicalDe(html) {
   return m ? m[1] : null;
 }
 
-const PAGINAS = paginasHtml();
+// As propostas em /propostas/ sao HTML estatico de public/, feitas para
+// um cliente cada, fora do menu, do sitemap e da busca de proposito.
+// Nao sao paginas do site, entao ficam fora das verificacoes de pagina;
+// o que vale para elas (robots.txt e ausencia de GTM) tem checagem propria.
+const TODAS_AS_PAGINAS = paginasHtml();
+const ehProposta = (rota) => rota.startsWith('/propostas/');
+const PAGINAS = TODAS_AS_PAGINAS.filter((p) => !ehProposta(p.rota));
+const PROPOSTAS = TODAS_AS_PAGINAS.filter((p) => ehProposta(p.rota));
 
 // Rotas institucionais, que sao fixas e precisam existir sempre. Os guias
 // nao entram aqui de proposito: eles crescem, e uma lista fixa viraria
@@ -1347,7 +1356,6 @@ const GTM_ID = 'GTM-5Z53BTSR';
 
 check('toda pagina do site carrega o GTM, com o noscript no body', () => {
   for (const pagina of PAGINAS) {
-    if (pagina.rota.startsWith('/propostas/')) continue;
     assert(pagina.html.includes(`'${GTM_ID}'`), `${pagina.rota} sem o script do GTM`);
     assert(pagina.html.includes(`ns.html?id=${GTM_ID}`), `${pagina.rota} sem o noscript do GTM`);
   }
@@ -1356,8 +1364,8 @@ check('toda pagina do site carrega o GTM, com o noscript no body', () => {
 // As propostas sao visitadas por clientes especificos. Se o GTM
 // entrasse nelas, essas visitas inflariam a medicao do site.
 check('nenhuma pagina de proposta carrega o GTM', () => {
-  for (const pagina of PAGINAS) {
-    if (!pagina.rota.startsWith('/propostas/')) continue;
+  assert(PROPOSTAS.length > 0, 'nenhuma proposta no build, esta verificacao nao olhou nada');
+  for (const pagina of PROPOSTAS) {
     assert(!pagina.html.includes(GTM_ID), `${pagina.rota} carrega o GTM`);
   }
 });
