@@ -373,7 +373,7 @@ check('llms.txt traz contato, localização e os 2 serviços', () => {
   assert(txt.includes('wa.me/5524992695804'), 'sem WhatsApp');
   assert(txt.includes('instagram.com/rafo.tech'), 'sem Instagram');
   assert(txt.includes('Resende'), 'sem a cidade base');
-  for (const nome of ['Agentes autônomos para WhatsApp', 'Sites institucionais']) {
+  for (const nome of ['Agentes de IA para WhatsApp', 'Sites institucionais']) {
     assert(txt.includes(nome), `servico ausente: ${nome}`);
   }
   assert(!txt.includes('Presença no Google'), 'a Presenca no Google voltou ao llms.txt');
@@ -573,7 +573,7 @@ check('robots.txt não bloqueia as novas rotas', () => {
 console.log('\nCatalogo de servicos na home');
 
 const SERVICOS_ESPERADOS = [
-  { nome: 'Agentes autônomos para WhatsApp', slug: 'agentes-whatsapp' },
+  { nome: 'Agentes de IA para WhatsApp', slug: 'agentes-whatsapp' },
   { nome: 'Sites institucionais', slug: 'sites-institucionais' },
 ];
 

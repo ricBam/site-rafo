@@ -52,7 +52,7 @@ export interface Servico {
 export const servicos: Servico[] = [
   {
     slug: 'agentes-whatsapp',
-    nome: 'Agentes autônomos para WhatsApp',
+    nome: 'Agentes de IA para WhatsApp',
     descricao:
       'Atendimento e agendamento automatizados, construídos em cima do jeito que o negócio já funciona hoje.',
     chamadaHome:
@@ -62,9 +62,9 @@ export const servicos: Servico[] = [
     precoNota:
       'Sob orçamento, definido depois de uma conversa para entender o fluxo de atendimento atual.',
     tituloPagina:
-      'Agentes autônomos para WhatsApp: atendimento automatizado',
+      'Agente de IA para WhatsApp: atendimento e agendamento 24h',
     descricaoPagina:
-      'Automação de atendimento no WhatsApp sob medida para o fluxo do seu negócio. Responde, qualifica e agenda 24 horas por dia, no número que você já usa.',
+      'Agente de IA que atende, qualifica e agenda clientes no seu WhatsApp 24 horas por dia, no número que você já usa. Feito sob medida para o seu negócio.',
     resposta:
       'Um agente autônomo de WhatsApp é uma automação que atende seus clientes no número que você já usa, 24 horas por dia. Ele responde as perguntas de sempre, qualifica quem chega e agenda, e transfere a conversa para você a qualquer momento que o cliente pedir. A gente constrói em cima do fluxo que seu negócio já tem, em vez de encaixar você numa ferramenta pronta.',
     incluso: [
@@ -111,9 +111,9 @@ export const servicos: Servico[] = [
     precoBRL: null,
     precoNota: 'Sob orçamento, definido depois de entender o escopo.',
     tituloPagina:
-      'Sites institucionais: rápidos, leves e fáceis de manter',
+      'Criação de site institucional rápido para pequenas empresas',
     descricaoPagina:
-      'Site institucional feito para carregar rápido no celular, passar confiança e levar o visitante direto ao seu WhatsApp. Sem construtor genérico.',
+      'Criação de site institucional com domínio próprio, rápido no celular e com caminho curto até o seu WhatsApp. Feito sob medida, sem construtor genérico.',
     resposta:
       'Um site institucional é a página que mostra quem você é, o que você entrega e como falar com você. O que a gente faz é um site rápido no celular, com o caminho até o seu WhatsApp curto e claro, e fácil de manter depois. Não usamos construtor genérico com subdomínio de terceiro, porque isso passa a impressão errada logo na primeira olhada.',
     incluso: [
